@@ -1,0 +1,423 @@
+---
+title: "Diversity of News Sources in ChatGPT"
+format:  
+  html:
+    toc: true
+    number-sections: true
+    theme: default
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+```{r include = FALSE}
+#| warning: false
+#| echo: false
+
+# Dependencies ----
+library(rio)
+library(dplyr)
+library(tidyr)
+library(widyr)
+library(stringr)
+library(lubridate)
+library(jsonlite)
+library(gt)
+library(ggplot2)
+library(scales)
+library(ggrepel)
+
+# Functions and colors ----
+options(ggplot2.discrete.colour = c("#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"))
+options(ggplot2.discrete.fill = c("#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"))
+
+## Shannon Diversity Index: Higher values mean higher diversity
+sdi <- function(counts) {
+    props <- counts / sum(counts)
+    -sum(props * log(props))
+}
+## Herfindahl–Hirschman index: Higher values mean higher concentration
+hhi <- function(counts, limit=NA) {
+    if (!is.na(limit)) {
+        counts <- counts[1:limit]
+    }
+    props <- (counts/sum(counts, na.rm = TRUE))
+    sum(props^2, na.rm = TRUE)
+}
+skew <- function(x) {
+    sum(((x - mean(x))^3))/((length(x)-1)*(sd(x)^3))
+}
+get_condition <- function(uid) {
+    factor(
+        str_extract(uid, "[AB]"), 
+        levels = c("A", "B"),
+        labels = c("Regular", "Diverse")
+    )
+}
+
+# Load data from json ----
+links <- jsonlite::fromJSON("Data/links_api.json") |> 
+    unnest(metadata) |> 
+    unite(uid, -links, remove = FALSE) |> 
+    unnest(links) |> 
+    select(-Name) |> 
+    rename(url = URL) |> 
+    unite(date, year:minute, sep = "-") |> 
+    mutate(date = strptime(date, format = "%Y-%m-%d-%H-%M")) |> 
+    mutate(domain = urltools::url_parse(url)) |> 
+    unnest(domain) |> 
+    mutate(domain = str_remove(domain, "^www\\.")) |> 
+    mutate(url = str_remove(url, fixed("?utm_source=openai"))) |> 
+    mutate(condition = get_condition(uid)) |> 
+    distinct(uid, date, experiment, condition, url, domain)
+
+links <- links |> 
+    mutate(domain = ifelse(
+        str_detect(domain, "news-pravda.com"),
+        "news-pravda.com",
+        domain
+    ))
+
+domains <- links |> 
+    group_by(condition) |> 
+    count(domain, sort = TRUE) |> 
+    mutate(p = n/sum(n)) |> 
+    mutate(cp = cumsum(p)) |> 
+    ungroup()
+```
+
+## What sites are referenced by ChatGPT?
+
+When prompted for current news from `{r} links$date |> min() |> format(format = "%d. %b %Y")` to `{r} links$date |> max() |> format(format = "%d. %b %Y")` in `{r} links$uid |> unique() |> length()` unique sessions, ChatGPT linked to a total of `{r} domains$domain |> unique() |> length()` unique domains. See @tbl-top-domains for an overview of linked domains, including the domains' share in the two experimental conditions (current news vs current news from diverse sources).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-top-domains
+#| tbl-cap: Top Domains
+
+domains |> 
+    select(-cp) |> 
+    group_by(domain, condition) |> 
+    summarise(across(everything(), sum)) |> 
+    mutate(n = sum(n)) |> 
+    pivot_wider(names_from = condition, values_from = p, values_fill = 0) |> 
+    arrange(-n) |> 
+    ungroup() |> 
+    gt() |> 
+    opt_interactive(use_pagination = TRUE, page_size_default = 20) |> 
+    fmt_percent(-c(domain, n)) |> 
+    cols_label(
+        domain = "Domain"
+    )
+```
+
+### Top sites over time
+
+While some sites appear in the top 10 sources each week (e.g. `de.wikipedia.org`, `rnd.de`, and `reuters.com`), other sources appear only for a while in the top sources (e.g. `deutsche-handwerks-zeitung.de`, `bundesregierung.de`, `merkur.de`). See @tbl-top-domains-by-week-condition for a weekly top 10 of linked sources and @fig-domains-over-time for an overview of source prevalence over time for the top 25 sources.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-domains-over-time
+#| fig-cap: "Usage of Domains over Time"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 8
+#| 
+top_domains <- domains |> 
+    group_by(domain) |> 
+    summarise(n = sum(n)) |> 
+    slice_max(n = 25, order_by = n) |> 
+    pull(domain)
+
+links |> 
+    group_by(date = floor_date(date, unit = "1 day")) |> 
+    count(domain, sort = TRUE) |> 
+    filter(domain %in% top_domains) |> 
+    mutate(domain = factor(domain, unique(domain))) |> 
+    ggplot(aes(x = as.Date(date), y = n)) +
+    geom_col(width = 1.1) +
+    scale_x_date(date_labels = "KW %U", date_breaks = "2 weeks") +
+    facet_wrap(vars(domain), nrow = 5, scales = "free_y")
+    
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-top-domains-by-week-condition
+#| tbl-cap: Top Domains by Week and Condition
+
+links |> 
+    group_by(date = format(floor_date(date, unit = "1 week"), "KW %U")) |> 
+    count(domain, sort = TRUE) |> 
+    slice_max(n = 10, order_by = n) |> 
+    mutate(rank = 1:n()) |> 
+    gt() |> 
+    cols_move_to_start(rank) |> 
+    cols_label(
+        rank = "",
+        domain = "Domain"
+    )
+```
+
+### Domain count distribution
+
+The distribution of domain counts (i.e. how often a site was referenced by ChatGPT) skews heavily right (`{r} domains |> group_by(domain) |> summarise(n = sum(n)) |> pull(n) |> skew() |> round(digits = 2)`), with a few sites referenced often and many sites being referenced only once.
+
+@fig-domain-counts shows how the 198 of 816 most referenced sites account for 90% of all linked domains and 122 of 1183 sites in the diverse condition. Around 40% of all referenced sites are referenced only once and around 70% are referenced no more than 5 times (see @fig-domain-counts-cat).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-domain-counts
+#| fig-cap: "Distribution of Domain Counts"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 6
+
+annotation_info <- domains |> 
+    group_by(condition) |> 
+    mutate(x = (1:n())) |> 
+    filter(cp <= .9) |> 
+    slice_max(order_by = cp) |> 
+    ungroup() |> 
+    select(condition, x) |> 
+    pivot_wider(names_from = condition, values_from = x)
+
+domains |> 
+    group_by(condition) |> 
+    mutate(x = (1:n())) |>
+    ggplot(aes(x = x, y = cp, color = condition)) +
+    geom_line(size = 1) +
+    scale_y_continuous(labels = scales::percent, breaks = seq(0, 1, .2)) +
+    scale_x_continuous(labels = scales::number, breaks = \(lim) {seq(0, lim[2], 100)}) +
+    labs(
+        title = "Distribution of Domain Counts",
+        subtitle = sprintf("The %s most used domains in the diverse condition and the %s most used domains in the regular condition\naccount for 90%% of all linked domains.", annotation_info$Regular, annotation_info$Diverse),
+        y = "Share of linked Domains",
+        x = "Domains",
+        color = "Experimental condition"
+    ) +
+    geom_hline(yintercept = .9, color = "#ccc") +
+    geom_vline(xintercept = annotation_info$Regular, color = "#4e79a7") +
+    geom_vline(xintercept = annotation_info$Diverse, color = "#f28e2b") +
+    theme(legend.position = "bottom")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-domain-counts-cat
+#| fig-cap: "Distribution of Domain Counts"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 5
+
+domains |> 
+    mutate(count_cat = case_when(
+        n == 1 ~ "1",
+        n <= 5 ~ "2-5",
+        n <= 10 ~ "6-10",
+        n <= 50 ~ "11-50",
+        n <= 100 ~ "51-100",
+        n > 100 ~ "> 100"
+    )) |> 
+    mutate(count_cat = factor(count_cat, levels = c("1","2-5","6-10","11-50","51-100","> 100"))) |> 
+    group_by(condition) |> 
+    count(count_cat, name = "n") |> 
+    mutate(p = n/sum(n)) |> 
+    ungroup() |> 
+    ggplot(aes(x = count_cat, y = p, fill = condition)) +
+    geom_col(position = "dodge") +
+    scale_y_continuous(labels = percent) +
+    labs(
+        title = "Counts of Used Domain by Condition",
+        subtitle = "Around 40% of all linked domains are used only once",
+        y = "",
+        x = "Count",
+        fill = "Experimental condition"
+    ) +
+    theme(legend.position = "bottom")
+
+```
+
+## What are the differences between the experimental conditions?
+
+### Domains
+
+Some sites are referenced roughly equally often in both conditions (e.g. `deutschlandfunk.de`, `spiegel.de`, `faz.net`)[^1], some are referenced more in the diverse condition (e.g. `news-pravda.com`[^2], `taz.de`, `swr.de`) and others in the regular condition (e.g. `lemonde.fr`, `ft.com`, `apnews.com`). Most sites (~ 99%) appear either (within a 5% deviation) in the regular or in the diverse condition (see @fig-domain-conditions).
+
+[^1]: equal use within \~5% deviation
+[^2]: a [russian propaganda network](https://en.wikipedia.org/wiki/Pravda_network)
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-domain-conditions
+#| fig-cap: "Usage of Domains in the Experimental Conditions"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 8
+
+domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = Diverse / Regular) |> 
+    mutate(d = log(d)) |> 
+    mutate(condition = case_when(
+        d < -0.05 ~ "Regular",
+        d > 0.05 ~ "Diverse",
+        between(d, -.05, .05) ~ "Both"
+    )) |>
+    mutate(label = ifelse(between(d, -.75, .75), NA, domain)) |> 
+    mutate(label = ifelse(total_n < 100, NA, label)) |> 
+    ggplot(aes(x = Diverse, y = Regular)) +
+    geom_abline(slope = 1, intercept = 0) +
+    geom_point(aes(size = total_n, color = condition)) +
+    geom_label_repel(aes(label = label, fill = condition), min.segment.length = 0) +
+    scale_color_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_fill_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_y_log10(labels = scales::percent) +
+    scale_x_log10(labels = scales::percent) +
+    theme(legend.position = "bottom")
+```
+
+@tbl-top-domains-by-condition shows the domains that are strongly associated with either the diverse or the regular condition, and those that are represented equally often in both conditions. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-top-domains-by-condition
+#| tbl-cap: Top Domains by Condition
+domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = Diverse / Regular) |> 
+    mutate(d = log(d)) |> 
+    mutate(condition = case_when(
+        d < -0.05 ~ "Regular",
+        d > 0.05 ~ "Diverse",
+        between(d, -.05, .05) ~ "Both"
+    )) |>
+    mutate(condition = factor(condition, c("Diverse", "Both", "Regular"))) |> 
+    filter(total_n >= 100) |> 
+    group_by(condition) |> 
+    slice_max(n = 5, order_by = abs(d)) |> 
+    ungroup() |> 
+    arrange(condition, d) |> 
+    gt(row_group_as_column = TRUE, groupname_col = "condition") |> 
+    fmt_percent(3:4) |> 
+    cols_label(d = "log(diverse/current)", domain = "Domain", total_n = "n")
+```
+
+### Diversity indicators
+
+The diverse condition produces both more diverse individual sessions (see @tbl-diversity-by-sessions and @fig-diversity-indicators), as does it produce more diverse sources across all sessions over time (see @fig-diversity-over-time).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-diversity-by-sessions
+#| tbl-cap: Differences between diversity indicators
+
+links |> 
+    group_by(uid) |> 
+    count(domain) |> 
+    mutate(p = (n/sum(n))*100) |> 
+    arrange(-n) |> 
+    summarise(
+        hhi = hhi(n),
+        sdi = sdi(n),
+        unique_sources = sum(n)
+    ) |> 
+    pivot_longer(-uid) |> 
+    mutate(condition = get_condition(uid)) |> 
+    group_by(name) |> 
+    summarise(
+        t_test = broom::tidy(t.test(value ~ condition)),
+        n = n()
+    ) |> 
+    unnest(t_test) |> 
+    mutate(sig = ifelse(p.value < .001, "< .001", "not sig.")) |> 
+    select(name, estimate1, estimate2, sig, n) |> 
+    rename(Diverse = estimate2, Regular = estimate1) |> 
+    gt() |> 
+    fmt_number(Regular:Diverse) |> 
+    cols_label(name = "Indicator", sig = "p.value") |> 
+    tab_footnote("hhi: Herfindahl-Hirschman Index, sdi: Shannon Diversity Index, significance based on two-sided t-tests")
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-diversity-over-time
+#| fig-cap: "Diversity Metrics over Time"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 4
+links |> 
+    group_by(date = floor_date(date, unit = "1 week"), condition) |> 
+    count(domain, sort = TRUE) |> 
+    summarise(
+        hhi = hhi(n),
+        sdi = sdi(n),
+        unique_sources = n()
+    ) |> 
+    ungroup() |> 
+    pivot_longer(hhi:unique_sources) |> 
+    mutate(name = factor(name, levels = c("hhi", "sdi", "unique_sources"))) |> 
+    ggplot(aes(x = as.Date(date), y = value, color = condition)) +
+    geom_line(aes(group = date), color = "black") +
+    geom_point(size = 2) +
+    scale_x_date(date_labels = "KW %U", date_breaks = "2 weeks") +
+    facet_wrap(vars(name), scales = "free") +
+    labs(
+        title = "Source diversity over time",
+        subtitle = "Shannon Diversity Index (sdi): Higher values mean higher diversity,\nHerfindahl–Hirschman index (hhi): Higher values mean higher concentration",
+        x = "Days",
+        y = ""
+    ) +
+    theme(legend.position = "bottom")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-diversity-indicators
+#| fig-cap: "Distribution of Diversity Metrics by Condition"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 4
+links |> 
+    group_by(uid) |> 
+    count(domain) |> 
+    mutate(p = (n/sum(n))*100) |> 
+    arrange(-n) |> 
+    summarise(
+        hhi = hhi(n),
+        sdi = sdi(n),
+        unique_sources = sum(n)
+    ) |> 
+    pivot_longer(-uid) |> 
+    mutate(condition = get_condition(uid)) |> 
+    ggplot(aes(x = value, fill = condition)) +
+    geom_histogram(position = "dodge") +
+    facet_wrap(vars(name), scales = "free") +
+    theme(legend.position = "bottom")
+```

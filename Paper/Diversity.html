@@ -1,0 +1,2983 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Diversity of News Sources in ChatGPT</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Diversity_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Diversity_files/libs/quarto-html/quarto.js"></script>
+<script src="Diversity_files/libs/quarto-html/popper.min.js"></script>
+<script src="Diversity_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Diversity_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Diversity_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Diversity_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Diversity_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Diversity_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Diversity_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Diversity_files/libs/core-js-2.5.3/shim.min.js"></script>
+<script src="Diversity_files/libs/react-18.2.0/react.min.js"></script>
+<script src="Diversity_files/libs/react-18.2.0/react-dom.min.js"></script>
+<script src="Diversity_files/libs/reactwidget-2.0.0/react-tools.js"></script>
+<script src="Diversity_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="Diversity_files/libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="Diversity_files/libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-sites-are-referenced-by-chatgpt" id="toc-what-sites-are-referenced-by-chatgpt" class="nav-link active" data-scroll-target="#what-sites-are-referenced-by-chatgpt"><span class="header-section-number">1</span> What sites are referenced by ChatGPT?</a>
+  <ul class="collapse">
+  <li><a href="#top-sites-over-time" id="toc-top-sites-over-time" class="nav-link" data-scroll-target="#top-sites-over-time"><span class="header-section-number">1.1</span> Top sites over time</a></li>
+  <li><a href="#domain-count-distribution" id="toc-domain-count-distribution" class="nav-link" data-scroll-target="#domain-count-distribution"><span class="header-section-number">1.2</span> Domain count distribution</a></li>
+  </ul></li>
+  <li><a href="#what-are-the-differences-between-the-experimental-conditions" id="toc-what-are-the-differences-between-the-experimental-conditions" class="nav-link" data-scroll-target="#what-are-the-differences-between-the-experimental-conditions"><span class="header-section-number">2</span> What are the differences between the experimental conditions?</a>
+  <ul class="collapse">
+  <li><a href="#domains" id="toc-domains" class="nav-link" data-scroll-target="#domains"><span class="header-section-number">2.1</span> Domains</a></li>
+  <li><a href="#diversity-indicators" id="toc-diversity-indicators" class="nav-link" data-scroll-target="#diversity-indicators"><span class="header-section-number">2.2</span> Diversity indicators</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Diversity of News Sources in ChatGPT</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-sites-are-referenced-by-chatgpt" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-sites-are-referenced-by-chatgpt"><span class="header-section-number">1</span> What sites are referenced by ChatGPT?</h2>
+<p>When prompted for current news from 08. Apr 2025 to 13. May 2025 in 5552 unique sessions, ChatGPT linked to a total of 1455 unique domains. See <a href="#tbl-top-domains" class="quarto-xref">Table&nbsp;1</a> for an overview of linked domains, including the domains’ share in the two experimental conditions (current news vs current news from diverse sources).</p>
+<div class="cell">
+<div id="tbl-top-domains" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top-domains-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Top Domains
+</figcaption>
+<div aria-describedby="tbl-top-domains-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="xtmbxnuamp" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xtmbxnuamp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xtmbxnuamp thead, #xtmbxnuamp tbody, #xtmbxnuamp tfoot, #xtmbxnuamp tr, #xtmbxnuamp td, #xtmbxnuamp th {
+  border-style: none;
+}
+
+#xtmbxnuamp p {
+  margin: 0;
+  padding: 0;
+}
+
+#xtmbxnuamp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xtmbxnuamp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xtmbxnuamp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xtmbxnuamp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xtmbxnuamp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xtmbxnuamp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xtmbxnuamp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xtmbxnuamp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xtmbxnuamp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xtmbxnuamp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xtmbxnuamp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xtmbxnuamp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xtmbxnuamp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xtmbxnuamp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xtmbxnuamp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xtmbxnuamp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xtmbxnuamp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xtmbxnuamp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xtmbxnuamp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xtmbxnuamp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xtmbxnuamp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xtmbxnuamp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xtmbxnuamp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xtmbxnuamp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xtmbxnuamp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xtmbxnuamp .gt_left {
+  text-align: left;
+}
+
+#xtmbxnuamp .gt_center {
+  text-align: center;
+}
+
+#xtmbxnuamp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xtmbxnuamp .gt_font_normal {
+  font-weight: normal;
+}
+
+#xtmbxnuamp .gt_font_bold {
+  font-weight: bold;
+}
+
+#xtmbxnuamp .gt_font_italic {
+  font-style: italic;
+}
+
+#xtmbxnuamp .gt_super {
+  font-size: 65%;
+}
+
+#xtmbxnuamp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xtmbxnuamp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xtmbxnuamp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xtmbxnuamp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xtmbxnuamp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xtmbxnuamp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xtmbxnuamp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xtmbxnuamp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xtmbxnuamp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div id="xtmbxnuamp" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="xtmbxnuamp">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"domain":["de.wikipedia.org","rnd.de","reuters.com","deutsche-handwerks-zeitung.de","tagesschau.de","deutschlandfunk.de","stimme.de","ft.com","apnews.com","ndr.de","n-tv.de","zeit.de","zdf.de","faz.net","donaukurier.de","news.de","merkur.de","news-pravda.com","bundesregierung.de","spiegel.de","mdr.de","elpais.com","sueddeutsche.de","stern.de","morgenpost.de","fr.de","tagesspiegel.de","welt.de","berlin.de","upday.com","t-online.de","bpb.de","europa-mai.de","bundestag.de","web.de","rbb24.de","buerger-geld.org","cadenaser.com","www1.wdr.de","swr.de","stuttgarter-nachrichten.de","lemonde.fr","huffingtonpost.es","hna.de","br.de","kuriose-feiertage.de","augsburger-allgemeine.de","finanznachrichten.de","en.wikipedia.org","taz.de","bundeswahlleiterin.de","deutsche-wirtschafts-nachrichten.de","learngerman.dw.com","srf.ch","derstandard.de","de.euronews.com","it-boltwise.de","termine.de","bild.de","focus.de","wiwa-lokal.de","investmentweek.com","kultus.hessen.de","museum-karlshorst.de","bundeskanzler.de","dw.com","cdu.de","kulturprojekte.berlin","lmy.de","stuttgarter-zeitung.de","ln-online.de","vorreiter-zeitung.de","infranken.de","ariva.de","fes.de","hasepost.de","frankfurt.de","hanfverband.de","wirtschaftsdienst.eu","heise.de","ard.de","finanzen.net","ihk.de","lebenshilfe-offenbach.de","europanetzwerk.hessen.de","evangelisch.de","berlin.vvn-bda.de","bundesrat.de","echo24.de","mitmischen.de","manager-magazin.de","bmwk.de","onvista.de","rtl.de","consilium.europa.eu","europapark.de","europe-day.europa.eu","kreisbote.de","inforadio.de","nachrichten-ag.com","rentenbescheid24.de","de.marketscreener.com","prosieben.de","theweek.com","nordbayern.de","bmfsfj.de","bonn.de","chroniknet.de","chip.de","nau.ch","magazin-forum.de","support.microsoft.com","verbraucherzentrale.de","lto.de","swp.de","wa.de","esslinger-zeitung.de","evangelische-zeitung.de","kleiner-kalender.de","nachrichten.ag","bmuv.de","muenchen.de","time.com","axios.com","kaufsonntag.de","ardmediathek.de","badische-zeitung.de","berliner-kurier.de","deutschetageszeitung.de","sonntagsblatt.de","abendzeitung-muenchen.de","verfassungsschutz.de","as.com","diw.de","interaktiv.tagesspiegel.de","marktundmittelstand.de","timesles.com","bundespraesident.de","gegen-hartz.de","watson.ch","gmm-deutschland.de","institutfrancais.de","maclife.de","moongiant.com","gew.de","spd.de","tag24.de","bi-medien.de","connect.de","vol.at","1komma5.com","finanzen.at","ruhr24.de","vorwaerts.de","capital.de","volksstimme.de","der-betrieb.de","tarife-verzeichnis.de","trtdeutsch.com","apa.at","bmi.bund.de","greenpeace.de","hamburgeranzeiger.de","krankenkassen-direkt.de","lauterbacher-anzeiger.de","macgadget.de","paritaet-bw.de","stadtgui.de","aerztezeitung.de","l-iz.de","puls24.at","berliner-tagesblatt.de","come-on.de","derwesten.de","haufe.de","it-times.de","iwkoeln.de","orf.at","verbraucherservice-bayern.de","caritas-dienstgeber.de","lbbw.de","presseportal.de","allgaeuer-zeitung.de","auretas.de","express.de","los40.com","saechsische.de","wnoz.de","businessinsider.de","correctiv.org","oekotest.de","schifffahrtundtechnik.de","schulministerium.nrw","tages.guru","anwalt.de","berliner-zeitung.de","deutschlandfunkkultur.de","dstgb.de","mz.de","oxfam.de","auswaertiges-amt.de","base.bund.de","bdk.de","bundesfinanzministerium.de","fh-kiel.de","germany.representation.ec.europa.eu","gleisslutz.com","gmx.net","nachrichten.fr","rundumdeutschland.de","amp.dw.com","bfs.de","cannstatter-zeitung.de","tichyseinblick.de","bundesbank.de","dubisthalle.de","heutetag.com","bloomberg.com","dasding.de","daskrankenhaus.de","ewahlen.eu","gov.uk","haustec.de","koeln.de","rbb-online.de","region.landshut.de","bayern.de","comdirect.de","hamburger-bachchor.de","heinsberg.de","interaktiv.morgenpost.de","m.focus.de","rescue.org","telepolis.de","visitbritain.com","24hamburg.de","berliner-unterwelten.de","biallo.de","derstandard.at","es.wikipedia.org","kettner-edelmetalle.de","netzwelt.de","pnp.de","utopia.de","verbraucheranwalt-online.de","wochenanzeiger.de","wochenblatt-reporter.de","apfeltalk.de","blick.de","bluewin.ch","bundestagswahl-bw.de","bz-berlin.de","das-parlament.de","hanfalbers.de","nachhaltigleben.ch","szbz.de","table.media","bbag-ev.de","cannadoo.com","de.headtopics.com","deutschlandkurier.de","diefarbedesgeldes.de","frankenfernsehen.tv","hochtaunuskreis.de","pfalz.de","presse-nachrichten.de","rechtundpolitik.com","vdi-nachrichten.com","volksbund.de","48forward.com","abendblatt.de","antenne.de","autobild.de","berlinertageblatt.de","filmportal.de","fnp.de","freiepresse.de","ga.de","kreiszeitung.de","kulturlotse.de","moz.de","nordstadtblogger.de","oe1.orf.at","ots.at","podcasts.apple.com","report-k.de","bitkom.org","dmz-news.eu","european-union.europa.eu","expo2025germany.de","insuedthueringen.de","japandigest.de","oebib.de","politikexpress.de","rsw.beck.de","ruhrnachrichten.de","schwaebische-post.de","thenationaltimes.au","verkaufsoffener-sonntag.com","wahlumfrage.de","9-mai.eu","ad-hoc-news.de","berlinertageszeitung.de","business-standard.com","chemnitz2025.de","finanz.de","frieden-sichern.dgvn.de","goerlitz.de","it-recht-kanzlei.de","mercedes-fans.de","nachdenkseiten.de","newsdeutschland.com","olaf-scholz.spd.de","politico.eu","renewz.de","soester-anzeiger.de","uni-marburg.de","vaticannews.va","wochenblatt-news.de","worldvoiceday.org","aussiedlerbote.de","bgland24.de","boerse-frankfurt.de","bundesrechnungshof.de","ch.marketscreener.com","cosmopolitanschool.de","de.investing.com","die-nachrichten.at","dresden.de","epochtimes.de","fdp.de","forschung-und-lehre.de","futurezone.de","gastronomie.de","gruene.de","hansestadt-lueneburg.de","ka-news.de","km.baden-wuerttemberg.de","lvz.de","newsguardtech.com","noz.de","nrz.de","pcwelt.de","pkf-wulf-gruppe.de","smd.org","sparkasse.de","staedtetag.de","techzeitgeist.de","verbandsbuero.de","verkaufsoffene-sonntage.de","verkehrsrundschau.de","visitberlin.de","1000plus.net","az-online.de","bccg.de","computerbild.de","dortmund-app.de","europa-mv.de","evhn.de","fernsehserien.de","germanynews.info","handelsblatt.com","hessenschau.de","karlsruhe.de","kicker.de","nw.de","nwzonline.de","plauen.de","regionalheute.de","sportschau.de","suedtirolnews.it","tagestexte.de","tz.de","urlaubsgefuehl.de","vergabeblog.de","weser-kurier.de","amnesty.de","blog.de.erste-am.com","bnw-bundesverband.de","boerse.de","businesstraveller.de","chemanager-online.com","cicero.de","de.statista.com","derpatriot.de","deutscher-filmpreis.de","dietrich-bonhoeffer.net","dnn.de","domradio.de","duesseldorf.de","eiz-rostock.de","finance-magazin.de","global-marijuana-march-dortmund.de","handwerk.com","jungewelt.de","lokalo.de","lz.de","main-echo.de","muenchenerpost.de","nd-aktuell.de","netzpolitik.org","nord24.de","om-online.de","politikorange.de","ru.muenchen.de","sat1.de","sr.de","techcrunch.com","tga-fachplaner.de","timeanddate.de","wdr.de","wiwo.de","wr.de","1730live.de","allianz-gegen-rechtsextremismus.de","amp.focus.de","aplusa.de","bbc.com","boersennews.de","businessfrei.de","bvmed.de","cm10.bmfsfj.de","co2online.de","commission.europa.eu","dailymotion.com","destatis.de","deutsche-filmakademie.de","dgap.org","dhv-da.de","diepresse.com","esmunich.de","europedirect-aachen.de","evz.de","feiertage-oesterreich.at","freitag.de","gadmo.eu","geboren.am","gmv.com","hallespektrum.de","heute.at","ifun.de","kapitalkompakt.de","ksta.de","kurier.at","magazin.comdirect.de","mal-alt-werden.de","marburg.de","noen.at","politik-lernen.at","polizei-beratung.de","presse.gdata.de","radiodresden.de","reisekultouren.de","rhein-zeitung.de","rheinruhraktuell.de","sai-lab.de","travelandtourworld.de","verbraucherzentrale.nrw","verl.de","welcher-tag-ist-heute.org","wirtschaftsrat.de","wissen-info.de","wolfgang-stefinger.de","aha.li","ardaudiothek.de","arte.tv","baden-wuerttemberg.de","baulohn.nrw","beispiel.de","berliner-sonntagsblatt.de","brandenburg.de","budrich-journals.de","csc-stuttgart.org","customer.intertours.de","de.tradingview.com","evangelische-akademien.de","feiertag.info","fokus-afrika.de","generalbundesanwalt.de","gmm-frankfurt.de","handwerksblatt.de","infineon.com","infopress24.de","jungefreiheit.de","kas.de","krzbb.de","land.nrw","live.vodafone.de","med.uc.edu","nordkurier.de","oeffentlicher-dienst-news.de","op-online.de","otz.de","pfalz-express.de","regenbogen.de","rki.de","schwaebische.de","schwarzwaelder-bote.de","sd-metals.com","sis-verlag.de","sortiraparis.com","stadt-regional.de","tk.de","uehlfeld-evangelisch.de","visaindex.com","wallpaper.com","weltwoche.de","westfalen-blatt.de","women-at.work","wsws.org","aatis.de","achgut.com","aktiencheck.de","amerika21.de","arbeitgeber-nordhessen.de","augsburg.de","baunetzwerk.biz","bauprofessor.de","bbh-fortbildung.de","bielefeld.jetzt","bitkom-research.de","blackout-news.de","blaetter.de","bmvg.de","boeckler.de","business-punk.com","byc-news.de","cannabib.de","cassis.uni-bonn.de","charivari.de","das-marburger.de","dbwv.de","dgb.de","dienstleistungsportal.uni-rostock.de","einfach-elterngeld.de","eta.me.uk","eu-info.de","ffh.de","fokus-sozialrecht.de","frankfurter-abendblatt.de","freilich-magazin.com","gameswirtschaft.de","gedenkstaette-flossenbuerg.de","grenzecho.net","haz.de","home.1und1.de","insidebw.de","kosovapress.com","lanxess-arena.de","leichtathletik.de","literaturhandlung-paperback.de","marktspiegel.de","maz-online.de","meetingpoint-memory-messiaen.eu","msgiv.brandenburg.de","mt.de","my.headtopics.com","nachrichten-heute.net","news.provinz.bz.it","newsflash24.de","newsworld.app","noel.gv.at","oldenburger-onlinezeitung.de","online-zeitung-deutschland.de","pfaffenhofen.de","pharma-food.de","pharmaindustrie-online.de","plus500.com","polizei.bayern.de","regiotrends.de","reservistenverband.de","sindelfingen.de","singendesland.de","spdfraktion.de","sporthilfe.de","uketa.com","ulm.tv","verbraucherzentrale-sachsen-anhalt.de","viennaoffices.at","wetterchen.de","wn.de","28april.org","aerotelegraph.com","afaqs.com","allianz-arena.com","alzey.de","arbeitgeberverband-fulda.de","aufstehen-gegen-rassismus.de","bahnblogstelle.com","baublog.brz.eu","berlin-live.de","bh-international.de","bietigheimerzeitung.de","bigfm.de","bildungsspiegel.de","blog.offerpad.com","bmdv.bund.de","bmwk-energiewende.de","boell.de","bremen-city.de","bulletin.entnet.org","cash.ch","daddylicious.de","dasinvestment.com","datev-magazin.de","dayspedia.com","de.stringtranslate.com","deutsche-gesellschaft-ev.de","deutscher-lehrerverband-hessen.de","diakonie.de","dwd.de","eiz-niedersachsen.de","ekhn.de","ethos.at","eurotopics.net","familienportal.de","fr.wikipedia.org","giga.de","grs.de","happyhappybirthday.net","helles-koepfchen.de","hihk.de","home.cdu.de","housedigest.com","hwk-muenchen.de","igbau.de","ihk-nord.de","ingenieur.de","integrationsportal.sachsen-anhalt.de","juedische-allgemeine.de","kiohilfe.de","klack.de","luene-blog.de","lufthansa.com","lv.sachsen-anhalt.de","marburger-bund.de","marburger-kamerapreis.de","max-reinhardt-sindelfingen.de","mittelbayerische.de","mopo.de","nationaltoday.com","neues-deutschland.de","news.microsoft.com","news4teachers.de","nmz.de","omnibusrevue.de","onlinecasinosdeutschland.com","open4business.com.ua","openpr.de","panalis.de","plantinghope.at","politikaufsohr.de","protokoll-inland.de","publicnow.com","publizistische-leitlinien.srf.ch","radiogong.de","radiohamburg.de","regio-journal.info","reisereporter.de","retail-news.de","rlp-tourismus.com","rp-online.de","rundschau-online.de","salzburg24.at","sat1regional.de","silicon-saxony.de","sn.at","snooker.co.at","sonic-derfilm.de","staatskanzlei.hessen.de","swr3.de","t3n.de","thueringer-allgemeine.de","tornesch.de","trend.at","tt.com","tv.orf.at","usinger-anzeiger.de","verbaende.com","verbraucherzentrale-bayern.de","verticus.ag","wetterstation-berlin.de","wir-hier.de","wko.at","abschiebungsreporting.de","adac.de","afriquechronique.com","airliners.de","antenne.nrw","artikelschreiber.com","bak-ac.de","bauhandwerk.de","bauindustrie.de","baulinks.de","bayerische-staatszeitung.de","berliner-mieterverein.de","bildung.sachsen.de","blick-aktuell.de","blog.cosinex.de","bmbf.de","bmj.de","boersen-zeitung.de","brandequity.economictimes.indiatimes.com","btw2025.cemas.io","bundesgesundheitsministerium.de","bundespressekonferenz.de","bundestag.api.proxy.bund.dev","business-travel.de","cbsnews.com","change.org","chiemgau24.de","cnn.com","dalecom.de","dashoefer.de","datenbank.nwb.de","de.m.wikipedia.org","dekanat-weiden-evangelisch.de","demokratiewebstatt.at","designrush.com","deutschenme.com","digitalbusiness-magazin.de","dokfest-muenchen.de","electrive.net","eltern.de","eulerpool.com","euronews.com","europa.eu","ev-gemeinde-tiergarten.de","event.dlr.de","evg-online.org","exxpress.at","fachportal.lernnetz.de","familienapp.hessen.de","familienpakt-bayern.de","festderfreude.at","finanztip.de","finanzwelt.de","fluechtlingsrat-bw.de","freizeit-mittelhessen.de","fuldainfo.de","fundresearch.de","gala.de","gedenkstaetten-hamburg.de","gemeinschaftsschule-orscholz.de","german.xinhuanet.com","germanwatch.org","gevestor.de","gfbv.de","gmr.lbg.ac.at","gmuender-tagespost.de","green-social-club.de","gruenderszene.de","hallo-muenchen.de","hamburg-tourism.de","hanauer.de","hanf-initiative.de","harzkurier.de","hea.de","hlbs.de","hoffmannursery.com","hss.de","iab-forum.de","ibb-d.de","idowa.de","iffmh.de","indiatoday.in","informedeye.com","interactive.spiegel.de","interaktiv-muc.de","ipsos.com","jungle.world","jura.uni-passau.de","jurnalsuissee.net","kalksandstein.de","kgnw.de","kilian-kollegen.de","klamm.de","kmk.org","kn-online.de","koelner-wissenschaftsrunde.de","konsumentenfragen.at","kreiszeitung-wesermarsch.de","kulturstaatsministerin.de","kurier.de","kz-gedenkstaette-neuengamme.de","laut.de","lg-itzehoe.de","lindholz.de","ludwigsburg24.com","magazin.arcd.de","magdeburg-klickt.de","mannheim24.de","markets.traderfox.com","mein-geld-medien.de","mein-stuttgart.com","mi.niedersachsen.de","mimikama.org","ministerpraesident.sachsen.de","minsk.diplo.de","mittelrhein-tageblatt.de","mittlerer-niederrhein.ihk.de","mmz-potsdam.de","muenchner-bildungswerk.de","mv-wetter.com","nachrichten-muenchen.com","nachrichtenportal.de","nationaldaycalendar.com","news5.de","nichtohneuns-freiburg.de","nn.de","now-news.de","npr.org","oe24.at","oesterreich.gv.at","onlinehaendler-news.de","oppenhoff.eu","paritaet-berlin.de","pixgame.de","procontra-online.de","qualityaustria.com","radio7.de","radiokw.de","regensburger-nachrichten.de","regionalinitiative.de","rubikon.news","sauerlandkurier.de","schulministerium.nrw.de","sea-help.eu","seenotretter.de","shz.de","snookerpro.de","solarify.eu","spd-eulen.de","spd-fraktion-niedersachsen.de","spd.berlin","specialolympics.de","spektrum.de","spindash.de","squaredtech.co","staatsanzeiger.de","stepstone.de","steuerkanzlei-kelbel.de","steuertipps.de","stiftung-medienpaedagogik-bayern.de","stuttgarter-philharmoniker.de","swp-berlin.org","tabularasamagazin.de","tenforums.com","theguardian.com","thejournal.com","thelocal.de","theology.de","tlz.de","top-news.at","tourenfahrer.de","uebermedien.de","ukrinform.de","unric.org","unsere-zeit.de","vdk.de","vdpm.info","vera-lengsfeld.de","verbraucherzentrale-energieberatung.de","verlagshaus-jaumann.de","vfs-campus.de","vienna.at","vip.de","w24.at","waz.de","websiteplanet.com","winterhalter.com","wirtschaft-ratgeber.de","wirtschaft-tv.com","wirtschaft.com","wirtschaftsjournal.com","wismar.fm","wlz-online.de","wp.de","xity.de","zevener-zeitung.de","zimmerer-westfalen.de","1001hobbies.de","365.wiki","8-mai-hamburg.de","89.0rtl.de","9meters.com","abc","abk-stuttgart.de","admiraldirekt.de","aekno.de","aerzteblatt.de","agenzianova.com","agsa.de","aircanada.com","aktion-mensch.de","aktionsseitedeutschland.de","aktuell.meinestadt.de","aktuellethemen.de","alamy.de","albatros-schule-berlin.de","all-in.de","allendorf-eder.de","amadeu-antonio-stiftung.de","amoledo.com","amp.ngo","amp.zdf.de","anderesbeispiel.de","ansgari-bid.de","antenne1.de","antidiskriminierungsstelle.de","anwahl.de","aok.de","apollo-news.net","apotheke-adhoc.de","apotheken-umschau.de","arbeitgeber.de","arbeitsagentur.de","architekturblatt.de","ardalpha.de","arnoldreisen.de","aschaffenburg.de","astronews.com","astronomiemuseum.de","atradius.de","attac.de","auf1.tv","augengeradeaus.net","auto-motor-und-sport.de","autohaus.de","automobil-industrie.vogel.de","aviation.direct","bachhausen.de","bad-nauheim.de","bavc-automobilclub.de","bayern.digitale-doerfer.de","bbh-blog.de","bbs-varel.de","bbsb.org","beauftragte-missbrauch.de","behindertenverband.de","beispielnachrichtenseite.de","beispielseite.de","berlinale.de","berliner-behindertenzeitung.de","berliner-woche.de","beyondsurface.de","bfw-newsroom.de","bg-press.de","bg-verkehr.de","bhdd.info","bibeltv.de","bigge-online.de","bildungsklick.de","bildungsportal-nrw.de","bistum-essen.de","bizeps.or.at","bleepingcomputer.com","blog-demokratie.de","blog.de","bmas.de","bmwopen.de","bmwsb.bund.de","bodyandsoulinternational.com","boersenblatt.net","boersenverein-bayern.de","bonnnet.de","bottrop.de","brandaktuell.at","braunschweiger-zeitung.de","breakingnews.ie","briefwahl-beantragen.de","brutto-netto.de","bsvt.org","buecher.at","buildingnet.de","bundeswehr.de","bunte.de","burgstaedt.de","business-gurus.com","bussgeldkatalog.org","bussgeldportal.de","butenunbinnen.de","bvg.de","bvn.de","calendarena.com","cdu-cloppenburg.de","cedaw-allianz.de","celler-presse.de","checkfox.de","checkpoint.tagesspiegel.de","christian-lindner.de","chron.com","cio.de","citizens.al","climate-adapt.eea.europa.eu","clockodo.com","cnet.com","compact-online.de","computerbase.de","comservice-ffo.de","connecticut.news12.com","consultingmagazin.de","cosmopolis.ch","cottbus.de","crucero-magazin.de","ctpost.com","dagens.de","das-wissen.de","daserste.de","dasgelbeblatt.de","dbb.berlin","ddbnews.de","de.ambafrance.org","de.perto.com","deb-online.de","dein-autofinder.de","deineip.de","deloitte.com","demo-online.de","democracywithoutborders.org","der-farang.com","derbund.ch","derpragmaticus.com","dertagdes.de","deu.belta.by","deutsch.radio.cz","deutsch.wikibrief.org","deutsche-afrika-stiftung.de","deutsches-ingenieurblatt.de","deutschlandfunknova.de","deutschlandnewsnow.de","deutschlandradio.de","dewiki.de","dhvka.de","die-bibel.de","die-tagespost.de","diebildschirmzeitung.de","digitales-chemnitz.de","digitalstrategie-deutschland.de","digitalverbraucher.de","dihk.de","dirk-voepel.de","dk-online.de","dkgev.de","dlr.de","dokdoc.eu","dpa.de","dragonknows.com","drivist.de","dtj-online.de","duckshop.de","dvgw.de","dvz.de","dzonline.de","earthday.org","ecomento.de","economictimes.indiatimes.com","eda.admin.ch","edition.cnn.com","eib.org","eike-klima-energie.eu","eimsbuetteler-nachrichten.de","ejw-exbi.de","elektroauto-news.net","elektroniknet.de","elevenforum.com","elterngeld.de","emp.de","engadget.com","entnet.org","entrepreneur.com","erlangen-autowerkstatt.de","erneuerbare-energien-hamburg.de","erzbistum-koeln.de","esa.int","escooter-szene.de","esf.bayern.de","eta.org.uk","eu-augsburg.de","eucc-d.de","euractiv.de","euraed.com","euregio.eu","euroma-mai.de","europa-in-dresden.de","europainfo.at","europanetzwerk.de","evangelische-termine.de","eventbrite.com","eventbrite.de","ewigengottes.de","example-news-site-a.com","example-news-site-b.com","example-news-site-c.com","example-news-site-d.com","example-news-site-e.com","example-rnd-link.de","example.com","example1.com","example2.com","example3.com","example4.com","experten.de","express.co.uk","extratipp.com","extremnews.com","facts.net","fair-news.de","faktencheck.afp.com","famrz.de","fdp-bayern.de","fdst.de","feiertage-ferien.com","fides.org","fiercepharma.com","finanztreff.de","foerde.news","forum-vergabe.de","forumnachhaltigeimmobilien.com","fowid.de","foxsports.com","fraenkischertag.de","frankfurtmain.vvn-bda.de","freiheit.org","fridaysforfuture.de","gagadget.com","gamesradar.com","gasteig.de","germania.diplo.de","gettotext.com","gew-sh.de","glasmacher.de","gnz.de","golem.de","gov.de","grantthornton.de","grenzinfo.eu","gruene-bundestag.de","gtai.de","guter-rat.de","haintz.media","hallelife.de","hamburg.de","handball-world.news","hanfverband-freiburg.de","hardthoehenkurier.de","healthreminder.de","heidelberg24.de","help.meltwater.com","hessen-thueringen.vdk.de","hessen.de","hildesheimer-allgemeine.de","hildesheimer-presse.de","historia-hamburg.de","hockeyweb.de","hogapage.de","hr.de","hugendubel.info","hz.de","iclarified.com","iclei.org","ifw-kiel.de","igb.fraunhofer.de","ikz-online.de","imk-boeckler.de","independent.co.uk","industry.welcometofife.com","infopoint-europa.de","inklusionsfit.de","inklusionsnetzwerk.de","innenministerkonferenz.de","inrlp.de","international.bonn.de","internationalepolitik.de","ioew.de","it-boltwise.net","it-daily.net","italia.fes.de","itv.com","japan.travel","journal21.ch","journalismus-macht-schule.org","journalonko.de","juergenhardt.de","jugendfuereuropa.de","justiz.bayern.de","k.at","kalender-2019.de","kapitalmarktrecht-fachanwalt.de","karlsruhe-insider.de","kbv.de","kingsleynapley.co.uk","kinopolis.de","klardenker.kpmg.de","klartext-raumfahrt.de","kleinezeitung.at","klicksafe.de","klimareporter.de","km-bw.de","krautreporter.de","kulthitradio.de","kultusministerium.hessen.de","landeskirche-hannovers.de","landeswelle.de","latina-press.com","latscho-koblenz.de","lebenshilfe-of.de","leinetal24.de","lembergerland.de","lepaysdefrance.fr","leprogres.fr","liquid-sports.de","livewelloutdoors.com","lnbe.berlin","logistikbranche.net","logistikring.de","lpk-bw.de","lr-online.de","ludwigsburg.de","luebbecke-erleben.de","luftfahrtmagazin.de","mabb.de","macrumors.com","magazin.ihk-muenchen.de","mainstream.news","mainzund.de","marienschule-dieburg.de","mcdeal24.de","medi-karriere.de","medienanstalt-hessen.de","medienbeispiel.de","medienberichte.de","mediendienst-integration.de","meinauto.de","meinbezirk.at","meine-onlinezeitung.de","memmingen.de","merkurist.de","metropolregionnuernberg.de","metzler.com","mfa.gov.tr","mffki.rlp.de","microsoft.com","migazin.de","minijobs-aktuell.de","mk.niedersachsen.de","mmnews.de","moin.de","morningchronicle.co.uk","muenchen.digital","musenkuss-muenchen.de","mvfp.de","mwvlw.rlp.de","n4g.com","naanoo.com","nachrichtenag.de","nachrichtendienst.de","nachrichtenseiten.de","nag-sachsen.de","nasa.gov","nbcchicago.com","nbclosangeles.com","nbcnewyork.com","neue-duesseldorfer-online-zeitung.de","neustadt-ticker.de","nevaris.com","new-origin.infineon.com","news-site1.com","news-site2.com","news-site3.com","news-site4.com","news.at","news.google.com","news.kununu.com","newsroom.de","newsroom.hermesworld.com","noerr.com","norderney-zs.de","nrw.volksbund.de","nsdoku.de","nuclearblast.com","nur-mit-uns.info","nytimes.com","o-thoene.de","oderwelle.de","oeffentlicher-dienst.info","omnibus.news","on-online.de","onlinekalender.info","onlinesolutionsgroup.de","or24.de","ostsee-zeitung.de","outdoormonster.de","ovb-online.de","ovn-online.de","paz.de","pcworld.com","pewresearch.org","pharmiweb.jobs","pi-news.net","play3.de","plus.rtl.de","podcast.de","politik-ratgeber.de","politik.watson.de","politischebildung.schule.bayern.de","politpro.eu","powersoft365.com","presse.online","presse.wien.gv.at","presserevue.de","primavera24.de","prnewswire.com","profil.at","prona.ch","protesttag-behinderte.de","publicholidays.de","publikationen.bundesbank.de","pureinfotech.com","pz-news.de","raawi.de","radio-hannover.de","radiobrocken.de","radionrw.de","ramasuri.de","ran.de","ratzeburg.de","rechtundpolitik.de","reclaimthefacts.com","recordedfuture.com","redaktionsnetzwerk-deutschland.de","redaktionsnetzwerk.de","reisemobil-international.de","reporter-ohne-grenzen.de","rinteln-aktuell.de","rlp.de","rosenheim24.de","rsh.de","ru.wikipedia.org","s-chorverband.de","saurugg.net","schiene.de","schleswig-holstein.de","schule.igs-oberstufe.de","schule.sachsen.de","schwandorf-evangelisch.de","sciencemediacenter.de","segatoys.co.jp","seknews.de","socialnet.de","sonic-city.net","sonicderfilm.ch","sonicthehedgehog.com","sonnenuntergang-sonnenaufgang.info","soyacincau.com","sozialagentur-konkret.de","spacetech-i.com","spreeradio.de","springerprofessional.de","spurensuche-bielefeld.de","stacker.news","stadt-bremerhaven.de","stadtlandzeitung.com","stadtlaufen.de","standard.co.uk","starte-ausbildung.de","starwalk.space","stateofdigitalpublishing.com","statetimes.in","statistik.hessen.de","statistiker-blog.de","stiftung-mercator.de","stja.de","stmas.bayern.de","stmi.bayern.de","stuttgart-aktuell.de","tagblatt.ch","tageblatt.de","tageblatt.lu","technischerhandel.com","technologieaktuell.de","techrepublic.com","telegraphindia.com","theeuropean.de","theleftberlin.com","thenationalnews.com","theverge.com","thib24.de","thomas-borer.com","tixio.de","tk-lex.tk.de","tlm.de","tourismusnetzwerk-brandenburg.de","transparency.de","tribune.com.pk","trierer-nachrichten.de","trt.global","tschechien.news","ttspress.com","tvdirekt.de","tvheute.at","tweakpc.de","twinkl.com","ubm-development.com","ukvisa.co.uk","ungehindert.org","uni-kiel.de","uni-mannheim.de","unicef.at","universe2go.com","unternehmenswelt.de","urban-transport-magazine.com","vdek.com","versicherungstarife.info","verti.de","vestaria.de","vetion.de","vgsd.de","vhu.de","visitczechia.com","visitmosel.de","visitscotland.com","visumantrag.de","vitlif.de","voeb.de","voltdeutschland.org","vonhauerland.com","vorreiter.de","wahlen-in-schwerin.de","washingtonpost.com","watson.de","waz-online.de","weather2visit.com","weekend.at","wellington.com","welttag-des-buches.de","wetterauer-zeitung.de","wien.gv.at","wiesbaden-lebt.de","wikipedia.org","willischewski.de","wired.com","wirtschaftsnews.de","wmk-rlp.de","wochenblitz.com","wohnglueck.de","wolters-rundreisen.de","wolterskluwer.com","ww-kurier.de","za.headtopics.com","zavvi.de","zfk.de","znaki.fm","zsl-mainz.de","zvoove.de"],"n":[6897,2458,1840,1521,1474,1396,1219,1155,1106,1084,1041,925,891,749,744,725,724,641,604,600,596,565,564,498,490,478,420,400,333,265,261,259,259,251,250,244,228,221,216,209,188,186,183,177,174,160,156,141,131,131,130,124,123,123,122,117,115,115,108,107,101,99,98,98,96,96,95,93,93,93,89,89,83,78,76,74,70,70,69,68,67,67,67,67,66,63,59,59,59,59,58,56,56,55,51,51,51,51,50,50,50,49,49,49,48,47,47,47,46,45,44,44,44,43,43,43,42,42,42,42,41,41,41,40,40,39,39,39,39,39,38,38,37,37,37,37,36,35,35,35,34,34,34,34,33,33,33,32,32,32,31,31,31,31,30,30,29,29,29,28,28,28,28,27,27,27,27,27,26,26,26,25,25,25,25,25,25,25,25,24,24,24,23,23,23,23,23,23,22,22,22,22,22,22,21,21,21,21,21,21,20,20,20,20,20,20,20,20,20,20,19,19,19,19,18,18,18,17,17,17,17,17,17,17,17,17,16,16,16,16,16,16,16,16,16,15,15,15,15,15,15,15,15,15,15,15,15,14,14,14,14,14,14,14,14,14,14,13,13,13,13,13,13,13,13,13,13,13,13,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,11,11,11,11,11,11,11,11,11,11,11,11,11,11,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"Regular":[0.153956691937961,0.0572320499479709,0.0523264456667162,0.0389475248996581,0.0272533571180814,0.029929141271493,0.0271542540012883,0.0349338486695407,0.0322085129577325,0.0135275754422477,0.0150636737525395,0.0181358703731232,0.0144195034933849,0.0153114315445221,0.0201674842673802,0.0113473068728011,0.0145681581685744,0.00500470739804767,0.0116941677815767,0.0125365442743174,0.0145681581685744,0.0179376641395372,0.0109508944056291,0.00718497596749418,0.00763093999306278,0.0110004459640256,0.00976165700411278,0.00733363064268371,0.00807690401863139,0.00678856350032209,0.00371636687973837,0.00550022298201278,0.0068381150587186,0.00455874337247906,0.00634259947475348,0.00351816064615232,0.00688766661711511,0.00510381051484069,0.00376591843813488,0.00163520142708488,0.00307219662058372,0.00663990882513255,0.00460829493087558,0.00292354194539418,0.00237847480303256,0.00540111986521976,0.00232892324463604,0.00183340766067093,0.0042614340221,0.00113968584311977,0.00559932609880581,0.00213071701105,0.00113968584311977,0.00292354194539418,0.00247757791982558,0.00143699519349884,0.00178385610227442,0.00247757791982558,0.00183340766067093,0.00237847480303256,0.00148654675189535,0.00153609831029186,0.00267578415341162,0.0025766810366186,0.00237847480303256,0.00148654675189535,0.00203161389425697,0.00242802636142907,0.00272533571180814,0.00198206233586046,0.00218026856944651,0.00163520142708488,0.00188295921906744,0.00173430454387791,0.00158564986868837,0.00242802636142907,0.00168475298548139,0.00118923740151628,0.000396412467172093,0.000198206233586046,0.000743273375947674,0.000792824934344185,0.000346860908775581,0.00118923740151628,0.00123878895991279,0.000693721817551162,0.00104058272632674,0.00138744363510232,0.000247757791982558,0.00203161389425697,0.00113968584311977,0.0012883405183093,0.000445964025568604,0.00123878895991279,0.000792824934344185,0.00064417025915465,0.00064417025915465,0.000594618700758139,0.00163520142708488,0,0.00094147960953372,0.000247757791982558,0.000842376492740697,0.00133789207670581,0.0012883405183093,0.00158564986868837,0.00143699519349884,0.000743273375947674,0.000198206233586046,0.000445964025568604,0.000445964025568604,4.95515583965116e-05,0,0.000792824934344185,0.00104058272632674,0.00123878895991279,0.00118923740151628,0.000396412467172093,0.0012883405183093,0.000693721817551162,0.000743273375947674,0.000891928051137208,0.000495515583965116,9.91031167930231e-05,0.000792824934344185,0.000297309350379069,0.00153609831029186,9.91031167930231e-05,0.00123878895991279,0.00104058272632674,0.000396412467172093,0.000495515583965116,0.000198206233586046,0.000198206233586046,0.00183340766067093,0.000247757791982558,0.00123878895991279,0.000346860908775581,0.000792824934344185,0.000693721817551162,0.000495515583965116,0.000297309350379069,4.95515583965116e-05,0.00138744363510232,0.000346860908775581,0.00104058272632674,0.000445964025568604,0.000148654675189535,0,0.00153609831029186,9.91031167930231e-05,0.000891928051137208,0.000545067142361627,0.000792824934344185,0.00123878895991279,0.000792824934344185,0,0,0.000346860908775581,0,0.000792824934344185,0.000346860908775581,0.00123878895991279,0.000396412467172093,0.000346860908775581,0,0.000396412467172093,0.000891928051137208,0.000594618700758139,0.000148654675189535,0.000247757791982558,0.000148654675189535,0.000247757791982558,9.91031167930231e-05,9.91031167930231e-05,0,0.000991031167930231,0.000396412467172093,4.95515583965116e-05,0.000743273375947674,0.000346860908775581,9.91031167930231e-05,0.000495515583965116,0.000594618700758139,4.95515583965116e-05,0,9.91031167930231e-05,0.000792824934344185,0.000396412467172093,0,0,0.000198206233586046,0.000842376492740697,0.000693721817551162,4.95515583965116e-05,0.000495515583965116,0.000743273375947674,9.91031167930231e-05,0.000346860908775581,0.000346860908775581,0.000594618700758139,0.000297309350379069,0.000297309350379069,0.000792824934344185,0.000198206233586046,0.000495515583965116,0.000247757791982558,4.95515583965116e-05,0.000148654675189535,0.000743273375947674,0.000396412467172093,0.000495515583965116,0.000743273375947674,9.91031167930231e-05,0.000247757791982558,0.000148654675189535,0.000545067142361627,0.000346860908775581,9.91031167930231e-05,0,0.000842376492740697,0.000148654675189535,4.95515583965116e-05,0.000495515583965116,0,0.000346860908775581,0,0.000346860908775581,0.00064417025915465,0.000445964025568604,0,0.000297309350379069,0,0.000148654675189535,0.000148654675189535,0.000247757791982558,0.000346860908775581,0.000148654675189535,9.91031167930231e-05,0.000495515583965116,0.000297309350379069,0.000247757791982558,0.000198206233586046,0,4.95515583965116e-05,0,0.000198206233586046,0,4.95515583965116e-05,0.000495515583965116,0.000693721817551162,0.000297309350379069,0.000396412467172093,0.000346860908775581,0.000247757791982558,0.000594618700758139,9.91031167930231e-05,0.000545067142361627,0.000297309350379069,0.000594618700758139,0.000396412467172093,0,9.91031167930231e-05,0.000346860908775581,0.000396412467172093,0.000198206233586046,0.000346860908775581,9.91031167930231e-05,0.00064417025915465,0.000396412467172093,0.000198206233586046,4.95515583965116e-05,0.000198206233586046,0.000198206233586046,9.91031167930231e-05,0.000148654675189535,0.000148654675189535,4.95515583965116e-05,0,0.000545067142361627,0.000198206233586046,0.000148654675189535,9.91031167930231e-05,0.000346860908775581,4.95515583965116e-05,0.000198206233586046,0.000247757791982558,0.000148654675189535,0.000396412467172093,9.91031167930231e-05,0.000148654675189535,4.95515583965116e-05,0.000346860908775581,9.91031167930231e-05,0.000198206233586046,0.000247757791982558,0,0.000346860908775581,0.000148654675189535,0.000445964025568604,0,0.000198206233586046,0.000396412467172093,0,0.000247757791982558,4.95515583965116e-05,0,0.000495515583965116,0,0.000198206233586046,0,0.000346860908775581,0.000396412467172093,0,0.000396412467172093,0.000198206233586046,9.91031167930231e-05,0,4.95515583965116e-05,0.000495515583965116,0,0.000297309350379069,0.000346860908775581,0.000247757791982558,4.95515583965116e-05,4.95515583965116e-05,0,0.000148654675189535,0.000346860908775581,0,0.000198206233586046,9.91031167930231e-05,4.95515583965116e-05,0,4.95515583965116e-05,0.000396412467172093,0.000148654675189535,0.000445964025568604,9.91031167930231e-05,4.95515583965116e-05,0.000346860908775581,0.000198206233586046,0.000148654675189535,4.95515583965116e-05,0.000396412467172093,0.000148654675189535,0.000148654675189535,9.91031167930231e-05,0,0.000297309350379069,0.000247757791982558,0.000247757791982558,4.95515583965116e-05,0.000148654675189535,0.000396412467172093,0,4.95515583965116e-05,0.000396412467172093,0.000148654675189535,4.95515583965116e-05,0.000198206233586046,9.91031167930231e-05,0.000247757791982558,0.000198206233586046,4.95515583965116e-05,0,0.000198206233586046,0.000396412467172093,0,9.91031167930231e-05,0.000247757791982558,4.95515583965116e-05,9.91031167930231e-05,0.000148654675189535,0.000346860908775581,9.91031167930231e-05,0,0.000346860908775581,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0.000247757791982558,0.000247757791982558,0.000148654675189535,0.000297309350379069,0.000198206233586046,9.91031167930231e-05,0.000148654675189535,0.000198206233586046,0,0.000148654675189535,0,0,4.95515583965116e-05,9.91031167930231e-05,0,0.000148654675189535,0,0,4.95515583965116e-05,0.000148654675189535,9.91031167930231e-05,0,4.95515583965116e-05,0.000148654675189535,0,4.95515583965116e-05,0.000297309350379069,4.95515583965116e-05,0.000198206233586046,0.000148654675189535,4.95515583965116e-05,9.91031167930231e-05,0.000198206233586046,0.000198206233586046,4.95515583965116e-05,4.95515583965116e-05,0.000148654675189535,4.95515583965116e-05,0.000198206233586046,0,4.95515583965116e-05,9.91031167930231e-05,4.95515583965116e-05,0,0.000198206233586046,0.000198206233586046,4.95515583965116e-05,4.95515583965116e-05,9.91031167930231e-05,0,0.000198206233586046,0,4.95515583965116e-05,0.000247757791982558,0,4.95515583965116e-05,0.000148654675189535,0,0.000148654675189535,9.91031167930231e-05,9.91031167930231e-05,0,0,0,4.95515583965116e-05,0.000247757791982558,0,0.000148654675189535,0,4.95515583965116e-05,0,0.000198206233586046,0.000198206233586046,0,0,0.000297309350379069,0.000247757791982558,9.91031167930231e-05,9.91031167930231e-05,0.000198206233586046,0.000198206233586046,0.000198206233586046,0,9.91031167930231e-05,0,0.000198206233586046,0.000247757791982558,0.000247757791982558,0,0.000198206233586046,4.95515583965116e-05,0,0.000198206233586046,9.91031167930231e-05,0,4.95515583965116e-05,0.000148654675189535,0,0,0.000198206233586046,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,9.91031167930231e-05,9.91031167930231e-05,9.91031167930231e-05,4.95515583965116e-05,0.000148654675189535,0,0,0.000148654675189535,9.91031167930231e-05,9.91031167930231e-05,0.000198206233586046,0.000247757791982558,0,9.91031167930231e-05,0,0.000198206233586046,0,0.000247757791982558,0,9.91031167930231e-05,0,9.91031167930231e-05,4.95515583965116e-05,0,4.95515583965116e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,0,0,0.000198206233586046,0.000148654675189535,4.95515583965116e-05,0.000148654675189535,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,0.000148654675189535,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,9.91031167930231e-05,0,0.000198206233586046,0.000198206233586046,0,4.95515583965116e-05,0.000198206233586046,4.95515583965116e-05,0,9.91031167930231e-05,9.91031167930231e-05,4.95515583965116e-05,0.000198206233586046,0,9.91031167930231e-05,0,0,0.000198206233586046,0.000198206233586046,0,0,4.95515583965116e-05,0,0,9.91031167930231e-05,0,9.91031167930231e-05,4.95515583965116e-05,0.000198206233586046,0,0,0.000198206233586046,0,0,0.000198206233586046,0.000198206233586046,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0.000148654675189535,0,0,0,0,0.000148654675189535,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,0,9.91031167930231e-05,0,9.91031167930231e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0.000148654675189535,4.95515583965116e-05,0.000148654675189535,0,9.91031167930231e-05,4.95515583965116e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,9.91031167930231e-05,9.91031167930231e-05,0,0,9.91031167930231e-05,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,9.91031167930231e-05,0,0,0,9.91031167930231e-05,0.000148654675189535,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,9.91031167930231e-05,0,0,0,9.91031167930231e-05,4.95515583965116e-05,0,0,9.91031167930231e-05,9.91031167930231e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0.000148654675189535,9.91031167930231e-05,0,9.91031167930231e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0.000148654675189535,0,0,0,4.95515583965116e-05,0.000148654675189535,0,0,9.91031167930231e-05,4.95515583965116e-05,9.91031167930231e-05,0,9.91031167930231e-05,9.91031167930231e-05,0,0,9.91031167930231e-05,0,0,4.95515583965116e-05,9.91031167930231e-05,0,9.91031167930231e-05,4.95515583965116e-05,0,0,0,0,9.91031167930231e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,0,9.91031167930231e-05,0,0,9.91031167930231e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,9.91031167930231e-05,4.95515583965116e-05,9.91031167930231e-05,0,9.91031167930231e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,9.91031167930231e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,9.91031167930231e-05,9.91031167930231e-05,0,0,0,9.91031167930231e-05,9.91031167930231e-05,0,4.95515583965116e-05,9.91031167930231e-05,0,9.91031167930231e-05,0,4.95515583965116e-05,0,9.91031167930231e-05,0,0,0,0,0,0,9.91031167930231e-05,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,9.91031167930231e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,9.91031167930231e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,9.91031167930231e-05,4.95515583965116e-05,0,9.91031167930231e-05,0,0,9.91031167930231e-05,9.91031167930231e-05,0,4.95515583965116e-05,4.95515583965116e-05,9.91031167930231e-05,0,0,4.95515583965116e-05,9.91031167930231e-05,0,0,9.91031167930231e-05,9.91031167930231e-05,0,9.91031167930231e-05,0,0,0,0,0,0,9.91031167930231e-05,0,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,0,0,9.91031167930231e-05,0,0,0,9.91031167930231e-05,4.95515583965116e-05,0,9.91031167930231e-05,0,0,0,4.95515583965116e-05,0,0,9.91031167930231e-05,4.95515583965116e-05,9.91031167930231e-05,9.91031167930231e-05,0,4.95515583965116e-05,0,9.91031167930231e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,9.91031167930231e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,0,0,0,0,0,0,0,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,4.95515583965116e-05,4.95515583965116e-05,0,0,0,0,0,0,4.95515583965116e-05,0,0,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,4.95515583965116e-05,0,0,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,0,4.95515583965116e-05,0,0,0,0,4.95515583965116e-05,4.95515583965116e-05,0,0,4.95515583965116e-05,0],"Diverse":[0.134966703464976,0.0464014814287241,0.0279192336455254,0.0261742815426801,0.0329048110822264,0.0282041237847655,0.0238951604287597,0.0160250703322531,0.0162387379366832,0.0288807378654606,0.0262455040774901,0.0199066984793989,0.0213667604430042,0.0156689576582031,0.0120009971154873,0.0176631886328834,0.015312844984153,0.0192300843987037,0.0131049464050426,0.0123571097895374,0.0107546027563121,0.00722908728321641,0.0122146647199174,0.0125707773939675,0.0119653858480823,0.00911648445568178,0.00794131263131655,0.00897403938606175,0.00605391545885118,0.00455824222784089,0.00662369573733129,0.00527046757594103,0.00430896335600584,0.0056621915173961,0.00434457462341085,0.0061607492610662,0.00316940279904562,0.00420212955379082,0.00498557743670097,0.00626758306328122,0.00448701969303087,0.00185178590506036,0.00320501406645062,0.00420212955379082,0.00448701969303087,0.00181617463765535,0.00388162814714576,0.00370357181012072,0.00160250703322531,0.00384601687974075,0.000605391545885118,0.00288451265980556,0.00356112674050069,0.00227912111392044,0.0025640112531605,0.00313379153164061,0.00281329012499555,0.00231473238132545,0.00252839998575549,0.00210106477689541,0.00252839998575549,0.00242156618354047,0.00156689576582031,0.00163811830063032,0.00170934083544033,0.00235034364873046,0.00192300843987038,0.00156689576582031,0.00135322816139026,0.00188739717246537,0.00160250703322531,0.00199423097468039,0.00160250703322531,0.0015312844984153,0.00156689576582031,0.000890281685125174,0.00128200562658025,0.00163811830063032,0.00217228731170542,0.00227912111392044,0.00185178590506036,0.00181617463765535,0.00213667604430042,0.0015312844984153,0.00146006196360528,0.00174495210284534,0.00135322816139026,0.00110394928955522,0.00192300843987038,0.000641002813290125,0.00124639435917524,0.00106833802215021,0.00167372956803533,0.00106833802215021,0.00124639435917524,0.00135322816139026,0.00135322816139026,0.00138883942879527,0.000605391545885118,0.00178056337025035,0.00110394928955522,0.00156689576582031,0.00113956055696022,0.000783447882910153,0.000783447882910153,0.000534169011075104,0.000641002813290125,0.00113956055696022,0.00149567323101029,0.00128200562658025,0.00124639435917524,0.0015312844984153,0.00156689576582031,0.000961504219935188,0.000783447882910153,0.000641002813290125,0.000641002813290125,0.00121078309177024,0.000569780278480111,0.000997115487340194,0.000925892952530181,0.00081905915031516,0.00110394928955522,0.00135322816139026,0.000854670417720167,0.00117517182436523,0.000284890139240056,0.00131761689398526,0.000498557743670097,0.000641002813290125,0.00106833802215021,0.000997115487340194,0.00117517182436523,0.00117517182436523,0,0.00113956055696022,0.000391723941455076,0.000997115487340194,0.000676614080695132,0.000747836615505146,0.000854670417720167,0.000997115487340194,0.00117517182436523,0.000213667604430042,0.000925892952530181,0.000427335208860083,0.000854670417720167,0.0010327267547452,0.00113956055696022,3.56112674050069e-05,0.0010327267547452,0.00046294647626509,0.000712225348100139,0.000534169011075104,0.000178056337025035,0.000498557743670097,0.0010327267547452,0.0010327267547452,0.000783447882910153,0.000997115487340194,0.000427335208860083,0.000747836615505146,0.000106833802215021,0.000676614080695132,0.000712225348100139,0.000961504219935188,0.000676614080695132,0.000320501406645063,0.000498557743670097,0.00081905915031516,0.000747836615505146,0.000783447882910153,0.000712225348100139,0.00081905915031516,0.00081905915031516,0.000890281685125174,0.000178056337025035,0.000605391545885118,0.000854670417720167,0.000320501406645063,0.000605391545885118,0.000783447882910153,0.00046294647626509,0.000391723941455076,0.000783447882910153,0.00081905915031516,0.000747836615505146,0.000249278871835049,0.000498557743670097,0.000783447882910153,0.000783447882910153,0.000641002813290125,0.000178056337025035,0.000284890139240056,0.000712225348100139,0.000391723941455076,0.000213667604430042,0.000676614080695132,0.000498557743670097,0.000498557743670097,0.000284890139240056,0.000498557743670097,0.000498557743670097,0.000142445069620028,0.000569780278480111,0.000356112674050069,0.000534169011075104,0.000676614080695132,0.000605391545885118,0.000178056337025035,0.000391723941455076,0.000320501406645063,0.000142445069620028,0.000605391545885118,0.00046294647626509,0.000534169011075104,0.000249278871835049,0.000356112674050069,0.000534169011075104,0.000605391545885118,0,0.000498557743670097,0.000569780278480111,0.000249278871835049,0.000605391545885118,0.000356112674050069,0.000569780278480111,0.000320501406645063,0.000106833802215021,0.000249278871835049,0.000569780278480111,0.000356112674050069,0.000569780278480111,0.00046294647626509,0.00046294647626509,0.000356112674050069,0.000284890139240056,0.000427335208860083,0.00046294647626509,0.000178056337025035,0.000320501406645063,0.000356112674050069,0.000391723941455076,0.000534169011075104,0.000498557743670097,0.000534169011075104,0.000391723941455076,0.000498557743670097,0.00046294647626509,0.000142445069620028,0,0.000284890139240056,0.000213667604430042,0.000249278871835049,0.000320501406645063,7.12225348100139e-05,0.000427335208860083,7.12225348100139e-05,0.000249278871835049,3.56112674050069e-05,0.000178056337025035,0.00046294647626509,0.000391723941455076,0.000213667604430042,0.000178056337025035,0.000320501406645063,0.000213667604430042,0.000391723941455076,0,0.000142445069620028,0.000284890139240056,0.000391723941455076,0.000284890139240056,0.000284890139240056,0.000356112674050069,0.000320501406645063,0.000320501406645063,0.000391723941455076,0.000427335208860083,3.56112674050069e-05,0.000284890139240056,0.000320501406645063,0.000356112674050069,0.000178056337025035,0.000391723941455076,0.000284890139240056,0.000213667604430042,0.000284890139240056,0.000106833802215021,0.000320501406645063,0.000284890139240056,0.000356112674050069,0.000142445069620028,0.000320501406645063,0.000249278871835049,0.000213667604430042,0.000391723941455076,0.000142445069620028,0.000284890139240056,7.12225348100139e-05,0.000356112674050069,0.000213667604430042,7.12225348100139e-05,0.000356112674050069,0.000178056337025035,0.000320501406645063,0.000356112674050069,0,0.000356112674050069,0.000213667604430042,0.000356112674050069,0.000106833802215021,7.12225348100139e-05,0.000356112674050069,7.12225348100139e-05,0.000213667604430042,0.000284890139240056,0.000356112674050069,0.000320501406645063,0,0.000320501406645063,0.000106833802215021,7.12225348100139e-05,0.000142445069620028,0.000284890139240056,0.000284890139240056,0.000320501406645063,0.000213667604430042,7.12225348100139e-05,0.000320501406645063,0.000178056337025035,0.000249278871835049,0.000284890139240056,0.000320501406645063,0.000284890139240056,3.56112674050069e-05,0.000213667604430042,0,0.000249278871835049,0.000284890139240056,7.12225348100139e-05,0.000178056337025035,0.000213667604430042,0.000284890139240056,3.56112674050069e-05,0.000213667604430042,0.000213667604430042,0.000249278871835049,0.000320501406645063,0.000106833802215021,0.000142445069620028,0.000142445069620028,0.000249278871835049,0.000178056337025035,0,0.000284890139240056,0.000249278871835049,0,0.000178056337025035,0.000249278871835049,0.000142445069620028,0.000213667604430042,0.000106833802215021,0.000142445069620028,0.000249278871835049,0.000284890139240056,0.000142445069620028,0,0.000284890139240056,0.000213667604430042,0.000106833802215021,0.000249278871835049,0.000213667604430042,0.000178056337025035,3.56112674050069e-05,0.000213667604430042,0.000249278871835049,0,0.000213667604430042,0.000213667604430042,0.000249278871835049,0.000249278871835049,0.000213667604430042,7.12225348100139e-05,7.12225348100139e-05,0.000142445069620028,3.56112674050069e-05,0.000106833802215021,0.000178056337025035,0.000142445069620028,0.000106833802215021,0.000249278871835049,0.000142445069620028,0.000249278871835049,0.000249278871835049,0.000213667604430042,0.000178056337025035,0.000249278871835049,0.000142445069620028,0.000249278871835049,0.000249278871835049,0.000213667604430042,0.000142445069620028,0.000178056337025035,0.000249278871835049,0.000213667604430042,0.000142445069620028,0.000249278871835049,0.000213667604430042,3.56112674050069e-05,0.000213667604430042,0.000106833802215021,0.000142445069620028,0.000178056337025035,0.000142445069620028,7.12225348100139e-05,7.12225348100139e-05,0.000178056337025035,0.000178056337025035,0.000106833802215021,0.000178056337025035,7.12225348100139e-05,0.000213667604430042,0.000178056337025035,0.000142445069620028,0.000178056337025035,0.000213667604430042,7.12225348100139e-05,7.12225348100139e-05,0.000178056337025035,0.000178056337025035,0.000142445069620028,0.000213667604430042,7.12225348100139e-05,0.000213667604430042,0.000178056337025035,3.56112674050069e-05,0.000213667604430042,0.000178056337025035,0.000106833802215021,0.000213667604430042,0.000106833802215021,0.000142445069620028,0.000142445069620028,0.000213667604430042,0.000213667604430042,0.000213667604430042,0.000178056337025035,3.56112674050069e-05,0.000213667604430042,0.000106833802215021,0.000213667604430042,0.000178056337025035,0.000213667604430042,7.12225348100139e-05,7.12225348100139e-05,0.000213667604430042,0.000213667604430042,0,3.56112674050069e-05,0.000142445069620028,0.000142445069620028,7.12225348100139e-05,3.56112674050069e-05,3.56112674050069e-05,0.000178056337025035,0.000106833802215021,0.000178056337025035,3.56112674050069e-05,0,0,0.000178056337025035,3.56112674050069e-05,0.000142445069620028,0.000178056337025035,3.56112674050069e-05,0.000106833802215021,0.000178056337025035,0.000142445069620028,7.12225348100139e-05,0.000178056337025035,0.000178056337025035,3.56112674050069e-05,0.000142445069620028,0.000178056337025035,0.000178056337025035,0.000142445069620028,0.000142445069620028,0.000106833802215021,0.000106833802215021,0.000106833802215021,0.000142445069620028,7.12225348100139e-05,0.000178056337025035,0.000178056337025035,7.12225348100139e-05,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,0,0.000178056337025035,0.000106833802215021,0.000178056337025035,3.56112674050069e-05,0.000178056337025035,0,0.000178056337025035,0.000106833802215021,0.000178056337025035,0.000106833802215021,0.000106833802215021,0.000142445069620028,0.000106833802215021,7.12225348100139e-05,0.000142445069620028,0.000106833802215021,0.000142445069620028,0.000142445069620028,0.000142445069620028,0,3.56112674050069e-05,0.000106833802215021,3.56112674050069e-05,0.000106833802215021,0.000142445069620028,0.000142445069620028,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,0.000142445069620028,0.000142445069620028,0.000142445069620028,0.000106833802215021,0.000106833802215021,0.000142445069620028,0.000106833802215021,7.12225348100139e-05,0.000142445069620028,0,0,0.000142445069620028,0.000106833802215021,0,0.000106833802215021,0.000142445069620028,7.12225348100139e-05,7.12225348100139e-05,0.000106833802215021,0,0.000142445069620028,7.12225348100139e-05,0.000142445069620028,0.000142445069620028,0,0,0.000142445069620028,0.000142445069620028,0.000106833802215021,0.000142445069620028,0.000142445069620028,7.12225348100139e-05,0.000142445069620028,7.12225348100139e-05,0.000106833802215021,0,0.000142445069620028,0.000142445069620028,0,0.000142445069620028,0.000142445069620028,0,0,0.000106833802215021,0.000106833802215021,0.000142445069620028,0.000106833802215021,0.000142445069620028,0.000142445069620028,0.000106833802215021,0.000106833802215021,0.000106833802215021,0,0.000106833802215021,0.000106833802215021,0.000106833802215021,0.000106833802215021,0,7.12225348100139e-05,7.12225348100139e-05,0.000106833802215021,0.000106833802215021,7.12225348100139e-05,7.12225348100139e-05,0.000106833802215021,3.56112674050069e-05,0.000106833802215021,3.56112674050069e-05,0.000106833802215021,7.12225348100139e-05,7.12225348100139e-05,0.000106833802215021,0.000106833802215021,0.000106833802215021,0.000106833802215021,0.000106833802215021,0,7.12225348100139e-05,0,0.000106833802215021,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,0.000106833802215021,7.12225348100139e-05,0.000106833802215021,3.56112674050069e-05,3.56112674050069e-05,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,0.000106833802215021,0.000106833802215021,0.000106833802215021,0.000106833802215021,7.12225348100139e-05,0.000106833802215021,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,0.000106833802215021,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,0,7.12225348100139e-05,0.000106833802215021,0.000106833802215021,0.000106833802215021,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,0.000106833802215021,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,7.12225348100139e-05,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0.000106833802215021,7.12225348100139e-05,0.000106833802215021,7.12225348100139e-05,0.000106833802215021,0,3.56112674050069e-05,0.000106833802215021,3.56112674050069e-05,7.12225348100139e-05,0.000106833802215021,7.12225348100139e-05,0.000106833802215021,0,0.000106833802215021,0.000106833802215021,0.000106833802215021,7.12225348100139e-05,0,0.000106833802215021,0.000106833802215021,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,0.000106833802215021,3.56112674050069e-05,3.56112674050069e-05,0.000106833802215021,0.000106833802215021,0,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,0,7.12225348100139e-05,0,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,0,0,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,0,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,7.12225348100139e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,0,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,3.56112674050069e-05,0,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,0,0,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,0,0,7.12225348100139e-05,3.56112674050069e-05,0,7.12225348100139e-05,0,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,0,3.56112674050069e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,0,0,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,3.56112674050069e-05,7.12225348100139e-05,0,3.56112674050069e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,0,0,7.12225348100139e-05,3.56112674050069e-05,3.56112674050069e-05,0,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,0,7.12225348100139e-05,7.12225348100139e-05,0,0,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,0,3.56112674050069e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,0,3.56112674050069e-05,0,0,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,0,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,0,7.12225348100139e-05,7.12225348100139e-05,3.56112674050069e-05,7.12225348100139e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,7.12225348100139e-05,7.12225348100139e-05,0,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,0,0,0,0,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,0,3.56112674050069e-05,0,3.56112674050069e-05,0,0,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,0,0,0,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05,0,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,3.56112674050069e-05,0,0,3.56112674050069e-05,3.56112674050069e-05,0,3.56112674050069e-05]},"columns":[{"id":"domain","name":"Domain","type":"character","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","html":true,"align":"left"},{"id":"n","name":"n","type":"numeric","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","html":true,"align":"right"},{"id":"Regular","name":"Regular","type":"numeric","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["15.40%","5.72%","5.23%","3.89%","2.73%","2.99%","2.72%","3.49%","3.22%","1.35%","1.51%","1.81%","1.44%","1.53%","2.02%","1.13%","1.46%","0.50%","1.17%","1.25%","1.46%","1.79%","1.10%","0.72%","0.76%","1.10%","0.98%","0.73%","0.81%","0.68%","0.37%","0.55%","0.68%","0.46%","0.63%","0.35%","0.69%","0.51%","0.38%","0.16%","0.31%","0.66%","0.46%","0.29%","0.24%","0.54%","0.23%","0.18%","0.43%","0.11%","0.56%","0.21%","0.11%","0.29%","0.25%","0.14%","0.18%","0.25%","0.18%","0.24%","0.15%","0.15%","0.27%","0.26%","0.24%","0.15%","0.20%","0.24%","0.27%","0.20%","0.22%","0.16%","0.19%","0.17%","0.16%","0.24%","0.17%","0.12%","0.04%","0.02%","0.07%","0.08%","0.03%","0.12%","0.12%","0.07%","0.10%","0.14%","0.02%","0.20%","0.11%","0.13%","0.04%","0.12%","0.08%","0.06%","0.06%","0.06%","0.16%","0.00%","0.09%","0.02%","0.08%","0.13%","0.13%","0.16%","0.14%","0.07%","0.02%","0.04%","0.04%","0.00%","0.00%","0.08%","0.10%","0.12%","0.12%","0.04%","0.13%","0.07%","0.07%","0.09%","0.05%","0.01%","0.08%","0.03%","0.15%","0.01%","0.12%","0.10%","0.04%","0.05%","0.02%","0.02%","0.18%","0.02%","0.12%","0.03%","0.08%","0.07%","0.05%","0.03%","0.00%","0.14%","0.03%","0.10%","0.04%","0.01%","0.00%","0.15%","0.01%","0.09%","0.05%","0.08%","0.12%","0.08%","0.00%","0.00%","0.03%","0.00%","0.08%","0.03%","0.12%","0.04%","0.03%","0.00%","0.04%","0.09%","0.06%","0.01%","0.02%","0.01%","0.02%","0.01%","0.01%","0.00%","0.10%","0.04%","0.00%","0.07%","0.03%","0.01%","0.05%","0.06%","0.00%","0.00%","0.01%","0.08%","0.04%","0.00%","0.00%","0.02%","0.08%","0.07%","0.00%","0.05%","0.07%","0.01%","0.03%","0.03%","0.06%","0.03%","0.03%","0.08%","0.02%","0.05%","0.02%","0.00%","0.01%","0.07%","0.04%","0.05%","0.07%","0.01%","0.02%","0.01%","0.05%","0.03%","0.01%","0.00%","0.08%","0.01%","0.00%","0.05%","0.00%","0.03%","0.00%","0.03%","0.06%","0.04%","0.00%","0.03%","0.00%","0.01%","0.01%","0.02%","0.03%","0.01%","0.01%","0.05%","0.03%","0.02%","0.02%","0.00%","0.00%","0.00%","0.02%","0.00%","0.00%","0.05%","0.07%","0.03%","0.04%","0.03%","0.02%","0.06%","0.01%","0.05%","0.03%","0.06%","0.04%","0.00%","0.01%","0.03%","0.04%","0.02%","0.03%","0.01%","0.06%","0.04%","0.02%","0.00%","0.02%","0.02%","0.01%","0.01%","0.01%","0.00%","0.00%","0.05%","0.02%","0.01%","0.01%","0.03%","0.00%","0.02%","0.02%","0.01%","0.04%","0.01%","0.01%","0.00%","0.03%","0.01%","0.02%","0.02%","0.00%","0.03%","0.01%","0.04%","0.00%","0.02%","0.04%","0.00%","0.02%","0.00%","0.00%","0.05%","0.00%","0.02%","0.00%","0.03%","0.04%","0.00%","0.04%","0.02%","0.01%","0.00%","0.00%","0.05%","0.00%","0.03%","0.03%","0.02%","0.00%","0.00%","0.00%","0.01%","0.03%","0.00%","0.02%","0.01%","0.00%","0.00%","0.00%","0.04%","0.01%","0.04%","0.01%","0.00%","0.03%","0.02%","0.01%","0.00%","0.04%","0.01%","0.01%","0.01%","0.00%","0.03%","0.02%","0.02%","0.00%","0.01%","0.04%","0.00%","0.00%","0.04%","0.01%","0.00%","0.02%","0.01%","0.02%","0.02%","0.00%","0.00%","0.02%","0.04%","0.00%","0.01%","0.02%","0.00%","0.01%","0.01%","0.03%","0.01%","0.00%","0.03%","0.00%","0.00%","0.00%","0.00%","0.00%","0.02%","0.02%","0.01%","0.03%","0.02%","0.01%","0.01%","0.02%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.03%","0.00%","0.02%","0.01%","0.00%","0.01%","0.02%","0.02%","0.00%","0.00%","0.01%","0.00%","0.02%","0.00%","0.00%","0.01%","0.00%","0.00%","0.02%","0.02%","0.00%","0.00%","0.01%","0.00%","0.02%","0.00%","0.00%","0.02%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.02%","0.00%","0.01%","0.00%","0.00%","0.00%","0.02%","0.02%","0.00%","0.00%","0.03%","0.02%","0.01%","0.01%","0.02%","0.02%","0.02%","0.00%","0.01%","0.00%","0.02%","0.02%","0.02%","0.00%","0.02%","0.00%","0.00%","0.02%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.02%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.01%","0.01%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.02%","0.02%","0.00%","0.01%","0.00%","0.02%","0.00%","0.02%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.02%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.02%","0.02%","0.00%","0.00%","0.02%","0.00%","0.00%","0.01%","0.01%","0.00%","0.02%","0.00%","0.01%","0.00%","0.00%","0.02%","0.02%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.02%","0.00%","0.00%","0.02%","0.00%","0.00%","0.02%","0.02%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%"],"html":true,"align":"right"},{"id":"Diverse","name":"Diverse","type":"numeric","na":"NA","minWidth":125,"style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["13.50%","4.64%","2.79%","2.62%","3.29%","2.82%","2.39%","1.60%","1.62%","2.89%","2.62%","1.99%","2.14%","1.57%","1.20%","1.77%","1.53%","1.92%","1.31%","1.24%","1.08%","0.72%","1.22%","1.26%","1.20%","0.91%","0.79%","0.90%","0.61%","0.46%","0.66%","0.53%","0.43%","0.57%","0.43%","0.62%","0.32%","0.42%","0.50%","0.63%","0.45%","0.19%","0.32%","0.42%","0.45%","0.18%","0.39%","0.37%","0.16%","0.38%","0.06%","0.29%","0.36%","0.23%","0.26%","0.31%","0.28%","0.23%","0.25%","0.21%","0.25%","0.24%","0.16%","0.16%","0.17%","0.24%","0.19%","0.16%","0.14%","0.19%","0.16%","0.20%","0.16%","0.15%","0.16%","0.09%","0.13%","0.16%","0.22%","0.23%","0.19%","0.18%","0.21%","0.15%","0.15%","0.17%","0.14%","0.11%","0.19%","0.06%","0.12%","0.11%","0.17%","0.11%","0.12%","0.14%","0.14%","0.14%","0.06%","0.18%","0.11%","0.16%","0.11%","0.08%","0.08%","0.05%","0.06%","0.11%","0.15%","0.13%","0.12%","0.15%","0.16%","0.10%","0.08%","0.06%","0.06%","0.12%","0.06%","0.10%","0.09%","0.08%","0.11%","0.14%","0.09%","0.12%","0.03%","0.13%","0.05%","0.06%","0.11%","0.10%","0.12%","0.12%","0.00%","0.11%","0.04%","0.10%","0.07%","0.07%","0.09%","0.10%","0.12%","0.02%","0.09%","0.04%","0.09%","0.10%","0.11%","0.00%","0.10%","0.05%","0.07%","0.05%","0.02%","0.05%","0.10%","0.10%","0.08%","0.10%","0.04%","0.07%","0.01%","0.07%","0.07%","0.10%","0.07%","0.03%","0.05%","0.08%","0.07%","0.08%","0.07%","0.08%","0.08%","0.09%","0.02%","0.06%","0.09%","0.03%","0.06%","0.08%","0.05%","0.04%","0.08%","0.08%","0.07%","0.02%","0.05%","0.08%","0.08%","0.06%","0.02%","0.03%","0.07%","0.04%","0.02%","0.07%","0.05%","0.05%","0.03%","0.05%","0.05%","0.01%","0.06%","0.04%","0.05%","0.07%","0.06%","0.02%","0.04%","0.03%","0.01%","0.06%","0.05%","0.05%","0.02%","0.04%","0.05%","0.06%","0.00%","0.05%","0.06%","0.02%","0.06%","0.04%","0.06%","0.03%","0.01%","0.02%","0.06%","0.04%","0.06%","0.05%","0.05%","0.04%","0.03%","0.04%","0.05%","0.02%","0.03%","0.04%","0.04%","0.05%","0.05%","0.05%","0.04%","0.05%","0.05%","0.01%","0.00%","0.03%","0.02%","0.02%","0.03%","0.01%","0.04%","0.01%","0.02%","0.00%","0.02%","0.05%","0.04%","0.02%","0.02%","0.03%","0.02%","0.04%","0.00%","0.01%","0.03%","0.04%","0.03%","0.03%","0.04%","0.03%","0.03%","0.04%","0.04%","0.00%","0.03%","0.03%","0.04%","0.02%","0.04%","0.03%","0.02%","0.03%","0.01%","0.03%","0.03%","0.04%","0.01%","0.03%","0.02%","0.02%","0.04%","0.01%","0.03%","0.01%","0.04%","0.02%","0.01%","0.04%","0.02%","0.03%","0.04%","0.00%","0.04%","0.02%","0.04%","0.01%","0.01%","0.04%","0.01%","0.02%","0.03%","0.04%","0.03%","0.00%","0.03%","0.01%","0.01%","0.01%","0.03%","0.03%","0.03%","0.02%","0.01%","0.03%","0.02%","0.02%","0.03%","0.03%","0.03%","0.00%","0.02%","0.00%","0.02%","0.03%","0.01%","0.02%","0.02%","0.03%","0.00%","0.02%","0.02%","0.02%","0.03%","0.01%","0.01%","0.01%","0.02%","0.02%","0.00%","0.03%","0.02%","0.00%","0.02%","0.02%","0.01%","0.02%","0.01%","0.01%","0.02%","0.03%","0.01%","0.00%","0.03%","0.02%","0.01%","0.02%","0.02%","0.02%","0.00%","0.02%","0.02%","0.00%","0.02%","0.02%","0.02%","0.02%","0.02%","0.01%","0.01%","0.01%","0.00%","0.01%","0.02%","0.01%","0.01%","0.02%","0.01%","0.02%","0.02%","0.02%","0.02%","0.02%","0.01%","0.02%","0.02%","0.02%","0.01%","0.02%","0.02%","0.02%","0.01%","0.02%","0.02%","0.00%","0.02%","0.01%","0.01%","0.02%","0.01%","0.01%","0.01%","0.02%","0.02%","0.01%","0.02%","0.01%","0.02%","0.02%","0.01%","0.02%","0.02%","0.01%","0.01%","0.02%","0.02%","0.01%","0.02%","0.01%","0.02%","0.02%","0.00%","0.02%","0.02%","0.01%","0.02%","0.01%","0.01%","0.01%","0.02%","0.02%","0.02%","0.02%","0.00%","0.02%","0.01%","0.02%","0.02%","0.02%","0.01%","0.01%","0.02%","0.02%","0.00%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.02%","0.01%","0.02%","0.00%","0.00%","0.00%","0.02%","0.00%","0.01%","0.02%","0.00%","0.01%","0.02%","0.01%","0.01%","0.02%","0.02%","0.00%","0.01%","0.02%","0.02%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.02%","0.02%","0.01%","0.01%","0.01%","0.00%","0.00%","0.02%","0.01%","0.02%","0.00%","0.02%","0.00%","0.02%","0.01%","0.02%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.00%","0.01%","0.00%","0.01%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.01%","0.00%","0.01%","0.00%","0.00%","0.00%","0.01%","0.01%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%","0.00%"],"html":true,"align":"right"}],"defaultPageSize":20,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"font-family":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif","fontSize":"16px"},"tableStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3"},"headerStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"groupHeaderStyle":{"fontWeight":"normal","backgroundColor":"transparent","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"},"cellStyle":{"fontWeight":"normal"}},"elementId":"xtmbxnuamp","dataKey":"edf394fab3e2f433db6d2fb4587377d5"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<section id="top-sites-over-time" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="top-sites-over-time"><span class="header-section-number">1.1</span> Top sites over time</h3>
+<p>While some sites appear in the top 10 sources each week (e.g.&nbsp;<code>de.wikipedia.org</code>, <code>rnd.de</code>, and <code>reuters.com</code>), other sources appear only for a while in the top sources (e.g.&nbsp;<code>deutsche-handwerks-zeitung.de</code>, <code>bundesregierung.de</code>, <code>merkur.de</code>). See <a href="#tbl-top-domains-by-week-condition" class="quarto-xref">Table&nbsp;2</a> for a weekly top 10 of linked sources and <a href="#fig-domains-over-time" class="quarto-xref">Figure&nbsp;1</a> for an overview of source prevalence over time for the top 25 sources.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-domains-over-time" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-domains-over-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Diversity_files/figure-html/fig-domains-over-time-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-domains-over-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Usage of Domains over Time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-top-domains-by-week-condition" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top-domains-by-week-condition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Top Domains by Week and Condition
+</figcaption>
+<div aria-describedby="tbl-top-domains-by-week-condition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="wmwlhvcfqm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wmwlhvcfqm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wmwlhvcfqm thead, #wmwlhvcfqm tbody, #wmwlhvcfqm tfoot, #wmwlhvcfqm tr, #wmwlhvcfqm td, #wmwlhvcfqm th {
+  border-style: none;
+}
+
+#wmwlhvcfqm p {
+  margin: 0;
+  padding: 0;
+}
+
+#wmwlhvcfqm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wmwlhvcfqm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wmwlhvcfqm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wmwlhvcfqm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wmwlhvcfqm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wmwlhvcfqm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wmwlhvcfqm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wmwlhvcfqm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wmwlhvcfqm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wmwlhvcfqm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wmwlhvcfqm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wmwlhvcfqm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wmwlhvcfqm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wmwlhvcfqm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wmwlhvcfqm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwlhvcfqm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wmwlhvcfqm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wmwlhvcfqm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wmwlhvcfqm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwlhvcfqm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wmwlhvcfqm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwlhvcfqm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wmwlhvcfqm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwlhvcfqm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwlhvcfqm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwlhvcfqm .gt_left {
+  text-align: left;
+}
+
+#wmwlhvcfqm .gt_center {
+  text-align: center;
+}
+
+#wmwlhvcfqm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wmwlhvcfqm .gt_font_normal {
+  font-weight: normal;
+}
+
+#wmwlhvcfqm .gt_font_bold {
+  font-weight: bold;
+}
+
+#wmwlhvcfqm .gt_font_italic {
+  font-style: italic;
+}
+
+#wmwlhvcfqm .gt_super {
+  font-size: 65%;
+}
+
+#wmwlhvcfqm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wmwlhvcfqm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wmwlhvcfqm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wmwlhvcfqm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wmwlhvcfqm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wmwlhvcfqm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wmwlhvcfqm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wmwlhvcfqm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wmwlhvcfqm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="rank" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="domain" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Domain</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_group_heading_row">
+<td colspan="3" id="KW 14" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">KW 14</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_right" headers="KW 14  rank">1</td>
+<td class="gt_row gt_left" headers="KW 14  domain">de.wikipedia.org</td>
+<td class="gt_row gt_right" headers="KW 14  n">562</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 14  rank">2</td>
+<td class="gt_row gt_left" headers="KW 14  domain">rnd.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">518</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 14  rank">3</td>
+<td class="gt_row gt_left" headers="KW 14  domain">deutsche-handwerks-zeitung.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">279</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 14  rank">4</td>
+<td class="gt_row gt_left" headers="KW 14  domain">stimme.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">275</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 14  rank">5</td>
+<td class="gt_row gt_left" headers="KW 14  domain">deutschlandfunk.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">251</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 14  rank">6</td>
+<td class="gt_row gt_left" headers="KW 14  domain">reuters.com</td>
+<td class="gt_row gt_right" headers="KW 14  n">227</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 14  rank">7</td>
+<td class="gt_row gt_left" headers="KW 14  domain">tagesschau.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">143</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 14  rank">8</td>
+<td class="gt_row gt_left" headers="KW 14  domain">bundesregierung.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">137</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 14  rank">9</td>
+<td class="gt_row gt_left" headers="KW 14  domain">ndr.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">128</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 14  rank">10</td>
+<td class="gt_row gt_left" headers="KW 14  domain">n-tv.de</td>
+<td class="gt_row gt_right" headers="KW 14  n">126</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="3" id="KW 15" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">KW 15</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_right" headers="KW 15  rank">1</td>
+<td class="gt_row gt_left" headers="KW 15  domain">de.wikipedia.org</td>
+<td class="gt_row gt_right" headers="KW 15  n">1462</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 15  rank">2</td>
+<td class="gt_row gt_left" headers="KW 15  domain">rnd.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">590</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 15  rank">3</td>
+<td class="gt_row gt_left" headers="KW 15  domain">ndr.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">581</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 15  rank">4</td>
+<td class="gt_row gt_left" headers="KW 15  domain">reuters.com</td>
+<td class="gt_row gt_right" headers="KW 15  n">532</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 15  rank">5</td>
+<td class="gt_row gt_left" headers="KW 15  domain">deutsche-handwerks-zeitung.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">382</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 15  rank">6</td>
+<td class="gt_row gt_left" headers="KW 15  domain">merkur.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">373</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 15  rank">7</td>
+<td class="gt_row gt_left" headers="KW 15  domain">deutschlandfunk.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">343</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 15  rank">8</td>
+<td class="gt_row gt_left" headers="KW 15  domain">n-tv.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">291</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 15  rank">9</td>
+<td class="gt_row gt_left" headers="KW 15  domain">stimme.de</td>
+<td class="gt_row gt_right" headers="KW 15  n">289</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 15  rank">10</td>
+<td class="gt_row gt_left" headers="KW 15  domain">apnews.com</td>
+<td class="gt_row gt_right" headers="KW 15  n">285</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="3" id="KW 16" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">KW 16</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_right" headers="KW 16  rank">1</td>
+<td class="gt_row gt_left" headers="KW 16  domain">de.wikipedia.org</td>
+<td class="gt_row gt_right" headers="KW 16  n">739</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 16  rank">2</td>
+<td class="gt_row gt_left" headers="KW 16  domain">deutsche-handwerks-zeitung.de</td>
+<td class="gt_row gt_right" headers="KW 16  n">574</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 16  rank">3</td>
+<td class="gt_row gt_left" headers="KW 16  domain">stimme.de</td>
+<td class="gt_row gt_right" headers="KW 16  n">458</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 16  rank">4</td>
+<td class="gt_row gt_left" headers="KW 16  domain">news.de</td>
+<td class="gt_row gt_right" headers="KW 16  n">400</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 16  rank">5</td>
+<td class="gt_row gt_left" headers="KW 16  domain">ft.com</td>
+<td class="gt_row gt_right" headers="KW 16  n">342</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 16  rank">6</td>
+<td class="gt_row gt_left" headers="KW 16  domain">donaukurier.de</td>
+<td class="gt_row gt_right" headers="KW 16  n">337</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 16  rank">7</td>
+<td class="gt_row gt_left" headers="KW 16  domain">rnd.de</td>
+<td class="gt_row gt_right" headers="KW 16  n">323</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 16  rank">8</td>
+<td class="gt_row gt_left" headers="KW 16  domain">news-pravda.com</td>
+<td class="gt_row gt_right" headers="KW 16  n">306</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 16  rank">9</td>
+<td class="gt_row gt_left" headers="KW 16  domain">reuters.com</td>
+<td class="gt_row gt_right" headers="KW 16  n">304</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 16  rank">10</td>
+<td class="gt_row gt_left" headers="KW 16  domain">zdf.de</td>
+<td class="gt_row gt_right" headers="KW 16  n">256</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="3" id="KW 17" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">KW 17</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_right" headers="KW 17  rank">1</td>
+<td class="gt_row gt_left" headers="KW 17  domain">de.wikipedia.org</td>
+<td class="gt_row gt_right" headers="KW 17  n">465</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 17  rank">2</td>
+<td class="gt_row gt_left" headers="KW 17  domain">rnd.de</td>
+<td class="gt_row gt_right" headers="KW 17  n">267</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 17  rank">3</td>
+<td class="gt_row gt_left" headers="KW 17  domain">deutsche-handwerks-zeitung.de</td>
+<td class="gt_row gt_right" headers="KW 17  n">257</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 17  rank">4</td>
+<td class="gt_row gt_left" headers="KW 17  domain">n-tv.de</td>
+<td class="gt_row gt_right" headers="KW 17  n">224</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 17  rank">5</td>
+<td class="gt_row gt_left" headers="KW 17  domain">faz.net</td>
+<td class="gt_row gt_right" headers="KW 17  n">208</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 17  rank">6</td>
+<td class="gt_row gt_left" headers="KW 17  domain">stimme.de</td>
+<td class="gt_row gt_right" headers="KW 17  n">194</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 17  rank">7</td>
+<td class="gt_row gt_left" headers="KW 17  domain">donaukurier.de</td>
+<td class="gt_row gt_right" headers="KW 17  n">184</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 17  rank">8</td>
+<td class="gt_row gt_left" headers="KW 17  domain">news-pravda.com</td>
+<td class="gt_row gt_right" headers="KW 17  n">182</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 17  rank">9</td>
+<td class="gt_row gt_left" headers="KW 17  domain">deutschlandfunk.de</td>
+<td class="gt_row gt_right" headers="KW 17  n">176</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 17  rank">10</td>
+<td class="gt_row gt_left" headers="KW 17  domain">ft.com</td>
+<td class="gt_row gt_right" headers="KW 17  n">170</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="3" id="KW 18" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">KW 18</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_right" headers="KW 18  rank">1</td>
+<td class="gt_row gt_left" headers="KW 18  domain">de.wikipedia.org</td>
+<td class="gt_row gt_right" headers="KW 18  n">2015</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 18  rank">2</td>
+<td class="gt_row gt_left" headers="KW 18  domain">rnd.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">540</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 18  rank">3</td>
+<td class="gt_row gt_left" headers="KW 18  domain">reuters.com</td>
+<td class="gt_row gt_right" headers="KW 18  n">424</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 18  rank">4</td>
+<td class="gt_row gt_left" headers="KW 18  domain">berlin.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">328</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 18  rank">5</td>
+<td class="gt_row gt_left" headers="KW 18  domain">deutschlandfunk.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">272</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 18  rank">6</td>
+<td class="gt_row gt_left" headers="KW 18  domain">tagesschau.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">260</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 18  rank">7</td>
+<td class="gt_row gt_left" headers="KW 18  domain">europa-mai.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">259</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 18  rank">8</td>
+<td class="gt_row gt_left" headers="KW 18  domain">n-tv.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">226</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 18  rank">9</td>
+<td class="gt_row gt_left" headers="KW 18  domain">apnews.com</td>
+<td class="gt_row gt_right" headers="KW 18  n">217</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 18  rank">10</td>
+<td class="gt_row gt_left" headers="KW 18  domain">zeit.de</td>
+<td class="gt_row gt_right" headers="KW 18  n">193</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="3" id="KW 19" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">KW 19</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_right" headers="KW 19  rank">1</td>
+<td class="gt_row gt_left" headers="KW 19  domain">de.wikipedia.org</td>
+<td class="gt_row gt_right" headers="KW 19  n">1654</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 19  rank">2</td>
+<td class="gt_row gt_left" headers="KW 19  domain">tagesschau.de</td>
+<td class="gt_row gt_right" headers="KW 19  n">563</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 19  rank">3</td>
+<td class="gt_row gt_left" headers="KW 19  domain">rnd.de</td>
+<td class="gt_row gt_right" headers="KW 19  n">220</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 19  rank">4</td>
+<td class="gt_row gt_left" headers="KW 19  domain">reuters.com</td>
+<td class="gt_row gt_right" headers="KW 19  n">193</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 19  rank">5</td>
+<td class="gt_row gt_left" headers="KW 19  domain">ft.com</td>
+<td class="gt_row gt_right" headers="KW 19  n">182</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 19  rank">6</td>
+<td class="gt_row gt_left" headers="KW 19  domain">apnews.com</td>
+<td class="gt_row gt_right" headers="KW 19  n">134</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 19  rank">7</td>
+<td class="gt_row gt_left" headers="KW 19  domain">zeit.de</td>
+<td class="gt_row gt_right" headers="KW 19  n">116</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 19  rank">8</td>
+<td class="gt_row gt_left" headers="KW 19  domain">deutschlandfunk.de</td>
+<td class="gt_row gt_right" headers="KW 19  n">105</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW 19  rank">9</td>
+<td class="gt_row gt_left" headers="KW 19  domain">elpais.com</td>
+<td class="gt_row gt_right" headers="KW 19  n">85</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW 19  rank">10</td>
+<td class="gt_row gt_left" headers="KW 19  domain">ndr.de</td>
+<td class="gt_row gt_right" headers="KW 19  n">84</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="domain-count-distribution" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="domain-count-distribution"><span class="header-section-number">1.2</span> Domain count distribution</h3>
+<p>The distribution of domain counts (i.e.&nbsp;how often a site was referenced by ChatGPT) skews heavily right (20.63), with a few sites referenced often and many sites being referenced only once.</p>
+<p><a href="#fig-domain-counts" class="quarto-xref">Figure&nbsp;2</a> shows how the 198 of 816 most referenced sites account for 90% of all linked domains and 122 of 1183 sites in the diverse condition. Around 40% of all referenced sites are referenced only once and around 70% are referenced no more than 5 times (see <a href="#fig-domain-counts-cat" class="quarto-xref">Figure&nbsp;3</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-domain-counts" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-domain-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Diversity_files/figure-html/fig-domain-counts-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-domain-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Distribution of Domain Counts
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-domain-counts-cat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-domain-counts-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Diversity_files/figure-html/fig-domain-counts-cat-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-domain-counts-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Distribution of Domain Counts
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-are-the-differences-between-the-experimental-conditions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-are-the-differences-between-the-experimental-conditions"><span class="header-section-number">2</span> What are the differences between the experimental conditions?</h2>
+<section id="domains" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="domains"><span class="header-section-number">2.1</span> Domains</h3>
+<p>Some sites are referenced roughly equally often in both conditions (e.g.&nbsp;<code>deutschlandfunk.de</code>, <code>spiegel.de</code>, <code>faz.net</code>)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, some are referenced more in the diverse condition (e.g.&nbsp;<code>news-pravda.com</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, <code>taz.de</code>, <code>swr.de</code>) and others in the regular condition (e.g.&nbsp;<code>lemonde.fr</code>, <code>ft.com</code>, <code>apnews.com</code>). Most sites (~ 99%) appear either (within a 5% deviation) in the regular or in the diverse condition (see <a href="#fig-domain-conditions" class="quarto-xref">Figure&nbsp;4</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-domain-conditions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-domain-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Diversity_files/figure-html/fig-domain-conditions-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-domain-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Usage of Domains in the Experimental Conditions
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#tbl-top-domains-by-condition" class="quarto-xref">Table&nbsp;3</a> shows the domains that are strongly associated with either the diverse or the regular condition, and those that are represented equally often in both conditions.</p>
+<div class="cell">
+<div id="tbl-top-domains-by-condition" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top-domains-by-condition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Top Domains by Condition
+</figcaption>
+<div aria-describedby="tbl-top-domains-by-condition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="kekmgzdmpg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kekmgzdmpg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#kekmgzdmpg thead, #kekmgzdmpg tbody, #kekmgzdmpg tfoot, #kekmgzdmpg tr, #kekmgzdmpg td, #kekmgzdmpg th {
+  border-style: none;
+}
+
+#kekmgzdmpg p {
+  margin: 0;
+  padding: 0;
+}
+
+#kekmgzdmpg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kekmgzdmpg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kekmgzdmpg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kekmgzdmpg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kekmgzdmpg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kekmgzdmpg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kekmgzdmpg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kekmgzdmpg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kekmgzdmpg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kekmgzdmpg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#kekmgzdmpg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kekmgzdmpg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kekmgzdmpg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kekmgzdmpg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kekmgzdmpg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kekmgzdmpg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kekmgzdmpg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kekmgzdmpg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kekmgzdmpg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kekmgzdmpg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kekmgzdmpg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kekmgzdmpg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kekmgzdmpg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kekmgzdmpg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kekmgzdmpg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kekmgzdmpg .gt_left {
+  text-align: left;
+}
+
+#kekmgzdmpg .gt_center {
+  text-align: center;
+}
+
+#kekmgzdmpg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kekmgzdmpg .gt_font_normal {
+  font-weight: normal;
+}
+
+#kekmgzdmpg .gt_font_bold {
+  font-weight: bold;
+}
+
+#kekmgzdmpg .gt_font_italic {
+  font-style: italic;
+}
+
+#kekmgzdmpg .gt_super {
+  font-size: 65%;
+}
+
+#kekmgzdmpg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#kekmgzdmpg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kekmgzdmpg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#kekmgzdmpg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#kekmgzdmpg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kekmgzdmpg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kekmgzdmpg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#kekmgzdmpg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kekmgzdmpg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="domain" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Domain</th>
+<th id="total_n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="Diverse" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Diverse</th>
+<th id="Regular" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Regular</th>
+<th id="d" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">log(diverse/current)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_row_group_first">
+<td rowspan="5" class="gt_row gt_left gt_stub_row_group" headers="Diverse stub_1_1 stub_1">Diverse</td>
+<td class="gt_row gt_left" headers="Diverse stub_1_1 domain">de.euronews.com</td>
+<td class="gt_row gt_right" headers="Diverse stub_1_1 total_n">117</td>
+<td class="gt_row gt_right" headers="Diverse stub_1_1 Diverse">0.31%</td>
+<td class="gt_row gt_right" headers="Diverse stub_1_1 Regular">0.14%</td>
+<td class="gt_row gt_right" headers="Diverse stub_1_1 d">0.77968936</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Diverse domain_2 domain">learngerman.dw.com</td>
+<td class="gt_row gt_right" headers="Diverse domain_2 total_n">123</td>
+<td class="gt_row gt_right" headers="Diverse domain_2 Diverse">0.36%</td>
+<td class="gt_row gt_right" headers="Diverse domain_2 Regular">0.11%</td>
+<td class="gt_row gt_right" headers="Diverse domain_2 d">1.13932435</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Diverse domain_3 domain">taz.de</td>
+<td class="gt_row gt_right" headers="Diverse domain_3 total_n">131</td>
+<td class="gt_row gt_right" headers="Diverse domain_3 Diverse">0.38%</td>
+<td class="gt_row gt_right" headers="Diverse domain_3 Regular">0.11%</td>
+<td class="gt_row gt_right" headers="Diverse domain_3 d">1.21628539</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Diverse domain_4 domain">swr.de</td>
+<td class="gt_row gt_right" headers="Diverse domain_4 total_n">209</td>
+<td class="gt_row gt_right" headers="Diverse domain_4 Diverse">0.63%</td>
+<td class="gt_row gt_right" headers="Diverse domain_4 Regular">0.16%</td>
+<td class="gt_row gt_right" headers="Diverse domain_4 d">1.34362481</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Diverse domain_5 domain">news-pravda.com</td>
+<td class="gt_row gt_right" headers="Diverse domain_5 total_n">641</td>
+<td class="gt_row gt_right" headers="Diverse domain_5 Diverse">1.92%</td>
+<td class="gt_row gt_right" headers="Diverse domain_5 Regular">0.50%</td>
+<td class="gt_row gt_right" headers="Diverse domain_5 d">1.34609700</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td rowspan="5" class="gt_row gt_left gt_stub_row_group" headers="Both stub_1_6 stub_1">Both</td>
+<td class="gt_row gt_left" headers="Both stub_1_6 domain">bpb.de</td>
+<td class="gt_row gt_right" headers="Both stub_1_6 total_n">259</td>
+<td class="gt_row gt_right" headers="Both stub_1_6 Diverse">0.53%</td>
+<td class="gt_row gt_right" headers="Both stub_1_6 Regular">0.55%</td>
+<td class="gt_row gt_right" headers="Both stub_1_6 d">-0.04266955</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Both domain_7 domain">spiegel.de</td>
+<td class="gt_row gt_right" headers="Both domain_7 total_n">600</td>
+<td class="gt_row gt_right" headers="Both domain_7 Diverse">1.24%</td>
+<td class="gt_row gt_right" headers="Both domain_7 Regular">1.25%</td>
+<td class="gt_row gt_right" headers="Both domain_7 d">-0.01441633</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Both domain_8 domain">faz.net</td>
+<td class="gt_row gt_right" headers="Both domain_8 total_n">749</td>
+<td class="gt_row gt_right" headers="Both domain_8 Diverse">1.57%</td>
+<td class="gt_row gt_right" headers="Both domain_8 Regular">1.53%</td>
+<td class="gt_row gt_right" headers="Both domain_8 d">0.02308183</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Both domain_9 domain">derstandard.de</td>
+<td class="gt_row gt_right" headers="Both domain_9 total_n">122</td>
+<td class="gt_row gt_right" headers="Both domain_9 Diverse">0.26%</td>
+<td class="gt_row gt_right" headers="Both domain_9 Regular">0.25%</td>
+<td class="gt_row gt_right" headers="Both domain_9 d">0.03429149</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Both domain_10 domain">merkur.de</td>
+<td class="gt_row gt_right" headers="Both domain_10 total_n">724</td>
+<td class="gt_row gt_right" headers="Both domain_10 Diverse">1.53%</td>
+<td class="gt_row gt_right" headers="Both domain_10 Regular">1.46%</td>
+<td class="gt_row gt_right" headers="Both domain_10 d">0.04985382</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td rowspan="5" class="gt_row gt_left gt_stub_row_group" headers="Regular stub_1_11 stub_1">Regular</td>
+<td class="gt_row gt_left" headers="Regular stub_1_11 domain">bundeswahlleiterin.de</td>
+<td class="gt_row gt_right" headers="Regular stub_1_11 total_n">130</td>
+<td class="gt_row gt_right" headers="Regular stub_1_11 Diverse">0.06%</td>
+<td class="gt_row gt_right" headers="Regular stub_1_11 Regular">0.56%</td>
+<td class="gt_row gt_right" headers="Regular stub_1_11 d">-2.22452610</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Regular domain_12 domain">lemonde.fr</td>
+<td class="gt_row gt_right" headers="Regular domain_12 total_n">186</td>
+<td class="gt_row gt_right" headers="Regular domain_12 Diverse">0.19%</td>
+<td class="gt_row gt_right" headers="Regular domain_12 Regular">0.66%</td>
+<td class="gt_row gt_right" headers="Regular domain_12 d">-1.27694770</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Regular domain_13 domain">kuriose-feiertage.de</td>
+<td class="gt_row gt_right" headers="Regular domain_13 total_n">160</td>
+<td class="gt_row gt_right" headers="Regular domain_13 Diverse">0.18%</td>
+<td class="gt_row gt_right" headers="Regular domain_13 Regular">0.54%</td>
+<td class="gt_row gt_right" headers="Regular domain_13 d">-1.08987387</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Regular domain_14 domain">en.wikipedia.org</td>
+<td class="gt_row gt_right" headers="Regular domain_14 total_n">131</td>
+<td class="gt_row gt_right" headers="Regular domain_14 Diverse">0.16%</td>
+<td class="gt_row gt_right" headers="Regular domain_14 Regular">0.43%</td>
+<td class="gt_row gt_right" headers="Regular domain_14 d">-0.97803643</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Regular domain_15 domain">elpais.com</td>
+<td class="gt_row gt_right" headers="Regular domain_15 total_n">565</td>
+<td class="gt_row gt_right" headers="Regular domain_15 Diverse">0.72%</td>
+<td class="gt_row gt_right" headers="Regular domain_15 Regular">1.79%</td>
+<td class="gt_row gt_right" headers="Regular domain_15 d">-0.90878986</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="diversity-indicators" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="diversity-indicators"><span class="header-section-number">2.2</span> Diversity indicators</h3>
+<p>The diverse condition produces both more diverse individual sessions (see <a href="#tbl-diversity-by-sessions" class="quarto-xref">Table&nbsp;4</a> and <a href="#fig-diversity-indicators" class="quarto-xref">Figure&nbsp;6</a>), as does it produce more diverse sources across all sessions over time (see <a href="#fig-diversity-over-time" class="quarto-xref">Figure&nbsp;5</a>).</p>
+<div class="cell">
+<div id="tbl-diversity-by-sessions" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diversity-by-sessions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Differences between diversity indicators
+</figcaption>
+<div aria-describedby="tbl-diversity-by-sessions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="bzdcgtpgun" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bzdcgtpgun table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bzdcgtpgun thead, #bzdcgtpgun tbody, #bzdcgtpgun tfoot, #bzdcgtpgun tr, #bzdcgtpgun td, #bzdcgtpgun th {
+  border-style: none;
+}
+
+#bzdcgtpgun p {
+  margin: 0;
+  padding: 0;
+}
+
+#bzdcgtpgun .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bzdcgtpgun .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bzdcgtpgun .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bzdcgtpgun .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bzdcgtpgun .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bzdcgtpgun .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bzdcgtpgun .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bzdcgtpgun .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bzdcgtpgun .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bzdcgtpgun .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bzdcgtpgun .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bzdcgtpgun .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bzdcgtpgun .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bzdcgtpgun .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bzdcgtpgun .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bzdcgtpgun .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bzdcgtpgun .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bzdcgtpgun .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bzdcgtpgun .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bzdcgtpgun .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bzdcgtpgun .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bzdcgtpgun .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bzdcgtpgun .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bzdcgtpgun .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bzdcgtpgun .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bzdcgtpgun .gt_left {
+  text-align: left;
+}
+
+#bzdcgtpgun .gt_center {
+  text-align: center;
+}
+
+#bzdcgtpgun .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bzdcgtpgun .gt_font_normal {
+  font-weight: normal;
+}
+
+#bzdcgtpgun .gt_font_bold {
+  font-weight: bold;
+}
+
+#bzdcgtpgun .gt_font_italic {
+  font-style: italic;
+}
+
+#bzdcgtpgun .gt_super {
+  font-size: 65%;
+}
+
+#bzdcgtpgun .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bzdcgtpgun .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bzdcgtpgun .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bzdcgtpgun .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bzdcgtpgun .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bzdcgtpgun .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bzdcgtpgun .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bzdcgtpgun .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bzdcgtpgun div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Indicator</th>
+<th id="Regular" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Regular</th>
+<th id="Diverse" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Diverse</th>
+<th id="sig" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="name">hhi</td>
+<td class="gt_row gt_right" headers="Regular">0.21</td>
+<td class="gt_row gt_right" headers="Diverse">0.16</td>
+<td class="gt_row gt_left" headers="sig">&lt; .001</td>
+<td class="gt_row gt_right" headers="n">5552</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="name">sdi</td>
+<td class="gt_row gt_right" headers="Regular">1.70</td>
+<td class="gt_row gt_right" headers="Diverse">1.99</td>
+<td class="gt_row gt_left" headers="sig">&lt; .001</td>
+<td class="gt_row gt_right" headers="n">5552</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="name">unique_sources</td>
+<td class="gt_row gt_right" headers="Regular">7.33</td>
+<td class="gt_row gt_right" headers="Diverse">10.04</td>
+<td class="gt_row gt_left" headers="sig">&lt; .001</td>
+<td class="gt_row gt_right" headers="n">5552</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="5" class="gt_footnote">hhi: Herfindahl-Hirschman Index, sdi: Shannon Diversity Index, significance based on two-sided t-tests</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-diversity-over-time" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diversity-over-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Diversity_files/figure-html/fig-diversity-over-time-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diversity-over-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Diversity Metrics over Time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-diversity-indicators" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diversity-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Diversity_files/figure-html/fig-diversity-indicators-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diversity-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Distribution of Diversity Metrics by Condition
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>equal use within ~5% deviation<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>a <a href="https://en.wikipedia.org/wiki/Pravda_network">russian propaganda network</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
