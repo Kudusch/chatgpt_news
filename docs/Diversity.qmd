@@ -1,5 +1,6 @@
 ---
 title: "Diversity of News Sources in ChatGPT"
+bibliography: references.bib
 format:  
   html:
     toc: true
@@ -77,17 +78,25 @@ links <- links |>
         domain
     ))
 
+tranco <- import("data/top-1m.csv") |> 
+    rename(tranco_rank = 1, domain = 2) |> 
+    mutate(tranco_rank_inv = 1000001-tranco_rank)
+
 domains <- links |> 
     group_by(condition) |> 
     count(domain, sort = TRUE) |> 
     mutate(p = n/sum(n)) |> 
     mutate(cp = cumsum(p)) |> 
-    ungroup()
+    ungroup() |> 
+    left_join(tranco, by = "domain") |> 
+    mutate(across(tranco_rank_inv, \(x) ifelse(is.na(x), 0, x)))
 ```
 
 ## What sites are referenced by ChatGPT?
 
-When prompted for current news from `{r} links$date |> min() |> format(format = "%d. %b %Y")` to `{r} links$date |> max() |> format(format = "%d. %b %Y")` in `{r} links$uid |> unique() |> length()` unique sessions, ChatGPT linked to a total of `{r} domains$domain |> unique() |> length()` unique domains. See @tbl-top-domains for an overview of linked domains, including the domains' share in the two experimental conditions (current news vs current news from diverse sources).
+When prompted for current news from `{r} links$date |> min() |> format(format = "%d. %b %Y")` to `{r} links$date |> max() |> format(format = "%d. %b %Y")` in `{r} links$uid |> unique() |> length()` unique sessions, ChatGPT linked to a total of `{r} domains$domain |> unique() |> length()` unique domains. See @tbl-top-domains for an overview of linked domains, including the domains' share in the two experimental conditions (current news vs current news from diverse sources). Website popularity based on the Tranco website rankings [@Le_Pochat_2019]. `{r} 100*(domains$tranco_rank |> is.na() |> mean() |> round(digits = 2))` % of sites are not listed in the top 1 million sites ranked by tranco. A small number of linked domain names are not registered/invalid, including example domains (e.g. `news-site1.com`, `anderesbeispiel.de`), plausible sounding but fake sources (e.g. `technologieaktuell.de`, `aktionsseitedeutschland.de`) and typos/wrong top level domains (e.g. `euroma-mai.de` instead of `europa-mai.de`).
+
+<!--https://web.archive.org/web/20250328100207/https://www.kapitalkompakt.de/impressum-->
 
 ```{r}
 #| echo: false
@@ -102,13 +111,21 @@ domains |>
     mutate(n = sum(n)) |> 
     pivot_wider(names_from = condition, values_from = p, values_fill = 0) |> 
     arrange(-n) |> 
-    ungroup() |> 
+    ungroup() |>
+    select(-tranco_rank_inv) |> 
+    mutate(tranco_rank = ordinal(tranco_rank)) |> 
+    mutate(domain = sprintf("https://%s", domain)) |> 
     gt() |> 
     opt_interactive(use_pagination = TRUE, page_size_default = 20) |> 
-    fmt_percent(-c(domain, n)) |> 
+    fmt_percent(-c(domain, n, tranco_rank)) |> 
+    fmt_url(domain, label = function(x) gsub("https://|www.", "", x)) |> 
+    cols_align(align = "right", columns = tranco_rank) |> 
     cols_label(
-        domain = "Domain"
+        domain = "Domain",
+        tranco_rank = "Tranco Rank"
     )
+    
+
 ```
 
 ### Top sites over time
@@ -421,3 +438,83 @@ links |>
     facet_wrap(vars(name), scales = "free") +
     theme(legend.position = "bottom")
 ```
+
+### Website popularity
+
+```{r}
+test_df <- domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, tranco_rank, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = log(Diverse / Regular)) |> 
+    mutate(condition = case_when(
+        d < 0 ~ "Regular",
+        d > 0 ~ "Diverse",
+        TRUE ~ "Both"
+    ))
+```
+
+In the diverse condition, ChatGPT linked to less popular[^3] websites than in the regular condition. Both in terms of number of references to sites listed in the tranco top 1 million (see @tbl-tranco-crosstab) and the average rank of linked sites (see @fig-tranco-condition). This effect is statistically significant but very small.
+
+[^3]: i.e. sites being listed in the tranco top 1 million most visited sites
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-tranco-crosstab
+#| tbl-cap: Tranco Rank by Condition
+
+fit <- table(
+    !is.na(rep(test_df$tranco_rank, test_df$total_n)), 
+    rep(test_df$condition, test_df$total_n)
+) |> chisq.test()
+test_df |> 
+    group_by(condition) |> 
+    select(tranco_rank, total_n, condition) |> 
+    slice(rep(1:n(), total_n)) |> 
+    ungroup() |> 
+    count(condition, top_1m = !is.na(tranco_rank)) |> 
+    group_by(condition) |> 
+    mutate(p = n/sum(n)) |> 
+    ungroup() |> 
+    mutate(cell = sprintf("%i (%2.1f%%)", n, p*100)) |> 
+    pivot_wider(names_from = condition, values_from = cell, id_cols = top_1m) |> 
+    mutate(top_1m = ifelse(top_1m, "In top 1M", "Not in top 1M")) |> 
+    gt() |> 
+    fmt_tf(top_1m) |> 
+    cols_label(top_1m = "Tranco Ranking") |> 
+    tab_footnote(md("Chi<sup>2</sup> test = 162.78, p
+< .001; Adjusted Cramer's v = 0.06"))
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-tranco-condition
+#| fig-cap: "Differences in Tranco Ranks by Condition"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 4
+fit <- t.test(rep(test_df$tranco_rank, test_df$total_n) ~ rep(test_df$condition, test_df$total_n))
+test_df |> 
+    group_by(condition) |> 
+    select(tranco_rank, total_n) |> 
+    slice(rep(1:n(), total_n)) |> 
+    ungroup() |> 
+    ggplot(aes(x = tranco_rank, fill = condition)) + 
+    #geom_histogram(position = "dodge") +
+    geom_density(alpha = .5) +
+    labs(
+        title = "Differences in Tranco Ranks by Condition",
+        caption = "Welch Two Sample t-test: t(33076.99) = 14.37, p < .001; Cohen's d = 0.14",
+        x = "Tranco Rank"
+    )
+```
+
