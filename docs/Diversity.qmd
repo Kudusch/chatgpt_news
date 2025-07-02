@@ -1,5 +1,7 @@
 ---
 title: "Diversity of News Sources in ChatGPT"
+subtitle: "Note: Work in progess"
+date-modified: 2025-07-03
 bibliography: references.bib
 format:  
   html:
@@ -8,6 +10,7 @@ format:
     theme: default
     code-fold: true
     code-summary: "Show the code"
+    css: main.css
 ---
 
 ```{r include = FALSE}
@@ -263,9 +266,10 @@ domains |>
 
 ### Domains
 
-Some sites are referenced roughly equally often in both conditions (e.g. `deutschlandfunk.de`, `spiegel.de`, `faz.net`)[^1], some are referenced more in the diverse condition (e.g. `news-pravda.com`[^2], `taz.de`, `swr.de`) and others in the regular condition (e.g. `lemonde.fr`, `ft.com`, `apnews.com`). Most sites (~ 99%) appear either (within a 5% deviation) in the regular or in the diverse condition (see @fig-domain-conditions).
+Some sites are referenced roughly equally often in both conditions (e.g. `deutschlandfunk.de`, `spiegel.de`, `faz.net`)[^1], some are referenced more in the diverse condition (e.g. `news-pravda.com`[^2], `taz.de`, `swr.de`) and others in the regular condition (e.g. `lemonde.fr`, `ft.com`, `apnews.com`). Most sites (\~ 99%) appear either (within a 5% deviation) in the regular or in the diverse condition (see @fig-domain-conditions).
 
 [^1]: equal use within \~5% deviation
+
 [^2]: a [russian propaganda network](https://en.wikipedia.org/wiki/Pravda_network)
 
 ```{r}
@@ -307,7 +311,7 @@ domains |>
     theme(legend.position = "bottom")
 ```
 
-@tbl-top-domains-by-condition shows the domains that are strongly associated with either the diverse or the regular condition, and those that are represented equally often in both conditions. 
+@tbl-top-domains-by-condition shows the domains that are strongly associated with either the diverse or the regular condition, and those that are represented equally often in both conditions.
 
 ```{r}
 #| echo: false
@@ -378,7 +382,6 @@ links |>
     cols_label(name = "Indicator", sig = "p.value") |> 
     tab_footnote("hhi: Herfindahl-Hirschman Index, sdi: Shannon Diversity Index, significance based on two-sided t-tests")
 ```
-
 
 ```{r}
 #| echo: false
@@ -493,7 +496,6 @@ test_df |>
 < .001; Adjusted Cramer's v = 0.06"))
 ```
 
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -518,3 +520,6 @@ test_df |>
     )
 ```
 
+##### Open Data {.appendix}
+
+For code and data, see the [reproduction package](https://github.com/Kudusch/chatgpt_news/).

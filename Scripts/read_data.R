@@ -1,5 +1,6 @@
 # Dependencies ----
 library(rio)
+library(nanoparquet)
 library(arrow)
 library(dplyr)
 library(tidyr)
