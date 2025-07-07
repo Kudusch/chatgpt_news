@@ -70,6 +70,7 @@ links <- jsonlite::fromJSON("Data/links_api.json") |>
     mutate(domain = urltools::url_parse(url)) |> 
     unnest(domain) |> 
     mutate(domain = str_remove(domain, "^www\\.")) |> 
+    mutate(domain = str_remove(domain, "^www1\\.")) |> 
     mutate(url = str_remove(url, fixed("?utm_source=openai"))) |> 
     mutate(condition = get_condition(uid)) |> 
     distinct(uid, date, experiment, condition, url, domain)
@@ -85,6 +86,25 @@ tranco <- import("data/top-1m.csv") |>
     rename(tranco_rank = 1, domain = 2) |> 
     mutate(tranco_rank_inv = 1000001-tranco_rank)
 
+manual_coding <- list.files("data", pattern = "coder_.*\\.xlsx", full.names = TRUE) |> 
+    import_list(rbind = TRUE, setclass = "tibble") |> 
+    mutate(coder = factor(Coder, levels = c("Tim", "Example", "Leonie", "Justin"))) |> 
+    rename(category = Kategorie, is_springer = `Ist Springer?`) |> 
+    mutate(domain = str_remove(Domain, "https://")) |> 
+    mutate(is_springer = is_springer == "Ja") |> 
+    mutate(is_springer = ifelse(is.na(is_springer), FALSE, is_springer)) |> 
+    select(domain, category, is_springer, coder) |> 
+    mutate(domain = ifelse(
+        str_detect(domain, "news-pravda.com"),
+        "news-pravda.com",
+        domain
+    )) |> 
+    mutate(category = factor(
+        category,
+        c("private_newsmedia", "public_broadcaster", "local_media", "news_agency", "alternative_media", "encyclopedias", "organization", "other"),
+        c("Private media", "Public broadcaster", "Local/regional media", "News agency", "Alternative media", "Encyclopedias", "Organization/Business", "Misc")
+    ))
+
 domains <- links |> 
     group_by(condition) |> 
     count(domain, sort = TRUE) |> 
@@ -92,7 +112,12 @@ domains <- links |>
     mutate(cp = cumsum(p)) |> 
     ungroup() |> 
     left_join(tranco, by = "domain") |> 
-    mutate(across(tranco_rank_inv, \(x) ifelse(is.na(x), 0, x)))
+    mutate(across(tranco_rank_inv, \(x) ifelse(is.na(x), 0, x))) |> 
+    left_join(
+        manual_coding |> group_by(domain) |> filter(!is.na(category)) |> arrange(coder) |> slice(1) |> filter(!is.na(category)), 
+        by = "domain"
+    ) |> 
+    distinct()
 ```
 
 ## What sites are referenced by ChatGPT?
@@ -108,7 +133,7 @@ When prompted for current news from `{r} links$date |> min() |> format(format = 
 #| tbl-cap: Top Domains
 
 domains |> 
-    select(-cp) |> 
+    select(-c(cp, category, is_springer, coder)) |> 
     group_by(domain, condition) |> 
     summarise(across(everything(), sum)) |> 
     mutate(n = sum(n)) |> 
@@ -158,7 +183,8 @@ links |>
     ggplot(aes(x = as.Date(date), y = n)) +
     geom_col(width = 1.1) +
     scale_x_date(date_labels = "KW %U", date_breaks = "2 weeks") +
-    facet_wrap(vars(domain), nrow = 5, scales = "free_y")
+    facet_wrap(vars(domain), nrow = 5, scales = "free_y") +
+    labs(title = "Usage of Domains over Time", x = "Date", y = "Count")
     
 ```
 
@@ -261,6 +287,84 @@ domains |>
     theme(legend.position = "bottom")
 
 ```
+
+### Domain categorization
+
+```{r}
+sample_meta <- domains |> 
+    group_by(domain) |> 
+    summarise(n = sum(n)) |> 
+    ungroup() |> 
+    group_by(in_sample = n >= 10) |> 
+    summarise(n_refs = sum(n), unique_urls = n()) |> 
+    mutate(p_refs = n_refs/sum(n_refs), p_urls = unique_urls/sum(unique_urls)) |> 
+    filter(in_sample) |> 
+    as.list()
+```
+
+A manual coding of the top domains (*N* = `{r} sample_meta$unique_urls`) representing `{r} sample_meta$p_refs |> round(digits = 2)` % of all references and `{r} sample_meta$p_urls |> round(digits = 2)` % of all linked sites reveals that ChatGPT links to a wide range of both journalistic and non-journalistic sources (see @tbl-domain-cats).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-domain-cats
+#| tbl-cap: Categories of linked domains
+domains |> 
+    filter(!is.na(category)) |> 
+    group_by(category, condition) |> 
+    summarise(
+        p = sum(p), 
+        n = sum(n), 
+        unique_domains = domain |> unique() |> length()
+    ) |> 
+    mutate(total_n = sum(n), unique_domains = sum(unique_domains)) |> 
+    ungroup() |> 
+    pivot_wider(names_from = condition, values_from = p, id_cols = c("category", "total_n", "unique_domains")) |> 
+    gt() |> 
+    fmt_percent(Regular:Diverse) |> 
+    fmt_integer(total_n) |> 
+    cols_label(
+        category = "Category",
+        total_n = "n",
+        unique_domains = "Unique domains"
+    )
+```
+Around one third of the manually coded sites are journalistic, including local/regional media, public broadcasters and news agencies. The remaining sources include online encyclopedias (mainly Wikipedia) and the websites of organizations and businesses, often as primary sources of a news story. ChatGPT is acting not as a news aggregator but assuming a journalistic role, providing primary sources.
+
+ChatGPT also links to websites that scrape news sites and other sources and provide AI-generated 'news':
+
+> Unsere Veröffentlichungspraxis basiert auf der Verbreitung neutral formulierter Nachrichtenartikel, die auf verschiedenen Quellen beruhen. Diese Quellen umfassen eine Vielzahl von Informationsquellen wie Nachrichtenmagazine, offene und geschlossene Foren, Social-Media-Plattformen (einschließlich Facebook, Twitter, LinkedIn, Reddit, Telegram, usw.), Darknet-Foren sowie E-Mail-Zuschriften mit relevanten Informationen. Um eine objektive Berichterstattung sicherzustellen, werden diese Informationen in Echtzeit abgeglichen und mittels einer umfangreichen Formel der Schwarmintelligenz sowie umfangreichen Autoritätskriterien analysiert. Dadurch werden die tatsächlichen Details ermittelt, Bias, Meinungen, Mutmaßungen und politische Richtungen neutralisiert und eine ausgewogene Berichterstattung gewährleistet. Als Aggregator verstehen wir uns ausschließlich als Presseschau zur öffentlichen Information bestehender Meldungen, um diese einfacher zugänglich zu machen.
+>
+> Die durch freie Redakteure und unserem KI-Unterstützungssystem analysierten Inhalte auf dieser Website unterliegen nur teilweise dem deutschen Urheberrecht, da sie von teilautomatisierten Prozessen generiert wurden.
+>
+> <https://die-nachrichten.at/pages/kodex>, 2025-07-07
+
+Outlets published by Axel Springer publishing do not seem to be preferred by ChatGPT over other outlets (see @fig-springer-domains).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-springer-domains
+#| fig-cap: "Domains related with Axel Springer publishing"
+#| fig-alt: "Column chart showing how Springer publications don't appear in the top 15"
+
+domains |> 
+    filter(!is.na(is_springer)) |> 
+    group_by(condition) |> 
+    arrange(-n) |> 
+    mutate(x = 1:n()) |> 
+    ungroup() |> 
+    mutate(label = ifelse(is_springer, domain, NA)) |> 
+    mutate(is_springer = ifelse(is_springer, "Axel Springer", "Other publisher")) |> 
+    ggplot(aes(x = x, y = n, fill = is_springer)) +
+    geom_col(width = 1.1) +
+    geom_label_repel(aes(label = label), nudge_y = 800, fill = options()$ggplot2.discrete.colour[6]) +
+    scale_fill_manual(values = options()$ggplot2.discrete.colour[c(6,5)]) +
+    facet_wrap(vars(condition), nrow = 2, scales = "free") +
+    labs(title = "",x = "", y = "Count", fill = "") +
+    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), legend.position = "bottom")
+```
+
 
 ## What are the differences between the experimental conditions?
 
