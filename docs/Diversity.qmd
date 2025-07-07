@@ -1,7 +1,7 @@
 ---
 title: "Diversity of News Sources in ChatGPT"
 subtitle: "Note: Work in progess"
-date-modified: 2025-07-03
+date-modified: 2025-07-07
 bibliography: references.bib
 format:  
   html:
@@ -338,6 +338,8 @@ ChatGPT also links to websites that scrape news sites and other sources and prov
 > Die durch freie Redakteure und unserem KI-Unterstützungssystem analysierten Inhalte auf dieser Website unterliegen nur teilweise dem deutschen Urheberrecht, da sie von teilautomatisierten Prozessen generiert wurden.
 >
 > <https://die-nachrichten.at/pages/kodex>, 2025-07-07
+
+<!--https://web.archive.org/web/20250519023336/https://www.vorreiter-zeitung.de/post/30-jahre-giftnotruf-erfurt-->
 
 Outlets published by Axel Springer publishing do not seem to be preferred by ChatGPT over other outlets (see @fig-springer-domains).
 
