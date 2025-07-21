@@ -1,0 +1,1325 @@
+domain,type,language,in_list_chatgpt,in_list_hbi,in_list_scharkow,in_list_stier,in_list_w3news
+10tv.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+19vierundachtzig.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+20min.ch,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+20minutes.fr,tabloid newspaper,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+20minutos.es,tabloid newspaper,es,FALSE,FALSE,FALSE,TRUE,FALSE
+20mn.fr,tabloid newspaper,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+24chasa.bg,legacy press,bg,TRUE,FALSE,FALSE,FALSE,FALSE
+24economia.com,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+24rhein.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+24vest.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+3sat.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+6abc.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+a-beig.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+aachener-nachrichten.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,TRUE
+aachener-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+abc.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+abc.net.au,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abc13.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abc15.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abc7.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abc7chicago.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abc7ny.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abcactionnews.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abcn.ws,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+abendblatt.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+abendblatt.de/hamburg/bergedorf,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+abendzeitung-muenchen.de,tabloid newspaper,de,FALSE,TRUE,FALSE,TRUE,TRUE
+abgeordneten-check.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+achgut.com,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+actu.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+actu.orange.fr,portal,NA,NA,NA,NA,NA,NA
+actualites-la-croix.com,legacy press,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+actuall.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+ad.nl,tabloid newspaper,it,TRUE,FALSE,FALSE,FALSE,FALSE
+adevarul.ro,legacy press,ro,TRUE,FALSE,FALSE,FALSE,FALSE
+adnkronos.com,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+aerotelegraph.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+aerztezeitung.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+affaritaliani.it,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+agoravox.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+aichacher-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+aichacher-zeitung.de/vorort,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+aktiv-online.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+alertadigital.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+alexander-wallasch.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+alfelder-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+aljazeera.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+aljazeera.net,commercial broadcaster,ar,FALSE,FALSE,FALSE,FALSE,FALSE
+all-in.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+alles-schallundrauch.blogspot.com,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+allgaeuer-anzeigeblatt.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+allgaeuer-zeitung.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+allgemeine-zeitung.de,tabloid newspaper,de,TRUE,TRUE,TRUE,FALSE,FALSE
+alpenschau.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+altermannblog.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+altkreisblitz.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ammerseekurier.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,FALSE
+anderweltonline.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+andreas-unterberger.at,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+anonymousnews.org,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+anonymousnews.ru,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+ansa.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ansage.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+antaios.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+antena3.com,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+antenne.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+antenne1.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+antennethueringen.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+anti-spiegel.ru,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+antilobby.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+aol.co.uk/news,portal,NA,NA,NA,NA,NA,NA
+aol.com,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+aol.com/article/news,portal,NA,NA,NA,NA,NA,NA
+aol.com/news,portal,NA,NA,NA,NA,NA,NA
+aol.de/nachrichten,portal,NA,NA,NA,NA,NA,NA
+apnews.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+apolut.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+app.handelsblatt.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ara.cat,legacy press,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+arcamax.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ard-text.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+ard.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+ardmediathek.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+ardtext.de,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+arte.tv,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+atresplayer.com,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+augsburger-allgemeine.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+avvenire.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+az-muenchen.de,tabloid newspaper,de,FALSE,FALSE,TRUE,FALSE,FALSE
+az-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+azcentral.com,legacy press,en,TRUE,FALSE,FALSE,FALSE,FALSE
+azonline.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+babenhaeuser-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+bad-sodener-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+baden-tv.com,commercial broadcaster,de,FALSE,FALSE,FALSE,FALSE,FALSE
+badische-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+badisches-tagblatt.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+baltimoresun.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+bams.de,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+bayerische-staatszeitung.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,FALSE
+bayern3.de,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+bayernistfrei.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+bayreuther-tagblatt.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+bbc.co.uk,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+bbc.com,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+bbglive.de,digital-born news outlet,de,FALSE,FALSE,FALSE,FALSE,FALSE
+bbv-net.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+bellingcat.com,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+belltower.news,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+belta.by,public broadcaster,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+bento.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+beobachter-online.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+berchtesgadener-anzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+bergamopost.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+bergedorfer-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,FALSE
+berliner-abendblatt.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+berliner-kurier.de,tabloid newspaper,de,FALSE,TRUE,TRUE,TRUE,TRUE
+berliner-lokalnachrichten.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+berliner-rundfunk.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+berliner-woche.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+berliner-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+berlinertageszeitung.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+bewusst.tv,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+bfmtv.com,commercial broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+bgland24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+bhaskar.com,legacy press,hi,TRUE,FALSE,FALSE,FALSE,FALSE
+bietigheimerzeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+bild.de,tabloid newspaper,de,FALSE,TRUE,TRUE,TRUE,FALSE
+bkz-online.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,FALSE
+bkz.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+blackout-news.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+blaetter.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+blauenarzisse.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+blic.rs,tabloid newspaper,bs,TRUE,FALSE,FALSE,FALSE,FALSE
+blick-aktuell.de,legacy press,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+blick.ch,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+blick.de,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+blikk.hu,tabloid newspaper,hu,TRUE,FALSE,FALSE,FALSE,FALSE
+blitzquotidiano.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+bloomberg.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+bnn.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,FALSE
+bo.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+bocholt-news.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+boehme-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+boerse-online.de,digital-born news outlet,de,FALSE,FALSE,FALSE,FALSE,TRUE
+boersen-zeitung.de,legacy press,en,FALSE,FALSE,FALSE,FALSE,TRUE
+boersennews.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+borkenerzeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+borkumer-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+boston25news.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+bostonglobe.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+boyens-medien.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+br.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+br24.de,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+brandeins.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+braunschweiger-zeitung.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+breaking-news-saarland.de,digital-born news outlet,de,FALSE,FALSE,FALSE,FALSE,FALSE
+breaknotizie.com,digital-born news outlet,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+breitbart.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+bremeneins.de,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+breuerpresse.de,legacy press,ja,FALSE,TRUE,FALSE,FALSE,FALSE
+brf.be,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+brigitte.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+brv-zeitung.de,legacy press,en,FALSE,TRUE,FALSE,FALSE,TRUE
+bsaktuell.de,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+buerstaedter-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+bunshun.jp,legacy press,ja,TRUE,FALSE,FALSE,FALSE,FALSE
+businessinsider.com,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+businessinsider.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+butenunbinnen.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+butzbacher-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+buzzfeed.com,digital-born news outlet,en,FALSE,FALSE,TRUE,TRUE,FALSE
+buzzfeed.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+buzzfeednews.com,digital-born news outlet,pt,FALSE,FALSE,FALSE,TRUE,FALSE
+bw24.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+bz-berlin.de,tabloid newspaper,de,FALSE,TRUE,TRUE,TRUE,TRUE
+cadenaser.com,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+caffeinamagazine.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+campact.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+canal-plus.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+canal.fr,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+canarias7.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+cancan.ro,tabloid newspaper,ro,TRUE,FALSE,FALSE,FALSE,FALSE
+cannstatter-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+capital.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+casoaislado.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+cataniatoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+cbc.ca,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cbs.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cbsloc.al,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cbslocal.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cbsn.ws,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cbsnews.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ccma.cat,public broadcaster,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+cellesche-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+challenges.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+channel4.com,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+channel7breakingreport.live,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+charter97.org,hyperpartisan news,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+chicagotribune.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+chiemgau24.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+cicero.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,TRUE
+citynews-koeln.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+cnbc.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cnews.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+cnn.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cnn.it,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+cnnturk.com,commercial broadcaster,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+cnv-medien.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+com-magazin.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+come-on.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+compact-online.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+computerweekly.com,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+conservativebuzz.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+conservativedailypost.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+conservativeinstitute.org,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+conservo.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+contra-magazin.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+cope.es,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+corona-blog.net,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+correctiv.org,digital-born news outlet,de,TRUE,FALSE,TRUE,FALSE,FALSE
+corriere.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+corriereadriatico.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+courrierdelouest.fr,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+courrierinternational.com,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+ctxt.es,digital-born news outlet,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+cuatro.com,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+currenttime.tv,commercial broadcaster,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+cz.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+da-imnetz.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,FALSE
+dailyconservative.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dailykos.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dailymail.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dailyrecord.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dailystar.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dailywire.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+dallasnews.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+danisch.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+das-parlament.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+daserste.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+daserste.ndr.de,public broadcaster,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+dattelner-morgenpost.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+dawn.com,legacy press,en,TRUE,FALSE,FALSE,FALSE,FALSE
+daytondailynews.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ddbnews.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.euronews.com,commercial broadcaster,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.europenews.dk,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.gatestoneinstitute.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.nachrichten.yahoo.com,portal,NA,NA,NA,NA,NA,NA
+de.news-front.info,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.rt.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+de.sott.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.sputniknews.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+de.yahoo.com,portal,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+de.yahoo.com/nachrichten,portal,NA,NA,NA,NA,NA,NA
+de24live.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+deister-echo.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+dekoder.org,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+delmagyar.hu,legacy press,hu,TRUE,FALSE,FALSE,FALSE,FALSE
+democratandchronicle.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+denverpost.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+der-kleine-akif.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+der-postillon.com,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,TRUE
+derbytelegraph.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+derpatriot.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+derstandard.at,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+derstandard.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+derwaechter.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+derwesten.de,digital-born news outlet,de,FALSE,TRUE,TRUE,TRUE,TRUE
+detektor.fm,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+deutsch.rt.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+deutsche-mittelstands-nachrichten.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+deutsche-stimme.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+deutsche-wirtschafts-nachrichten.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+deutschland-kurier.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+deutschlandfunk.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+deutschlandfunkkultur.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+deutschlandfunknova.de,public broadcaster,de,TRUE,FALSE,TRUE,FALSE,FALSE
+deutschlandradio.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+dewezet.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+diaridegirona.cat,legacy press,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+diaridetarragona.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariocordoba.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariodeibiza.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariodeleon.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariodemallorca.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariodenavarra.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariodesevilla.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diarioinformacion.com,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+diariojaen.es,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+diariolibre.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariosur.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+diariovasco.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+die-glocke.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+die-tagespost.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+dieharke.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+diepresse.com,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+dieunbestechlichen.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+digi24.ro,commercial broadcaster,ro,TRUE,FALSE,FALSE,FALSE,FALSE
+digitalcourage.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+digitalsevilla.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+dnn.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+donau-ries-aktuell.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+donaukurier.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+dorstenerzeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+dortmund24.de,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+dpa-news.de,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+drudgereport.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dtj-online.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+dushanwegner.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+dw.com,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+dzen.ru,digital-born news outlet,ja,TRUE,FALSE,FALSE,FALSE,FALSE
+dzonline.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+e-zeitung.ruhrnachrichten.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,FALSE
+eberbacher-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+echo-online.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+echo24.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+ecodibergamo.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+economiadigital.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+economist.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ef-magazin.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+eike-klima-energie.eu,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+einbecker-morgenpost.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+einprozent.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+einwanderungskritik.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+ejz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+el-nacional.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elboletin.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elcomercio.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elconfidencial.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elconfidencialdigital.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elcorreo.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elcorreodemadrid.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+elcorreogallego.es,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+elcorreoweb.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+eldia.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+eldiario.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+eldiariomontanes.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+eldigitalcastillalamancha.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+eleconomista.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+electrive.net,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+elektroauto-news.net,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+elespanol.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elle.fr,tabloid newspaper,fr,TRUE,FALSE,FALSE,FALSE,FALSE
+elmundo.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elnortedecastilla.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elpais.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elperiodico.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elperiodicoextremadura.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elplural.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+elpuntavui.cat,legacy press,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+eltiempo.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+emderzeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+ensonhaber.com,digital-born news outlet,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+epochtimes.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,TRUE
+epochtimes.fr,hyperpartisan news,el,FALSE,FALSE,FALSE,TRUE,FALSE
+eppsteiner-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+es.yahoo.com/noticias,portal,NA,NA,NA,NA,NA,NA
+esdiario.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+esslinger-zeitung.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+estrelladigital.es,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+estrepublicain.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+eulenspiegel-zeitschrift.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+euro-actu.fr,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+euronews.com,commercial broadcaster,ka,FALSE,FALSE,FALSE,TRUE,FALSE
+europapress.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+europe1.fr,commercial broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+europenews.dk,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+ev-online.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+eva-herman.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+eveningtimes.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+expansion.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+express.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+express.de,tabloid newspaper,de,FALSE,TRUE,TRUE,TRUE,TRUE
+expressandstar.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+extratipp.com,tabloid newspaper,de,FALSE,FALSE,TRUE,TRUE,FALSE
+extremnews.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+exxpress.at,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ezeitung.swp.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+fanpage.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+faz.net,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+fdesouche.com,hyperpartisan news,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+fdogblog.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+feednews.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+fehmarn24.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+feynsinn.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+filstalwelle.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+finanzen.net,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+finanznachrichten.de,digital-born news outlet,de,FALSE,FALSE,FALSE,FALSE,TRUE
+firstcoastnews.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+fivethirtyeight.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fla.de,legacy press,da,FALSE,TRUE,FALSE,FALSE,TRUE
+flipboard.com,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+flz.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+fnp.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+fnweb.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+focus-magazin.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,FALSE
+focus.de,tabloid newspaper,NA,FALSE,FALSE,TRUE,TRUE,TRUE
+forbes.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fortune.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fox.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fox13news.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fox13now.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fox2now.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+fox4kc.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+fox59.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+fox6now.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fox8.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+fox9.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+foxbusiness.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+foxla.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+foxnews.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fr-online.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+fr.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+fragdenstaat.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+france.tv,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+france24.com,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+france3.fr,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+francebleu.fr,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+franceculture.fr,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+franceinter.fr,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+francesoir.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+francetelevisions.fr,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+francetv.fr,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+francetvinfo.fr,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+frankenpost.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+frankjordanblog.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+free21.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+freenet.de,portal,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+freenet.de/nachrichten,portal,NA,NA,NA,NA,NA,NA
+freie-presse.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+freiepresse.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+freiesnachrichtenblatt.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+freiewelt.net,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+freiezeiten.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+freitag.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+freitags-anzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+freitum.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+ft.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+fuldaerzeitung.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+futurezone.at,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ga-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+ga.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,FALSE
+gaceta.es,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+gaeubote.de,legacy press,NA,FALSE,TRUE,TRUE,FALSE,TRUE
+gandersheimer-kreisblatt.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+gandul.ro,digital-born news outlet,ro,TRUE,FALSE,FALSE,FALSE,FALSE
+gasteizhoy.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+gatestoneinstitute.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+gazeta.ru,hyperpartisan news,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+gazetalubuska.pl,legacy press,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+gazzettadelsud.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+gazzettadiparma.it,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+gea.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+general-anzeiger-bonn.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+geolitico.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+giessener-allgemeine.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+giessener-anzeiger.de,tabloid newspaper,de,TRUE,TRUE,TRUE,FALSE,TRUE
+gifhorner-rundschau.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+giornaledibrescia.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+giornaledilecco.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+giornaledimonza.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+giornaletrentino.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+giornalone.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+globo.com,commercial broadcaster,pt,FALSE,FALSE,FALSE,TRUE,FALSE
+gmuender-tagespost.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+gmx.de,portal,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+gmx.net,portal,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+gmx.net/magazine,portal,NA,NA,NA,NA,NA,NA
+gmx.net/magazine/panorama,portal,NA,NA,NA,NA,NA,NA
+gmx.net/magazine/politik,portal,NA,NA,NA,NA,NA,NA
+gn-online.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+gnz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+goettinger-tageblatt.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+golem.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+goodmorningamerica.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+goodnews4.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+goslarsche.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+granadahoy.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+grenzwissenschaft-aktuell.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+griesheimeranzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+guidograndt.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+haber7.com,digital-born news outlet,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+haberler.com,digital-born news outlet,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+haberturk.com,legacy press,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+haller-kreisblatt.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+hallo-muenchen.de,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+hallo24.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+halternerzeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+hamburg-magazin.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+hanauer.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+handelsblatt.com,legacy press,en,FALSE,TRUE,FALSE,TRUE,FALSE
+handelsblatt.de,legacy press,en,FALSE,FALSE,TRUE,FALSE,FALSE
+harburg-aktuell.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+harlinger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+harzkurier.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,FALSE
+hasepost.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+haunebu7.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+haz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+heidelberg24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+heimat-kurier.at,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+heimatbote-verlag.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+heise.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+hellwegeranzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+heraldo.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+hersfelder-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+hertener-allgemeine.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,FALSE
+hessenschau.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+heute.at,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+heute.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+hildesheimer-allgemeine.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+hintermbusch.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+hna.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+hochheimer-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+hofheimer-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+holsteiner-allgemeine.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+hoy.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+hr-fernsehen.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+hr-inforadio.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+hr-online.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+hr.de,public broadcaster,de,FALSE,FALSE,FALSE,FALSE,FALSE
+hr1.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+hr2.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+hr3.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+hr4.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+huelvainformacion.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+huffingtonpost.co.uk,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+huffingtonpost.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+huffingtonpost.de,digital-born news outlet,en,FALSE,FALSE,TRUE,TRUE,FALSE
+huffingtonpost.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+huffingtonpost.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+huffingtonpost.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+huffpost.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+hulldailymail.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+humanite.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+hurriyet.com.tr,legacy press,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+hurriyet.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+hz.de,legacy press,en,FALSE,TRUE,FALSE,FALSE,FALSE
+ideal.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+idnes.cz,legacy press,cs,TRUE,FALSE,FALSE,FALSE,FALSE
+idowa.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+ihre-az.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+ikz-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+ilcorrieredellacitta.com,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilfattoquotidiano.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilfoglio.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilgazzettino.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilgiornale.it,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+ilgiorno.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilmanifesto.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilmattino.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilmessaggero.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilprimatonazionale.it,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+ilrestodelcarlino.it,tabloid newspaper,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilsecoloxix.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+ilsole24ore.com,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+iltempo.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+independent.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+indexexpurgatorius.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+indiatimes.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+inews.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+info-direkt.eu,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+infolibre.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+inforadio.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+informazione.it,hyperpartisan news,it,FALSE,FALSE,FALSE,TRUE,FALSE
+infranken.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+inge09.blog,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+innsalzach24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+insideedition.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+insuedthueringen.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+interaktiv.morgenpost.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+interaktiv.tagesspiegel.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+interia.pl,digital-born news outlet,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+internazionale.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+isar-anzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+islamiq.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+it.notizie.yahoo.com,portal,NA,NA,NA,NA,NA,NA
+it.yahoo.com/notizie,portal,NA,NA,NA,NA,NA,NA
+itv.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+ivz-aktuell.de,legacy press,de,TRUE,FALSE,TRUE,FALSE,TRUE
+jacobin.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+jetzt.de,legacy press,de,TRUE,FALSE,TRUE,FALSE,FALSE
+jeversches-wochenblatt.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+journaldemontreal.com,tabloid newspaper,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+journalistenwatch.com,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+jpost.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+juedische-allgemeine.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,FALSE
+juergenfritz.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+jungefreiheit.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+jungewelt.de,hyperpartisan news,de,FALSE,TRUE,FALSE,TRUE,TRUE
+ka-news.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,FALSE
+kabeleins.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+kath.net,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+katholisches.info,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+kayserihaber.com.tr,hyperpartisan news,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+kenfm.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+kentonline.co.uk,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+kieler-nachrichten.de,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+kinzig.news,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+klamm.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+kleinezeitung.at,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+klimareporter.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+kn-online.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,TRUE
+komonews.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+kopp-report.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+kopp-verlag.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+kornwestheimer-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+korrektheiten.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+kp.ru,hyperpartisan news,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+kpkrause.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+krass-und-konkret.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+krautreporter.de,digital-born news outlet,de,TRUE,FALSE,TRUE,FALSE,FALSE
+kreis-anzeiger.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+kreiszeitung-wesermarsch.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,TRUE
+kreiszeitung-wochenblatt.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+kreiszeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+krone.at,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+krzbb.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+ksta.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+kulturradio.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+kurier.at,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+kurier.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+kurir.rs,tabloid newspaper,bs,TRUE,FALSE,FALSE,FALSE,FALSE
+la-croix.com,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lagacetadesalamanca.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lagazzettadelmezzogiorno.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+lahrer-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+lainformacion.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lamarea.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lampertheimer-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+lanazione.it,tabloid newspaper,it,FALSE,FALSE,FALSE,TRUE,FALSE
+landeszeitung.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+lanouvellerepublique.fr,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+lanuevacronica.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+laopinioncoruna.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+laopiniondemalaga.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+laopiniondemurcia.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+laopiniondezamora.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lapresse.ca,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lapresse.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+laprovence.com,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+laprovincia.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+larazon.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+larepublica.pe,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+larioja.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lasexta.com,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lasprovincias.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lastampa.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+latimes.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+latribunadeespana.com,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+latribune.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lausitznews.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+lauterbacher-anzeiger.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+lavanguardia.com,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+laverdad.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lavoixdunord.fr,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+lavozdegalicia.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lavozdelsur.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lavozdigital.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lbc.co.uk,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ledauphine.com,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lefigaro.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+leggioggi.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+leggo.it,tabloid newspaper,it,FALSE,FALSE,FALSE,TRUE,FALSE
+legitim.ch,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+leinetal24.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+lemonde.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lenta.ru,digital-born news outlet,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+leonberger-kreiszeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+lep.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+leparisien.fr,tabloid newspaper,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lepenseur-lepenseur.blogspot.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+lepoint.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lepopulaire.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lesechos.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+lettoquotidiano.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+lexpress.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+liberation.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+liberoquotidiano.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+libertaddigital.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+lincolnshirelive.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+linternaute.com,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+linternaute.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+live.daserste.de,public broadcaster,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+live.handelsblatt.com,legacy press,de,FALSE,FALSE,FALSE,FALSE,FALSE
+livenewsnow.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+livesicilia.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+lkz.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+ln-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+lne.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+local10.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+local12.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+lok-report.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+lokal26.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+lokalkompass.de,digital-born news outlet,de,TRUE,FALSE,TRUE,FALSE,FALSE
+lokalo.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+lr-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+ludwigshafen24.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+luegenpresse2.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+luettringhauser-anzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+lvz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+lz.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+m.tagesspiegel.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+magyarhirlap.hu,legacy press,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+mail.com/int/news,portal,NA,NA,NA,NA,NA,NA
+main-echo.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,TRUE
+main-spitze.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+mainecho.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+mainpost.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+malagahoy.es,legacy press,es,FALSE,FALSE,FALSE,TRUE,FALSE
+mallorcazeitung.es,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+man-tau.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+manager-magazin.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,FALSE
+mannheim24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+mannheimer-morgen.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,TRUE
+marbacher-zeitung.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,FALSE
+marbec14.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+marbuch-verlag.de,legacy press,NA,FALSE,FALSE,TRUE,FALSE,FALSE
+marianne.net,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+marler-zeitung.de,legacy press,de,TRUE,FALSE,TRUE,FALSE,FALSE
+maz-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+mdr.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+mediapart.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+mediaset.it,commercial broadcaster,it,FALSE,FALSE,FALSE,TRUE,FALSE
+medical-tribune.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+mediterraneodigital.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+meduza.io,digital-born news outlet,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+meinanzeiger.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+mena-watch.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+mercurynews.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+merkur.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+merkurist.de,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+meta.tagesschau.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+metro.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+metro.it,tabloid newspaper,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+miamiherald.com,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+michael-klonovsky.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+michael-mannheimer.net,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+michaelgrandt.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+milanotoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+mirror.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+mittelbayerische.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+mittelhessen.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+mmnews.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+moin.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+mopo.de,tabloid newspaper,de,FALSE,TRUE,TRUE,TRUE,TRUE
+morgenpost.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+morgenweb.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+moshpitscorner.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+motherjones.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+moz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+mrn-news.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+msn.com,portal,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+msn.com/de-de/finanzen,portal,NA,NA,NA,NA,NA,NA
+msn.com/de-de/nachrichten,portal,NA,NA,NA,NA,NA,NA
+msn.com/de-de/unterhaltung,portal,NA,NA,NA,NA,NA,NA
+msn.com/en-gb/news,portal,NA,NA,NA,NA,NA,NA
+msn.com/en-us/news,portal,NA,NA,NA,NA,NA,NA
+msn.com/es-es/noticias,portal,NA,NA,NA,NA,NA,NA
+msn.com/fr-fr/actualite,portal,NA,NA,NA,NA,NA,NA
+msn.com/it-it/notizie,portal,NA,NA,NA,NA,NA,NA
+msnbc.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+mt-news.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+mt.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+muehlacker-tagblatt.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+muensterlandzeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+muensterschezeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+murrhardter-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+mv-online.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,FALSE
+mynet.com,digital-born news outlet,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+mz-web.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+mz.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+n-joy.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+n-land.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+n-tv.de,commercial broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+n23tv.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+n24.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+n8waechter.info,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+nachdenkseiten.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+nachrichten.posthaven.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+nachrichtenspiegel.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+naciodigital.cat,digital-born news outlet,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+naiz.eus,legacy press,eu,FALSE,FALSE,FALSE,TRUE,FALSE
+naszemiasto.pl,tabloid newspaper,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+nation24.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+nationalgeographic.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+nationalreview.com,legacy press,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+nature.com,legacy press,en,TRUE,FALSE,FALSE,FALSE,FALSE
+naumburger-tageblatt.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+nbc.com,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+nbcchicago.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nbcdfw.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nbclosangeles.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nbcnews.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nbcnews.to,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nbcnewyork.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nd-aktuell.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,TRUE
+ndr.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+ndtv.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ndz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+neckar-chronik.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+neopresse.com,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+nepszava.hu,legacy press,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+netzpolitik.org,digital-born news outlet,de,TRUE,FALSE,TRUE,FALSE,FALSE
+neuepresse.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+neues-deutschland.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+neues-gera.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+neuste.news,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+news-des-tages.com,digital-born news outlet,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+news-mondo.it,digital-born news outlet,ja,FALSE,FALSE,FALSE,TRUE,FALSE
+news-net.fr,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+news-und-nachrichten.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+news.at,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+news.bg,digital-born news outlet,bg,TRUE,FALSE,FALSE,FALSE,FALSE
+news.com.au,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+news.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+news.google.com,portal,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+news.orange.fr,portal,NA,NA,NA,NA,NA,NA
+news.yahoo.com,portal,NA,NA,NA,NA,NA,NA
+news12.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+news38.de,tabloid newspaper,de,FALSE,FALSE,TRUE,TRUE,FALSE
+news4jax.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+news5cleveland.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+news64.info,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+news64.net,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+newsbk.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+newsbreak24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+newsbreakapp.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newsday.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newser.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newsflash24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+newshub360.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+newsmondo.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+newsner.com,tabloid newspaper,sv,TRUE,FALSE,FALSE,FALSE,FALSE
+newsnow.co.uk,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newsok.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newspunch.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newsru.co.il,digital-born news outlet,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+newstopaktuell.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+newsweek.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+newyorker.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nextquotidiano.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+niederlausitz-aktuell.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+niederrhein-nachrichten.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+nius.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+nixgut.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+nknews.org,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+nnn.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+nnz-online.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+noizz.de,tabloid newspaper,pl,FALSE,FALSE,TRUE,FALSE,FALSE
+norberthaering.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+nord24.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+nordbayern.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+nordbayern.de/region,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+norderneyer-badezeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+nordkurier.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+nordsee-zeitung.de,legacy press,NA,TRUE,TRUE,FALSE,FALSE,TRUE
+noticias.yahoo.com,portal,NA,NA,NA,NA,NA,NA
+noticias24.com,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+notizie.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+notizie.libero.it,portal,NA,NA,NA,NA,NA,NA
+notizie.virgilio.it,portal,NA,NA,NA,NA,NA,NA
+nouvelobs.com,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+noz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+np-coburg.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+nporadio1.nl,public broadcaster,nl,TRUE,FALSE,FALSE,FALSE,FALSE
+npr.org,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+nq-online.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+nr-kurier.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+nrwz.de,tabloid newspaper,en,TRUE,FALSE,FALSE,FALSE,FALSE
+nrz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+ntv.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+ntz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+nw.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+nwzmedien.de,legacy press,ig,TRUE,FALSE,FALSE,FALSE,FALSE
+nwzonline.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+nydailynews.com,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nymag.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nypost.com,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nytimes.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+nzz.ch,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+oberberg-nachrichten.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+oberhessische-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+obermain.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,TRUE
+observer-reporter.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+odenwalddruck.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+oe24.at,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+oeffentlicher-dienst-news.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+oggitreviso.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+okdiario.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+oldenburgische-volkszeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+oliverjanich.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+on-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+ondacero.es,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+onedaily.com,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+onet.pl,digital-born news outlet,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+onetz.de,tabloid newspaper,de,TRUE,TRUE,TRUE,FALSE,TRUE
+onlinehaendler-news.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+op-marburg.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+op-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+opposition24.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+oregonlive.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+orf.at,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+orlandosentinel.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+ostfriesischer-kurier.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+osthessen-news.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+ostsee-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+otz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+ouest-france.fr,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+ovb-heimatzeitungen.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ovb-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+oz-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+panorama.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+paris-normandie.fr,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+parismatch.com,tabloid newspaper,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+patriotnewsalerts.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+paz-online.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+paz.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+pboehringer.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+pbs.org,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+periodistadigital.com,hyperpartisan news,es,FALSE,FALSE,FALSE,TRUE,FALSE
+peymani.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+pfaelzischer-merkur.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+philosophia-perennis.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+phoenix.de,public broadcaster,NA,FALSE,FALSE,TRUE,TRUE,FALSE
+pi-news.net,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+pieschen-aktuell.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+pirmasenser-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+pleiteticker.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+plymouthherald.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+pnn.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,FALSE
+pnp.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+politaia.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+politic-news.space,digital-born news outlet,en,TRUE,FALSE,FALSE,FALSE,FALSE
+politico.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+politico.eu,legacy press,en,TRUE,FALSE,FALSE,FALSE,FALSE
+politikstube.com,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+politikversagen.net,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+politonline.ch,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+polskatimes.pl,tabloid newspaper,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+post-gazette.com,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+prabelsblog.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+pravda-tv.com,hyperpartisan news,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+pravda.com.ua,digital-born news outlet,vi,TRUE,FALSE,FALSE,FALSE,FALSE
+pressa.ru,digital-born news outlet,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+presseportal.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+preussische-allgemeine.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+primocanale.it,commercial broadcaster,it,FALSE,FALSE,FALSE,TRUE,FALSE
+probsteier-herold.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,FALSE
+projekte.sueddeutsche.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+propagandaschau.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+proplanta.de,digital-born news outlet,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+prosieben.at,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+prosieben.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+publico.es,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+publicomag.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+pv-magazine.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+pz-news.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+que.es,tabloid newspaper,es,FALSE,FALSE,FALSE,TRUE,FALSE
+quifinanza.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+quotenqueen.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+quotidiano.net,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+quotidianodipuglia.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+quotidianodiragusa.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+quotidianopiemontese.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+rac1.cat,commercial broadcaster,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+racocatala.cat,digital-born news outlet,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+radio-mk.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+radio-utopie.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+radio912.de,commercial broadcaster,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+radiobremen.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+radioclassique.fr,commercial broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+radiodresden.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+radioeins.com,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+radioeins.de,public broadcaster,de,TRUE,FALSE,TRUE,FALSE,FALSE
+radiohochstift.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+radioitalia.it,commercial broadcaster,it,FALSE,FALSE,FALSE,TRUE,FALSE
+radiosaw.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+radiozet.pl,commercial broadcaster,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+radiozwickau.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+rai.it,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+rainews.it,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+raiplay.it,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+raiplayradio.it,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+rambler.ru,digital-born news outlet,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+rapefugees.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+rbb-online.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+rbb24.de,public broadcaster,de,TRUE,FALSE,TRUE,FALSE,FALSE
+rbb888.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+realclearpolitics.com,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+recklinghaeuser-zeitung.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+redstate.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+refcrime.info,hyperpartisan news,pl,FALSE,FALSE,FALSE,TRUE,FALSE
+regio7.cat,legacy press,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+regionalheute.de,digital-born news outlet,de,TRUE,FALSE,TRUE,FALSE,FALSE
+reitschuster.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+remszeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+report24.news,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+reporter-24.com,legacy press,NA,FALSE,FALSE,TRUE,FALSE,FALSE
+repubblica.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+republica.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+republicain-lorrain.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+republik.ch,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+resistancerepublicaine.eu,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+reuters.com,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+reuters.tv,digital-born news outlet,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+revolutionpermanente.fr,hyperpartisan news,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+rfi.fr,public broadcaster,fr,TRUE,FALSE,FALSE,FALSE,FALSE
+rga.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+rheiderland.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+rhein-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+rheinneckarblog.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+rheinpfalz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+rhoenkanal.de,digital-born news outlet,de,FALSE,FALSE,FALSE,FALSE,FALSE
+rhoenundsaalepost.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+rhoenundstreubote.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+ria.ru,public broadcaster,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+riffreporter.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+rightwingtribune.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+riminitoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+rinteln-aktuell.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ripostelaique.com,hyperpartisan news,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+rnd-news.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+rnd.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+rnf.de,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+rnz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+rollingstone.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+romatoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+rosenheim24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+roughlyexplained.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+royanews.tv,digital-born news outlet,ar,TRUE,FALSE,FALSE,FALSE,FALSE
+rp-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+rpr1.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+rt.com,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+rt.ru,hyperpartisan news,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+rtbf.be,public broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+rtde.live,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+rte.ie,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+rtl.com,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+rtl.de,commercial broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+rtl.fr,commercial broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+rtl.lu,commercial broadcaster,lb,TRUE,FALSE,FALSE,FALSE,FALSE
+rtl2.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+rtlnord.de,tabloid newspaper,de,FALSE,FALSE,TRUE,FALSE,FALSE
+rtlradio.de,tabloid newspaper,NA,FALSE,FALSE,TRUE,FALSE,FALSE
+rts.ch,public broadcaster,fr,TRUE,FALSE,FALSE,FALSE,FALSE
+rtve.es,public broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+rubikon.news,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+ruhr24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+ruhrnachrichten.de,legacy press,de,FALSE,FALSE,FALSE,TRUE,TRUE
+rundertischdgf.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+rundschau-online.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+s chsische.de,legacy press,NA,FALSE,FALSE,FALSE,FALSE,FALSE
+saarbruecker-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,FALSE
+saartext.de,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+sabah.com.tr,legacy press,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+sachsen-fernsehen.de,commercial broadcaster,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+saechsische.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+salon.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+salzgitter-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+sat1.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+sauerlandkurier.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,TRUE
+sbs.com.au,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+schifferstadter-tagblatt.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+schluesselkindblog.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+schwaebische-post.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+schwaebische.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+schwarzwaelder-bote.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+schwarzwaelder-post.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+schweizer-illustrierte.ch,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+sciencefiles.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+seattletimes.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+secoloditalia.it,hyperpartisan news,it,FALSE,FALSE,FALSE,TRUE,FALSE
+seidwalkwordpresscom.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+serbske-nowiny.de,legacy press,pl,FALSE,FALSE,FALSE,FALSE,TRUE
+sezession.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+sfgate.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+shz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+shz.de/lokales/barmstedter-zeitung,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+shz.de/lokales/flensburger-tageblatt,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+sichtplatz.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+siegener-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+signal-online.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+sky.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+sky.it,commercial broadcaster,it,FALSE,FALSE,FALSE,TRUE,FALSE
+skytg24news.it,commercial broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+slate.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+slate.fr,digital-born news outlet,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+sn-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+sn.at,legacy press,de,FALSE,FALSE,FALSE,TRUE,FALSE
+soester-anzeiger.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,TRUE
+solinger-tageblatt.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+sonntagsblatt.de,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+sott.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+sozcu.com.tr,hyperpartisan news,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+spektrum.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+speyer-kurier.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+spiegel.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,TRUE
+spiegel.tv,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+spiesser.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+splinternews.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+spoekenkiekerei.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+sputniknews.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+sr.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+srf.ch,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+standard.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+startribune.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+steinhoefel.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+stern.de,tabloid newspaper,de,FALSE,FALSE,TRUE,TRUE,TRUE
+sterntv.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+stimberg-zeitung.de,legacy press,de,TRUE,FALSE,TRUE,FALSE,FALSE
+stimme.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+strettoweb.com,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+stuttgarter-nachrichten.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+stuttgarter-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+sudinfo.be,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+sudouest.fr,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+sueddeutsche.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+suedkurier.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,TRUE
+suedost-news.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+sun-sentinel.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+suntimes.com,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+svz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+swp.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+swr.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+swr3.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+swrfernsehen.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+sz-online.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,FALSE
+szbz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+szlz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+t-online.de,portal,de,FALSE,FALSE,TRUE,FALSE,FALSE
+t-online.de/finanzen,portal,NA,NA,NA,NA,NA,NA
+t-online.de/nachrichten,portal,NA,NA,NA,NA,NA,NA
+t-online.de/region,portal,NA,NA,NA,NA,NA,NA
+t-online.de/tv/news,portal,NA,NA,NA,NA,NA,NA
+tag24.de,digital-born news outlet,de,FALSE,TRUE,TRUE,TRUE,FALSE
+tagblatt.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,FALSE
+tageblatt.de,legacy press,de,FALSE,TRUE,FALSE,TRUE,TRUE
+tagesanzeiger.ch,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+tagesereignis.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+tagesschau.de,public broadcaster,de,FALSE,FALSE,TRUE,TRUE,FALSE
+tagesspiegel.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+tah.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+tarnkappe.info,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+tass.com,public broadcaster,no,TRUE,FALSE,FALSE,FALSE,FALSE
+tass.ru,public broadcaster,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+taz.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+teckbote.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+telecinco.es,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+telegraaf.nl,legacy press,nl,TRUE,FALSE,FALSE,FALSE,FALSE
+telegraph.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+telemundo.com,commercial broadcaster,es,FALSE,FALSE,FALSE,TRUE,FALSE
+tempi.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+teneriffa-news.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+terminegegenmerkel.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+termometropolitico.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+terra-kurrier.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+tf1.fr,commercial broadcaster,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+tgcom24.it,commercial broadcaster,it,FALSE,FALSE,FALSE,TRUE,FALSE
+theatlantic.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+theblaze.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+theconversation.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thedailybeast.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thedailyfranz.at,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+theepochtimes.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+theeuropean.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+thefederalist.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thegatewaypundit.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+theguardian.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thehill.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+theperspective.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thepioneer.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+thesun.co.uk,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thetelegraphandargus.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thetimes.co.uk,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+thueringen24.de,digital-born news outlet,de,TRUE,FALSE,TRUE,FALSE,FALSE
+thueringer-allgemeine.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+tichyseinblick.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+time.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+timesofisrael.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+tip-berlin.de,legacy press,de,FALSE,FALSE,FALSE,FALSE,TRUE
+tirolerin.at,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+titanic-magazin.de,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+tlz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+torgauerzeitung.com,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+torinotoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+traunsteiner-tagblatt.de,legacy press,de,TRUE,TRUE,FALSE,FALSE,FALSE
+trevisotoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+trinitymirror-news.co.uk,tabloid newspaper,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+trtdeutsch.com,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+trthaber.com,public broadcaster,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+truth24.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+tuerkismagazin.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+turkiyegazetesi.com.tr,legacy press,tr,TRUE,FALSE,FALSE,FALSE,FALSE
+tv-mittelrhein.de,commercial broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+tv5monde.com,public broadcaster,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+tvo.de,commercial broadcaster,de,FALSE,FALSE,FALSE,FALSE,FALSE
+tz-online.de,tabloid newspaper,de,FALSE,FALSE,FALSE,TRUE,FALSE
+tz.de,tabloid newspaper,de,FALSE,TRUE,TRUE,TRUE,FALSE
+udinetoday.it,legacy press,it,FALSE,FALSE,FALSE,TRUE,FALSE
+uebermedien.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ukrinform.de,public broadcaster,de,TRUE,FALSE,FALSE,FALSE,FALSE
+uktv.co.uk,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+uncut-news.ch,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+uncutnews.ch,hyperpartisan news,de,TRUE,FALSE,FALSE,FALSE,FALSE
+unian.net,digital-born news outlet,ru,TRUE,FALSE,FALSE,FALSE,FALSE
+unser-mitteleuropa.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+unz.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,FALSE
+unzensuriert.at,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+unzensuriert.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+uol.com.br,digital-born news outlet,pt,FALSE,FALSE,FALSE,TRUE,FALSE
+upday.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+usatoday.com,tabloid newspaper,en,FALSE,FALSE,FALSE,TRUE,FALSE
+usinger-anzeiger.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+usnews.com,legacy press,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+valenciaplaza.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+valeursactuelles.com,legacy press,fr,FALSE,FALSE,FALSE,TRUE,FALSE
+vaticannews.va,digital-born news outlet,af,TRUE,FALSE,FALSE,FALSE,FALSE
+vdi-nachrichten.com,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+ventidicronaca.it,digital-born news outlet,it,TRUE,FALSE,FALSE,FALSE,FALSE
+vera-lengsfeld.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+verlag-dreisbach.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+verlagshaus-jaumann.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+vice.com,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+vilaweb.cat,digital-born news outlet,ca,FALSE,FALSE,FALSE,TRUE,FALSE
+vinnews.com,hyperpartisan news,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+vkz.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+voanews.com,public broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+vogtland-anzeiger.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+volksfreund.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+volksstimme.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+volksverpetzer.de,hyperpartisan news,de,FALSE,FALSE,FALSE,TRUE,FALSE
+vorsprung-online.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+vox.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+vox.de,commercial broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+voxnews.info,hyperpartisan news,it,FALSE,FALSE,FALSE,TRUE,FALSE
+vozpopuli.com,digital-born news outlet,es,FALSE,FALSE,FALSE,TRUE,FALSE
+vunv1863.wordpress.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+wa.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+waddische.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+wahrheitspresse.xyz,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+waltroper-zeitung.de,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+washingtonexaminer.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+washingtonpost.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+washingtonpress.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+washingtontimes.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wasserburg24.de,digital-born news outlet,de,FALSE,FALSE,FALSE,FALSE,FALSE
+wasserburger-stimme.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+watergate.tv,hyperpartisan news,NA,FALSE,FALSE,FALSE,TRUE,FALSE
+watson.ch,digital-born news outlet,de,FALSE,FALSE,FALSE,TRUE,FALSE
+watson.de,digital-born news outlet,de,FALSE,FALSE,TRUE,TRUE,FALSE
+waz-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+waz.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,FALSE
+wdr.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+wdr2.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+weau.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+web.de/magazine,portal,NA,NA,NA,NA,NA,NA
+web.de/magazine/panorama,portal,NA,NA,NA,NA,NA,NA
+web.de/magazine/politik,portal,NA,NA,NA,NA,NA,NA
+welt.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+weltwoche.ch,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+werra-rundschau.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+weser-kurier.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+westallgaeuer-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+westernjournal.com,hyperpartisan news,en,FALSE,FALSE,FALSE,TRUE,FALSE
+westfalen-blatt.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,FALSE
+wetterauer-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+wiesbadener-kurier.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+wiesbadener-tagblatt.de,legacy press,NA,FALSE,FALSE,TRUE,FALSE,FALSE
+winsener-anzeiger.info,legacy press,NA,FALSE,TRUE,FALSE,FALSE,FALSE
+wired.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wired.it,digital-born news outlet,it,FALSE,FALSE,FALSE,TRUE,FALSE
+wirsindeins.org,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+wissensmanufaktur.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+wiwo.de,legacy press,de,FALSE,FALSE,TRUE,TRUE,TRUE
+wlz-online.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,TRUE
+wn.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+wnoz.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+wochenanzeiger.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenblatt-dlv.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenblatt-news.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenblatt-reporter.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenblatt.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenblatt.de,tabloid newspaper,de,TRUE,FALSE,TRUE,FALSE,FALSE
+wochenblatt.net,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+wochenblick.at,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+wochenendspiegel.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenspiegellive.de,legacy press,de,TRUE,FALSE,FALSE,FALSE,FALSE
+wochenspiegelonline.de,legacy press,NA,FALSE,FALSE,TRUE,FALSE,FALSE
+wolfenbuetteler-zeitung.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+wolfsburger-nachrichten.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+worldisraelnews.com,hyperpartisan news,NA,TRUE,FALSE,FALSE,FALSE,FALSE
+worldjusticenews.com,digital-born news outlet,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wormser-zeitung.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+wp.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,FALSE
+wp.pl,tabloid newspaper,pl,TRUE,FALSE,FALSE,FALSE,FALSE
+wpxi.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wr.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE
+wsbtv.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wsj.com,legacy press,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wuppertaler-rundschau.de,tabloid newspaper,de,TRUE,FALSE,FALSE,FALSE,FALSE
+ww-kurier.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+www1.wdr.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+wxyz.com,commercial broadcaster,en,FALSE,FALSE,FALSE,TRUE,FALSE
+wz-net.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,FALSE
+wz.de,legacy press,de,TRUE,TRUE,TRUE,FALSE,TRUE
+wzonline.de,legacy press,NA,FALSE,FALSE,TRUE,TRUE,FALSE
+yahoo.com,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+yahoo.com/news,portal,NA,NA,NA,NA,NA,NA
+yoice.net,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+yomiuri.co.jp,legacy press,ja,TRUE,FALSE,FALSE,FALSE,FALSE
+you-fm.de,public broadcaster,de,FALSE,FALSE,TRUE,FALSE,FALSE
+zak.de,legacy press,de,FALSE,TRUE,FALSE,FALSE,TRUE
+zaronews.world,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+zdf.de,public broadcaster,de,FALSE,FALSE,FALSE,TRUE,FALSE
+ze.tt,legacy press,de,FALSE,FALSE,TRUE,FALSE,FALSE
+zeit.de,legacy press,de,FALSE,TRUE,TRUE,TRUE,FALSE
+zettelsraum.blogspot.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+zevener-zeitung.de,legacy press,NA,FALSE,TRUE,FALSE,FALSE,FALSE
+zlive-news.de,digital-born news outlet,de,TRUE,FALSE,FALSE,FALSE,FALSE
+zuercherin.com,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+zuerst.de,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+zukunft-ch.ch,hyperpartisan news,de,FALSE,FALSE,FALSE,FALSE,FALSE
+zvw.de,legacy press,de,FALSE,TRUE,TRUE,FALSE,FALSE

@@ -82,9 +82,13 @@ links <- links |>
         domain
     ))
 
-tranco <- import("data/top-1m.csv") |> 
+tranco <- import("data/tranco_top-1m.csv") |> 
     rename(tranco_rank = 1, domain = 2) |> 
     mutate(tranco_rank_inv = 1000001-tranco_rank)
+
+gond <- import("data/GONDv3_domains.csv") |> 
+    rename(gond_type = type, gond_lang = language) |> 
+    select(domain, gond_type, gond_lang)
 
 manual_coding <- list.files("data", pattern = "coder_.*\\.xlsx", full.names = TRUE) |> 
     import_list(rbind = TRUE, setclass = "tibble") |> 
@@ -99,10 +103,15 @@ manual_coding <- list.files("data", pattern = "coder_.*\\.xlsx", full.names = TR
         "news-pravda.com",
         domain
     )) |> 
+    mutate(category = case_match(
+        category,
+        c("private_newsmedia", "public_broadcaster", "local_media", "alternative_media") ~ "journalistic_media",
+        .default = category
+    )) |> 
     mutate(category = factor(
         category,
-        c("private_newsmedia", "public_broadcaster", "local_media", "news_agency", "alternative_media", "encyclopedias", "organization", "other"),
-        c("Private media", "Public broadcaster", "Local/regional media", "News agency", "Alternative media", "Encyclopedias", "Organization/Business", "Misc")
+        c("journalistic_media", "news_agency", "encyclopedias", "organization", "other"),
+        c("Journalistic Media", "News Agencies", "Encyclopedias", "Organization/Business", "Misc")
     ))
 
 domains <- links |> 
@@ -112,6 +121,7 @@ domains <- links |>
     mutate(cp = cumsum(p)) |> 
     ungroup() |> 
     left_join(tranco, by = "domain") |> 
+    left_join(gond, by = "domain") |> 
     mutate(across(tranco_rank_inv, \(x) ifelse(is.na(x), 0, x))) |> 
     left_join(
         manual_coding |> group_by(domain) |> filter(!is.na(category)) |> arrange(coder) |> slice(1) |> filter(!is.na(category)), 
@@ -133,7 +143,7 @@ When prompted for current news from `{r} links$date |> min() |> format(format = 
 #| tbl-cap: Top Domains
 
 domains |> 
-    select(-c(cp, category, is_springer, coder)) |> 
+    select(-c(cp, category, is_springer, coder, starts_with("gond_"))) |> 
     group_by(domain, condition) |> 
     summarise(across(everything(), sum)) |> 
     mutate(n = sum(n)) |> 
@@ -180,11 +190,12 @@ links |>
     count(domain, sort = TRUE) |> 
     filter(domain %in% top_domains) |> 
     mutate(domain = factor(domain, unique(domain))) |> 
-    ggplot(aes(x = as.Date(date), y = n)) +
+    mutate(date = date |> as.character() |> factor(levels = unique(as.character(date)))) |> 
+    ggplot(aes(x = date, y = n)) +
     geom_col(width = 1.1) +
-    scale_x_date(date_labels = "KW %U", date_breaks = "2 weeks") +
     facet_wrap(vars(domain), nrow = 5, scales = "free_y") +
-    labs(title = "Usage of Domains over Time", x = "Date", y = "Count")
+    labs(title = "Usage of Domains over Time", x = "Date", y = "Count") +
+    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
     
 ```
 
@@ -302,7 +313,7 @@ sample_meta <- domains |>
     as.list()
 ```
 
-A manual coding of the top domains (*N* = `{r} sample_meta$unique_urls`) representing `{r} sample_meta$p_refs |> round(digits = 2)` % of all references and `{r} sample_meta$p_urls |> round(digits = 2)` % of all linked sites reveals that ChatGPT links to a wide range of both journalistic and non-journalistic sources (see @tbl-domain-cats).
+A manual coding of the top domains (*N* = `{r} sample_meta$unique_urls`) representing `{r} (100*sample_meta$p_refs) |> round(digits = 2)` % of all references and `{r} (sample_meta$p_urls*100) |> round(digits = 2)` % of all linked sites reveals that ChatGPT links to a wide range of both journalistic and non-journalistic sources (see @tbl-domain-cats).
 
 ```{r}
 #| echo: false
@@ -329,7 +340,35 @@ domains |>
         unique_domains = "Unique domains"
     )
 ```
-Around one third of the manually coded sites are journalistic, including local/regional media, public broadcasters and news agencies. The remaining sources include online encyclopedias (mainly Wikipedia) and the websites of organizations and businesses, often as primary sources of a news story. ChatGPT is acting not as a news aggregator but assuming a journalistic role, providing primary sources.
+Around two thirds of the manually coded sites are journalistic, including commercial media, local/regional media, and public broadcasters. The remaining sources include news agencies, online encyclopedias (mainly Wikipedia) and the websites of organizations and businesses, often as primary sources of a news story. ChatGPT is acting not as a news aggregator but assuming a journalistic role, providing primary sources.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-domain-journ-cats
+#| tbl-cap: Categories of linked journalistic sources
+domains |> 
+    filter(!is.na(gond_type)) |> 
+    group_by(gond_type, condition) |> 
+    summarise(
+        p = sum(p), 
+        n = sum(n), 
+        unique_domains = domain |> unique() |> length()
+    ) |> 
+    mutate(total_n = sum(n), unique_domains = sum(unique_domains)) |> 
+    ungroup() |> 
+    pivot_wider(names_from = condition, values_from = p, id_cols = c("gond_type", "total_n", "unique_domains")) |> 
+    arrange(-total_n) |> 
+    mutate(gond_type = str_to_title(gond_type)) |> 
+    gt() |> 
+    fmt_percent(Regular:Diverse) |> 
+    fmt_integer(total_n) |> 
+    cols_label(
+        gond_type = "Category",
+        total_n = "n",
+        unique_domains = "Unique domains"
+    )
+```
 
 ChatGPT also links to websites that scrape news sites and other sources and provide AI-generated 'news':
 
@@ -453,6 +492,8 @@ domains |>
     fmt_percent(3:4) |> 
     cols_label(d = "log(diverse/current)", domain = "Domain", total_n = "n")
 ```
+
+In the diverse condition ChatGPT linked to less legacy press outlets and more public broadcaster, hyperpartisan news, and tabloid newspaper (see @tbl-domain-journ-cats).
 
 ### Diversity indicators
 
