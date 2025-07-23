@@ -88,6 +88,7 @@ tranco <- import("data/tranco_top-1m.csv") |>
 
 gond <- import("data/GONDv3_domains.csv") |> 
     rename(gond_type = type, gond_lang = language) |> 
+    mutate(gond_type = factor(gond_type, levels = unique(gond_type), labels = str_to_title(unique(gond_type)))) |> 
     select(domain, gond_type, gond_lang)
 
 manual_coding <- list.files("data", pattern = "coder_.*\\.xlsx", full.names = TRUE) |> 
