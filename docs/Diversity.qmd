@@ -1,7 +1,7 @@
 ---
 title: "Diversity of News Sources in ChatGPT"
 subtitle: "Note: Work in progess"
-date-modified: 2025-07-07
+date-modified: 2025-07-27
 bibliography: references.bib
 format:  
   html:
@@ -713,7 +713,7 @@ matched_domains <- purrr::map_dfr(
 matched_domains <- subset(matched_domains, matched_domains$domain_reuters != "unsere-zeit.de")
 
 # get share of media for which we have the leaning of total data 
-share_leaning <- domains |>
+share_leaning_all <- domains |>
   group_by(condition) |>
   summarise(total_n = sum(n, na.rm = TRUE), .groups = "drop") |>
   left_join(
@@ -721,15 +721,22 @@ share_leaning <- domains |>
       group_by(condition) |>
       summarise(matched_n = sum(n, na.rm = TRUE), .groups = "drop"),
     by = "condition"
+  ) |> 
+  mutate(share = matched_n / total_n)
+
+# the same but only considering journalistic media as the reference
+share_leaning_journalistic <- domains |>
+  filter(category %in% c("Journalistic Media", "News Agencies")) |>
+  group_by(condition) |>
+  summarise(total_n = sum(n, na.rm = TRUE)) |> 
+  left_join(
+    matched_domains |> 
+      group_by(condition) |>
+      summarise(matched_n = sum(n, na.rm = TRUE), .groups = "drop"),
+    by = "condition"
   ) |>
   mutate(share = matched_n / total_n)
 
-sum(domains$n,na.rm = T)
-
-domains |>
-  filter(category %in% c("Journalistic Media", "News Agencies")) |>
-  group_by(condition) |>
-  summarise(total_n = sum(n, na.rm = TRUE))
 ```
 
 
@@ -742,8 +749,7 @@ colnames(media_leanings)
 
 Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(rowMeans(media_leanings)[[1]],2)` (SD = `r round(sd(as.numeric(media_leanings[1, ])), 2)`).
 
-Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The political leaning of the sources used by ChatGPT does neither differ significantly from the average media leaning of the audience nor the center of the scale (= 4).
-However, it is important to note that these 22 outlets comprise of just a fraction of both the number of unique domains and of all references provided by ChatGPT. Precisely, these 22 outlets account for `r round(share_leaning$share[1]*100,2)` percent of all references in the regular and `r round(share_leaning$share[2]*100,2)` percent of of all references in the diverse condition. 
+Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The mean political leaning of the sources used by ChatGPT does not differ significantly from either the average political leaning of the population or the midpoint of the scale (which is 4).
 
 ```{r}
 #| echo: false
@@ -779,6 +785,7 @@ matched_domains |>
 
 ```
 
+However, it is important to note that these 22 outlets comprise of just a fraction of both the number of unique domains and of all references provided by ChatGPT. Precisely, these 22 outlets account for `r round(share_leaning_all$share[1]*100,2)`% of all references in the regular and `r round(share_leaning_all$share[2]*100,2)`% of of all references in the diverse condition. When considering only the domains that were coded as journalistic or news agency (see @tbl-domain-cats), the share rises to `r round(share_leaning_journalistic$share[1]*100,2)`% and `r round(share_leaning_journalistic$share[2]*100,2)`%, respectively. 
 
 ##### Open Data {.appendix}
 
