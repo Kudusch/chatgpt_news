@@ -29,6 +29,7 @@ library(gt)
 library(ggplot2)
 library(scales)
 library(ggrepel)
+library(Hmisc)
 
 # Functions and colors ----
 options(ggplot2.discrete.colour = c("#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"))
@@ -76,11 +77,15 @@ links <- jsonlite::fromJSON("Data/links_api.json") |>
     distinct(uid, date, experiment, condition, url, domain)
 
 links <- links |> 
-    mutate(domain = ifelse(
-        str_detect(domain, "news-pravda.com"),
-        "news-pravda.com",
-        domain
-    ))
+  mutate(domain = case_when(
+    domain %in% c("interactive.spiegel.de") ~ "spiegel.de",
+    domain %in% c("plus.rtl.de") ~ "rtl.de",
+    domain %in% c("amp.zdf.de") ~ "zdf.de",
+    domain %in% c("edition.cnn.com") ~ "cnn.com",
+    domain %in% c("m.focus.de", "amp.focus.de") ~ "focus.de",
+    str_detect(domain, "news-pravda.com") ~ "news-pravda.com",
+    TRUE ~ domain
+  ))
 
 tranco <- import("data/tranco_top-1m.csv") |> 
     rename(tranco_rank = 1, domain = 2) |> 
@@ -314,7 +319,7 @@ sample_meta <- domains |>
     as.list()
 ```
 
-A manual coding of the top domains (*N* = `{r} sample_meta$unique_urls`) representing `{r} (100*sample_meta$p_refs) |> round(digits = 2)` % of all references and `{r} (sample_meta$p_urls*100) |> round(digits = 2)` % of all linked sites reveals that ChatGPT links to a wide range of both journalistic and non-journalistic sources (see @tbl-domain-cats).
+A manual coding of the top domains that comprised at least ten references in the data (*N* = `{r} sample_meta$unique_urls`), representing `{r} (100*sample_meta$p_refs) |> round(digits = 2)` % of all references and `{r} (sample_meta$p_urls*100) |> round(digits = 2)` % of all linked sites reveals that ChatGPT links to a wide range of both journalistic and non-journalistic sources (see @tbl-domain-cats).
 
 ```{r}
 #| echo: false
@@ -340,6 +345,9 @@ domains |>
         total_n = "n",
         unique_domains = "Unique domains"
     )
+# Some domains were not coded despite having n >= 10 references, because the website was not available anymore. 
+# This explains that the sum of n in this table is somewhat smaller than the reported share of references that were
+# coded manually
 ```
 Around two thirds of the manually coded sites are journalistic, including commercial media, local/regional media, and public broadcasters. The remaining sources include news agencies, online encyclopedias (mainly Wikipedia) and the websites of organizations and businesses, often as primary sources of a news story. ChatGPT is acting not as a news aggregator but assuming a journalistic role, providing primary sources.
 
