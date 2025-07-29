@@ -678,6 +678,108 @@ test_df |>
     )
 ```
 
+### Political leaning of the Domains
+
+```{r}
+# import aggregated data; Reuters raw data not available
+media_leanings <- read.csv("data/media_leanings_reuters.csv",row.names = 1)
+
+## group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
+# adjust some sub domains for main domain
+domains <- domains |> 
+  mutate(domain_reuters = case_when(
+    domain %in% c("ard.de", "tagesschau.de") ~ "ard.de.tagesschau.de",
+    domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de.prosieben.de",
+    TRUE ~ domain
+  ))
+
+# match domains from chatgpt with reuters data
+matched_domains <- purrr::map_dfr(
+  colnames(media_leanings),
+  ~ {
+    leaning_value <- media_leanings["media_leaning", .x]  
+    reuters_rank <- media_leanings["rank", .x] 
+    domains |>
+      filter(str_detect(domain_reuters, regex(paste0("\\b", .x, "\\b"), ignore_case = TRUE))) |>
+      mutate(
+        source_match = .x,
+        leaning = leaning_value,
+        reuters_rank = reuters_rank
+      )
+  }
+)
+
+#delete wrong/irrelevant match
+matched_domains <- subset(matched_domains, matched_domains$domain_reuters != "unsere-zeit.de")
+
+# get share of media for which we have the leaning of total data 
+share_leaning <- domains |>
+  group_by(condition) |>
+  summarise(total_n = sum(n, na.rm = TRUE), .groups = "drop") |>
+  left_join(
+    matched_domains |>
+      group_by(condition) |>
+      summarise(matched_n = sum(n, na.rm = TRUE), .groups = "drop"),
+    by = "condition"
+  ) |>
+  mutate(share = matched_n / total_n)
+
+sum(domains$n,na.rm = T)
+
+domains |>
+  filter(category %in% c("Journalistic Media", "News Agencies")) |>
+  group_by(condition) |>
+  summarise(total_n = sum(n, na.rm = TRUE))
+```
+
+
+To calculate the political leaning of news sources, we used data from the German 2025 Reuters Digital News Report. Specifically, we determined the political leaning of each outlets as the average political orientation of all survey participants who reported using that media source at least once per week. The political orientation of participants who used the outlet on three or more days per week were weighted double. 22 media outlets were included in the Reuters data. <details> <summary>Show names of outlets included in the Reuters data</summary>
+
+```{r}
+colnames(media_leanings)
+```
+</details> 
+
+Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(rowMeans(media_leanings)[[1]],2)` (SD = `r round(sd(as.numeric(media_leanings[1, ])), 2)`).
+
+Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The political leaning of the sources used by ChatGPT does neither differ significantly from the average media leaning of the audience nor the center of the scale (= 4).
+However, it is important to note that these 22 outlets comprise of just a fraction of both the number of unique domains and of all references provided by ChatGPT. Precisely, these 22 outlets account for `r round(share_leaning$share[1]*100,2)` percent of all references in the regular and `r round(share_leaning$share[2]*100,2)` percent of of all references in the diverse condition. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-media-leaning
+#| tbl-cap: Mean Political Leaning of 22 Domains and 95%-Confidence Interval
+
+
+matched_domains |>
+  group_by(condition) |>
+  summarise(
+    `Mean Outlet Leaning` = weighted.mean(leaning, n),
+    `SD Media Leaning` = sqrt(Hmisc::wtd.var(leaning, n)),
+    n_eff = sum(n)^2 / sum(n^2),
+    se = `SD Media Leaning` / sqrt(n_eff),
+    `CI Lower` = `Mean Outlet Leaning` - 1.96 * se,
+    `CI Upper` = `Mean Outlet Leaning` + 1.96 * se
+  ) |>
+  select(condition, `Mean Outlet Leaning`, `SD Media Leaning`, `CI Lower`, `CI Upper`) |>
+  gt() |>
+  fmt_number(
+    columns = vars(`Mean Outlet Leaning`, `SD Media Leaning`, `CI Lower`, `CI Upper`),
+    decimals = 2
+  ) |>
+  cols_label(
+    condition = "Condition",
+    `Mean Outlet Leaning` = "Mean Outlet Leaning",
+    `SD Media Leaning` = "SD Outlet Leaning",
+    `CI Lower` = "95% CI Lower",
+    `CI Upper` = "95% CI Upper"
+  ) |>
+  opt_align_table_header("center")
+
+```
+
+
 ##### Open Data {.appendix}
 
 For code and data, see the [reproduction package](https://github.com/Kudusch/chatgpt_news/).
