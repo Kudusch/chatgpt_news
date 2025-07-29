@@ -3,5 +3,6 @@
 .Rproj.user
 cache/*
 renv
+data/Reuters*.sav
 
 /.quarto/
