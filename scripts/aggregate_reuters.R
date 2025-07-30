@@ -80,7 +80,7 @@ colnames(media_leanings) <- source_names
 media_leanings <- media_leanings[, -c(20,21,25,26,27,28)]
 
 # Assign rank based on popularity
-media_leanings["rank", ] <- rank(-as.numeric(media_leanings["popularity", ]), ties.method = "min")
+media_leanings["rank_reuters", ] <- rank(-as.numeric(media_leanings["popularity", ]), ties.method = "min")
 
 
 # adjust sat1/prosieben and ard/tagesschau to get correct matches
@@ -88,6 +88,11 @@ media_leanings$"ard.de/tagesschau.de" <- media_leanings$ard.de
 media_leanings$"sat1.de/prosieben.de" <- media_leanings$prosieben.de
 media_leanings$ard.de <- NULL
 media_leanings$prosieben.de <- NULL
+
+media_leanings <- as.data.frame(t(media_leanings))
+media_leanings$domain <- rownames(media_leanings)
+rownames(media_leanings) <- NULL
+media_leanings <- media_leanings |> relocate(domain)
 
 # Export data
 write.csv(media_leanings, "data/reuters.csv", row.names = TRUE)

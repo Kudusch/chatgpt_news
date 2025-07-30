@@ -174,136 +174,207 @@ domains |>
 
 ### Popularity of Domains
 
-When looking at the top domains, some plausible and expected choices are at the top (e.g., `reuters.com`, `tagesschau.de`), but also some surprises appear (e.g., `deutsche-handwerks-zeitung.de`). @tbl-correl displays Spearman's rank correlation comparing the ranking of ChatGPT's domain frequency and the Tranco ranks for these domains when only focusing at German top-level domains.^[To increase comparability with the Tranco ranks that have a global scope.]
+```{r}
+domains <- domains |>
+    group_by(condition) |> 
+    mutate(rank = dense_rank(desc(n))) |> 
+    ungroup()
+
+# import aggregated data; Reuters raw data not available
+reuters <- read.csv("data/reuters.csv", row.names = 1)
+
+# import ranking from similarweb.de
+similar <- read.csv("data/similarweb_news_list.csv")
+
+
+# group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
+# sum the frequency for those cases and assign new rank
+domains_reuters <- domains |> 
+  mutate(domain = case_when(
+    domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+    domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+    TRUE ~ domain
+  )) |>
+  group_by(condition, domain) |>
+  summarise(n = sum(n, na.rm = TRUE),
+            category = first(category),
+            .groups = "drop") |>
+  group_by(condition) |>
+  mutate(rank = dense_rank(desc(n))) |>
+  ungroup()
+
+# joining similar onto domain
+domains_similar <- merge(domains, similar, by = "domain", all.x = T)
+
+# joining reuters onto domain
+domains_reuters <- merge(domains_reuters, reuters, by = "domain", all.x = T)
+```
+
+When looking at the top domains, some plausible and expected choices are at the top (e.g., `reuters.com`, `tagesschau.de`), but some surprises appear, too (e.g., `deutsche-handwerks-zeitung.de`). 
+
+We can correlate the ranking of ChatGPT's domain frequency with some existing references. @tbl-correl displays the Spearman's rank correlation and Pearson's correlation for three reference data sets. 
+
+The first column gives the rank correlation with the Tranco ranks which was subset to German top-level domains^[To increase comparability with the Tranco ranks that have a global scope.] The second and third column gives the rank and pearson correlation with the popularity of selected news media outlets based on survey data from the German 2025 Reuters Digital News Report [@Behre2025]. In this study, *N* = 2047 participants provided their news consumption frequency in relation to 22 media outlets. <details> <summary>Show names of outlets included in the Reuters data</summary>
+Finally, the fourth and fifth column provides the rank and pearson correlation with data from similarweb.com, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^['kachelmannwetter.de' and 'wunderweib.de' were excluded and 16 outlets that were not categorized as news (such as 'gmx.net', 'ndr.de', 'handelsblatt.com') were included.]
+
+```{r}
+reuters$domain
+```
+</details> 
+
 
 ```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-correl
-#| tbl-cap: Spearman's Rank Correlation between Domain Rank and Tranco Rank
-#| 
+#| tbl-cap: Spearman's Rank Correlation between Domain Rank and three Reference Lists
+
+
+# Tranco
 exceptions <- c("faz.net","gmx.net")  # ← exception list
 
-domains |>
+tranco_corr <- domains |>
   filter(str_detect(domain, "\\.de$") | domain %in% exceptions) |>
   group_by(condition) |>
-  mutate(rank = min_rank(desc(n))) |>  # ranks n descending, ties get same rank
   summarise(
-    spearman_tranco = round(cor(rank, tranco_rank, method = "spearman", use = "complete.obs"),3)
-  ) |> 
-  gt() |>
-  cols_label(
-        condition = "Condition",
-        spearman_tranco = "Spearman's rank correlation")
-
-```
-**From here until 1.2 (the rank correlation things) are still experimental**
-
-```{r}
-# import aggregated data; Reuters raw data not available
-reuters <- read.csv("data/reuters.csv",row.names = 1)
-
-# group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
-# add frequency for those cases and assign rank
-domains_reuters <- domains |> 
-  mutate(domain_reuters = case_when(
-    domain %in% c("ard.de", "tagesschau.de") ~ "ard.de.tagesschau.de",
-    domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de.prosieben.de",
-    TRUE ~ domain
-  )) |>
-  group_by(condition, domain_reuters) |>
-  summarise(n = sum(n, na.rm = TRUE),
-            category = first(category),
-            .groups = "drop") |>
-  group_by(condition) |>
-  mutate(rank_global = min_rank(desc(n))) |>
-  ungroup()
-```
-
-#### Comparing Ranks - Option 1: Subset longer list to match entries of partial list
-
-Here the basis is the partial list.
-```{r}
-# match domains from chatgpt with reuters data
-matched_domains <- purrr::map_dfr(
-  colnames(reuters),
-  ~ {
-    reuters_rank <- reuters["rank", .x] 
-    domains_reuters |>
-      filter(str_detect(domain_reuters, regex(paste0("\\b", .x, "\\b"), ignore_case = TRUE))) |>
-      mutate(
-        source_match = .x,
-        reuters_rank = reuters_rank
-      )
-  }
-)
-
-# calculate chatgpt rank for this subset
-matched_domains |>
-  group_by(condition) |>
-  mutate(rank_subset = min_rank(desc(n))) |>
-  summarise(
-    spearman_global = round(cor(rank_global, reuters_rank, method = "spearman", use = "complete.obs"), 3),
-    spearman_subset = round(cor(rank_subset, reuters_rank, method = "spearman"),3),
+    spearman_tranco = round(cor(rank, tranco_rank, method = "spearman", use = "complete.obs"), 2),
+    spearman_tranco_journalistic = round( 
+      cor(rank[category %in% c("Journalistic Media", "News Agencies")],
+          tranco_rank[category %in% c("Journalistic Media", "News Agencies")],
+          method = "spearman", use = "complete.obs"), 2),
     .groups = "drop"
   )
 
-# irrelevant whether using global ranking or new ranking for subset as order remains stable
-# similarly: filtering for journalistic sources in ChatGPT list not necessary as relative ranks won't change
+# Reuters
+reuters_corr <- domains_reuters |> 
+  group_by(condition) |> 
+  summarise(spearman_reuters = round(cor(rank, rank_reuters, method = "spearman", use = "complete.obs"),2),
+            pearson_reuters = round(cor(n, popularity, method = "pearson", use = "complete.obs"),2))
+
+# Similar
+similar_corr <- domains_similar |> 
+  group_by(condition) |> 
+  summarise(spearman_similar = round(cor(rank, rank_similarweb, method = "spearman", use = "complete.obs"),2),
+            pearson_similar = round(cor(n, visits_germany, method = "pearson", use = "complete.obs"),2))
+
+full_join(tranco_corr, reuters_corr, by = "condition") |>
+  full_join(similar_corr, by = "condition") |>
+  gt() |>
+  cols_label(
+    condition = "Condition",
+    spearman_tranco = "Spearman",
+    spearman_tranco_journalistic = "Spearman \n(Journalistic domains only)",
+    spearman_reuters = "Spearman",
+    pearson_reuters = "Pearson",
+    spearman_similar = "Spearman",
+    pearson_similar = "Pearson"
+  ) |>
+  tab_spanner(label = "Tranco", columns = c(spearman_tranco, spearman_tranco_journalistic)) |>
+  tab_spanner(label = "Reuters", columns = c(spearman_reuters, pearson_reuters)) |>
+  tab_spanner(label = "Similarweb.com", columns = c(spearman_similar, pearson_similar))
+
+
+#Reuters and similarweb only contain journalistic / news sources, so filtering of chatgpt list not necessary
+  
 ```
+**From here until 1.2 (the rank correlation things) are still experimental**
+
+
 #### Comparing Ranks - Option 2: Truncate longer list (from top) to partial list size
 
 Here the basis is the truncated longer lists and it depends on how many entries of the partial list are in the top n of the longer list.
 
 ```{r}
 # cut both conditions to top n elements where n is the size of the reuters list
-cut_size <- length(colnames(reuters))
+cut_size <- nrow(reuters)
 
-truncated <- domains_reuters |> 
+reuters_corr <- domains_reuters |> 
   filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
   group_by(condition) |> 
-  arrange(rank_global) |>
-  slice_head(n = cut_size) 
+  arrange(rank) |>
+  slice_head(n = cut_size) |>
+  summarise(
+    spearman_reuters = cor(rank, rank_reuters, method = "spearman", use = "complete.obs") |> round(2),
+    pearson_reuters = cor(n, popularity, method = "pearson", use = "complete.obs") |> round(2)
+  )
 
-truncated |>
-  left_join(
-    matched_domains |>
-      select(domain_reuters, condition, reuters_rank) |>
-      distinct(domain_reuters, condition, .keep_all = TRUE),
-    by = c("domain_reuters", "condition")
+cut_size_similar <- nrow(similar)
+
+similar_corr <- domains_similar |> 
+  filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
+  group_by(condition) |> 
+  arrange(rank) |>
+  slice_head(n = cut_size_similar) |>
+  summarise(
+    spearman_similar = cor(rank, rank_similarweb, method = "spearman", use = "complete.obs") |> round(2),
+    pearson_similar = cor(n, visits_germany, method = "pearson", use = "complete.obs") |> round(2)
+  )
+
+full_join(reuters_corr, similar_corr, by = "condition") |>
+  gt() |>
+  cols_label(
+    condition = "Condition",
+    spearman_reuters = "Spearman Reuters",
+    pearson_reuters = "Pearson Reuters",
+    spearman_similar = "Spearman Similarweb.com",
+    pearson_similar = "Pearson Similarweb.com")
+
+```
+
+#### Comparing Ranks - Option 3 and 4: Jaccard similarity and Overlap at n
+
+For a fixed cutoff (here: size of smaller lists), compute Jaccard similarity (= size of intersection / size of union). So for the Reuters data, the ChatGPT list is cut to the first 22 domains for each condition. Then intersection and union between both lists are compared. 
+
+Overlap: How many of the Reuters sources appear in the top `r nrow(reuters)` entries in the ChatGPT list. Cutoff can be flexible, here it is determined by the size of the shorter list, e.g., Reuters.
+
+```{r}
+
+jacc_reu <- domains_reuters |> 
+  #filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
+  group_by(condition) |> 
+  arrange(rank) |>
+  slice_head(n = cut_size) |>
+  summarise(
+    intersection.r = length(intersect(domain, reuters$domain)),
+    union.r = length(union(domain, reuters$domain)),
+    jaccard.r = round(intersection.r / union.r, 2),
+    overlap.r = round(intersection.r / cut_size, 2)
+  )
+
+jacc_sim <- domains_similar |> 
+  #filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
+  group_by(condition) |> 
+  arrange(rank) |>
+  slice_head(n = cut_size_similar) |>
+  summarise(
+    intersection.s = length(intersect(domain, similar$domain)),
+    union.s = length(union(domain, similar$domain)),
+    jaccard.s = round(intersection.s / union.s, 2),
+    overlap.s = round(intersection.s / cut_size_similar, 2)
+  )
+
+full_join(jacc_reu, jacc_sim, by = "condition") |>
+  gt() |>
+  cols_label(
+    condition = "Condition",
+    intersection.r = "Intersection",
+    union.r = "Union",
+    jaccard.r = "Jaccard Similarity",
+    overlap.r = "Overlap",
+    intersection.s = "Intersection",
+    union.s = "Union",
+    jaccard.s = "Jaccard Similarity",
+    overlap.s = "Overlap"
   ) |>
-  summarise(
-    spearman_global = cor(rank_global, reuters_rank, method = "spearman", use = "complete.obs") |> round(3)
+  tab_spanner(
+    label = "Reuters",
+    columns = c(intersection.r, union.r, jaccard.r, overlap.r)
+  ) |>
+  tab_spanner(
+    label = "Similarweb",
+    columns = c(intersection.s, union.s, jaccard.s, overlap.s)
   )
 
-```
-
-#### Comparing Ranks - Option 3: Jaccard similarity
-
-For a fixed cutoff (here: size of the Reuters list), compute Jaccard similarity (= size of intersection / size of union).
-
-```{r}
-truncated |>
-  group_by(condition) |>
-  summarise(
-    intersection = length(intersect(domain_reuters, colnames(reuters))),
-    union = length(union(domain_reuters, colnames(reuters))),
-    jaccard = round(intersection / union, 3)
-  )
-```
-
-
-#### Comparing Ranks - Option 4: Overlap at n
-
-How many of the Reuters sources appear in the top `r length(colnames(reuters))` entries in the ChatGPT list. Cutoff can be flexible, here it is determined by the size of the short Reuters list.
-
-```{r}
-truncated |>
-  group_by(condition) |>
-  summarise(
-    overlap = length(intersect(domain_reuters, colnames(reuters))),
-    relative_overlap = round(overlap/cut_size,2)
-  )
 ```
 
 #### Comparing Ranks - Option 5: Pairwise agreement on common items
@@ -312,20 +383,16 @@ Look at every possible pair of items in the first list and check their relative 
 
 Important: Only pairs that exist in both lists are considered, i.e, smaller list constraints.
 
+This is just for the Reuters data as an example
+
 ```{r}
 
-pairwise_agreement <- domains_reuters |>
-  left_join(
-    matched_domains |>
-      select(domain_reuters, condition, reuters_rank) |>
-      distinct(domain_reuters, condition, .keep_all = TRUE),
-    by = c("domain_reuters", "condition")
-  )
+
 
 pairwise_agreement_domains <- function(domains) {
-    items <- pairwise_agreement$domain_reuters
-    rank1 <- pairwise_agreement$rank_global
-    rank2 <- pairwise_agreement$reuters_rank
+    items <- domains_reuters$domain
+    rank1 <- domains_reuters$rank
+    rank2 <- domains_reuters$rank_reuters
     
     n <- length(items)
     agreement <- 0
@@ -356,12 +423,9 @@ pairwise_agreement_domains <- function(domains) {
     return(list(agreement_ratio = agreement / total, agreement_count = agreement, total_pairs = total))
 }
 
-result <- pairwise_agreement_domains(pairwise_agreement)
-
+result <- pairwise_agreement_domains(domain_reuters)
 result
 ```
-
-
 
 ### Top sites over time
 
@@ -871,89 +935,30 @@ test_df |>
 
 ### Political leaning of the Domains
 
-```{r}
-# import aggregated data; Reuters raw data not available
-reuters <- read.csv("data/reuters.csv",row.names = 1)
-
-## group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
-# adjust some sub domains for main domain
-domains <- domains |> 
-  mutate(domain_reuters = case_when(
-    domain %in% c("ard.de", "tagesschau.de") ~ "ard.de.tagesschau.de",
-    domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de.prosieben.de",
-    TRUE ~ domain
-  ))
-
-# match domains from chatgpt with reuters data
-matched_domains <- purrr::map_dfr(
-  colnames(reuters),
-  ~ {
-    leaning_value <- reuters["media_leaning", .x]  
-    reuters_rank <- reuters["rank", .x] 
-    domains |>
-      filter(str_detect(domain_reuters, regex(paste0("\\b", .x, "\\b"), ignore_case = TRUE))) |>
-      mutate(
-        source_match = .x,
-        leaning = leaning_value,
-        reuters_rank = reuters_rank
-      )
-  }
-)
-
-#delete wrong/irrelevant match
-matched_domains <- subset(matched_domains, matched_domains$domain_reuters != "unsere-zeit.de")
-
-# get share of media for which we have the leaning of total data 
-share_leaning_all <- domains |>
-  group_by(condition) |>
-  summarise(total_n = sum(n, na.rm = TRUE), .groups = "drop") |>
-  left_join(
-    matched_domains |>
-      group_by(condition) |>
-      summarise(matched_n = sum(n, na.rm = TRUE), .groups = "drop"),
-    by = "condition"
-  ) |> 
-  mutate(share = matched_n / total_n)
-
-# the same but only considering journalistic media as the reference
-share_leaning_journalistic <- domains |>
-  filter(category %in% c("Journalistic Media", "News Agencies")) |>
-  group_by(condition) |>
-  summarise(total_n = sum(n, na.rm = TRUE)) |> 
-  left_join(
-    matched_domains |> 
-      group_by(condition) |>
-      summarise(matched_n = sum(n, na.rm = TRUE), .groups = "drop"),
-    by = "condition"
-  ) |>
-  mutate(share = matched_n / total_n)
-
-```
-
-
 To calculate the political leaning of news sources, we used data from the German 2025 Reuters Digital News Report. Specifically, we determined the political leaning of each outlets as the average political orientation of all survey participants who reported using that media source at least once per week. The political orientation of participants who used the outlet on three or more days per week were weighted double. 22 media outlets were included in the Reuters data. <details> <summary>Show names of outlets included in the Reuters data</summary>
 
 ```{r}
-colnames(reuters)
+reuters$domain
 ```
 </details> 
 
-Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(rowMeans(reuters)[[1]],2)` (SD = `r round(sd(as.numeric(reuters[1, ])), 2)`).
+Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(mean(reuters$media_leanings),2)` (SD = `r round(sd(reuters$media_leanings), 2)`).
 
 Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The mean political leaning of the sources used by ChatGPT does not differ significantly from either the average political leaning of the population or the midpoint of the scale (which is 4).
 
-```{r}
+```{r media leaning}
 #| echo: false
 #| warning: false
 #| label: tbl-media-leaning
 #| tbl-cap: Mean Political Leaning of 22 Domains and 95%-Confidence Interval
 
 
-matched_domains |>
-  group_by(condition) |>
+domains_reuters %>%
+  filter(!is.na(rank_reuters)) %>%  
+  group_by(condition) %>%
   summarise(
-    `Mean Outlet Leaning` = weighted.mean(leaning, n),
-    `SD Media Leaning` = sqrt(Hmisc::wtd.var(leaning, n)),
+    `Mean Outlet Leaning` = weighted.mean(media_leanings, n),
+    `SD Media Leaning` = sqrt(Hmisc::wtd.var(media_leanings, n)),
     n_eff = sum(n)^2 / sum(n^2),
     se = `SD Media Leaning` / sqrt(n_eff),
     `CI Lower` = `Mean Outlet Leaning` - 1.96 * se,
@@ -976,6 +981,32 @@ matched_domains |>
 
 ```
 
+
+```{r outlets for which we have political leaning}
+
+
+# get share of media for which we have the leaning of total data 
+share_leaning_all <- domains_reuters %>%
+  group_by(condition) %>%
+  summarise(
+    total_n = sum(n, na.rm = TRUE),
+    matched_n = sum(n[!is.na(rank_reuters)], na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(share = matched_n / total_n)
+
+
+# the same but only considering journalistic media as the reference
+share_leaning_journalistic <- domains_reuters |>
+  filter(category %in% c("Journalistic Media", "News Agencies")) |>
+  group_by(condition) %>%
+  summarise(
+    total_n = sum(n, na.rm = TRUE),
+    matched_n = sum(n[!is.na(rank_reuters)], na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(share = matched_n / total_n)
+```
 However, it is important to note that these 22 outlets comprise of just a fraction of both the number of unique domains and of all references provided by ChatGPT. Precisely, these 22 outlets account for `r round(share_leaning_all$share[1]*100,2)`% of all references in the regular and `r round(share_leaning_all$share[2]*100,2)`% of of all references in the diverse condition. When considering only the domains that were coded as journalistic or news agency (see @tbl-domain-cats), the share rises to `r round(share_leaning_journalistic$share[1]*100,2)`% and `r round(share_leaning_journalistic$share[2]*100,2)`%, respectively. 
 
 ##### Open Data {.appendix}
