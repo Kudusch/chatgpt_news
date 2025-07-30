@@ -4,18 +4,18 @@ ChatGPT:
 Hier sind die wichtigsten Nachrichten des 22. April 2025:?
 ???? Deutschland
 
-    Koalitionsvertrag von Union und SPD: Die neue Bundesregierung hat ihren Koalitionsvertrag vorgestellt. Überraschend ist die geplante Einführung einer Pflicht zur Elementarschadenversicherung. Zudem gibt es Diskussionen über die Ressortverteilung und mögliche Ministerposten, darunter auch ein ehemaliger Kanzlerkandidat. ?
+    Koalitionsvertrag von Union und SPD: Die neue Bundesregierung hat ihren Koalitionsvertrag vorgestellt. berraschend ist die geplante Einfhrung einer Pflicht zur Elementarschadenversicherung. Zudem gibt es Diskussionen ber die Ressortverteilung und mgliche Ministerposten, darunter auch ein ehemaliger Kanzlerkandidat. ?
     tagesschau.de+1MDR+1
 
-    Infrastrukturprobleme: Eine neue Studie zeigt, dass in Deutschland mehr Brücken marode sind als bisher angenommen. Der Investitionsstau in der Infrastruktur ist erheblich. ?
+    Infrastrukturprobleme: Eine neue Studie zeigt, dass in Deutschland mehr Brcken marode sind als bisher angenommen. Der Investitionsstau in der Infrastruktur ist erheblich. ?
     MDR
 
 ?? Welt
 
-    Tod von Papst Franziskus: Papst Franziskus ist im Alter von 88 Jahren verstorben. Sein Testament wurde veröffentlicht, in dem er sich ein schlichtes Grab wünscht. US-Präsident Trump hat angekündigt, zur Bestattung nach Rom zu reisen. ?
+    Tod von Papst Franziskus: Papst Franziskus ist im Alter von 88 Jahren verstorben. Sein Testament wurde verffentlicht, in dem er sich ein schlichtes Grab wnscht. US-Prsident Trump hat angekndigt, zur Bestattung nach Rom zu reisen. ?
     tagesschau.de
 
-    US-Verteidigungsminister unter Druck: Das Pentagon steht wegen interner Konflikte unter Druck. Verteidigungsminister Hegseth gerät zunehmend in die Kritik, nachdem sein Sprecher das Amt niedergelegt hat. ?
+    US-Verteidigungsminister unter Druck: Das Pentagon steht wegen interner Konflikte unter Druck. Verteidigungsminister Hegseth gert zunehmend in die Kritik, nachdem sein Sprecher das Amt niedergelegt hat. ?
     DIE WELT+1tagesschau.de+1
 
 ? Sport
@@ -23,140 +23,140 @@ Hier sind die wichtigsten Nachrichten des 22. April 2025:?
     Leeds United in der Premier League: Der ehemalige Gladbach-Coach Daniel Farke hat mit Leeds United den Aufstieg in die englische Premier League geschafft. ?
     n-tv
 
-Für weitere Details und aktuelle Entwicklungen empfehle ich die offiziellen Nachrichtenportale wie tagesschau.de, ZDFheute oder n-tv.de.
+Fr weitere Details und aktuelle Entwicklungen empfehle ich die offiziellen Nachrichtenportale wie tagesschau.de, ZDFheute oder n-tv.de.
 Du:
-Erkläre, wie du die Nachrichten ausgewählt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.
+Erklre, wie du die Nachrichten ausgewhlt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprft, verworfen oder doppelt waren.
 ChatGPT:
 
-Um die wichtigsten Nachrichten von heute auszuwählen, habe ich mehrere Schritte durchgeführt:
-1. Kriterien für die Auswahl der Nachrichten:
+Um die wichtigsten Nachrichten von heute auszuwhlen, habe ich mehrere Schritte durchgefhrt:
+1. Kriterien fr die Auswahl der Nachrichten:
 
-    Aktualität: Nur Nachrichten, die heute (22. April 2025) veröffentlicht oder relevant sind, wurden berücksichtigt.
+    Aktualitt: Nur Nachrichten, die heute (22. April 2025) verffentlicht oder relevant sind, wurden bercksichtigt.
 
-    Relevanz und Reichweite: Nachrichten aus verschiedenen Bereichen wie Politik, Weltgeschehen, Sport und Gesellschaft wurden aus großen, vertrauenswürdigen Quellen wie öffentlich-rechtlichen Nachrichtenportalen, führenden internationalen Nachrichtendiensten und großen Medienplattformen herausgefiltert.
+    Relevanz und Reichweite: Nachrichten aus verschiedenen Bereichen wie Politik, Weltgeschehen, Sport und Gesellschaft wurden aus groen, vertrauenswrdigen Quellen wie ffentlich-rechtlichen Nachrichtenportalen, fhrenden internationalen Nachrichtendiensten und groen Medienplattformen herausgefiltert.
 
-    Vielfalt der Themen: Ich habe eine Mischung aus politischen, gesellschaftlichen, weltweiten und sportlichen Nachrichten gewählt, um ein ausgewogenes Bild der heutigen wichtigen Ereignisse zu bieten.
+    Vielfalt der Themen: Ich habe eine Mischung aus politischen, gesellschaftlichen, weltweiten und sportlichen Nachrichten gewhlt, um ein ausgewogenes Bild der heutigen wichtigen Ereignisse zu bieten.
 
 2. Quellen, die ich gescannt habe:
 
-    Tagesschau.de: Eine zuverlässige Quelle für deutsche Nachrichten, die sowohl internationale als auch nationale Ereignisse abdeckt.
+    Tagesschau.de: Eine zuverlssige Quelle fr deutsche Nachrichten, die sowohl internationale als auch nationale Ereignisse abdeckt.
 
-    MDR.de: Regionales Portal, das oft tiefgehende Berichterstattung über deutsche Innenpolitik und Infrastruktur bietet.
+    MDR.de: Regionales Portal, das oft tiefgehende Berichterstattung ber deutsche Innenpolitik und Infrastruktur bietet.
 
-    Welt.de: Eine große deutsche Nachrichtenquelle, die häufig international und politisch relevante Themen abdeckt.
+    Welt.de: Eine groe deutsche Nachrichtenquelle, die hufig international und politisch relevante Themen abdeckt.
 
-    n-tv.de: Eine Plattform für schnelle Nachrichten, einschließlich Sportberichterstattung und tägliche Updates.
+    n-tv.de: Eine Plattform fr schnelle Nachrichten, einschlielich Sportberichterstattung und tgliche Updates.
 
 3. Auswahl und Validierung:
 
-Ich habe die Nachrichtenschlagzeilen von den genannten Quellen überprüft und validiert, um sicherzustellen, dass sie aktuell sind und ein breites Themenspektrum abdecken.
+Ich habe die Nachrichtenschlagzeilen von den genannten Quellen berprft und validiert, um sicherzustellen, dass sie aktuell sind und ein breites Themenspektrum abdecken.
 URLs mit Status:
 
     tagesschau.de (zitierte Quelle):
 
         Link: tagesschau.de - Koalitionsvertrag von Union und SPD
 
-        Status: Zitiert – Die Nachricht zum Koalitionsvertrag wurde als zentrales politisches Thema genutzt.
+        Status: Zitiert  Die Nachricht zum Koalitionsvertrag wurde als zentrales politisches Thema genutzt.
 
     mdr.de (zitierte Quelle):
 
         Link: mdr.de - Infrastrukturprobleme in Deutschland
 
-        Status: Zitiert – Die Meldung zu Infrastrukturproblemen und Brückenmängeln in Deutschland wurde aufgegriffen.
+        Status: Zitiert  Die Meldung zu Infrastrukturproblemen und Brckenmngeln in Deutschland wurde aufgegriffen.
 
     welt.de (zitierte Quelle):
 
         Link: welt.de - US-Verteidigungsminister unter Druck
 
-        Status: Zitiert – Die internationale Nachricht über das Pentagon und die Probleme von Verteidigungsminister Hegseth wurde verwendet.
+        Status: Zitiert  Die internationale Nachricht ber das Pentagon und die Probleme von Verteidigungsminister Hegseth wurde verwendet.
 
     n-tv.de (zitierte Quelle):
 
         Link: n-tv.de - Leeds United in der Premier League
 
-        Status: Zitiert – Die sportliche Nachricht über Leeds Uniteds Aufstieg in die Premier League wurde einbezogen.
+        Status: Zitiert  Die sportliche Nachricht ber Leeds Uniteds Aufstieg in die Premier League wurde einbezogen.
 
-Weitere überprüfte Quellen:
+Weitere berprfte Quellen:
 
-    ZDF.de: Wurde überprüft, aber keine relevanten, weiteren Nachrichten fanden Verwendung.
+    ZDF.de: Wurde berprft, aber keine relevanten, weiteren Nachrichten fanden Verwendung.
 
-    SWR.de: Keine relevanten Updates für den Tag gefunden.
+    SWR.de: Keine relevanten Updates fr den Tag gefunden.
 
-    focus.de: Wurde auf Nachrichten geprüft, jedoch keine neuen relevanten Inhalte entdeckt.
+    focus.de: Wurde auf Nachrichten geprft, jedoch keine neuen relevanten Inhalte entdeckt.
 
 Verworfen oder doppelt:
 
-    Keine Nachrichten wurden verworfen oder doppelt verwendet. Die Quellen wurden einmalig und korrekt berücksichtigt, um Überschneidungen zu vermeiden.
+    Keine Nachrichten wurden verworfen oder doppelt verwendet. Die Quellen wurden einmalig und korrekt bercksichtigt, um berschneidungen zu vermeiden.
 
 Du:
  Zeige mir mehr Nachrichten zum ersten Thema.
 ChatGPT:
 
 Hier sind weitere aktuelle Nachrichten zum Thema Koalitionsvertrag zwischen Union und SPD:?
-??? Sozialpolitik: Einschnitte im Sozialsystem angekündigt
+??? Sozialpolitik: Einschnitte im Sozialsystem angekndigt
 
-Thorsten Frei, einer der Hauptverhandler der Union, kündigte „unangenehme“ Einschnitte im Sozialsystem an, insbesondere bei Gesundheit, Pflege und Rente, um finanziellen Herausforderungen durch den demografischen Wandel zu begegnen. Frei fordert dafür eine ehrliche Kommunikation gegenüber der Bevölkerung. ?
+Thorsten Frei, einer der Hauptverhandler der Union, kndigte unangenehme Einschnitte im Sozialsystem an, insbesondere bei Gesundheit, Pflege und Rente, um finanziellen Herausforderungen durch den demografischen Wandel zu begegnen. Frei fordert dafr eine ehrliche Kommunikation gegenber der Bevlkerung. ?
 DIE WELT
-??? Datenschutz: Bedenken hinsichtlich geplanter Maßnahmen
+??? Datenschutz: Bedenken hinsichtlich geplanter Manahmen
 
-Der Landesdatenschutzbeauftragte von Rheinland-Pfalz, Dieter Kugelmann, äußert Bedenken hinsichtlich der Datenschutzpolitik der neuen schwarz-roten Bundesregierung. Im Koalitionsvertrag von CDU/CSU und SPD würden wirtschaftliche Interessen sowie innere und äußere Sicherheit klar priorisiert, während Datenschutz und Freiheitsrechte nur am Rande erwähnt würden. Kugelmann befürchtet Einschränkungen für den Datenschutz und kündigt eine Informations-Offensive seitens seiner Behörde an, um auf die Bedeutung von Datenschutz hinzuweisen. ?
+Der Landesdatenschutzbeauftragte von Rheinland-Pfalz, Dieter Kugelmann, uert Bedenken hinsichtlich der Datenschutzpolitik der neuen schwarz-roten Bundesregierung. Im Koalitionsvertrag von CDU/CSU und SPD wrden wirtschaftliche Interessen sowie innere und uere Sicherheit klar priorisiert, whrend Datenschutz und Freiheitsrechte nur am Rande erwhnt wrden. Kugelmann befrchtet Einschrnkungen fr den Datenschutz und kndigt eine Informations-Offensive seitens seiner Behrde an, um auf die Bedeutung von Datenschutz hinzuweisen. ?
 DIE WELT
-?? Pflichtversicherung für Elementarschäden
+?? Pflichtversicherung fr Elementarschden
 
-Im Koalitionsvertrag von CDU, CSU und SPD ist eine Pflichtversicherung für Elementarschäden vorgesehen. Künftig müssen alle Wohngebäude gegen Starkregen, Hochwasser und andere Naturkatastrophen abgesichert sein. ?
+Im Koalitionsvertrag von CDU, CSU und SPD ist eine Pflichtversicherung fr Elementarschden vorgesehen. Knftig mssen alle Wohngebude gegen Starkregen, Hochwasser und andere Naturkatastrophen abgesichert sein. ?
 Focus
 
-Für weitere Details und aktuelle Entwicklungen empfehle ich die offiziellen Nachrichtenportale wie tagesschau.de, ZDFheute oder n-tv.de.
+Fr weitere Details und aktuelle Entwicklungen empfehle ich die offiziellen Nachrichtenportale wie tagesschau.de, ZDFheute oder n-tv.de.
 Du:
- Erkläre, wie du die Nachrichten ausgewählt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.
+ Erklre, wie du die Nachrichten ausgewhlt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprft, verworfen oder doppelt waren.
 ChatGPT:
 
-Um die zusätzlichen Nachrichten zum Thema "Koalitionsvertrag von Union und SPD" auszuwählen, habe ich folgende Schritte unternommen:
-1. Kriterien für die Auswahl der Nachrichten:
+Um die zustzlichen Nachrichten zum Thema "Koalitionsvertrag von Union und SPD" auszuwhlen, habe ich folgende Schritte unternommen:
+1. Kriterien fr die Auswahl der Nachrichten:
 
-    Relevanz zum Thema: Ich habe ausschließlich Artikel und Nachrichten ausgewählt, die direkt den Koalitionsvertrag oder mit ihm verbundene Themen wie Sozialpolitik, Datenschutz oder verpflichtende Versicherungen betreffen.
+    Relevanz zum Thema: Ich habe ausschlielich Artikel und Nachrichten ausgewhlt, die direkt den Koalitionsvertrag oder mit ihm verbundene Themen wie Sozialpolitik, Datenschutz oder verpflichtende Versicherungen betreffen.
 
-    Aktualität: Nur Nachrichten, die heute oder in den letzten Tagen veröffentlicht wurden, wurden berücksichtigt.
+    Aktualitt: Nur Nachrichten, die heute oder in den letzten Tagen verffentlicht wurden, wurden bercksichtigt.
 
-    Vielfalt der Perspektiven: Ich habe Nachrichten aus unterschiedlichen Blickwinkeln (z. B. Politik, Datenschutz, Versicherungen) ausgewählt, um ein breiteres Verständnis der Diskussionen und Entscheidungen rund um den Koalitionsvertrag zu bieten.
+    Vielfalt der Perspektiven: Ich habe Nachrichten aus unterschiedlichen Blickwinkeln (z. B. Politik, Datenschutz, Versicherungen) ausgewhlt, um ein breiteres Verstndnis der Diskussionen und Entscheidungen rund um den Koalitionsvertrag zu bieten.
 
 2. Quellen, die gescannt wurden:
 
-    Welt.de: Eine bekannte Quelle für politische Nachrichten und Analysen.
+    Welt.de: Eine bekannte Quelle fr politische Nachrichten und Analysen.
 
-    Focus.de: Besonders relevant für Themen zu Versicherungen und Wirtschaftspolitik.
+    Focus.de: Besonders relevant fr Themen zu Versicherungen und Wirtschaftspolitik.
 
-    Tagesschau.de und andere: Wurden als Ergänzung geprüft, aber keine neuen spezifischen Nachrichten für das Thema wurden gefunden.
+    Tagesschau.de und andere: Wurden als Ergnzung geprft, aber keine neuen spezifischen Nachrichten fr das Thema wurden gefunden.
 
 3. Auswahl und Validierung:
 
-Ich habe die relevanten Nachrichten durchgegangen und sicher gestellt, dass sie thematisch und zeitlich zur Diskussion über den Koalitionsvertrag passen.
+Ich habe die relevanten Nachrichten durchgegangen und sicher gestellt, dass sie thematisch und zeitlich zur Diskussion ber den Koalitionsvertrag passen.
 URLs mit Status:
 
     Welt.de (zitiert):
 
         Link: welt.de - Sozialpolitische Einschnitte im Sozialsystem
 
-        Status: Zitiert – Diese Nachricht behandelt sozialpolitische Aspekte des Koalitionsvertrags, insbesondere im Bereich Gesundheit, Pflege und Rente.
+        Status: Zitiert  Diese Nachricht behandelt sozialpolitische Aspekte des Koalitionsvertrags, insbesondere im Bereich Gesundheit, Pflege und Rente.
 
     Welt.de (zitiert):
 
         Link: welt.de - Bedenken zum Datenschutz
 
-        Status: Zitiert – Die Bedenken des Datenschutzbeauftragten zu den geplanten Maßnahmen im Koalitionsvertrag wurden aufgenommen.
+        Status: Zitiert  Die Bedenken des Datenschutzbeauftragten zu den geplanten Manahmen im Koalitionsvertrag wurden aufgenommen.
 
     Focus.de (zitiert):
 
-        Link: focus.de - Pflichtversicherung für Elementarschäden
+        Link: focus.de - Pflichtversicherung fr Elementarschden
 
-        Status: Zitiert – Die geplante Pflichtversicherung für Elementarschäden wurde als wichtiges Element des Koalitionsvertrags berücksichtigt.
+        Status: Zitiert  Die geplante Pflichtversicherung fr Elementarschden wurde als wichtiges Element des Koalitionsvertrags bercksichtigt.
 
-Weitere geprüfte Quellen:
+Weitere geprfte Quellen:
 
-    Tagesschau.de: Wurde auf relevante Updates zum Thema überprüft, jedoch keine weiteren direkten Nachrichten zur sozialpolitischen Ausrichtung oder den geplanten Maßnahmen im Koalitionsvertrag gefunden.
+    Tagesschau.de: Wurde auf relevante Updates zum Thema berprft, jedoch keine weiteren direkten Nachrichten zur sozialpolitischen Ausrichtung oder den geplanten Manahmen im Koalitionsvertrag gefunden.
 
     n-tv.de: Keine neuen spezifischen Details zum Koalitionsvertrag aufgefunden.
 
 Verworfen oder doppelt:
 
-    Keine Nachrichten wurden verworfen oder doppelt verwendet. Alle Quellen wurden einmal geprüft und berücksichtigt, um redundante Informationen zu vermeiden.
+    Keine Nachrichten wurden verworfen oder doppelt verwendet. Alle Quellen wurden einmal geprft und bercksichtigt, um redundante Informationen zu vermeiden.

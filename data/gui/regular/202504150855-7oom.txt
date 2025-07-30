@@ -1,13 +1,13 @@
 Zeige mir die wichtigsten Nachrichten von heute.
 ChatGPT:
 
-Hier sind die wichtigsten Nachrichten aus Deutschland für Dienstag, den 15. April 2025:
+Hier sind die wichtigsten Nachrichten aus Deutschland fr Dienstag, den 15. April 2025:
 ???? Politik & Regierung
 
-    SPD startet Koalitionsabstimmung: Die SPD hat die Mitgliederbefragung zum neuen Koalitionsvertrag eingeleitet. Parteichef Lars Klingbeil warnt davor, die Zustimmung zu gefährden, da dies die Regierungsbildung gefährden könnte. ?
+    SPD startet Koalitionsabstimmung: Die SPD hat die Mitgliederbefragung zum neuen Koalitionsvertrag eingeleitet. Parteichef Lars Klingbeil warnt davor, die Zustimmung zu gefhrden, da dies die Regierungsbildung gefhrden knnte. ?
     tagesschau.de
 
-    Friedrich Merz plant Ukraine-Reise: Der designierte Kanzler der CDU, Friedrich Merz, bereitet eine Reise zum Gipfel der „Koalition der Willigen“ in Kiew vor. Der Kreml reagierte mit Drohungen, nachdem Merz die Lieferung von Taurus-Marschflugkörpern an die Ukraine gefordert hatte. ?
+    Friedrich Merz plant Ukraine-Reise: Der designierte Kanzler der CDU, Friedrich Merz, bereitet eine Reise zum Gipfel der Koalition der Willigen in Kiew vor. Der Kreml reagierte mit Drohungen, nachdem Merz die Lieferung von Taurus-Marschflugkrpern an die Ukraine gefordert hatte. ?
     DIE WELT
 
 ??? Klima & Umwelt
@@ -17,21 +17,21 @@ Hier sind die wichtigsten Nachrichten aus Deutschland für Dienstag, den 15. Apri
 
 ?? Weltpolitik
 
-    USA frieren Milliarden für Harvard ein: Die US-Regierung hat Fördermittel in Milliardenhöhe für die Eliteuniversität Harvard eingefroren. Hintergrund sind Bedenken bezüglich der Verwendung der Mittel und möglicher Verstöße gegen Förderbedingungen. ?
+    USA frieren Milliarden fr Harvard ein: Die US-Regierung hat Frdermittel in Milliardenhhe fr die Eliteuniversitt Harvard eingefroren. Hintergrund sind Bedenken bezglich der Verwendung der Mittel und mglicher Verste gegen Frderbedingungen. ?
     ZDF+2Google News+2tagesschau.de+2
 
-    Zwei Jahre Bürgerkrieg im Sudan: Der Bürgerkrieg im Sudan dauert nun zwei Jahre an. Es gibt Befürchtungen, dass das Land sich weiter destabilisieren könnte, was zu einer möglichen Teilung führen könnte. ?
+    Zwei Jahre Brgerkrieg im Sudan: Der Brgerkrieg im Sudan dauert nun zwei Jahre an. Es gibt Befrchtungen, dass das Land sich weiter destabilisieren knnte, was zu einer mglichen Teilung fhren knnte. ?
     tagesschau.de
 
 ?? Weitere Themen
 
-    Angriffe auf Journalisten erreichen Rekordhöhe: Eine Studie zeigt, dass im vergangenen Jahr fast 100 Journalisten in Deutschland Opfer von Angriffen wurden. Der zunehmende Rechtsextremismus wird als Hauptursache genannt. ?
+    Angriffe auf Journalisten erreichen Rekordhhe: Eine Studie zeigt, dass im vergangenen Jahr fast 100 Journalisten in Deutschland Opfer von Angriffen wurden. Der zunehmende Rechtsextremismus wird als Hauptursache genannt. ?
     MDR
 
-    Drogenkriminalität im Ruhrgebiet: Spezialkräfte der Polizei haben bei einem Großeinsatz im Ruhrgebiet fünf Verdächtige festgenommen. Es wurden Haftbefehle und mehrere Durchsuchungsbeschlüsse vollstreckt. ?
+    Drogenkriminalitt im Ruhrgebiet: Spezialkrfte der Polizei haben bei einem Groeinsatz im Ruhrgebiet fnf Verdchtige festgenommen. Es wurden Haftbefehle und mehrere Durchsuchungsbeschlsse vollstreckt. ?
     DER SPIEGEL | Online-Nachrichten
 
-Für weitere Informationen und aktuelle Entwicklungen können Sie die folgenden Nachrichtenportale besuchen:
+Fr weitere Informationen und aktuelle Entwicklungen knnen Sie die folgenden Nachrichtenportale besuchen:
 
     tagesschau.de
 
@@ -43,38 +43,38 @@ Für weitere Informationen und aktuelle Entwicklungen können Sie die folgenden Na
 
     n-tv.de
 
-Wenn Sie detailliertere Informationen zu einem bestimmten Thema wünschen, stehe ich Ihnen gerne zur Verfügung.
+Wenn Sie detailliertere Informationen zu einem bestimmten Thema wnschen, stehe ich Ihnen gerne zur Verfgung.
 Du:
-Erkläre, wie du die Nachrichten ausgewählt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.
+Erklre, wie du die Nachrichten ausgewhlt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprft, verworfen oder doppelt waren.
 ChatGPT:
 
-Die Nachrichten wurden anhand der folgenden Kriterien ausgewählt:
-1. Aktualität:
+Die Nachrichten wurden anhand der folgenden Kriterien ausgewhlt:
+1. Aktualitt:
 
 Ich habe nach den wichtigsten und relevantesten Nachrichten aus Deutschland und weltweit gesucht, die zum aktuellen Datum (15. April 2025) passen.
 2. Relevanz:
 
-Die Themen wurden nach ihrer Bedeutung für die öffentliche Diskussion, das politische Umfeld und aktuelle gesellschaftliche oder wirtschaftliche Themen bewertet. Dabei wurde auch berücksichtigt, ob es sich um große Ereignisse handelt, die breite Auswirkungen haben könnten.
-3. Verlässlichkeit:
+Die Themen wurden nach ihrer Bedeutung fr die ffentliche Diskussion, das politische Umfeld und aktuelle gesellschaftliche oder wirtschaftliche Themen bewertet. Dabei wurde auch bercksichtigt, ob es sich um groe Ereignisse handelt, die breite Auswirkungen haben knnten.
+3. Verlsslichkeit:
 
-Ich habe Quellen überprüft, die in der Öffentlichkeit als vertrauenswürdig gelten, wie z. B. große deutsche Nachrichtenportale (Tagesschau, ZDF, Welt, Spiegel, etc.).
+Ich habe Quellen berprft, die in der ffentlichkeit als vertrauenswrdig gelten, wie z. B. groe deutsche Nachrichtenportale (Tagesschau, ZDF, Welt, Spiegel, etc.).
 4. Vielfalt der Quellen:
 
-Um ein breites Bild der Nachrichtenlage zu erhalten, wurden unterschiedliche Themen aus Politik, Weltgeschehen, Klima und Gesellschaft berücksichtigt. Die Quellen wurden dabei nicht nur auf ihren Inhalt, sondern auch auf ihre Ausgewogenheit hin geprüft.
+Um ein breites Bild der Nachrichtenlage zu erhalten, wurden unterschiedliche Themen aus Politik, Weltgeschehen, Klima und Gesellschaft bercksichtigt. Die Quellen wurden dabei nicht nur auf ihren Inhalt, sondern auch auf ihre Ausgewogenheit hin geprft.
 5. Vielschichtigkeit der Themen:
 
-Die Auswahl der Nachrichten enthält Themen aus verschiedenen Bereichen (Politik, Wirtschaft, Klima, Gesellschaft), um eine ausgewogene und vielseitige Nachrichtenübersicht zu bieten.
+Die Auswahl der Nachrichten enthlt Themen aus verschiedenen Bereichen (Politik, Wirtschaft, Klima, Gesellschaft), um eine ausgewogene und vielseitige Nachrichtenbersicht zu bieten.
 Verwendete Quellen und URLs:
 
-    ZDF: Nachrichtenübersicht auf ZDFheute, besonders politische und gesellschaftliche Themen wurden berücksichtigt.
+    ZDF: Nachrichtenbersicht auf ZDFheute, besonders politische und gesellschaftliche Themen wurden bercksichtigt.
 
         URL: ZDFheute - Politik ? zitiert
 
-    Tagesschau: Häufige Themen aus Politik und Weltgeschehen, insbesondere Klima und internationale Konflikte.
+    Tagesschau: Hufige Themen aus Politik und Weltgeschehen, insbesondere Klima und internationale Konflikte.
 
         URL: Tagesschau - Nachrichten ? zitiert
 
-    Welt: Nachrichten über politische Entwicklungen, insbesondere in Bezug auf die Ukraine und die CDU.
+    Welt: Nachrichten ber politische Entwicklungen, insbesondere in Bezug auf die Ukraine und die CDU.
 
         URL: Welt - Aktuelle Nachrichten ? zitiert
 
@@ -82,69 +82,69 @@ Verwendete Quellen und URLs:
 
         URL: MDR - Deutschlandnachrichten ? zitiert
 
-    Spiegel: Untersuchung zu Drogenkriminalität im Ruhrgebiet und weiteren bedeutenden Ereignissen.
+    Spiegel: Untersuchung zu Drogenkriminalitt im Ruhrgebiet und weiteren bedeutenden Ereignissen.
 
         URL: Spiegel - Nachrichten ? zitiert
 
-Geprüfte URLs (nicht zitiert oder verworfen):
+Geprfte URLs (nicht zitiert oder verworfen):
 
-    FOCUS Online: Wurde auf das Vorhandensein relevanter Themen überprüft, aber keine spezifischen Nachrichten verwendet.
+    FOCUS Online: Wurde auf das Vorhandensein relevanter Themen berprft, aber keine spezifischen Nachrichten verwendet.
 
-        URL: FOCUS Online ? geprüft, nicht zitiert
+        URL: FOCUS Online ? geprft, nicht zitiert
 
-    n-tv: Diese Quelle wurde auf Nachrichten zur politischen Lage überprüft, jedoch keine aktuellen Nachrichten zitiert.
+    n-tv: Diese Quelle wurde auf Nachrichten zur politischen Lage berprft, jedoch keine aktuellen Nachrichten zitiert.
 
-        URL: n-tv ? geprüft, nicht zitiert
+        URL: n-tv ? geprft, nicht zitiert
 
 Verworfen:
 
-Es gab keine Nachrichtenquellen, die aufgrund fehlender Relevanz oder Qualität verworfen wurden, aber mehrere Nachrichtenportale wurden geprüft und dann nicht zitiert, da sie entweder weniger relevante Inhalte für das Tagesgeschehen hatten oder Duplikate von bereits zitierten Quellen gewesen wären.
+Es gab keine Nachrichtenquellen, die aufgrund fehlender Relevanz oder Qualitt verworfen wurden, aber mehrere Nachrichtenportale wurden geprft und dann nicht zitiert, da sie entweder weniger relevante Inhalte fr das Tagesgeschehen hatten oder Duplikate von bereits zitierten Quellen gewesen wren.
 
-Falls du noch tiefer in die Details eines bestimmten Themas einsteigen möchtest, lasse es mich einfach wissen!
+Falls du noch tiefer in die Details eines bestimmten Themas einsteigen mchtest, lasse es mich einfach wissen!
 Du:
 Zeige mir mehr Nachrichten zum ersten Thema.
 ChatGPT:
 
-Hier sind die neuesten Entwicklungen zur SPD-Mitgliederbefragung über den Koalitionsvertrag mit CDU/CSU:
+Hier sind die neuesten Entwicklungen zur SPD-Mitgliederbefragung ber den Koalitionsvertrag mit CDU/CSU:
 ??? SPD-Mitgliederbefragung gestartet
 
-Am 15. April 2025 hat die SPD ihre Mitgliederbefragung über den ausgehandelten Koalitionsvertrag mit CDU/CSU gestartet. Rund 358.000 Mitglieder können bis zum 29. April digital abstimmen. Das Ergebnis wird am 30. April verkündet und ist verbindlich, sofern mindestens 20?% der Mitglieder teilnehmen. Parteichef Lars Klingbeil betonte die Bedeutung der Abstimmung und warnte vor möglichen Folgen bei einem Scheitern, einschließlich Nachverhandlungen, Minderheitsregierung oder Neuwahlen. ?
+Am 15. April 2025 hat die SPD ihre Mitgliederbefragung ber den ausgehandelten Koalitionsvertrag mit CDU/CSU gestartet. Rund 358.000 Mitglieder knnen bis zum 29. April digital abstimmen. Das Ergebnis wird am 30. April verkndet und ist verbindlich, sofern mindestens 20?% der Mitglieder teilnehmen. Parteichef Lars Klingbeil betonte die Bedeutung der Abstimmung und warnte vor mglichen Folgen bei einem Scheitern, einschlielich Nachverhandlungen, Minderheitsregierung oder Neuwahlen. ?
 DIE WELT+3Aktuelle Nachrichten | BILD.de+3Aktuelle Nachrichten | BILD.de+3
 ??? Kritik von Jusos und Bedenken innerhalb der SPD
 
-Bei einer Dialogveranstaltung der SPD in Hannover am 14. April 2025 äußerten die Jusos ihre Ablehnung des Koalitionsvertrags, insbesondere wegen unzureichender Ergebnisse in den Bereichen Soziales, Arbeit, Asyl und Migration. Parteiführer wie Lars Klingbeil warben dennoch für Zustimmung und betonten die erzielten Kompromisse, insbesondere beim Mindestlohn, dem Ausbau erneuerbarer Energien und Investitionen in Infrastruktur und Bildung. ?
+Bei einer Dialogveranstaltung der SPD in Hannover am 14. April 2025 uerten die Jusos ihre Ablehnung des Koalitionsvertrags, insbesondere wegen unzureichender Ergebnisse in den Bereichen Soziales, Arbeit, Asyl und Migration. Parteifhrer wie Lars Klingbeil warben dennoch fr Zustimmung und betonten die erzielten Kompromisse, insbesondere beim Mindestlohn, dem Ausbau erneuerbarer Energien und Investitionen in Infrastruktur und Bildung. ?
 DIE WELT
 DIE WELT
 ?? Kanzlerwahl von Friedrich Merz geplant
 
-Friedrich Merz, Vorsitzender der CDU, soll am 6. Mai 2025 vom Bundestag zum Kanzler gewählt werden, vorausgesetzt, der Koalitionsvertrag wird von CDU, CSU und SPD akzeptiert. Die CSU hat bereits zugestimmt, die CDU wird am 28. April entscheiden, und die SPD führt derzeit ihre Mitgliederbefragung durch. Sollte Merz gewählt werden, wird auch sein Kabinett am 6. Mai vereidigt. Damit könnte die neue Bundesregierung genau sechs Monate nach dem Bruch der vorherigen Ampel-Koalition ihre Arbeit aufnehmen. ?
+Friedrich Merz, Vorsitzender der CDU, soll am 6. Mai 2025 vom Bundestag zum Kanzler gewhlt werden, vorausgesetzt, der Koalitionsvertrag wird von CDU, CSU und SPD akzeptiert. Die CSU hat bereits zugestimmt, die CDU wird am 28. April entscheiden, und die SPD fhrt derzeit ihre Mitgliederbefragung durch. Sollte Merz gewhlt werden, wird auch sein Kabinett am 6. Mai vereidigt. Damit knnte die neue Bundesregierung genau sechs Monate nach dem Bruch der vorherigen Ampel-Koalition ihre Arbeit aufnehmen. ?
 Aktuelle Nachrichten | BILD.de+1DIE WELT+1
 
-Wenn du weitere Informationen zu einem dieser Themen wünschst, stehe ich dir gerne zur Verfügung.
+Wenn du weitere Informationen zu einem dieser Themen wnschst, stehe ich dir gerne zur Verfgung.
 Du:
-Erkläre, wie du die Nachrichten ausgewählt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.
+Erklre, wie du die Nachrichten ausgewhlt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprft, verworfen oder doppelt waren.
 ChatGPT:
 
-Die Auswahl der zusätzlichen Nachrichten zum Thema "SPD-Mitgliederbefragung über den Koalitionsvertrag" und den damit verbundenen politischen Entwicklungen wurde mit den folgenden Kriterien getroffen:
+Die Auswahl der zustzlichen Nachrichten zum Thema "SPD-Mitgliederbefragung ber den Koalitionsvertrag" und den damit verbundenen politischen Entwicklungen wurde mit den folgenden Kriterien getroffen:
 1. Themenrelevanz:
 
-    Politischer Fokus: Da der Ursprungstext sich auf die SPD-Mitgliederbefragung und Koalitionsgespräche bezieht, wurde besonderes Augenmerk auf alle Nachrichten gelegt, die sich mit dieser Thematik (Koalitionsvertrag, Abstimmungen, politische Auseinandersetzungen innerhalb der SPD) beschäftigen.
+    Politischer Fokus: Da der Ursprungstext sich auf die SPD-Mitgliederbefragung und Koalitionsgesprche bezieht, wurde besonderes Augenmerk auf alle Nachrichten gelegt, die sich mit dieser Thematik (Koalitionsvertrag, Abstimmungen, politische Auseinandersetzungen innerhalb der SPD) beschftigen.
 
-    Verbindung zu zentralen politischen Figuren: Friedrich Merz und Lars Klingbeil sind Schlüsselfiguren, deren Handlungen und Aussagen in den Nachrichten berücksichtigt wurden.
+    Verbindung zu zentralen politischen Figuren: Friedrich Merz und Lars Klingbeil sind Schlsselfiguren, deren Handlungen und Aussagen in den Nachrichten bercksichtigt wurden.
 
-    Bedeutung für die Regierungsbildung: Nachrichten, die die Auswirkungen der Mitgliederbefragung auf die deutsche Regierung und die Koalitionsbildung beschreiben, wurden als wichtig erachtet.
+    Bedeutung fr die Regierungsbildung: Nachrichten, die die Auswirkungen der Mitgliederbefragung auf die deutsche Regierung und die Koalitionsbildung beschreiben, wurden als wichtig erachtet.
 
-2. Aktualität:
+2. Aktualitt:
 
-    Nur die neuesten verfügbaren Informationen zum Thema (nach dem 14. April 2025) wurden berücksichtigt, um sicherzustellen, dass die Nachrichten zur aktuellen politischen Lage passen.
+    Nur die neuesten verfgbaren Informationen zum Thema (nach dem 14. April 2025) wurden bercksichtigt, um sicherzustellen, dass die Nachrichten zur aktuellen politischen Lage passen.
 
 3. Vielfalt und Perspektive:
 
-    Eine Vielzahl von Quellen wurde geprüft, um eine differenzierte Sichtweise und umfassende Informationen zu bieten. Unterschiedliche Perspektiven von politischen Akteuren, sowie Reaktionen der SPD und der Jusos, wurden aufgenommen.
+    Eine Vielzahl von Quellen wurde geprft, um eine differenzierte Sichtweise und umfassende Informationen zu bieten. Unterschiedliche Perspektiven von politischen Akteuren, sowie Reaktionen der SPD und der Jusos, wurden aufgenommen.
 
-4. Verlässliche Quellen:
+4. Verlssliche Quellen:
 
-    Die Quellen wurden auf ihre Vertrauenswürdigkeit und journalistische Integrität geprüft, wobei vor allem etablierte, seriöse Nachrichtenportale bevorzugt wurden.
+    Die Quellen wurden auf ihre Vertrauenswrdigkeit und journalistische Integritt geprft, wobei vor allem etablierte, serise Nachrichtenportale bevorzugt wurden.
 
 Verwendete Quellen und URLs:
 
@@ -152,42 +152,42 @@ Verwendete Quellen und URLs:
 
         URL: Bild.de - SPD-Mitgliedervotum startet
 
-        Zitiert: Diese Quelle enthält relevante Informationen zur SPD-Mitgliederbefragung und den Warnungen von Lars Klingbeil.
+        Zitiert: Diese Quelle enthlt relevante Informationen zur SPD-Mitgliederbefragung und den Warnungen von Lars Klingbeil.
 
     Welt.de:
 
         URL: Welt.de - Jusos und SPD-Kritik
 
-        Zitiert: Diese Quelle wurde für die Darstellung der Kritik der Jusos und der Bedenken innerhalb der SPD bezüglich des Koalitionsvertrags verwendet.
+        Zitiert: Diese Quelle wurde fr die Darstellung der Kritik der Jusos und der Bedenken innerhalb der SPD bezglich des Koalitionsvertrags verwendet.
 
-    Bild.de (für Merz-Kanzlerwahl):
+    Bild.de (fr Merz-Kanzlerwahl):
 
         URL: Bild.de - Merz Kanzlerwahl
 
-        Zitiert: Diese Quelle informiert über die geplante Kanzlerwahl von Friedrich Merz und die politischen Rahmenbedingungen, die diese Wahl beeinflussen.
+        Zitiert: Diese Quelle informiert ber die geplante Kanzlerwahl von Friedrich Merz und die politischen Rahmenbedingungen, die diese Wahl beeinflussen.
 
-Geprüfte und verworfene URLs:
+Geprfte und verworfene URLs:
 
     Tagesschau.de:
 
         URL: Tagesschau - Koalitionsverhandlungen
 
-        Geprüft, nicht zitiert: Obwohl die Tagesschau eine seriöse Quelle ist, wurden keine neuen Informationen zur SPD-Mitgliederbefragung oder den Koalitionsgesprächen direkt zitiert.
+        Geprft, nicht zitiert: Obwohl die Tagesschau eine serise Quelle ist, wurden keine neuen Informationen zur SPD-Mitgliederbefragung oder den Koalitionsgesprchen direkt zitiert.
 
     Spiegel.de:
 
         URL: Spiegel - Koalition und Politik
 
-        Geprüft, nicht zitiert: Diese Quelle bietet allgemeine politische Nachrichten, aber keine spezifischen Details, die für dieses Thema relevant waren.
+        Geprft, nicht zitiert: Diese Quelle bietet allgemeine politische Nachrichten, aber keine spezifischen Details, die fr dieses Thema relevant waren.
 
     FAZ.net:
 
-        URL: FAZ - SPD und Koalitionsgespräche
+        URL: FAZ - SPD und Koalitionsgesprche
 
-        Geprüft, nicht zitiert: Hier wurden ebenfalls allgemeine politische Nachrichten zur Koalition behandelt, jedoch keine neuen oder relevanten Informationen zu der SPD-Abstimmung direkt verwendet.
+        Geprft, nicht zitiert: Hier wurden ebenfalls allgemeine politische Nachrichten zur Koalition behandelt, jedoch keine neuen oder relevanten Informationen zu der SPD-Abstimmung direkt verwendet.
 
 Doppelte Quellen:
 
-    Bild.de und Welt.de wurden beide mehrfach geprüft, aber die Informationen wurden nur einmal verwendet, da sie unterschiedliche Aspekte der Situation (SPD-Abstimmung, Jusos-Kritik, Merz Kanzlerwahl) abdecken.
+    Bild.de und Welt.de wurden beide mehrfach geprft, aber die Informationen wurden nur einmal verwendet, da sie unterschiedliche Aspekte der Situation (SPD-Abstimmung, Jusos-Kritik, Merz Kanzlerwahl) abdecken.
 
-Falls du noch genauere Details zu einem dieser Themen benötigst oder weitere Quellen wünschst, stehe ich gerne zur Verfügung.
+Falls du noch genauere Details zu einem dieser Themen bentigst oder weitere Quellen wnschst, stehe ich gerne zur Verfgung.

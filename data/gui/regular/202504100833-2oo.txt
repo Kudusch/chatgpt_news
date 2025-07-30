@@ -3,34 +3,34 @@ Guten Morgen! Hier sind einige der wichtigsten Nachrichten vom 10. April 2025:
 
 **International:**
 
--   **US-Zollpolitik:** Der deutsche Automobilhersteller Audi hat als Reaktion auf die von US-Präsident Donald Trump verhängten Zölle auf Autoimporte vorerst alle Fahrzeuglieferungen in die USA eingestellt. ?cite?turn0news3??
+-   **US-Zollpolitik:** Der deutsche Automobilhersteller Audi hat als Reaktion auf die von US-PrÃ¤sident Donald Trump verhÃ¤ngten ZÃ¶lle auf Autoimporte vorerst alle Fahrzeuglieferungen in die USA eingestellt. ?cite?turn0news3??
 
 **Innenpolitik:**
 
--   **Koalitionsverhandlungen:** Die Koalitionsverhandlungen zwischen CDU, CSU und SPD stehen offenbar kurz vor dem Abschluss. Eine Einigung könnte bereits heute oder morgen erzielt werden. ?cite?turn0search14??
+-   **Koalitionsverhandlungen:** Die Koalitionsverhandlungen zwischen CDU, CSU und SPD stehen offenbar kurz vor dem Abschluss. Eine Einigung kÃ¶nnte bereits heute oder morgen erzielt werden. ?cite?turn0search14??
 
 **Gesellschaft:**
 
--   **Annalena Baerbock:** Die Außenministerin Annalena Baerbock hat über den Umzug nach New York und die Reaktion ihrer Töchter auf ihren neuen Job gesprochen. ?cite?turn0news11??
+-   **Annalena Baerbock:** Die AuÃŸenministerin Annalena Baerbock hat Ã¼ber den Umzug nach New York und die Reaktion ihrer TÃ¶chter auf ihren neuen Job gesprochen. ?cite?turn0news11??
 
-Bitte beachten Sie, dass sich Nachrichten im Laufe des Tages weiterentwickeln können. Für aktuelle Informationen empfehle ich, die genannten Quellen direkt zu konsultieren.
+Bitte beachten Sie, dass sich Nachrichten im Laufe des Tages weiterentwickeln kÃ¶nnen. FÃ¼r aktuelle Informationen empfehle ich, die genannten Quellen direkt zu konsultieren.
 
 ?navlist?Aktuelle Nachrichten vom 10. April 2025?turn0news3,turn0news11?
-Erkläre, wie du die Nachrichten ausgewählt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.
+ErklÃ¤re, wie du die Nachrichten ausgewÃ¤hlt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprÃ¼ft, verworfen oder doppelt waren.
 
-Gerne erläutere ich, wie ich die Nachrichten für Sie ausgewählt habe:
+Gerne erlÃ¤utere ich, wie ich die Nachrichten fÃ¼r Sie ausgewÃ¤hlt habe:
 
-**Kriterien für die Auswahl:**
+**Kriterien fÃ¼r die Auswahl:**
 
-1.  **Aktualität:** Es wurden ausschließlich Nachrichten berücksichtigt, die am 10. April 2025 veröffentlicht wurden.?
+1.  **AktualitÃ¤t:** Es wurden ausschlieÃŸlich Nachrichten berÃ¼cksichtigt, die am 10. April 2025 verÃ¶ffentlicht wurden.?
 
 2.  **Relevanz:** Die Themen sollten von nationaler oder internationaler Bedeutung sein und ein breites Publikum ansprechen.?
 
 3.  **Vielfalt der Themen:** Es wurde darauf geachtet, verschiedene Bereiche wie Politik, Wirtschaft und Gesellschaft abzudecken.?
 
-4.  **Verlässlichkeit der Quellen:** Es wurden ausschließlich etablierte und seriöse Nachrichtenportale herangezogen.?
+4.  **VerlÃ¤sslichkeit der Quellen:** Es wurden ausschlieÃŸlich etablierte und seriÃ¶se Nachrichtenportale herangezogen.?
 
-**Gesichtete Quellen und URLs:** Die folgenden Artikel wurden geprüft, um die wichtigsten Nachrichten des Tages zusammenzustellen:?
+**Gesichtete Quellen und URLs:** Die folgenden Artikel wurden geprÃ¼ft, um die wichtigsten Nachrichten des Tages zusammenzustellen:?
 
 1.  **"US-Zollpolitik: Audi stoppt Fahrzeuglieferungen in die USA"**?
 
@@ -44,7 +44,7 @@ Gerne erläutere ich, wie ich die Nachrichten für Sie ausgewählt habe:
 
     -   Status: Zitiert?
 
-3.  **"Baerbock vor neuem Amt bei der UN -- Töchter begeistert vom Umzug"**?
+3.  **"Baerbock vor neuem Amt bei der UN -- TÃ¶chter begeistert vom Umzug"**?
 
     -   URL: <https://www.rnd.de/politik/baerbock-vor-neuem-amt-bei-der-un-toechter-begeistert-vom-umzug-TJCDLGZB6ZPBZLDNVMHVTTXNFA.html>
 
@@ -54,72 +54,72 @@ Gerne erläutere ich, wie ich die Nachrichten für Sie ausgewählt habe:
 
     -   URL: <https://www.tagesschau.de/inland/innenpolitik/koalitionsverhandlungen-140.html>
 
-    -   Status: Nur geprüft?
+    -   Status: Nur geprÃ¼ft?
 
-5.  **"Union und SPD: Knackpunkte bei künftigen Koalitionsgesprächen"**?
+5.  **"Union und SPD: Knackpunkte bei kÃ¼nftigen KoalitionsgesprÃ¤chen"**?
 
     -   URL: <https://www.tagesschau.de/inland/bundestagswahl/union-spd-verhandlungen-themen-100.html>
 
-    -   Status: Nur geprüft?
+    -   Status: Nur geprÃ¼ft?
 
-6.  **"Top-Position in New York: Baerbock soll Präsidentin der UN-Generalversammlung werden"**?
+6.  **"Top-Position in New York: Baerbock soll PrÃ¤sidentin der UN-Generalversammlung werden"**?
 
     -   URL: <https://www.n-tv.de/politik/Baerbock-soll-Praesidentin-der-UN-Generalversammlung-werden-article25638373.html>
 
-    -   Status: Nur geprüft?
+    -   Status: Nur geprÃ¼ft?
 
 7.  **"Union und SPD: Wie die Koalitionsverhandlungen ablaufen"**?
 
     -   URL: <https://www.tagesschau.de/inland/innenpolitik/koalitionsverhandlungen-union-spd-100.html>
 
-    -   Status: Nur geprüft?
+    -   Status: Nur geprÃ¼ft?
 
 8.  **"Liveblog: ++ Union und SPD beginnen Koalitionsverhandlungen ++"**?
 
     -   URL: <https://www.tagesschau.de/newsticker/liveblog-regierungsbildung-donnerstag-100.html>
 
-    -   Status: Nur geprüft?
+    -   Status: Nur geprÃ¼ft?
 
 9.  **"Koalitionsverhandlungen: CSU- und SPD-Vorstand stimmen zu"**?
 
     -   URL: <https://www.zdf.de/nachrichten/politik/deutschland/regierungsbildung-cdu-csu-spd-koalitionsverhandlungen-100.html>
 
-    -   Status: Nur geprüft?
+    -   Status: Nur geprÃ¼ft?
 
 10. **"Was Union und SPD bei ihren Sondierungen vereinbart haben"**?
 
     -   URL: <https://www.tagesschau.de/inland/innenpolitik/abschluss-sondierungen-hintergrund-100.html>
 
-    -   Status: Nur geprüft
+    -   Status: Nur geprÃ¼ft
 
-11. **"El nuevo acuerdo de coalición de Alemania: cerrojazo al asilo, bajada de impuestos e impulso a la digitalización"**?
+11. **"El nuevo acuerdo de coaliciÃ³n de Alemania: cerrojazo al asilo, bajada de impuestos e impulso a la digitalizaciÃ³n"**?
 
     -   URL: <https://elpais.com/internacional/2025-04-09/el-nuevo-acuerdo-de-coalicion-de-alemania-cerrojazo-al-asilo-bajada-de-impuestos-e-impulso-a-la-digitalizacion.html>
 
-    -   Status: Nur geprüft
+    -   Status: Nur geprÃ¼ft
 
-12. **"Los conservadores y socialdemócratas pactan un acuerdo para formar Gobierno en Alemania"**?
+12. **"Los conservadores y socialdemÃ³cratas pactan un acuerdo para formar Gobierno en Alemania"**?
 
     -   URL: [[https://www.huffingtonpost.es/global/los-conservadores-socialdemocratas-pactan-acuerdo-formar-gobierno-alemaniabr.html](](https://www.huffingtonpost.es/global/los-conservadores-socialdemocratas-pactan-acuerdo-formar-gobierno-alemaniabr.html%5D()<https://www.h>
 
 Zeige mir mehr Nachrichten zum ersten Thema.
-Audi hat als Reaktion auf die von Präsident Donald Trump verhängten Zölle auf Autoimporte alle Fahrzeuglieferungen in die USA vorerst gestoppt. Diese Zölle, die seit dem 2. April 2025 gelten, betragen 25 Prozent zusätzlich zu den bisherigen 2,5 Prozent und betreffen auch Autoteile. Audi hält derzeit etwa 37.000 Fahrzeuge in den USA auf Lager, die nicht von den neuen Zöllen betroffen sind und für etwa zwei Monate ausreichen sollten. ?cite?turn0news0??
+Audi hat als Reaktion auf die von PrÃ¤sident Donald Trump verhÃ¤ngten ZÃ¶lle auf Autoimporte alle Fahrzeuglieferungen in die USA vorerst gestoppt. Diese ZÃ¶lle, die seit dem 2. April 2025 gelten, betragen 25 Prozent zusÃ¤tzlich zu den bisherigen 2,5 Prozent und betreffen auch Autoteile. Audi hÃ¤lt derzeit etwa 37.000 Fahrzeuge in den USA auf Lager, die nicht von den neuen ZÃ¶llen betroffen sind und fÃ¼r etwa zwei Monate ausreichen sollten. ?cite?turn0news0??
 
-Um den Auswirkungen der Zölle zu begegnen, erwägt Volkswagen, die Produktion von Audi und Porsche künftig in den USA auszubauen. Dies könnte helfen, die zusätzlichen Importzölle zu umgehen und die Wettbewerbsfähigkeit in den USA zu sichern. ?cite?turn0search1??
+Um den Auswirkungen der ZÃ¶lle zu begegnen, erwÃ¤gt Volkswagen, die Produktion von Audi und Porsche kÃ¼nftig in den USA auszubauen. Dies kÃ¶nnte helfen, die zusÃ¤tzlichen ImportzÃ¶lle zu umgehen und die WettbewerbsfÃ¤higkeit in den USA zu sichern. ?cite?turn0search1??
 
-?navlist?Aktuelle Entwicklungen zu Audis Reaktion auf US-Zölle?turn0news0,turn0news31,turn0news32?
-Erkläre, wie du die Nachrichten ausgewählt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.
-Die Auswahl der zusätzlichen Nachrichten zum Thema Audi und den US-Zöllen erfolgte nach denselben Kriterien wie zuvor, jedoch mit einem stärkeren Fokus auf das Thema der Zölle und der Reaktion der Automobilindustrie, insbesondere Audi. Ich habe speziell nach weiteren relevanten Nachrichten gesucht, die Details zu den Auswirkungen dieser Zölle auf Audi und ähnliche Unternehmen liefern.
+?navlist?Aktuelle Entwicklungen zu Audis Reaktion auf US-ZÃ¶lle?turn0news0,turn0news31,turn0news32?
+ErklÃ¤re, wie du die Nachrichten ausgewÃ¤hlt hast (z.?B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprÃ¼ft, verworfen oder doppelt waren.
+Die Auswahl der zusÃ¤tzlichen Nachrichten zum Thema Audi und den US-ZÃ¶llen erfolgte nach denselben Kriterien wie zuvor, jedoch mit einem stÃ¤rkeren Fokus auf das Thema der ZÃ¶lle und der Reaktion der Automobilindustrie, insbesondere Audi. Ich habe speziell nach weiteren relevanten Nachrichten gesucht, die Details zu den Auswirkungen dieser ZÃ¶lle auf Audi und Ã¤hnliche Unternehmen liefern.
 
-**Kriterien für die Auswahl:**
+**Kriterien fÃ¼r die Auswahl:**
 
-1.  **Aktualität:** Es wurden nur Nachrichten berücksichtigt, die im Zusammenhang mit den Zöllen auf Autos von Präsident Trump seit dem 2. April 2025 stehen.
+1.  **AktualitÃ¤t:** Es wurden nur Nachrichten berÃ¼cksichtigt, die im Zusammenhang mit den ZÃ¶llen auf Autos von PrÃ¤sident Trump seit dem 2. April 2025 stehen.
 
-2.  **Relevanz:** Die Quellen berichten über die Auswirkungen der Zölle auf den Automobilsektor, insbesondere Audi.
+2.  **Relevanz:** Die Quellen berichten Ã¼ber die Auswirkungen der ZÃ¶lle auf den Automobilsektor, insbesondere Audi.
 
-3.  **Verlässlichkeit der Quellen:** Es wurden etablierte und seriöse Nachrichtenquellen wie "Die Zeit", "Auto Motor Sport" und "Reuters" geprüft.
+3.  **VerlÃ¤sslichkeit der Quellen:** Es wurden etablierte und seriÃ¶se Nachrichtenquellen wie "Die Zeit", "Auto Motor Sport" und "Reuters" geprÃ¼ft.
 
-4.  **Datenüberprüfung:** Nur Quellen mit spezifischen Informationen und aktuellen Entwicklungen wurden einbezogen.
+4.  **DatenÃ¼berprÃ¼fung:** Nur Quellen mit spezifischen Informationen und aktuellen Entwicklungen wurden einbezogen.
 
 **Gesichtete Quellen und URLs:**
 
@@ -141,9 +141,9 @@ Die Auswahl der zusätzlichen Nachrichten zum Thema Audi und den US-Zöllen erfolg
 
     -   Status: Zitiert
 
-**Verwarfene oder doppelt geprüfte Quellen:**
+**Verwarfene oder doppelt geprÃ¼fte Quellen:**
 
-1.  Keine verworfenen Quellen. Alle geprüften URLs waren relevant und wurden zitiert, um weiterführende Informationen zu bieten.
+1.  Keine verworfenen Quellen. Alle geprÃ¼ften URLs waren relevant und wurden zitiert, um weiterfÃ¼hrende Informationen zu bieten.
 
 
 
