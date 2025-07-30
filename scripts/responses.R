@@ -54,36 +54,63 @@ cooc_edges <- responses |>
     left_join(token_counts) |> 
     filter(!is_pruned) |> 
     pairwise_count(token, pid, upper = FALSE, diag = FALSE) |> 
-    arrange(-n)
+    arrange(-n) |> 
+    left_join(rename(token_counts, item1_n = n), by = c("item1"="token")) |> 
+    select(item1:item1_n) |> 
+    left_join(rename(token_counts, item2_n = n), by = c("item2"="token")) |> 
+    select(item1:item2_n) |> 
+    mutate(across(n:item2_n, \(i) {i/sum(i)})) |> 
+    mutate(NPMI = log(n/(item1_n*item2_n))/(-log(n))) |> 
+    select(item1, item2, n, NPMI)
 
 cooc_graph <- cooc_edges |> 
-    filter(n >= 100) |> 
     graph_from_data_frame(
         directed = FALSE, 
         vertices = token_counts |> filter(!is_pruned)
     )
 
-cls.wt <- cluster_walktrap(cooc_graph, weights = E(cooc_graph)$n)
-V(cooc_graph)$cluster <- membership(cls.wt)
-token_clusters <- membership(cls.wt) |> 
+cls.l <- cluster_louvain(cooc_graph, weights = E(cooc_graph)$NPMI, resolution = 2)
+V(cooc_graph)$cluster <- membership(cls.l)
+token_clusters <- membership(cls.l) |> 
     enframe(name = "token", value = "cluster")  |> 
     mutate(cluster = as.numeric(cluster)) |> 
     left_join(token_counts) |> 
     add_count(cluster, name = "cluster_count")
-    
+
+token_clusters |> 
+    distinct(cluster, cluster_count) |> 
+    arrange(-cluster_count)
+
 token_clusters |> 
     filter(cluster_count >= 5) |> 
     group_by(cluster) |> 
     arrange(-n) |> 
-    slice(1:10) |> 
+    summarise(
+        tokens = paste(na.omit(token[1:15]), collapse = ", "),
+        token_count = sum(n),
+        cluster_size = unique(cluster_count)
+    ) |>
+    arrange(-token_count) |> 
     gt()
 
-tmp <- cooc_graph |> 
-    delete_vertices(v = !(V(cooc_graph)$cluster %in% (token_clusters |> filter(cluster_count >= 5) |> pull(cluster) |> unique())))
-tmp <- tmp |> delete_vertices(v = V(tmp)$n < 1000)
-tmp |> 
-    delete_edges(E(tmp)[E(tmp)$n < 100]) |> 
-    ggraph() +
-    geom_node_point(aes(size = n, color = as.character(cluster))) +
-    theme_void()
 
+responses |> 
+    left_join(select(token_clusters, token, cluster, cluster_count)) |> 
+    filter(!is.na(cluster)) |> 
+    filter(cluster_count >= 5)
+
+token_tf_idf <- responses |>    
+    group_by(experiment) |>         
+    count(token) |>                 
+    ungroup() |>                    
+    bind_tf_idf(token, experiment, n)  |> 
+    arrange(-tf_idf)                      
+
+token_tf_idf |> 
+    group_by(experiment) |> 
+    slice_max(tf_idf, n = 20) |> 
+    ungroup() |> 
+    mutate(token = factor(token, levels = rev(token))) |> 
+    ggplot(aes(x = tf_idf, y = token, fill = experiment)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(vars(experiment), scales = "free")

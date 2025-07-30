@@ -1,4 +1,5 @@
-
+# Implementation from https://github.com/vanderleidebastiani/SYNCSA/tree/master
+# Vanderlei J. Debastiani, Valério D. Pillar; SYNCSA-R tool for analysis of metacommunities based on functional traits and phylogeny of the community components, Bioinformatics, Volume 28, Issue 15, 1 August 2012, Pages 2067–2068, https://doi.org/10.1093/bioinformatics/bts325
 rao.diversity <- function(comm, traits = NULL, phylodist = NULL, checkdata = TRUE, ord = "metric",
                           put.together = NULL, standardize = TRUE, transformation = "standardized",
                           spp.weights = NULL, ...)
@@ -455,33 +456,33 @@ rao.diversity <- function(comm, traits = NULL, phylodist = NULL, checkdata = TRU
 #' @export
 var.type <- function(data)
 {
-  if(!inherits(data, c("data.frame", "matrix"))){
-    stop("data must be a matrix or a data.frame")
-  }
-  colnames(data) <- colnames(data, do.NULL = FALSE, prefix = "var")
-  is.bin <- function(k) all(k[!is.na(k)] %in% c(0, 1))
-  nc <- ncol(data)
-  if (is.data.frame(data)) {
-    type <- sapply(data, data.class)
-    type2 <- type
-    bin.var <- rep(NA, nc)
-    for (i in 1:nc) {
-      bin.var[i] <- is.bin(data[, i])
+    if(!inherits(data, c("data.frame", "matrix"))){
+        stop("data must be a matrix or a data.frame")
     }
-    type[type %in% c("numeric", "integer")] <- "c"
-    type[type == "ordered"] <- "o"
-    type[type == "character"] <- "n"
-    type[type == "factor"] <- "f"
-    type[bin.var] <- "b"
-    type[type2 == "character"] <- "n"
-    type[type2 == "factor"] <- "f"
-    names(type) <- NULL
-  }
-  else {
-    if(any(sapply(data, data.class) == "character")){
-      stop("\n If data is a matrix class it must be entirely numeric \n")
+    colnames(data) <- colnames(data, do.NULL = FALSE, prefix = "var")
+    is.bin <- function(k) all(k[!is.na(k)] %in% c(0, 1))
+    nc <- ncol(data)
+    if (is.data.frame(data)) {
+        type <- sapply(data, data.class)
+        type2 <- type
+        bin.var <- rep(NA, nc)
+        for (i in 1:nc) {
+            bin.var[i] <- is.bin(data[, i])
+        }
+        type[type %in% c("numeric", "integer")] <- "c"
+        type[type == "ordered"] <- "o"
+        type[type == "character"] <- "n"
+        type[type == "factor"] <- "f"
+        type[bin.var] <- "b"
+        type[type2 == "character"] <- "n"
+        type[type2 == "factor"] <- "f"
+        names(type) <- NULL
     }
-    type <- rep("c", nc)
-  }
-  return(type)
+    else {
+        if(any(sapply(data, data.class) == "character")){
+            stop("\n If data is a matrix class it must be entirely numeric \n")
+        }
+        type <- rep("c", nc)
+    }
+    return(type)
 }

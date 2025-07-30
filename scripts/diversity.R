@@ -15,6 +15,8 @@ library(ggrepel)
 options(ggplot2.discrete.colour = c("#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"))
 options(ggplot2.discrete.fill = c("#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"))
 
+source("scripts/rao.diversity.R")
+
 ## Shannon Diversity Index: Higher values mean higher diversity
 sdi <- function(counts) {
     props <- counts / sum(counts)
@@ -120,6 +122,9 @@ domains |>
     gt() |> 
     fmt_percent(-gond_lang)
 
+domains |>
+    count(gond_type)
+
 top_journalistic_domains <- domains |> 
     group_by(domain) |> 
     summarise(n = sum(n)) |> 
@@ -162,3 +167,5 @@ res_regular <- rao.diversity(
     traits = traits_regular
 )
 t.test(res_diverse$FunRao, res_regular$FunRao)
+
+res_regular$FunRao
