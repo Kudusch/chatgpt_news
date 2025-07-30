@@ -76,6 +76,7 @@ links <- jsonlite::fromJSON("Data/links_api.json") |>
     mutate(condition = get_condition(uid)) |> 
     distinct(uid, date, experiment, condition, url, domain)
 
+#adjust some subdomains
 links <- links |> 
   mutate(domain = case_when(
     domain %in% c("interactive.spiegel.de") ~ "spiegel.de",
@@ -168,9 +169,199 @@ domains |>
         domain = "Domain",
         tranco_rank = "Tranco Rank"
     )
-    
 
 ```
+
+### Popularity of Domains
+
+When looking at the top domains, some plausible and expected choices are at the top (e.g., `reuters.com`, `tagesschau.de`), but also some surprises appear (e.g., `deutsche-handwerks-zeitung.de`). @tbl-correl displays Spearman's rank correlation comparing the ranking of ChatGPT's domain frequency and the Tranco ranks for these domains when only focusing at German top-level domains.^[This was made to increase comparability with the Tranco ranks that have a global scope.]
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-correl
+#| tbl-cap: Spearman's Rank Correlation between Domain Rank and Tranco Rank
+#| 
+exceptions <- c("faz.net","gmx.net")  # ← exception list
+
+domains |>
+  filter(str_detect(domain, "\\.de$") | domain %in% exceptions) |>
+  group_by(condition) |>
+  mutate(rank = min_rank(desc(n))) |>  # ranks n descending, ties get same rank
+  summarise(
+    spearman_tranco = round(cor(rank, tranco_rank, method = "spearman", use = "complete.obs"),3)
+  ) |> 
+  gt() |>
+  cols_label(
+        condition = "Condition",
+        spearman_tranco = "Spearman's rank correlation")
+
+```
+**From here until 1.2 (the rank correlation things) are still experimental**
+
+```{r}
+# import aggregated data; Reuters raw data not available
+media_leanings <- read.csv("data/media_leanings_reuters.csv",row.names = 1)
+
+# group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
+# add frequency for those cases and assign rank
+domains_reuters <- domains |> 
+  mutate(domain_reuters = case_when(
+    domain %in% c("ard.de", "tagesschau.de") ~ "ard.de.tagesschau.de",
+    domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de.prosieben.de",
+    TRUE ~ domain
+  )) |>
+  group_by(condition, domain_reuters) |>
+  summarise(n = sum(n, na.rm = TRUE),
+            category = first(category),
+            .groups = "drop") |>
+  group_by(condition) |>
+  mutate(rank_global = min_rank(desc(n))) |>
+  ungroup()
+```
+
+#### Comparing Ranks - Option 1: Subset longer list to match entries of partial list
+
+Here the basis is the partial list.
+```{r}
+# match domains from chatgpt with reuters data
+matched_domains <- purrr::map_dfr(
+  colnames(media_leanings),
+  ~ {
+    reuters_rank <- media_leanings["rank", .x] 
+    domains_reuters |>
+      filter(str_detect(domain_reuters, regex(paste0("\\b", .x, "\\b"), ignore_case = TRUE))) |>
+      mutate(
+        source_match = .x,
+        reuters_rank = reuters_rank
+      )
+  }
+)
+
+# calculate chatgpt rank for this subset
+matched_domains |>
+  group_by(condition) |>
+  mutate(rank_subset = min_rank(desc(n))) |>
+  summarise(
+    spearman_global = round(cor(rank_global, reuters_rank, method = "spearman", use = "complete.obs"), 3),
+    spearman_subset = round(cor(rank_subset, reuters_rank, method = "spearman"),3),
+    .groups = "drop"
+  )
+
+# irrelevant whether using global ranking or new ranking for subset as order remains stable
+# similarly: filtering for journalistic sources in ChatGPT list not necessary as relative ranks won't change
+```
+#### Comparing Ranks - Option 2: Truncate longer list (from top) to partial list size
+
+Here the basis is the truncated longer lists and it depends on how many entries of the partial list are in the top n of the longer list.
+
+```{r}
+# cut both conditions to top n elements where n is the size of the reuters list
+cut_size <- length(colnames(media_leanings))
+
+truncated <- domains_reuters |> 
+  filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
+  group_by(condition) |> 
+  arrange(rank_global) |>
+  slice_head(n = cut_size) 
+
+truncated |>
+  left_join(
+    matched_domains |>
+      select(domain_reuters, condition, reuters_rank) |>
+      distinct(domain_reuters, condition, .keep_all = TRUE),
+    by = c("domain_reuters", "condition")
+  ) |>
+  summarise(
+    spearman_global = cor(rank_global, reuters_rank, method = "spearman", use = "complete.obs") |> round(3)
+  )
+
+```
+
+#### Comparing Ranks - Option 3: Jaccard similarity
+
+For a fixed cutoff (here: size of the Reuters list), compute Jaccard similarity (= size of intersection / size of union).
+
+```{r}
+truncated |>
+  group_by(condition) |>
+  summarise(
+    intersection = length(intersect(domain_reuters, colnames(media_leanings))),
+    union = length(union(domain_reuters, colnames(media_leanings))),
+    jaccard = round(intersection / union, 3)
+  )
+```
+
+
+#### Comparing Ranks - Option 4: Overlap at n
+
+How many of the Reuters sources appear in the top `r length(colnames(media_leanings))` entries in the ChatGPT list. Cutoff can be flexible, here it is determined by the size of the short Reuters list.
+
+```{r}
+truncated |>
+  group_by(condition) |>
+  summarise(
+    overlap = length(intersect(domain_reuters, colnames(media_leanings))),
+    relative_overlap = round(overlap/cut_size,2)
+  )
+```
+
+#### Comparing Ranks - Option 5: Pairwise agreement on common items
+
+Look at every possible pair of items in the first list and check their relative order, e.g., order1 = rank(i) < rank(j). Check the relative order of the same pair in the second list. Do items i and j have the same relative order? If yes pairing agrees. Agreement is how many pairs agree vs. total comparable pairs. 
+
+Important: Only pairs that exist in both lists are considered, i.e, smaller list constraints.
+
+```{r}
+
+pairwise_agreement <- domains_reuters |>
+  left_join(
+    matched_domains |>
+      select(domain_reuters, condition, reuters_rank) |>
+      distinct(domain_reuters, condition, .keep_all = TRUE),
+    by = c("domain_reuters", "condition")
+  )
+
+pairwise_agreement_domains <- function(domains) {
+    items <- pairwise_agreement$domain_reuters
+    rank1 <- pairwise_agreement$rank_global
+    rank2 <- pairwise_agreement$reuters_rank
+    
+    n <- length(items)
+    agreement <- 0
+    total <- 0
+    
+    for (i in 1:(n-1)) {
+        for (j in (i+1):n) {
+            # Skip if any rank is NA for the pair
+            if (is.na(rank1[i]) || is.na(rank1[j]) || is.na(rank2[i]) || is.na(rank2[j])) {
+                next
+            }
+
+            
+            order1 <- rank1[i] < rank1[j]
+            order2 <- rank2[i] < rank2[j]
+            
+            total <- total + 1
+            if (order1 == order2) {
+                agreement <- agreement + 1
+            }
+        }
+    }
+    
+    if (total == 0) {
+      return(list(agreement = NA, total = 0))
+    }
+    
+    return(list(agreement_ratio = agreement / total, agreement_count = agreement, total_pairs = total))
+}
+
+result <- pairwise_agreement_domains(pairwise_agreement)
+
+result
+```
+
+
 
 ### Top sites over time
 
