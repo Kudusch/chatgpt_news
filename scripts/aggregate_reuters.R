@@ -90,7 +90,7 @@ media_leanings$ard.de <- NULL
 media_leanings$prosieben.de <- NULL
 
 # Export data
-write.csv(media_leanings, "data/media_leanings_reuters.csv", row.names = TRUE)
+write.csv(media_leanings, "data/reuters.csv", row.names = TRUE)
 
 
 # Descriptives on the whole sample

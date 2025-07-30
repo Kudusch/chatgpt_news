@@ -174,7 +174,7 @@ domains |>
 
 ### Popularity of Domains
 
-When looking at the top domains, some plausible and expected choices are at the top (e.g., `reuters.com`, `tagesschau.de`), but also some surprises appear (e.g., `deutsche-handwerks-zeitung.de`). @tbl-correl displays Spearman's rank correlation comparing the ranking of ChatGPT's domain frequency and the Tranco ranks for these domains when only focusing at German top-level domains.^[This was made to increase comparability with the Tranco ranks that have a global scope.]
+When looking at the top domains, some plausible and expected choices are at the top (e.g., `reuters.com`, `tagesschau.de`), but also some surprises appear (e.g., `deutsche-handwerks-zeitung.de`). @tbl-correl displays Spearman's rank correlation comparing the ranking of ChatGPT's domain frequency and the Tranco ranks for these domains when only focusing at German top-level domains.^[To increase comparability with the Tranco ranks that have a global scope.]
 
 ```{r}
 #| echo: false
@@ -201,7 +201,7 @@ domains |>
 
 ```{r}
 # import aggregated data; Reuters raw data not available
-media_leanings <- read.csv("data/media_leanings_reuters.csv",row.names = 1)
+reuters <- read.csv("data/reuters.csv",row.names = 1)
 
 # group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
 # add frequency for those cases and assign rank
@@ -226,9 +226,9 @@ Here the basis is the partial list.
 ```{r}
 # match domains from chatgpt with reuters data
 matched_domains <- purrr::map_dfr(
-  colnames(media_leanings),
+  colnames(reuters),
   ~ {
-    reuters_rank <- media_leanings["rank", .x] 
+    reuters_rank <- reuters["rank", .x] 
     domains_reuters |>
       filter(str_detect(domain_reuters, regex(paste0("\\b", .x, "\\b"), ignore_case = TRUE))) |>
       mutate(
@@ -257,7 +257,7 @@ Here the basis is the truncated longer lists and it depends on how many entries 
 
 ```{r}
 # cut both conditions to top n elements where n is the size of the reuters list
-cut_size <- length(colnames(media_leanings))
+cut_size <- length(colnames(reuters))
 
 truncated <- domains_reuters |> 
   filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
@@ -286,8 +286,8 @@ For a fixed cutoff (here: size of the Reuters list), compute Jaccard similarity 
 truncated |>
   group_by(condition) |>
   summarise(
-    intersection = length(intersect(domain_reuters, colnames(media_leanings))),
-    union = length(union(domain_reuters, colnames(media_leanings))),
+    intersection = length(intersect(domain_reuters, colnames(reuters))),
+    union = length(union(domain_reuters, colnames(reuters))),
     jaccard = round(intersection / union, 3)
   )
 ```
@@ -295,13 +295,13 @@ truncated |>
 
 #### Comparing Ranks - Option 4: Overlap at n
 
-How many of the Reuters sources appear in the top `r length(colnames(media_leanings))` entries in the ChatGPT list. Cutoff can be flexible, here it is determined by the size of the short Reuters list.
+How many of the Reuters sources appear in the top `r length(colnames(reuters))` entries in the ChatGPT list. Cutoff can be flexible, here it is determined by the size of the short Reuters list.
 
 ```{r}
 truncated |>
   group_by(condition) |>
   summarise(
-    overlap = length(intersect(domain_reuters, colnames(media_leanings))),
+    overlap = length(intersect(domain_reuters, colnames(reuters))),
     relative_overlap = round(overlap/cut_size,2)
   )
 ```
@@ -873,7 +873,7 @@ test_df |>
 
 ```{r}
 # import aggregated data; Reuters raw data not available
-media_leanings <- read.csv("data/media_leanings_reuters.csv",row.names = 1)
+reuters <- read.csv("data/reuters.csv",row.names = 1)
 
 ## group sat1/prosieben and ard/tagesschau as they are considered one in the Reuters data
 # adjust some sub domains for main domain
@@ -886,10 +886,10 @@ domains <- domains |>
 
 # match domains from chatgpt with reuters data
 matched_domains <- purrr::map_dfr(
-  colnames(media_leanings),
+  colnames(reuters),
   ~ {
-    leaning_value <- media_leanings["media_leaning", .x]  
-    reuters_rank <- media_leanings["rank", .x] 
+    leaning_value <- reuters["media_leaning", .x]  
+    reuters_rank <- reuters["rank", .x] 
     domains |>
       filter(str_detect(domain_reuters, regex(paste0("\\b", .x, "\\b"), ignore_case = TRUE))) |>
       mutate(
@@ -934,11 +934,11 @@ share_leaning_journalistic <- domains |>
 To calculate the political leaning of news sources, we used data from the German 2025 Reuters Digital News Report. Specifically, we determined the political leaning of each outlets as the average political orientation of all survey participants who reported using that media source at least once per week. The political orientation of participants who used the outlet on three or more days per week were weighted double. 22 media outlets were included in the Reuters data. <details> <summary>Show names of outlets included in the Reuters data</summary>
 
 ```{r}
-colnames(media_leanings)
+colnames(reuters)
 ```
 </details> 
 
-Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(rowMeans(media_leanings)[[1]],2)` (SD = `r round(sd(as.numeric(media_leanings[1, ])), 2)`).
+Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(rowMeans(reuters)[[1]],2)` (SD = `r round(sd(as.numeric(reuters[1, ])), 2)`).
 
 Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The mean political leaning of the sources used by ChatGPT does not differ significantly from either the average political leaning of the population or the midpoint of the scale (which is 4).
 
