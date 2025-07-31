@@ -172,7 +172,7 @@ domains |>
 
 ```
 
-### Popularity of Domains
+### Ranking / Choice of References
 
 ```{r}
 domains <- domains |>
@@ -203,25 +203,86 @@ domains_reuters <- domains |>
   mutate(rank = dense_rank(desc(n))) |>
   ungroup()
 
-# joining similar onto domain
-domains_similar <- merge(domains, similar, by = "domain", all.x = T)
-
 # joining reuters onto domain
 domains_reuters <- merge(domains_reuters, reuters, by = "domain", all.x = T)
+
+# joining similar onto domain
+domains_similar <- merge(domains, similar, by = "domain", all.x = T)
 ```
 
-When looking at the top domains, some plausible and expected choices are at the top (e.g., `reuters.com`, `tagesschau.de`), but some surprises appear, too (e.g., `deutsche-handwerks-zeitung.de`). 
+When looking at the top domains, some plausible and expected choices are at the top (e.g., `rnd.de`, `tagesschau.de`), but some surprises appear, too (e.g., `deutsche-handwerks-zeitung.de`, `stimme.de`). While most top-domains are journalistic sources, some are news agencies (e.g., `reuters.com`, `apnews.com`) or encyclopedias (i.e., `wikipedia.org`), see also @sec-categorization.
 
-We can correlate the ranking of ChatGPT's domain frequency with some existing references. @tbl-correl displays the Spearman's rank correlation and Pearson's correlation for three reference data sets. 
-
-The first column gives the rank correlation with the Tranco ranks which was subset to German top-level domains^[To increase comparability with the Tranco ranks that have a global scope.] The second and third column gives the rank and pearson correlation with the popularity of selected news media outlets based on survey data from the German 2025 Reuters Digital News Report [@Behre2025]. In this study, *N* = 2047 participants provided their news consumption frequency in relation to 22 media outlets. <details> <summary>Show names of outlets included in the Reuters data</summary>
-Finally, the fourth and fifth column provides the rank and pearson correlation with data from similarweb.com, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^['kachelmannwetter.de' and 'wunderweib.de' were excluded and 16 outlets that were not categorized as news (such as 'gmx.net', 'ndr.de', 'handelsblatt.com') were included.]
+To get a better intuition about the ranking and distribution of the sources provided by ChatGPT, we compare it to two reference lists with the most popular news sources in Germany. The first reference list from @Behre2025 (German 2025 Reuters Digital News Report) presents news consumption frequencies across 22 media outlets, based on responses from a representative sample (*N* = 2047).
+<details> <summary>Show names of outlets included in the Reuters data</summary>
 
 ```{r}
 reuters$domain
 ```
 </details> 
 
+The second list contains data from *similarweb.com*, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^['kachelmannwetter.de' and 'wunderweib.de' were excluded and 16 outlets that were not categorized as news (such as 'gmx.net', 'ndr.de', 'handelsblatt.com') were included.] The final list contains the 114 most visited news websites for June 2025 in Germany according to *similarweb.de*.
+
+@tbl-overlap shows the overlap between the two reference lists and the top domains by ChatGPT (when this list is cut to the same size as the respective reference list). For the Reuters list, 6 of the 22 news outlets are represented in the top 22 domains provided by ChatGPT in the regular condition. While this showcases that some popular news outlets are frequently referenced by ChatGPT, it also shows that several popular ones are not as frequently listed and vice versa. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-overlap
+#| tbl-cap: Overlap of Top Domains by ChatGPT with two Reference Lists of Popular News Sources
+
+over_reu <- domains_reuters |> 
+  group_by(condition) |> 
+  arrange(rank) |>
+  slice_head(n = nrow(reuters)) |>
+  summarise(
+    intersection.r = length(intersect(domain, reuters$domain)),
+    list_size.r = nrow(reuters),
+    overlap.r = round(intersection.r / list_size.r, 2)
+  )
+
+over_sim <- domains_similar |> 
+  group_by(condition) |> 
+  arrange(rank) |>
+  slice_head(n = nrow(similar)) |>
+  summarise(
+    intersection.s = length(intersect(domain, similar$domain)),
+    list_size.s = nrow(similar),
+    overlap.s = round(intersection.s / list_size.s, 2)
+  )
+
+full_join(over_reu, over_sim, by = "condition") |>
+  gt() |>
+  cols_label(
+    condition = "Condition",
+    list_size.r = "List size",
+    intersection.r = "Intersection",
+    overlap.r = "Overlap",
+    list_size.s = "List size",
+    intersection.s = "Intersection",
+    overlap.s = "Overlap"
+  ) |>
+  tab_spanner(
+    label = "Reuters",
+    columns = c(list_size.r, intersection.r, overlap.r)
+  ) |>
+  tab_spanner(
+    label = "Similarweb",
+    columns = c(list_size.s, intersection.s, overlap.s)
+  )
+
+```
+
+When looking at overrepresentation first, `deutsche-handwerks-zeitung.de`, `stimme.de`, `donaukurier.de`, and `news.de` are most prominent, taking the ranks 4, 7 and 15, each with a couple hundred references by ChatGPT. Realistically, these news outlets do not rank among the most popular ones in Germany. In fact, `stimme.de` a local news paper takes rank 99 according to the modified list based on *similarweb.com*. `donaukurier.de`, and `news.de` take ranks between 100-200 according to *similarweb.com*, with  `deutsche-handwerks-zeitung.de` being a vast outlier, not being ranked at all and having around 5% of the monthly visits to its website when compared to the already small `donaukurier.de`. Furthermore, a few international news domains such as `reuters.com`, `ft.com`, and `apnews.com` do not play a large role in the German news market, each of them not being in the top 114 German news websites according to similarweb.com. 
+
+On the other hand, many prominent news outlets are starkly under or not represented in the references provided by ChatGPT. This is most prominent for `gmx.net`, `bild.de`, `focus.de` and `t-online.de`. All four take a top position both in the reuters and the similarweb data. In ChatGPT's list they take the ranks 208, 60, 52, and 31. Collectively they were referenced `r domains |> filter(domain %in% c("gmx.net", "t-online.de", "bild.de", "focus.de")) |> summarise(sum(n)) |> pull()` times, which is `r round((domains |> filter(domain %in% c("gmx.net", "t-online.de", "bild.de", "focus.de")) |> summarise(sum(n)) |> pull()) / (domains |> filter(domain == "deutsche-handwerks-zeitung.de") |> summarise(sum(n)) |> pull())*100,0)`% of the amount of references to `deutsche-handwerks-zeitung.de` alone. Furthermore, some international news outlets that also play a prominent role in Germany such as `yahoo.com` or `msn.com`, and some popular regional news papers such as `mopo.de`, `rp-online.de` and `schwaebische.de` are not or almost not represented in the references by ChatGPT. 
+
+**From here to 1.2 just for illustrative purposes and can be delted later**
+
+We can correlate the ranking of ChatGPT's domain frequency with some existing references. @tbl-correl displays the Spearman's rank correlation and Pearson's correlation for three reference data sets. 
+
+The first column gives the rank correlation with the Tranco ranks which was subset to German top-level domains^[To increase comparability with the Tranco ranks that have a global scope.] The second and third column gives the rank and pearson correlation with the popularity of selected news media outlets based on survey data from the German 2025 Reuters Digital News Report [@Behre2025]. In this study, *N* = 2047 participants provided their news consumption frequency in relation to 22 media outlets. 
+
+Finally, the fourth and fifth column provides the rank and pearson correlation with data from similarweb.com, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^[`kachelmannwetter.de` and `wunderweib.de` were excluded and 16 outlets that were not categorized as news (such as `gmx.net`, `ndr.de`, `handelsblatt.com`) were included.]
 
 ```{r}
 #| echo: false
@@ -277,7 +338,7 @@ full_join(tranco_corr, reuters_corr, by = "condition") |>
 #Reuters and similarweb only contain journalistic / news sources, so filtering of chatgpt list not necessary
   
 ```
-**From here until 1.2 (the rank correlation things) are still experimental**
+
 
 
 #### Comparing Ranks - Option 2: Truncate longer list (from top) to partial list size
@@ -286,25 +347,23 @@ Here the basis is the truncated longer lists and it depends on how many entries 
 
 ```{r}
 # cut both conditions to top n elements where n is the size of the reuters list
-cut_size <- nrow(reuters)
+
 
 reuters_corr <- domains_reuters |> 
   filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
   group_by(condition) |> 
   arrange(rank) |>
-  slice_head(n = cut_size) |>
+  slice_head(n = nrow(reuters)) |>
   summarise(
     spearman_reuters = cor(rank, rank_reuters, method = "spearman", use = "complete.obs") |> round(2),
     pearson_reuters = cor(n, popularity, method = "pearson", use = "complete.obs") |> round(2)
   )
 
-cut_size_similar <- nrow(similar)
-
 similar_corr <- domains_similar |> 
   filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
   group_by(condition) |> 
   arrange(rank) |>
-  slice_head(n = cut_size_similar) |>
+  slice_head(n = nrow(similar)) |>
   summarise(
     spearman_similar = cor(rank, rank_similarweb, method = "spearman", use = "complete.obs") |> round(2),
     pearson_similar = cor(n, visits_germany, method = "pearson", use = "complete.obs") |> round(2)
@@ -333,24 +392,24 @@ jacc_reu <- domains_reuters |>
   #filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
   group_by(condition) |> 
   arrange(rank) |>
-  slice_head(n = cut_size) |>
+  slice_head(n = nrow(reuters)) |>
   summarise(
     intersection.r = length(intersect(domain, reuters$domain)),
     union.r = length(union(domain, reuters$domain)),
     jaccard.r = round(intersection.r / union.r, 2),
-    overlap.r = round(intersection.r / cut_size, 2)
+    overlap.r = round(intersection.r / nrow(reuters), 2)
   )
 
 jacc_sim <- domains_similar |> 
   #filter(category %in% c("Journalistic Media", "News Agencies", NA)) |> 
   group_by(condition) |> 
   arrange(rank) |>
-  slice_head(n = cut_size_similar) |>
+  slice_head(n = nrow(similar)) |>
   summarise(
     intersection.s = length(intersect(domain, similar$domain)),
     union.s = length(union(domain, similar$domain)),
     jaccard.s = round(intersection.s / union.s, 2),
-    overlap.s = round(intersection.s / cut_size_similar, 2)
+    overlap.s = round(intersection.s / nrow(similar), 2)
   )
 
 full_join(jacc_reu, jacc_sim, by = "condition") |>
@@ -427,6 +486,37 @@ result <- pairwise_agreement_domains(domain_reuters)
 result
 ```
 
+#### Comparing Ranks - Option 6: Cumulative Distance to expected rank / Spearman's Footrule distance
+
+Taking the reference as a base, we can calculate the distance of the rank in the ChatGPT list to the expected rank (the rank it should have according to reference). Summing the absolute distances gives a measure for the deviation from the expectation. 
+
+we can normalize it by taking the theoretical max distance (given the actual observed ranks) into account. Greater values = greater disagreement
+
+```{r}
+domains_similar |> 
+  group_by(condition) |>
+  filter(!is.na(rank) & !is.na(rank_similarweb)) |>  # Keep only pairs with ranks in both lists
+  mutate(distance = rank - rank_similarweb,
+         abs_distance = abs(distance)) |> 
+  summarise(total_abs_distance = sum(abs_distance, na.rm = T),
+            list_matches = sum(!is.na(abs_distance)), #sometimes named k
+            mean_abs_distance = total_abs_distance / list_matches,
+            max_footrule = sum(abs(rank - rev(sort(rank_similarweb)))),
+            normalized = total_abs_distance / max_footrule)
+                                 
+
+domains_reuters |> 
+  group_by(condition) |>
+  filter(!is.na(rank) & !is.na(rank_reuters)) |>
+  mutate(distance = rank - rank_reuters,
+         abs_distance = abs(distance)) |> 
+  summarise(total_abs_distance = sum(abs_distance, na.rm = T),
+            list_matches = sum(!is.na(abs_distance)),
+            mean_abs_distance = total_abs_distance / list_matches,
+            max_footrule = sum(abs(rank - rev(sort(rank_reuters)))),
+            normalized = total_abs_distance / max_footrule)
+```
+
 ### Top sites over time
 
 While some sites appear in the top 10 sources each week (e.g. `de.wikipedia.org`, `rnd.de`, and `reuters.com`), other sources appear only for a while in the top sources (e.g. `deutsche-handwerks-zeitung.de`, `bundesregierung.de`, `merkur.de`). See @tbl-top-domains-by-week-condition for a weekly top 10 of linked sources and @fig-domains-over-time for an overview of source prevalence over time for the top 25 sources.
@@ -477,6 +567,53 @@ links |>
         rank = "",
         domain = "Domain"
     )
+```
+
+**Next Code Bit Experimental**
+Overlap with similarweb list and cumulative rank distance over full list with similarweb list over time
+
+```{r}
+
+links |> 
+  group_by(
+    week = format(floor_date(date, unit = "1 week"), "KW %U"),
+    condition
+  ) |> 
+  count(domain, sort = TRUE) |> 
+  mutate(rank = row_number()) |>
+  left_join(similar, by = "domain") |> 
+  slice_head(n = nrow(similar)) |> # limit to lemgth of similarweb list (from top)
+  ungroup() |> 
+  group_by(week, condition) |> 
+  summarise(
+    intersection.s = length(intersect(domain, similar$domain)),
+    union.s = length(union(domain, similar$domain)),
+    jaccard.s = round(intersection.s / union.s, 2),
+    overlap.s = round(intersection.s / nrow(similar), 2)
+  )
+
+
+links |> 
+  group_by(
+    week = format(floor_date(date, unit = "1 week"), "KW %U"),
+    condition
+  ) |> 
+  count(domain, sort = TRUE) |> 
+  mutate(rank = row_number()) |>
+  left_join(similar, by = "domain") |> 
+  filter(!is.na(rank_similarweb)) |> 
+  ungroup() |> 
+  group_by(week, condition) |> 
+  mutate(
+    distance = rank - rank_similarweb,
+    abs_distance = abs(distance),
+    max_footrule = sum(abs(rank - rev(sort(rank_similarweb))), na.rm = T)
+  ) |> 
+  summarise(
+    list_matches = sum(!is.na(abs_distance)),  # number of outlets in list that are also in similarweb list = higher number of matches, larger potential for disagreement
+    mean_abs_distance = sum(abs_distance, na.rm = T) / list_matches,
+    normalized = sum(abs_distance, na.rm = T)/ first(max_footrule)
+  )
 ```
 
 ### Domain count distribution
@@ -560,7 +697,7 @@ domains |>
 
 ```
 
-### Domain categorization
+### Domain categorization {#sec-categorization}
 
 ```{r}
 sample_meta <- domains |> 
@@ -946,7 +1083,7 @@ Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* 
 
 Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The mean political leaning of the sources used by ChatGPT does not differ significantly from either the average political leaning of the population or the midpoint of the scale (which is 4).
 
-```{r media leaning}
+```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-media-leaning
