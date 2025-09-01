@@ -11,9 +11,6 @@ format:
     code-fold: true
     code-summary: "Show the code"
     css: main.css
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 ```{r include = FALSE}
@@ -496,31 +493,11 @@ cbind(
 
 To gain an understanding of the news topics represented by our data, we conducted a co-occurrence based topic modeling following @austinUncoveringFlatHierarchical2024. To model the news topics selected by ChatGPT we constructed a co-occurrence graph from words that are mentioned in the same paragraph, with vertices representing individual tokens, edges representing two tokens occurring in the same paragraph and edge weights representing how often the tokens occur together.
 
-The texts were cleaned by removing [stopwords](https://snowballstem.org), relative pruning (removing the 20% of most common and 15% of least common tokens), and a tf-idf approach. Additionaly, normalized pointwise mutual information between two vertices were used as weights. To reveal the topical clusters in the co-occurrence graph, we applied the Louvain method for community detection, a multi-level modularity optimization algorithm [@blondelFastUnfoldingCommunities2008]. The resulting communities were filtered to exclude topics that almost always occur in ChatGPT's responses (e.g. ChatGPT's repetition of the given task, descriptions of the selected sources, etc.) by looking at the kurtosis of the distribution of each topic over time (see @fig-topics) and identifying spikes in the distribution, which are consistent with breaking news coverage [@buhlObservingDynamicsOnline2018].
-
-```{r}
-#| echo: false
-#| warning: false
-#| label: fig-topics
-#| fig-cap: "Temporal distribution of topics"
-#| fig-alt: ""
-#| fig-width: 12
-#| fig-height: 12
-
-api_topics_fig <- rio::import(file = "output/api_topics_fig.RDS")
-api_topics_fig |> 
-    ggplot(aes(x = as.Date(date), y = p)) +
-    geom_line(aes(color = spike)) +
-    scale_x_date(date_breaks = "14 days", date_minor_breaks = "1 day", date_labels = "%b %d") +
-    facet_wrap(vars(cluster), scales = "free") +
-    labs(title = "Temporal distribution of topics", color = "Breaking News?", x = "Date", y = "Share of documents") +
-    theme_minimal() +
-    theme(axis.text = element_blank(), legend.position = "bottom")
-```
+The texts were cleaned by removing [stopwords](https://snowballstem.org), relative pruning (removing the 20% of most common and 15% of least common tokens), and a tf-idf approach. Additionaly, normalized pointwise mutual information between two vertices were used as weights. To reveal the topical clusters in the co-occurrence graph, we applied the Louvain method for community detection, a multi-level modularity optimization algorithm [@blondelFastUnfoldingCommunities2008]. The resulting communities were filtered to exclude topics that almost always occur in ChatGPT's responses (e.g. ChatGPT's repetition of the given task, descriptions of the selected sources, etc.) by looking at the kurtosis of the distribution of each topic over time and identifying spikes in the distribution, which are consistent with breaking news coverage [@buhlObservingDynamicsOnline2018].
 
 The resulting topics show a broad range of political and economic issues (both domestic and international), sports, reporting on noteworthy events (e.g. protests) and commemorative dates/holidays (e.g. Europe Day). Many of the news topics produced by ChatGPT match relevant topics reported by German news media in a similar time frame[^5]. See @tbl-topics for the most relevant tokens per cluster/topic and the share of the topic in the two experimental conditions. There are no strong differences between the experimental conditions regarding the news topics selected by ChatGPT, with differences mostly under 1 percentage point in the share of responses on that topic (e.g. cluster 33 on pro-democracy protests occurring < 1 %pt more often in the diverse condition and cluster 32 on the discontinuation of Skype ~3.5 %pt more often in the regular condition).
 
-During the `{r} as.numeric(max(api_topics_fig$date)-min(api_topics_fig$date))` days of our data collection, ChatGPT mentioned domestic news topics like the anti-right-wing-extremism mass-protests in Austria and Germany (cluster 33), protests for the legalization of cannabis in various German cities (cluster 8), the historic election of the German chancellor that took two voting rounds (cluster 98) and reports of a road safety campaign by the German police with broad spot checks using speed cameras (cluster 65). In international news, ChatGPT selected news on Microsoft's shutdown of the telecommunications application Skype (cluster 32), changes in EU travel regulations and German passport regulations (cluster 74), the death of Pope Francis and the election of his successor Pope Leo XIV (cluster 34). ChatGPT also regularly selected news topics that report on anniversaries, commemoration days and action days (e.g. on the day of liberation from national socialism (cluster 40) or a protest day for the rights of disabled people (cluster 12)).
+During our data collection, ChatGPT mentioned domestic news topics like the anti-right-wing-extremism mass-protests in Austria and Germany (cluster 33), protests for the legalization of cannabis in various German cities (cluster 8), the historic election of the German chancellor that took two voting rounds (cluster 98) and reports of a road safety campaign by the German police with broad spot checks using speed cameras (cluster 65). In international news, ChatGPT selected news on Microsoft's shutdown of the telecommunications application Skype (cluster 32), changes in EU travel regulations and German passport regulations (cluster 74), the death of Pope Francis and the election of his successor Pope Leo XIV (cluster 34). ChatGPT also regularly selected news topics that report on anniversaries, commemoration days and action days (e.g. on the day of liberation from national socialism (cluster 40) or a protest day for the rights of disabled people (cluster 12)).
 
 On some occasions, ChatGPT selected and incorrectly summarized news topics based on keywords shared by other news topics. One such example is ChatGPT's summary of a topic that centers around the term "fairness agreement". While the term was mentioned in reporting, in the context of the rules about the appointment of investigative committees by the opposition[^6], ChatGPT summarized reporting on a different agreement between German political parties on fairness in the parties' campaigns for the 2024 German federal elections (cluster 39).
 
