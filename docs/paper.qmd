@@ -1,0 +1,965 @@
+---
+title: "Diversity of News Sources in ChatGPT"
+subtitle: "Note: Work in progess"
+date-modified: 2025-07-27
+bibliography: references.bib
+format:  
+  html:
+    toc: true
+    number-sections: true
+    theme: default
+    code-fold: true
+    code-summary: "Show the code"
+    css: main.css
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r include = FALSE}
+#| warning: false
+#| echo: false
+
+# Dependencies ----
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(lubridate)
+library(gt)
+library(ggplot2)
+library(scales)
+library(ggrepel)
+
+source("scripts/functions_and_vars.R")
+source("scripts/read_data.R")
+
+manual_coding <- list.files("data", pattern = "coder_.*\\.xlsx", full.names = TRUE) |> 
+    import_list(rbind = TRUE, setclass = "tibble") |> 
+    mutate(coder = factor(Coder, levels = c("Tim", "Example", "Leonie", "Justin"))) |> 
+    rename(category = Kategorie, is_springer = `Ist Springer?`) |> 
+    mutate(domain = str_remove(Domain, "https://")) |> 
+    mutate(is_springer = is_springer == "Ja") |> 
+    mutate(is_springer = ifelse(is.na(is_springer), FALSE, is_springer)) |> 
+    select(domain, category, is_springer, coder) |> 
+    mutate(domain = ifelse(
+        str_detect(domain, "news-pravda.com"),
+        "news-pravda.com",
+        domain
+    )) |> 
+    mutate(category = case_match(
+        category,
+        c("private_newsmedia", "public_broadcaster", "local_media", "alternative_media") ~ "journalistic_media",
+        .default = category
+    )) |> 
+    mutate(category = factor(
+        category,
+        c("journalistic_media", "news_agency", "encyclopedias", "organization", "other"),
+        c("Journalistic Media", "News Agencies", "Encyclopedias", "Organization/Business", "Misc")
+    )) |> 
+    mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1))
+```
+
+# Introduction
+
+The growth and adoption of large language models (LLMs) with conversational user interfaces have transformed the ways in which users can access and consume daily news, enabling generative, dialogue-driven news recommendations (Gao et al., 2024). This kind of conversational news emphasizes dialogue-based news reception facilitated by AI technologies. Users can turn to conversational agents as sources of information about current events, relying on these models to curate, summarize, and interpret news from multiple providers. Previous research has argued that conversational news can create meaningful experiences for audiences (Nordberg & Guribye, 2023) and requested to critically investigate conversational user interfaces using generative AI and its role for journalism and an informed public (Goldstein et al., 2023; Pavlik, 2023). As these systems become ungoverned gateways to information, it is essential to examine how they operate within news-seeking episodes, where users actively pursue information about current events. Within such episodes, exposure diversity, which is the extent to which users are presented with a heterogeneous range of news, emerges as a critical normative benchmark for media plurality in democratic media systems (Loecherbach et al., 2020; McQuail, 1999; Napoli, 1999). While LLMs like ChatGPT promise broad access to information, the actual diversity of their recommendations remains opaque, raising concerns about potential bias and source concentration. Commercial partnerships between LLM providers such as OpenAI and large news organizations such as Axel Springer, News Corp, and Le Monde further complicate source diversity by potentially influencing which sources are more likely to be surfaced (Merja’s upcoming chapter). Against this background, we ask: RQ: To what extent do ChatGPT responses to news seeking episodes reflect exposure diversity in news sources?
+
+This paper explores the implications of these contractual arrangements on external diversity in news delivery through ChatGPT. Empirically, it investigates the extent to which ChatGPT’s daily news responses reflect a diverse set of news providers or whether certain outlets, particularly those with contractual agreements, are systematically privileged. Addressing this issue contributes to broader debates surrounding algorithmic gatekeeping, news media pluralism, and the societal responsibilities of technology companies in contributing to informed democratic publics.
+
+# Literature
+
+## Conversational Search
+
+Conversational search is a paradigm in information retrieval (IR) that models information-seeking behavior as a dynamic, interactive dialogue between the user and a technological system (Dalton et al., 2022). Conversational information seeking emphasizes fluid, iterative interactions where the system actively participates in clarifying, guiding, and adapting to the user's evolving needs (Dalton et al., 2022). As described by Kiesel et al. (2021), user needs in these dialogues can vary widely, encompassing tasks such as navigating, informing, transacting, re-finding, entertaining, arguing, being creative, or making meaning. Addressing this variety requires systems that are not only linguistically competent but also capable of supporting diverse cognitive and goal-oriented behaviors.
+
+This flexibility is enabled through the concept of information seeking strategies (ISS), which are defined as “interactions between the user and the other components of the IR system” (Belkin, 1995, p. 380). ISSs refer to structured approaches that users adopt depending on their current understanding and their information-seeking goals (Belkin, 1995). In conversational environments, users frequently switch between different strategies as their goals and knowledge evolve, creating what Belkin (1995) terms information seeking episodes, which are sequences of strategic interactions within a single session. Effective conversational search systems must therefore support these shifts by managing evolving contexts, adjusting the granularity of information provided, and coordinating a sequence of interactions toward a coherent outcome.
+
+In this way, conversational search systems are active participants in the user’s exploration of information, combining language understanding, real-time retrieval, and adaptive dialogue management to simulate a more human-like and goal-sensitive search experience. 
+
+### “Good” IR System
+
+IR systems are evaluated not only through quantitative performance metrics but also according to a set of normative expectations that reflect broader user needs, social values, and ethical standards. At the core, IR systems are expected to retrieve information that is relevant and responsive to user needs. Traditional notions of relevance focus on topical alignment and intent matching, but in conversational search, these expectations extend to turn-level relevance, where each interaction contributes meaningfully to the user’s goal within an ongoing dialogue. Radlinski and Craswell (2017) emphasize that conversational systems must manage satisfaction and intent continuity over multiple conversational turns. Moreover, systems must be capable of supporting users as they shift between different information seeking strategies, a common behavior as users adapt to new insights or changing goals. This adaptive capacity is critical in modeling information seeking episodes, as described by Zamani et al. (2023).
+
+In the domain of news retrieval, diversity has emerged as a critical normative expectation. Unlike fact-based search tasks that aim for a single correct answer, news search involves the interpretation of socially, politically, and temporally situated events. As such, effective news retrieval systems must present a spectrum of perspectives, sources, and frames to support informed user understanding, particularly in conversational contexts where users interact iteratively with the system. Radlinski and Craswell (2017) argue that conversational IR systems should be designed to sustain user satisfaction over multiple dialogue turns, and one way to achieve this is by ensuring that the system does not “narrow down too early.” In their theoretical framework, they emphasize the importance of managing user expectations and maintaining a dialogue that adapts to evolving intents. Presenting a diversity of results helps users explore the full space of possible interpretations before refining their search goals. System design must therefore account for both intra-turn diversity—the presentation of varied perspectives, framings, or sources within a single response—and inter-turn diversity, which ensures variation and progression across successive responses in a conversation. Intra-turn diversity has been emphasized by Balog, Radlinski, and Karatzoglou (2021). They argue that retrieval systems, particularly in subjective or news-oriented domains, should surface a range of “soft attributes” such as tone, stance, or sentiment within a single result set to reflect the complexity of a topic.
+
+Prompt phrasing and evidence bias in conversational systems like ChatGPT can systematically distort the correctness of generated responses—particularly in high-stakes domains like health information seeking (Koopman & Zuccon, 2023). User prompts containing biased or leading context can significantly degrade answer quality, and even external evidence in a retrieve-then-generate pipeline can reduce factual accuracy (Koopman & Zuccon, 2023). This underscores the danger of early anchoring and highlights the need for systems that promote diverse framings and avoid reinforcing user preconceptions.
+
+“In the news sector, ChatGPT and New Bing are able to rate news media, and both can elaborate and score various news media accurately. However, New Bing can provide more timely information than ChatGPT (Yang & Menczer, 2023). Intelligent search dialogue systems will bring positive changes to the news publishing industry in terms of knowledge extraction, knowledge production, and knowledge dissemination (Chen, 2023; Curtis, 2023).” (Huang et al., 2024)
+
+Huang et al. (2024) evaluate the output of ChatGPT across information accuracy, timeliness, completeness, professionalism, and richness of form based on user evaluations. In comparison to New Bing, ChatGPT receives a lower overall score for output value, primarily due to a deficit in timeliness. ChatGPT’s lower information timeliness evaluation is due to the limitation of its static knowledge base, which prevents it from retrieving or incorporating information beyond its 2021 training cutoff at the time of observation. Despite this, ChatGPT performs competitively in other dimensions, particularly completeness and richness of form, where its advanced language generation capabilities enable it to produce coherent, well-structured, and contextually rich responses.
+
+Conversational systems such as ChatGPT are not merely tools for information retrieval but actors that condition what is visible and knowable within information ecosystems (Hirvonen et al., 2024). Unlike traditional search engines that offer a range of results, ChatGPT provides a single, coherent answer, which streamlines the experience but reduces users’ ability to compare, verify, or navigate through diverse sources. Such conversational interfaces can risk reinforcing algorithmic biases and weakening user agency (Hirvonen et al., 2024), not least due to the opacity of ChatGPT’s training data and processes (Frederick, 2023).
+
+## Exposure Diversity of News Sources
+
+In the field of communication studies, diversity in media systems has long been framed as a structural prerequisite for democratic publics (McQuail, 1999). This includes not only content diversity but also source diversity and exposure diversity (Napoli, 1999; Vrijenhoek et al., 2024). Exposure diversity is the supply of a broad range of news “as sent”, and is a critical first step supporting a well-informed public (McQuail, 1999; Napoli, 1999). In recent years, communication scholars have turned their attention to how algorithmic systems, particularly news recommenders and social platforms, shape exposure diversity. \[JL: this could well be expanded in terms of content and source exposure diversity\] Helberger, Karppinen, and D’Acunto (2018) argue that recommender systems should be explicitly designed to foster exposure diversity, defined as the range of different viewpoints, topics, and sources that users are presented with. This shifts diversity from a passive structural outcome to an active design principle. Loecherbach et al. (2020) provide a conceptual synthesis integrating ownership, source, content, and exposure dimensions. They highlight that exposure diversity is particularly vulnerable in algorithmic environments, as personalization and engagement optimization can crowd out less popular or dissenting content. \[JL: add a para about our ideas of process of news reception from (conditions to produce) exposure diversity—\>selection—\>perception—\>knowledge and the role of the audience as citizens, not consumers.\] Rooted in the marketplace of ideas metaphor, a normative ideal that emphasizes open competition among diverse perspectives to support informed public deliberation, source diversity is regarded as a safeguard against editorial homogenization and the concentration of communicative power (Napoli, 1999). Source diversity relates to structural characteristics of media markets concerning “who supplies the information” (Loecherbach et al., 2020, p. 619). The presence of multiple, independent news providers is assumed to enable access to a broader range of viewpoints and reducing reliance on a small number of dominant narratives. However, ownership diversity, an indicator of source diversity representing the existence of distinct media proprietors, is not always directly correlated with viewpoint diversity of news content (Garz et al., 2024). Still, when media ownership, or algorithmic curation, limits the range of sources, it can reduce the plurality and independence of viewpoints (Baker, 2007). \[JL: ownership studies could be somewhat expanded\] Hence, systems that over-rely on a narrow set of sources, whether due to algorithmic bias, data limitations, or optimization strategies, risk presenting users with a skewed or at least incomplete understanding of events. Therefore, a well-designed conversational news retrieval system should incorporate mechanisms to explicitly track and balance source diversity, such as labeling sources by bias or region, re-ranking to ensure coverage of underrepresented viewpoints, or providing users with filters for source-type selection. Source diversity is thus not only a technical concern but a normative commitment to pluralism and transparency in the digital public sphere. We ask: 
+
+RQ1: What sources are represented in AI-generated news responses?
+
+RQ2: What news topics are represented in AI-generated news responses?
+
+RQ3: To what extent does exposure diversity to news sources in AI-generated news responses differ when users explicitly prompt for multiple sources? 
+
+RQ4: Do the AI-generated news responses differ between responses generated through direct user interaction and those obtained via API access to the conversational system? 
+
+RQ5: Are news providers with established content licensing agreements more likely to be represented in AI-generated news summaries? 
+
+# Methods & Data
+
+We conduct a quantitative content analysis of ChatGPT responses to user prompts about the daily news in Germany. We collected ChatGPT responses to automated and human-interface information seeking episodes regarding daily news over the course of consecutive four to five natural weeks in April and May 2025. The collected responses were analyzed to identify the frequency, prominence, and diversity of news providers cited by ChatGPT and the news topics discussed in the responses. Additionally, we compared the two experimental conditions (diverse vs regular) and the two interfaces (api vs gui) with regards to the distribution of linked domains and the reported news topics. 
+
+News use via ChatGPT is limited in several European countries, with Germany reporting among the lowest levels of engagement in this category (Greussing et al., 2025). This restrained use reflects a more cautious attitude toward generative AI tools in the German context. Hence, Germany represents a conservative case in the broader landscape of ChatGPT's integration into everyday news consumption.
+
+## Accessing and prompring ChatGPT
+
+We prompted the API (and the web interface) for current news from `{r} api_responses$date |> min() |> format(format = "%d. %b %Y")` to `{r} api_responses$date |> max() |> format(format = "%d. %b %Y")` in `{r} api_responses$uid |> unique() |> length()` unique sessions (from `{r} gui_responses$date |> min() |> format(format = "%d. %b %Y")` to `{r} gui_responses$date |> max() |> format(format = "%d. %b %Y")` in `{r} gui_responses$uid |> unique() |> length()` unique sessions).
+
+### Prompting strategy {#sec-prompting_strategy}
+
+Our prompting strategy involved four prompts per information seeking episode, in two experimental conditions, the regular and the diverse condition. In both conditions, each information seeking episode starts with an exploratory prompt asking for 1) current, relevant news, followed by 2) prompting the model to explain why the reported news were selected, 3) a follow-up prompt asking to select more news on the first news topic given, and again 4) a prompt asking for the reasons why the news/sources were selected. In the diverse condition, prompt 1) and 3) are extended with the request that in selecting current, relevant news, source diversity should be high, explicitly asking to include public broadcasters, conservative, liberal, regional, small, investigative, independent, critical, and alternative sources.
+
+To sample responses from the web interface, a team of two student assistants was tasked to query ChatGPT.com and save the chat history as a markdown file. Chats were started at 8:30 am and repeated ten times by each student assistant, making sure personalization features and features that enable persistent context between sessions were disabled. The api was prompted in the same way, multiple times per day, and with a temperature value of 1.
+
+## Measuring diversity
+
+So measure the source diversity in AI-generated news responses, we used the Herfindahl-Hirschman Index, Shannon Diversity Index, and Rao diversity.
+
+## Ranking website popularity
+
+Website popularity based on the Tranco website rankings [@Le_Pochat_2019].
+
+## Categorizing sources
+
+# Results
+
+## What sites are referenced by ChatGPT?
+
+To answer RQ1, we looked at the sites referenced by ChatGPT. ChatGPT linked to a total of `{r} c(api_domains$domain, gui_domains$domain) |> unique() |> length()` unique domains. A small number of those linked domains are not registered/invalid, including example domains (e.g. `news-site1.com`, `anderesbeispiel.de`), plausible sounding but non-existent sites (e.g. `technologieaktuell.de`, `aktionsseitedeutschland.de`) and typos/wrong top level domains (e.g. `euroma-mai.de` instead of `europa-mai.de`). This behavior, i.e. creating plausible, but incorrect responses has been called "AI hallucinations" in the literature. Others have argued that the term "hallucinations" is inaccurate, as it assumes that the process that produces correct output is somehow different, "some anomalous event, as in the case of a human who hallucinates" [@slaterAnotherReasonCall2025;@hicksChatGPTBullshit2024], suggesting the term "bullshiting" for this behavior, in reference to @frankfurtBullshit2009.
+
+```{r}
+#| echo: false
+#| warning: false
+sample_meta <- api_domains |> 
+    group_by(domain) |> 
+    summarise(n = sum(n)) |> 
+    ungroup() |> 
+    group_by(in_sample = n >= 10) |> 
+    summarise(n_refs = sum(n), unique_urls = n()) |> 
+    mutate(p_refs = n_refs/sum(n_refs), p_urls = unique_urls/sum(unique_urls)) |> 
+    filter(in_sample) |> 
+    as.list()
+```
+
+A manual coding of the top domains that comprised at least ten references in the data (*N* = `{r} sample_meta$unique_urls`), representing `{r} (100*sample_meta$p_refs) |> round(digits = 2)` % of all references and `{r} (sample_meta$p_urls*100) |> round(digits = 2)` % of all linked sites reveals that ChatGPT links to a wide range of both journalistic and non-journalistic sources (see @tbl-domain-cats). Around two thirds of the manually coded sites are journalistic, including commercial media, local/regional media, and public broadcasters. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-domain-cats
+#| tbl-cap: Categories of linked domains
+
+manual_coding |> 
+    group_by(domain) |> 
+    arrange(coder) |> 
+    slice(1) |> 
+    ungroup() |> 
+    left_join(
+        gui_domains |> 
+            select(domain, p, condition) |> 
+            pivot_wider(names_from = condition, values_from = p, names_prefix = "gui_"),
+        by = "domain"
+    ) |> 
+    left_join(
+        api_domains |> 
+            select(domain, p, condition) |> 
+            pivot_wider(names_from = condition, values_from = p, names_prefix = "api_"),
+        by = "domain",
+        relationship = "many-to-many"
+    ) |> 
+    filter(!is.na(category)) |> 
+    group_by(category) |> 
+    summarise(
+        gui_Diverse = sum(gui_Diverse, na.rm = TRUE),
+        gui_Regular = sum(gui_Regular, na.rm = TRUE),
+        api_Diverse = sum(api_Diverse, na.rm = TRUE),
+        api_Regular = sum(api_Regular, na.rm = TRUE)
+    ) |> 
+    arrange(-(gui_Diverse+gui_Regular+api_Diverse+api_Regular)) |> 
+    gt() |> 
+    fmt_percent(-category) |> 
+    tab_spanner("api", starts_with("api_")) |> 
+    tab_spanner("gui", starts_with("gui_")) |> 
+    cols_label(
+        gui_Diverse = "Diverse",
+        api_Diverse = "Diverse",
+        gui_Regular = "Regular",
+        api_Regular = "Regular",
+        category = "Category"
+    )
+```
+
+The remaining sources include news agencies, online encyclopedias (mainly Wikipedia) and the websites of organizations and businesses, often as primary sources of a news story. Based on the German Online News Domains data [@GOND], we also classified `{r} sum(unique(c(api_domains$domain, gui_domains$domain)) %in% gond$domain)` journalistic sources into seven categories. In the diverse condition ChatGPT linked to less legacy press outlets and more public broadcaster, hyperpartisan news, and tabloid newspaper.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-domain-journ-cats
+#| tbl-cap: Categories of linked journalistic sources
+gond |> 
+    left_join(
+        gui_domains |> 
+            select(domain, p, condition) |> 
+            pivot_wider(names_from = condition, values_from = p, names_prefix = "gui_"),
+        by = "domain"
+    ) |> 
+    left_join(
+        api_domains |> 
+            select(domain, p, condition) |> 
+            pivot_wider(names_from = condition, values_from = p, names_prefix = "api_"),
+        by = "domain",
+        relationship = "many-to-many"
+    ) |> 
+    filter(!is.na(gond_type)) |> 
+    group_by(gond_type) |> 
+    summarise(
+        gui_Diverse = sum(gui_Diverse, na.rm = TRUE),
+        gui_Regular = sum(gui_Regular, na.rm = TRUE),
+        api_Diverse = sum(api_Diverse, na.rm = TRUE),
+        api_Regular = sum(api_Regular, na.rm = TRUE)
+    ) |> 
+    arrange(-(gui_Diverse+gui_Regular+api_Diverse+api_Regular)) |> 
+    gt() |> 
+    fmt_percent(-gond_type) |> 
+    tab_spanner("api", starts_with("api_")) |> 
+    tab_spanner("gui", starts_with("gui_")) |> 
+    cols_label(
+        gui_Diverse = "Diverse",
+        api_Diverse = "Diverse",
+        gui_Regular = "Regular",
+        api_Regular = "Regular",
+        gond_type = "GOND Type"
+    )
+```
+
+ChatGPT also references alternative news outlets [@Holt09082019], like `tichyseinblick.de` and `telepolis.de` and media outlets connected to the Russian government like `deutschetageszeitung.de`, `epochtimes.de`, and `news-pravda.com`. ChatGPT also links to websites that scrape news sites and other sources and provide AI-generated 'news', e.g. `die-nachrichten.at`.
+
+### Popularity of referenced sites
+
+When looking at the top domains, some plausible and expected choices are at the top (e.g., `rnd.de`, `tagesschau.de`), but some surprises appear, too (e.g., `deutsche-handwerks-zeitung.de`, `stimme.de`), especially when prompting the api. 
+
+To get a better intuition about the ranking and distribution of the sources provided by ChatGPT, we compare it to two reference lists with the most popular news sources in Germany. The first reference list from @Behre2025 (German 2025 Reuters Digital News Report) presents news consumption frequencies across 22 media outlets, based on responses from a representative sample (*N* = 2.047).
+
+The second list contains data from *similarweb.com*, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^['kachelmannwetter.de' and 'wunderweib.de' were excluded and 16 outlets that were not categorized as news (such as 'gmx.net', 'ndr.de', 'handelsblatt.com') were included.] The final list contains the 114 most visited news websites for June 2025 in Germany according to *similarweb.de*.
+
+@tbl-overlap shows the overlap between the two reference lists and the top domains by ChatGPT (when this list is cut to the same size as the respective reference list). For the Reuters list, 6 of the 22 news outlets are represented in the top 22 domains provided by ChatGPT in the regular condition. While this showcases that some popular news outlets are frequently referenced by ChatGPT, it also shows that several popular ones are not as frequently listed and vice versa. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-overlap
+#| tbl-cap: Overlap of Top Domains by ChatGPT with two Reference Lists of Popular News Sources
+
+api_domain_list <- api_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    distinct(domain) |> 
+    pull(domain)
+
+gui_domain_list <- gui_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    distinct(domain) |> 
+    pull(domain)
+
+tibble(
+    interface = c("API", "GUI"),
+    list_size_reuters = rep(length(reuters$domain), 2),
+    intersection_reuters = c(sum(api_domain_list %in% reuters$domain), sum(gui_domain_list %in% reuters$domain)),
+    overlap_reuters = c(sum(api_domain_list %in% reuters$domain)/length(reuters$domain), sum(gui_domain_list %in% reuters$domain)/length(reuters$domain)),
+    list_size_similar = rep(length(similar$domain), 2),
+    intersection_similar = c(sum(api_domain_list %in% similar$domain), sum(gui_domain_list %in% similar$domain)),
+    overlap_similar = c(sum(api_domain_list %in% similar$domain)/length(similar$domain), sum(gui_domain_list %in% similar$domain)/length(similar$domain))
+    ) |> 
+    gt() |>
+    fmt_percent(starts_with("overlap_")) |> 
+    cols_label(
+        interface = "Interface",
+        list_size_reuters = "List size",
+        intersection_reuters = "Intersection",
+        overlap_reuters = "Overlap",
+        list_size_similar = "List size",
+        intersection_similar = "Intersection",
+        overlap_similar = "Overlap"
+    ) |>
+    tab_spanner(
+        label = "Reuters",
+        columns = ends_with("_reuters")
+    ) |>
+    tab_spanner(
+        label = "Similarweb",
+        columns = ends_with("_similar")
+    )
+```
+
+When looking at overrepresentation in the domain lists from the api first, `deutsche-handwerks-zeitung.de`, `stimme.de`, and `donaukurier.de` are most prominent, taking the ranks 4, 6 and 13, each with a couple hundred references by ChatGPT. Realistically, these news outlets do not rank among the most popular ones in Germany. In fact, `stimme.de` a local news paper takes rank 99 according to the modified list based on *similarweb.com*. `deutsche-handwerks-zeitung.de` is a vast outlier, not being ranked at all and having around 5% of the monthly visits to its website when compared to the already small `stimme.de`. Furthermore, a few international news domains such as `reuters.com`, `ft.com`, and `apnews.com` do not play a large role in the German news market, each of them not being in the top 114 German news websites according to similarweb.com. 
+
+On the other hand, many prominent news outlets are starkly under or not represented in the references provided by ChatGPT when querying the api. This is most prominent for `gmx.net`, `bild.de`, `focus.de` and `t-online.de`. All four take a top position both in the Reuters and the similarweb data. Furthermore, some international news outlets that also play a prominent role in Germany such as `yahoo.com` or `msn.com`, and some popular regional news papers such as `mopo.de`, `rp-online.de` and `schwaebische.de` are not or almost not represented in the references by ChatGPT.
+
+The domains referenced by ChatGPT when prompting the web interface are more in line with the German news market. Except for two domains (`wikipedia.org` and `reuters.com`), all top sources from the web interface are represented in the two reference lists. Only a small set of domains that are highly ranked by Reuters and similarweb are missing from the list of domains referenced by ChatGPT's web interface (e.g. `msn.com`, `ruhr24.de`, `express.de`, `schwaebische.de`, and `ksta.de`). The web interface produced a list of referenced domains that is much closer to the expected distribution of sources in the context of the German online news market. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-domain-ranks
+#| tbl-cap: Rankings of referenced domains
+
+cbind(
+    api_domains |> 
+        mutate(domain = case_when(
+            domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+            domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+            TRUE ~ domain
+        )) |> 
+        group_by(domain) |> 
+        summarise(p = mean(p)) |> 
+        slice_max(p, n = 15) |> 
+        mutate(in_reuters = domain %in% reuters$domain) |> 
+        mutate(in_similar = domain %in% similar$domain) |> 
+        mutate(rank = 1:n()) |> 
+        relocate(rank) |> 
+        rename_with(function(x) paste0(x,"_api")),
+    gui_domains |> 
+        mutate(domain = case_when(
+            domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+            domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+            TRUE ~ domain
+        )) |> 
+        group_by(domain) |> 
+        summarise(p = mean(p)) |> 
+        slice_max(p, n = 15) |> 
+        mutate(in_reuters = domain %in% reuters$domain) |> 
+        mutate(in_similar = domain %in% similar$domain) |> 
+        mutate(rank = 1:n()) |> 
+        relocate(rank) |> 
+        rename_with(function(x) paste0(x,"_gui"))
+) |> 
+    mutate(across(starts_with("in_"), \(x) ifelse(x, "yes", "no"))) |> 
+    gt() |> 
+    fmt_percent(starts_with("p_")) |> 
+    tab_spanner("api", ends_with("_api")) |> 
+    tab_spanner("gui", ends_with("_gui")) |> 
+    cols_label(
+        rank_api = "Rank",
+        rank_gui = "Rank",
+        domain_api = "Domain",
+        domain_gui = "Domain",
+        p_api = "Share",
+        p_gui = "Share",
+        in_reuters_api = "Reuters",
+        in_reuters_gui = "Reuters",
+        in_similar_api = "Similarweb",
+        in_similar_gui = "Similarweb"
+    ) |> 
+    tab_header(title = "Top Domains")
+
+```
+
+<!--
+### Domain count distribution
+
+The distribution of domain counts (i.e. how often a site was referenced by ChatGPT) skews heavily right (api: `{r} api_domains |> group_by(domain) |> summarise(n = sum(n)) |> pull(n) |> f.skew() |> round(digits = 2)`, gui: `{r} gui_domains |> group_by(domain) |> summarise(n = sum(n)) |> pull(n) |> f.skew() |> round(digits = 2)`), with a few sites referenced often and many sites being referenced only once.
+
+@fig-domain-counts shows how the 198 of 816 most referenced sites account for 90% of all linked domains and 122 of 1183 sites in the diverse condition. Around 40% of all referenced sites are referenced only once and around 70% are referenced no more than 5 times.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-domain-counts
+#| fig-cap: "Distribution of Domain Counts"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 6
+
+api_annotation_info <- api_domains |> 
+    group_by(condition) |> 
+    mutate(x = (1:n())) |> 
+    filter(cp <= .9) |> 
+    slice_max(order_by = cp) |> 
+    ungroup() |> 
+    select(condition, x) |> 
+    pivot_wider(names_from = condition, values_from = x)
+
+api_domains |> 
+    group_by(condition) |> 
+    mutate(x = (1:n())) |>
+    ggplot(aes(x = x, y = cp, color = condition)) +
+    geom_line(size = 1) +
+    scale_y_continuous(labels = scales::percent, breaks = seq(0, 1, .2)) +
+    scale_x_continuous(labels = scales::number, breaks = \(lim) {seq(0, lim[2], 100)}) +
+    labs(
+        title = "Distribution of Domain Counts",
+        subtitle = sprintf("The %s most used domains in the diverse condition and the %s most used domains in the regular condition\naccount for 90%% of all linked domains.", api_annotation_info$Regular, api_annotation_info$Diverse),
+        y = "Share of linked Domains",
+        x = "Domains",
+        color = "Experimental condition"
+    ) +
+    geom_hline(yintercept = .9, color = "#ccc") +
+    geom_vline(xintercept = api_annotation_info$Regular, color = "#4e79a7") +
+    geom_vline(xintercept = api_annotation_info$Diverse, color = "#f28e2b") +
+    theme(legend.position = "bottom")
+
+gui_annotation_info <- gui_domains |> 
+    group_by(condition) |> 
+    mutate(x = (1:n())) |> 
+    filter(cp <= .9) |> 
+    slice_max(order_by = cp) |> 
+    ungroup() |> 
+    select(condition, x) |> 
+    pivot_wider(names_from = condition, values_from = x)
+
+gui_domains |> 
+    group_by(condition) |> 
+    mutate(x = (1:n())) |>
+    ggplot(aes(x = x, y = cp, color = condition)) +
+    geom_line(size = 1) +
+    scale_y_continuous(labels = scales::percent, breaks = seq(0, 1, .2)) +
+    scale_x_continuous(labels = scales::number, breaks = \(lim) {seq(0, lim[2], 100)}) +
+    labs(
+        title = "Distribution of Domain Counts",
+        subtitle = sprintf("The %s most used domains in the diverse condition and the %s most used domains in the regular condition\naccount for 90%% of all linked domains.", gui_annotation_info$Regular, gui_annotation_info$Diverse),
+        y = "Share of linked Domains",
+        x = "Domains",
+        color = "Experimental condition"
+    ) +
+    geom_hline(yintercept = .9, color = "#ccc") +
+    geom_vline(xintercept = gui_annotation_info$Regular, color = "#4e79a7") +
+    geom_vline(xintercept = gui_annotation_info$Diverse, color = "#f28e2b") +
+    theme(legend.position = "bottom")
+```
+-->
+
+### Effect of content licensing agreements on source visibility
+
+When prompting the ChatGPT api, outlets published by Axel Springer publishing do not seem to be preferred over other outlets. The two most prominent Springer outlets `welt.de` and `bild.de` are ranked 61st (45th in the diverse condition) and 158th (99th in the diverse condition). References to Springer outlets make up only ~4 % of all references to websites when considering only the api responses. Using the web interface, `welt.de` and `bild.de` are ranked 3rd (1st in the diverse condition) and 4th (7th in the diverse condition), making up ~26 % of all references. Public broadcasters are also less prominent in the api responses, than in the responses from the web interface (see @tbl-domain-content-licensing).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-domain-content-licensing
+#| tbl-cap: Rankings of referenced domains
+
+cbind(
+    api_domains |> 
+        mutate(is_pb = (gond_type == "Public Broadcaster")) |> 
+        select(domain, condition, is_springer, is_pb, p) |> 
+        filter(if_all(everything(), ~ !is.na(.))) |> 
+        group_by(condition, is_springer, is_pb) |> 
+        summarise(p = sum(p)) |> 
+        ungroup() |> 
+        pivot_longer(-c(condition, p)) |> 
+        filter(value) |> 
+        pivot_wider(names_from = name, values_from = p) |> 
+        select(condition, is_springer, is_pb) |> 
+        rename_with(function(x) paste0(x,"_api"), -condition),
+    gui_domains |> 
+        mutate(is_pb = (gond_type == "Public Broadcaster")) |> 
+        select(domain, condition, is_springer, is_pb, p) |> 
+        filter(if_all(everything(), ~ !is.na(.))) |> 
+        group_by(condition, is_springer, is_pb) |> 
+        summarise(p = sum(p)) |> 
+        ungroup() |> 
+        pivot_longer(-c(condition, p)) |> 
+        filter(value) |> 
+        pivot_wider(names_from = name, values_from = p) |> 
+        select(is_springer, is_pb) |> 
+        rename_with(function(x) paste0(x,"_gui"))
+) |> 
+    gt() |> 
+    fmt_percent(starts_with("is_")) |> 
+    tab_spanner("api", ends_with("_api")) |> 
+    tab_spanner("gui", ends_with("_gui")) |> 
+    cols_label(
+        is_springer_api = "Springer",
+        is_springer_gui = "Springer",
+        is_pb_api = "Public Broadcaster",
+        is_pb_gui = "Public Broadcaster"
+    )
+
+```
+
+## What news topics are represented in AI-generated news responses?
+
+To gain an understanding of the news topics represented by our data, we conducted a co-occurrence based topic modeling following @austinUncoveringFlatHierarchical2024. To model the news topics selected by ChatGPT we constructed a co-occurrence graph from words that are mentioned in the same paragraph, with vertices representing individual tokens, edges representing two tokens occurring in the same paragraph and edge weights representing how often the tokens occur together.
+
+The texts were cleaned by removing [stopwords](https://snowballstem.org), relative pruning (removing the 20% of most common and 15% of least common tokens), and a tf-idf approach. Additionaly, normalized pointwise mutual information between two vertices were used as weights. To reveal the topical clusters in the co-occurrence graph, we applied the Louvain method for community detection, a multi-level modularity optimization algorithm [@blondelFastUnfoldingCommunities2008]. The resulting communities were filtered to exclude topics that almost always occur in ChatGPT's responses (e.g. ChatGPT's repetition of the given task, descriptions of the selected sources, etc.) by looking at the kurtosis of the distribution of each topic over time (see @fig-topics) and identifying spikes in the distribution, which are consistent with breaking news coverage [@buhlObservingDynamicsOnline2018].
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-topics
+#| fig-cap: "Temporal distribution of topics"
+#| fig-alt: ""
+#| fig-width: 12
+#| fig-height: 12
+
+api_topics_fig <- rio::import(file = "output/api_topics_fig.RDS")
+api_topics_fig |> 
+    ggplot(aes(x = as.Date(date), y = p)) +
+    geom_line(aes(color = spike)) +
+    scale_x_date(date_breaks = "14 days", date_minor_breaks = "1 day", date_labels = "%b %d") +
+    facet_wrap(vars(cluster), scales = "free") +
+    labs(title = "Temporal distribution of topics", color = "Breaking News?", x = "Date", y = "Share of documents") +
+    theme_minimal() +
+    theme(axis.text = element_blank(), legend.position = "bottom")
+```
+
+The resulting topics show a broad range of political and economic issues (both domestic and international), sports, reporting on noteworthy events (e.g. protests) and commemorative dates/holidays (e.g. Europe Day). Many of the news topics produced by ChatGPT match relevant topics reported by German news media in a similar time frame[^5]. See @tbl-topics for the most relevant tokens per cluster/topic and the share of the topic in the two experimental conditions. There are no strong differences between the experimental conditions regarding the news topics selected by ChatGPT, with differences mostly under 1 percentage point in the share of responses on that topic (e.g. cluster 33 on pro-democracy protests occurring < 1 %pt more often in the diverse condition and cluster 32 on the discontinuation of Skype ~3.5 %pt more often in the regular condition).
+
+During the `{r} as.numeric(max(api_topics_fig$date)-min(api_topics_fig$date))` days of our data collection, ChatGPT mentioned domestic news topics like the anti-right-wing-extremism mass-protests in Austria and Germany (cluster 33), protests for the legalization of cannabis in various German cities (cluster 8), the historic election of the German chancellor that took two voting rounds (cluster 98) and reports of a road safety campaign by the German police with broad spot checks using speed cameras (cluster 65). In international news, ChatGPT selected news on Microsoft's shutdown of the telecommunications application Skype (cluster 32), changes in EU travel regulations and German passport regulations (cluster 74), the death of Pope Francis and the election of his successor Pope Leo XIV (cluster 34). ChatGPT also regularly selected news topics that report on anniversaries, commemoration days and action days (e.g. on the day of liberation from national socialism (cluster 40) or a protest day for the rights of disabled people (cluster 12)).
+
+On some occasions, ChatGPT selected and incorrectly summarized news topics based on keywords shared by other news topics. One such example is ChatGPT's summary of a topic that centers around the term "fairness agreement". While the term was mentioned in reporting, in the context of the rules about the appointment of investigative committees by the opposition[^6], ChatGPT summarized reporting on a different agreement between German political parties on fairness in the parties' campaigns for the 2024 German federal elections (cluster 39).
+
+[^5]: We used news archives (e.g. [tagesschau.de/archiv](https://www.tagesschau.de/archiv?datum=2024-08-06) or [spiegel.de/nachrichtenarchiv](https://www.spiegel.de/nachrichtenarchiv/artikel-06.08.2024.html) to verify if the news topics were mentioned by other outlets on that date.
+
+[^6]: See [rp-online.de](https://rp-online.de/politik/deutschland/einsetzen-von-untersuchungsausschuessen-gruene-fordern-fairness-abkommen-mit-regierung_aid-130423461)
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-topics
+#| tbl-cap: News Topics
+
+api_topics_tbl <- rio::import(file = "output/api_topics_tbl.RDS")
+api_topics_tbl |> 
+    select(-cluster_size) |> 
+    gt() |> 
+    opt_interactive(use_pagination = TRUE, page_size_default = 5) |> 
+    fmt_percent(Regular:Diverse) |> 
+    cols_label(
+        cluster="Cluster",
+        tokens="Top Tokens"
+    ) |> 
+    cols_width(
+        cluster ~ px(80),
+        Diverse ~ px(80),
+        Regular ~ px(80)
+    ) |> 
+    tab_spanner(
+        label = "Share of Documents",
+        columns = Regular:Diverse
+    )
+
+```
+
+
+## Differences in AI-generated news responses across experimental conditions
+
+### Domains
+
+Some sites are referenced roughly equally often in both conditions (e.g. `deutschlandfunk.de`, `spiegel.de`, `faz.net`)[^1], some are referenced more in the diverse condition (e.g. `news-pravda.com`[^2], `taz.de`, `swr.de`) and others in the regular condition (e.g. `lemonde.fr`, `ft.com`, `apnews.com`). Most sites (\~ 99%) appear either (within a 5% deviation) in the regular or in the diverse condition (see @fig-domain-conditions).
+
+[^1]: equal use within \~5% deviation
+
+[^2]: a [russian propaganda network](https://en.wikipedia.org/wiki/Pravda_network)
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-domain-conditions
+#| fig-cap: "Usage of Domains in the Experimental Conditions"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 8
+
+api_domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = Diverse / Regular) |> 
+    mutate(d = log(d)) |> 
+    mutate(condition = case_when(
+        d < -0.05 ~ "Regular",
+        d > 0.05 ~ "Diverse",
+        between(d, -.05, .05) ~ "Both"
+    )) |>
+    mutate(label = ifelse(between(d, -.75, .75), NA, domain)) |> 
+    mutate(label = ifelse(total_n < 100, NA, label)) |> 
+    ggplot(aes(x = Diverse, y = Regular)) +
+    geom_abline(slope = 1, intercept = 0) +
+    geom_point(aes(size = total_n, color = condition)) +
+    geom_label_repel(aes(label = label, fill = condition), min.segment.length = 0) +
+    scale_color_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_fill_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_y_log10(labels = scales::percent) +
+    scale_x_log10(labels = scales::percent) +
+    theme(legend.position = "bottom")
+```
+
+@tbl-top-domains-by-condition shows the domains that are strongly associated with either the diverse or the regular condition, and those that are represented equally often in both conditions.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-top-domains-by-condition
+#| tbl-cap: Top Domains by Condition
+api_domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = Diverse / Regular) |> 
+    mutate(d = log(d)) |> 
+    mutate(condition = case_when(
+        d < -0.05 ~ "Regular",
+        d > 0.05 ~ "Diverse",
+        between(d, -.05, .05) ~ "Both"
+    )) |>
+    mutate(condition = factor(condition, c("Diverse", "Both", "Regular"))) |> 
+    filter(total_n >= 100) |> 
+    group_by(condition) |> 
+    slice_max(n = 5, order_by = abs(d)) |> 
+    ungroup() |> 
+    arrange(condition, d) |> 
+    gt(row_group_as_column = TRUE, groupname_col = "condition") |> 
+    fmt_percent(3:4) |> 
+    cols_label(d = "log(diverse/current)", domain = "Domain", total_n = "n")
+```
+
+In the diverse condition ChatGPT linked to less legacy press outlets and more public broadcaster, hyperpartisan news, and tabloid newspaper (see @tbl-domain-journ-cats).
+
+### Diversity indicators
+
+The diverse condition produces both more diverse individual sessions (see @tbl-diversity-by-sessions and @fig-diversity-indicators), as does it produce more diverse sources across all sessions over time (see @fig-diversity-over-time).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-diversity-by-sessions
+#| tbl-cap: Differences between diversity indicators
+
+api_links |> 
+    group_by(uid) |> 
+    count(domain) |> 
+    mutate(p = (n/sum(n))*100) |> 
+    arrange(-n) |> 
+    summarise(
+        hhi = f.hhi(n),
+        sdi = f.sdi(n),
+        unique_sources = sum(n)
+    ) |> 
+    pivot_longer(-uid) |> 
+    mutate(condition = f.get_condition(uid)) |> 
+    group_by(name) |> 
+    summarise(
+        t_test = broom::tidy(t.test(value ~ condition)),
+        n = n()
+    ) |> 
+    unnest(t_test) |> 
+    mutate(sig = ifelse(p.value < .001, "< .001", "not sig.")) |> 
+    select(name, estimate1, estimate2, sig, n) |> 
+    rename(Diverse = estimate2, Regular = estimate1) |> 
+    gt() |> 
+    fmt_number(Regular:Diverse) |> 
+    cols_label(name = "Indicator", sig = "p.value") |> 
+    tab_footnote("hhi: Herfindahl-Hirschman Index, sdi: Shannon Diversity Index, significance based on two-sided t-tests")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-diversity-over-time
+#| fig-cap: "Diversity Metrics over Time"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 4
+api_links |> 
+    group_by(date = floor_date(date, unit = "1 week"), condition) |> 
+    count(domain, sort = TRUE) |> 
+    summarise(
+        hhi = f.hhi(n),
+        sdi = f.sdi(n),
+        unique_sources = n()
+    ) |> 
+    ungroup() |> 
+    pivot_longer(hhi:unique_sources) |> 
+    mutate(name = factor(name, levels = c("hhi", "sdi", "unique_sources"))) |> 
+    ggplot(aes(x = as.Date(date), y = value, color = condition)) +
+    geom_line(aes(group = date), color = "black") +
+    geom_point(size = 2) +
+    scale_x_date(date_labels = "KW %U", date_breaks = "2 weeks") +
+    facet_wrap(vars(name), scales = "free") +
+    labs(
+        title = "Source diversity over time",
+        subtitle = "Shannon Diversity Index (sdi): Higher values mean higher diversity,\nHerfindahl–Hirschman index (hhi): Higher values mean higher concentration",
+        x = "Days",
+        y = ""
+    ) +
+    theme(legend.position = "bottom")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-diversity-indicators
+#| fig-cap: "Distribution of Diversity Metrics by Condition"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 4
+api_links |> 
+    group_by(uid) |> 
+    count(domain) |> 
+    mutate(p = (n/sum(n))*100) |> 
+    arrange(-n) |> 
+    summarise(
+        hhi = f.hhi(n),
+        sdi = f.sdi(n),
+        unique_sources = sum(n)
+    ) |> 
+    pivot_longer(-uid) |> 
+    mutate(condition = f.get_condition(uid)) |> 
+    ggplot(aes(x = value, fill = condition)) +
+    geom_histogram(position = "dodge") +
+    facet_wrap(vars(name), scales = "free") +
+    theme(legend.position = "bottom")
+```
+
+### Political leaning of the Domains
+
+To calculate the political leaning of news sources, we used data from the German 2025 Reuters Digital News Report. Specifically, we determined the political leaning of each outlets as the average political orientation of all survey participants who reported using that media source at least once per week. The political orientation of participants who used the outlet on three or more days per week were weighted double. 22 media outlets were included in the Reuters data.
+
+Political orientation was assessed on a scale from 1 (= left) to 7 (right), *N* = 2047. See @Behre2025 for details on the 2025 German Reuters Digital News Report. The mean political orientation of participants was 4.03 (SD = 1.19), the mean political leaning of the 22 media outlets was `r round(mean(reuters$media_leanings),2)` (SD = `r round(sd(reuters$media_leanings), 2)`).
+
+Based on the leaning of these 22 media outlets, we calculated the mean political leaning of the references provided by ChatGPT. The results are displayed in @tbl-media-leaning. The mean political leaning of the sources used by ChatGPT does not differ significantly from either the average political leaning of the population or the midpoint of the scale (which is 4).
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-media-leaning
+#| tbl-cap: Mean Political Leaning of 22 Domains and 95%-Confidence Interval
+
+api_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    group_by(domain, condition) |> 
+    summarise(p = sum(p)) |> 
+    ungroup() |> 
+    left_join(
+        reuters |> select(domain, media_leanings),
+        by = "domain"
+    ) |> 
+    filter(!is.na(media_leanings)) |> 
+    group_by(condition) |> 
+    summarise(
+        api_leaning = weighted.mean(media_leanings, p)
+    ) |> 
+    left_join(
+        gui_domains |> 
+            mutate(domain = case_when(
+                domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+                domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+                TRUE ~ domain
+            )) |> 
+            group_by(domain, condition) |> 
+            summarise(p = sum(p)) |> 
+            ungroup() |> 
+            left_join(
+                reuters |> select(domain, media_leanings),
+                by = "domain"
+            ) |> 
+            filter(!is.na(media_leanings)) |> 
+            group_by(condition) |> 
+            summarise(
+                gui_leaning = weighted.mean(media_leanings, p)
+            ),
+        by = "condition"
+    ) |> 
+    gt()
+
+```
+
+## Differences in interfaces
+
+The kind of interface through which ChatGPT is prompted has an effect on the referenced domains. We found that the list of domains referenced by ChatGPT via the web interface is much closer to the general shape of the German online news market than the list produced via the api (see @fig-interface_domains).
+
+The results of the Wilcoxon signed rank test with continuity correction are significant (p < 0.01), suggesting that the two lists systematically rank the domains differently, while a Spearman's rank correlation shows a significant correlation between the ranks in the api top domain list and the gui top domain list (rho = .53, p < 0.001). This means that while there are simmilarities between the two lists, the api and the gui systematically produce different results in terms of referenced sites.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-interface_domains
+#| fig-cap: "Differences in top domains across interfaces"
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 4
+
+interface_domains <- api_links |> 
+    filter(as.character(floor_date(date, "1 day")) %in% unique(gui_links$date)) |> 
+    mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1)) |> 
+    mutate(domain = str_trim(domain)) |> 
+    filter(!is.na(domain)) |> 
+    group_by(condition) |> 
+    count(domain) |> 
+    mutate(p = n/sum(n)) |> 
+    arrange(-n) |> 
+    ungroup() |> 
+    rename(api_p = p) |> 
+    pivot_wider(names_from = condition, values_from = api_p, id_cols = domain) |> 
+    arrange(-(Regular+Diverse)/2) |> 
+    mutate(in_top_domains = (1:n() <= 250)) |> 
+    full_join(
+        gui_domains |> 
+            mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1)) |> 
+            mutate(domain = str_trim(domain)) |> 
+            filter(!is.na(domain)) |> 
+            group_by(domain, condition) |> 
+            summarise(gui_n = sum(n)) |> 
+            group_by(condition) |> 
+            mutate(gui_p = gui_n/sum(gui_n)) |> 
+            ungroup() |> 
+            mutate(condition = ifelse(condition == "Diverse", "gui_diverse", "gui_regular")) |> 
+            pivot_wider(names_from = condition, values_from = gui_p, id_cols = domain, values_fill = 0) |> 
+            arrange(-(gui_regular+gui_diverse)/2) |> 
+            mutate(in_top_domains = (1:n() <= 250)),
+        by = "domain"
+    ) |> 
+    rename(api_diverse = Diverse, api_regular = Regular) |> 
+    mutate(api = (api_regular+api_diverse)/2) |> 
+    mutate(gui = (gui_regular+gui_diverse)/2) |> 
+    mutate(across(starts_with("in_top_domains"), \(x) replace_na(x, FALSE))) |> 
+    mutate(in_top_domains = (in_top_domains.x + in_top_domains.y)!=0) |> 
+    filter(in_top_domains) |> 
+    select(-starts_with("in_top_domains"))
+
+interface_domains |> 
+    select(domain, api, gui) |> 
+    pivot_longer(-domain) |> 
+    mutate(interface = str_sub(name, 1, 3)) |> 
+    mutate(name = str_sub(name, 5)) |> 
+    pivot_wider(names_from = interface, values_from = value) |> 
+    group_by(domain) |> 
+    summarise(
+        api = mean(api),
+        gui = mean(gui)
+    ) |> 
+    mutate(d = api / gui) |> 
+    mutate(d = log(d)) |> 
+    ggplot(aes(x = api, y = gui, color = d)) +
+    geom_abline(intercept = 0, slope = 1, linetype = "dotted") +
+    geom_point() +
+    geom_label_repel(aes(label = domain), min.segment.length = 0) +
+    scale_color_gradient2(low = "#e15759", high = "#76b7b2", mid = "#888") +
+    scale_x_log10(labels = scales::percent) +
+    scale_y_log10(labels = scales::percent)
+
+
+
+#wilcox.test(interface_domains$api, interface_domains$gui, paired = TRUE)
+#cor.test(interface_domains$api, interface_domains$gui, method = "spearman")
+```
+
+# Discussion
+
+# Limitations
+
+There are several limitations to consider when interpreting our results.
+First, the process of accessing the web interface of ChatGPT (see
+\@#sec-access_web_interface) produced files with various, mixed
+character encodings. This resulted in small issues with the content
+analysis and the extraction of urls. Some of the character encoding
+issues were resolved by using `iconv` and a custom de-/encoding script.
+Yet, some issues with the character encoding remained, which impacted
+the parsing of words containing special characters. In some cases, the
+markdown did not contain all links in a common format, which made
+parsing those source references error prone. While most of the effects
+of these issues could be mitigated, it is still possible that the
+results were impacted by them to some degree. Second, …
+
+# Appendix
+
+Overview of linked domains, including the domains' share in the two experimental conditions (current news vs current news from diverse sources) and interfaces (api and gui) (@tbl-top-domains). Website popularity based on the Tranco website rankings [@Le_Pochat_2019].
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-top-domains
+#| tbl-cap: Top Domains
+
+gui_domains |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, tranco_rank, is_springer)
+    ) |> 
+    slice_max(Diverse+Regular, n = 10) |> 
+    mutate(is_springer = ifelse(is_springer, "yes", "no")) |> 
+    mutate(tranco_rank = case_when(
+        between(tranco_rank, 1, 10) ~ "top 10",
+        between(tranco_rank, 11, 100) ~ "top 100",
+        between(tranco_rank, 101, 1000) ~ "top 1.000",
+        between(tranco_rank, 1001, 10000) ~ "top 100.00",
+        between(tranco_rank, 10001, 100000) ~ "top 1.000.000"
+    )) |> 
+    mutate(tranco_rank = ifelse(is.na(tranco_rank), "not ranked", tranco_rank)) |> 
+    select(domain, Diverse, Regular, tranco_rank, is_springer) |> 
+    gt() |> 
+    fmt_percent(Diverse:Regular) |> 
+    fmt_url(domain) |> 
+    cols_align(align = "right", columns = tranco_rank) |> 
+    cols_align(align = "right", columns = is_springer) |> 
+    cols_label(
+        domain = "Domain",
+        tranco_rank = "Tranco Rank",
+        is_springer = "Springer?"
+    ) |> 
+    tab_header(title = "Top Domains (gui)")
+
+api_domains |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, tranco_rank, is_springer)
+    ) |> 
+    slice_max(Diverse+Regular, n = 10) |> 
+    mutate(is_springer = ifelse(is_springer, "yes", "no")) |> 
+    mutate(tranco_rank = case_when(
+        between(tranco_rank, 1, 10) ~ "top 10",
+        between(tranco_rank, 11, 100) ~ "top 100",
+        between(tranco_rank, 101, 1000) ~ "top 1.000",
+        between(tranco_rank, 1001, 10000) ~ "top 100.00",
+        between(tranco_rank, 10001, 100000) ~ "top 1.000.000"
+    )) |> 
+    mutate(tranco_rank = ifelse(is.na(tranco_rank), "not ranked", tranco_rank)) |> 
+    select(domain, Diverse, Regular, tranco_rank, is_springer) |> 
+    gt() |> 
+    fmt_percent(Diverse:Regular) |> 
+    fmt_url(domain) |> 
+    cols_align(align = "right", columns = tranco_rank) |> 
+    cols_align(align = "right", columns = is_springer) |> 
+    cols_label(
+        domain = "Domain",
+        tranco_rank = "Tranco Rank",
+        is_springer = "Springer?"
+    ) |> 
+    tab_header(title = "Top Domains (api)")
+
+```

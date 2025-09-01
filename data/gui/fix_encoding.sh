@@ -2,6 +2,14 @@
 
 #find data/gui -name '*.txt' -exec file {} \; | grep  "Unicode" | awk -F':' '{ print $1}' > unicode.txt
 
+unzip raw/\*.zip
+mkdir -p fixed/regular
+mv *.txt fixed/regular
+mv "mit Diversitätsanfrage" fixed/diverse
+
+rm *.png
+rm -r __MACOSX
+
 echo "Fixing ISO-8859"
 find . -name '*.txt' -exec file {} \; | grep  "ISO-8859" | awk -F':' '{ print $1}' > iso-8859.txt
 while read l

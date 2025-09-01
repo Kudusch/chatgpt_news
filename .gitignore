@@ -1,4 +1,6 @@
 .DS_Store
+.Rprofile
+.RData
 .Rhistory
 .Rproj.user
 cache/*
