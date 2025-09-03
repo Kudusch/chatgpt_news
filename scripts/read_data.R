@@ -25,17 +25,18 @@ reuters <- import("data/reuters.csv", row.names = 1) |>
     ungroup()
 # import ranking from similarweb.de
 similar <- import("data/similarweb_news_list.csv") |> 
-    #mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1)) |> 
+    mutate(domain = case_when(
+        domain == "news.google.com" ~ "news.google.com",
+        TRUE ~ str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1) # remove subdomains
+    )) |> 
     mutate(domain = case_when(
         domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
         domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
         TRUE ~ domain
     )) |> 
     group_by(domain) |> 
-    #summarise(rank_similarweb  = mean(rank_similarweb, na.rm = TRUE)) |>
-    summarise(rank_similarweb = first(rank_similarweb)) |> 
+    summarise(rank_similarweb = min(rank_similarweb)) |> 
     ungroup()
-
 
 ## Read responses ----
 api_raw <- arrow::read_ipc_stream("Data/api.arrow")
