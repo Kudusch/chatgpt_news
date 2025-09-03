@@ -1,7 +1,7 @@
 ---
 title: "Diversity of News Sources in ChatGPT"
 subtitle: "Note: Work in progess"
-date-modified: 2025-07-27
+date-modified: 2025-09-03
 bibliography: references.bib
 format:  
   html:
@@ -245,9 +245,9 @@ When looking at the top domains, some plausible and expected choices are at the 
 
 To get a better intuition about the ranking and distribution of the sources provided by ChatGPT, we compare it to two reference lists with the most popular news sources in Germany. The first reference list from @Behre2025 (German 2025 Reuters Digital News Report) presents news consumption frequencies across 22 media outlets, based on responses from a representative sample (*N* = 2.047).
 
-The second list contains data from *similarweb.com*, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^['kachelmannwetter.de' and 'wunderweib.de' were excluded and 16 outlets that were not categorized as news (such as 'gmx.net', 'ndr.de', 'handelsblatt.com') were included.] The final list contains the 114 most visited news websites for June 2025 in Germany according to *similarweb.de*.
+The second list contains data from *similarweb.com*, a commercial web traffic analysis company that classifies websites and provides traffic analyses. This data was manually collected from their website and contains the top 100 websites in Germany in the category news and media for June 2025. The list was slightly modified due to some classification errors and because some popular news websites were not included.^['kachelmannwetter.de' and 'wunderweib.de' were excluded and 16 outlets that were not categorized as news (such as 'gmx.net', 'ndr.de', 'handelsblatt.com') were included. ARD.de/tagesschau.de are merged to comply with the Reuters data.] The final list contains the 113 most visited news websites for June 2025 in Germany according to *similarweb.de*.
 
-@tbl-overlap shows the overlap between the two reference lists and the top domains by ChatGPT (when this list is cut to the same size as the respective reference list). For the Reuters list, 6 of the 22 news outlets are represented in the top 22 domains provided by ChatGPT in the regular condition. While this showcases that some popular news outlets are frequently referenced by ChatGPT, it also shows that several popular ones are not as frequently listed and vice versa. 
+@tbl-overlap shows the overlap between the two reference lists and the top domains by ChatGPT (when this list is cut to the same size as the respective reference list). In the API-scenario, for the Reuters list, 6 of the 22 news outlets are represented in the top 22 domains provided by ChatGPT and 10 in the GUI-scenario. While this showcases that some popular news outlets are frequently referenced by ChatGPT, it also shows that several popular ones are not as frequently listed and vice versa. 
 
 ```{r}
 #| echo: false
@@ -261,7 +261,9 @@ api_domain_list <- api_domains |>
         domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
         TRUE ~ domain
     )) |> 
-    distinct(domain) |> 
+    group_by(domain) |> 
+    summarise(p = mean(p)) |> 
+    arrange(desc(p)) |> 
     pull(domain)
 
 gui_domain_list <- gui_domains |> 
@@ -270,17 +272,23 @@ gui_domain_list <- gui_domains |>
         domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
         TRUE ~ domain
     )) |> 
-    distinct(domain) |> 
+    group_by(domain) |> 
+    summarise(p = mean(p)) |> 
+    arrange(desc(p)) |> 
     pull(domain)
 
 tibble(
     interface = c("API", "GUI"),
     list_size_reuters = rep(length(reuters$domain), 2),
-    intersection_reuters = c(sum(api_domain_list %in% reuters$domain), sum(gui_domain_list %in% reuters$domain)),
-    overlap_reuters = c(sum(api_domain_list %in% reuters$domain)/length(reuters$domain), sum(gui_domain_list %in% reuters$domain)/length(reuters$domain)),
+    intersection_reuters = c(sum(api_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain),
+                             sum(gui_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain)),
+    overlap_reuters = c(sum(api_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain)/length(reuters$domain),
+                        sum(gui_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain)/length(reuters$domain)),
     list_size_similar = rep(length(similar$domain), 2),
-    intersection_similar = c(sum(api_domain_list %in% similar$domain), sum(gui_domain_list %in% similar$domain)),
-    overlap_similar = c(sum(api_domain_list %in% similar$domain)/length(similar$domain), sum(gui_domain_list %in% similar$domain)/length(similar$domain))
+    intersection_similar = c(sum(api_domain_list[seq_len(length(similar$domain))] %in% similar$domain), 
+                             sum(gui_domain_list[seq_len(length(similar$domain))]  %in% similar$domain)),
+    overlap_similar = c(sum(api_domain_list[seq_len(length(similar$domain))]  %in% similar$domain)/length(similar$domain),
+                        sum(gui_domain_list[seq_len(length(similar$domain))]  %in% similar$domain)/length(similar$domain))
     ) |> 
     gt() |>
     fmt_percent(starts_with("overlap_")) |> 
@@ -303,7 +311,7 @@ tibble(
     )
 ```
 
-When looking at overrepresentation in the domain lists from the api first, `deutsche-handwerks-zeitung.de`, `stimme.de`, and `donaukurier.de` are most prominent, taking the ranks 4, 6 and 13, each with a couple hundred references by ChatGPT. Realistically, these news outlets do not rank among the most popular ones in Germany. In fact, `stimme.de` a local news paper takes rank 99 according to the modified list based on *similarweb.com*. `deutsche-handwerks-zeitung.de` is a vast outlier, not being ranked at all and having around 5% of the monthly visits to its website when compared to the already small `stimme.de`. Furthermore, a few international news domains such as `reuters.com`, `ft.com`, and `apnews.com` do not play a large role in the German news market, each of them not being in the top 114 German news websites according to similarweb.com. 
+When looking at overrepresentation in the domain lists from the api first, `deutsche-handwerks-zeitung.de`, `stimme.de`, and `donaukurier.de` are most prominent, taking the ranks 4, 6 and 13, each with a couple hundred references by ChatGPT. Realistically, these news outlets do not rank among the most popular ones in Germany. In fact, `stimme.de` a local news paper takes rank 99 according to the modified list based on *similarweb.com*. `deutsche-handwerks-zeitung.de` is a vast outlier, not being ranked at all and having around 5% of the monthly visits to its website when compared to the already small `stimme.de`. Furthermore, a few international news domains such as `reuters.com`, `ft.com`, and `apnews.com` do not play a large role in the German news market, each of them not being in the top 113 German news websites according to similarweb.com. 
 
 On the other hand, many prominent news outlets are starkly under or not represented in the references provided by ChatGPT when querying the api. This is most prominent for `gmx.net`, `bild.de`, `focus.de` and `t-online.de`. All four take a top position both in the Reuters and the similarweb data. Furthermore, some international news outlets that also play a prominent role in Germany such as `yahoo.com` or `msn.com`, and some popular regional news papers such as `mopo.de`, `rp-online.de` and `schwaebische.de` are not or almost not represented in the references by ChatGPT.
 
