@@ -27,6 +27,7 @@ library(ggplot2)
 library(patchwork)
 library(scales)
 library(ggrepel)
+library(Hmisc)
 
 source("scripts/functions_and_vars.R")
 source("scripts/read_data.R")
@@ -702,15 +703,13 @@ Based on the leaning of these 22 media outlets, we calculated the mean political
 #| label: tbl-media-leaning
 #| tbl-cap: Mean Political Leaning of 22 Domains and 95%-Confidence Interval
 
-api_domains |> 
+# API summary
+api_summary <- api_domains |> 
     mutate(domain = case_when(
         domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
         domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
         TRUE ~ domain
     )) |> 
-    group_by(domain, condition) |> 
-    summarise(p = sum(p)) |> 
-    ungroup() |> 
     left_join(
         reuters |> select(domain, media_leanings),
         by = "domain"
@@ -718,32 +717,72 @@ api_domains |>
     filter(!is.na(media_leanings)) |> 
     group_by(condition) |> 
     summarise(
-        api_leaning = weighted.mean(media_leanings, p)
+        mean = weighted.mean(media_leanings, n),
+        n_eff = sum(n)^2 / sum(n^2),
+        sd = sqrt(Hmisc::wtd.var(media_leanings, n)),
+        se = sd / sqrt(n_eff),
+        ci_low = mean - 1.96 * se,
+        ci_up = mean + 1.96 * se,
+        .groups = "drop"
     ) |> 
+    mutate(api_ci = paste0("(", round(ci_low, 2), ", ", round(ci_up, 2), ")")) |> 
+    select(condition, api_mean = mean, api_ci)
+
+# GUI summary
+gui_summary <- gui_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
     left_join(
-        gui_domains |> 
-            mutate(domain = case_when(
-                domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
-                domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
-                TRUE ~ domain
-            )) |> 
-            group_by(domain, condition) |> 
-            summarise(p = sum(p)) |> 
-            ungroup() |> 
-            left_join(
-                reuters |> select(domain, media_leanings),
-                by = "domain"
-            ) |> 
-            filter(!is.na(media_leanings)) |> 
-            group_by(condition) |> 
-            summarise(
-                gui_leaning = weighted.mean(media_leanings, p)
-            ),
-        by = "condition"
+        reuters |> select(domain, media_leanings),
+        by = "domain"
     ) |> 
-    gt()
+    filter(!is.na(media_leanings)) |> 
+    group_by(condition) |> 
+    summarise(
+        mean = weighted.mean(media_leanings, n),
+        n_eff = sum(n)^2 / sum(n^2),
+        sd = sqrt(Hmisc::wtd.var(media_leanings, n)),
+        se = sd / sqrt(n_eff),
+        ci_low = mean - 1.96 * se,
+        ci_up = mean + 1.96 * se,
+        .groups = "drop"
+    ) |> 
+    mutate(gui_ci = paste0("(", round(ci_low, 2), ", ", round(ci_up, 2), ")")) |> 
+    select(condition, gui_mean = mean, gui_ci)
+
+final_table <- api_summary |> 
+    left_join(gui_summary, by = "condition")
+
+final_table |> 
+    gt() |>
+    tab_spanner(
+        label = "API",
+        columns = vars(api_mean, api_ci)
+    ) |>
+    tab_spanner(
+        label = "GUI",
+        columns = vars(gui_mean, gui_ci)
+    ) |>
+    cols_label(
+        api_mean = "Mean",
+        api_ci = "CI",
+        gui_mean = "Mean",
+        gui_ci = "CI"
+    ) |>
+    fmt_number(
+        columns = vars(api_mean, gui_mean),
+        decimals = 2
+    ) |>
+    cols_align(
+        align = "center",
+        columns = vars(api_ci, gui_ci)
+    )
 
 ```
+
 
 ## Differences in interfaces
 
