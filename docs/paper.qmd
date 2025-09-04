@@ -17,6 +17,8 @@ format:
 #| warning: false
 #| echo: false
 
+set.seed(1337)
+
 # Dependencies ----
 library(dplyr)
 library(tidyr)
@@ -64,7 +66,6 @@ sample_meta <- rbind(select(api_domains, domain, n),select(gui_domains, domain, 
     mutate(p_refs = n_refs/sum(n_refs), p_urls = unique_urls/sum(unique_urls)) |> 
     filter(in_sample) |> 
     select(-in_sample)
-
 ```
 
 # Introduction
@@ -153,6 +154,8 @@ Website popularity based on aggregated data from the 2025 Reuters digital news r
 ## Categorizing sources
 
 ```{r}
+#| echo: false
+#| warning: false
 
 inter_reli_manual_coding <- manual_coding |> 
     select(domain, category, coder) |> 
@@ -451,9 +454,10 @@ cbind(
 ) |> 
     gt() |> 
     fmt_percent(starts_with("is_")) |> 
-    tab_spanner("api", ends_with("_api")) |> 
-    tab_spanner("gui", ends_with("_gui")) |> 
+    tab_spanner("API", ends_with("_api")) |> 
+    tab_spanner("GUI", ends_with("_gui")) |> 
     cols_label(
+        condition = "Condition",
         is_springer_api = "Springer",
         is_springer_gui = "Springer",
         is_pb_api = "Public Broadcaster",
