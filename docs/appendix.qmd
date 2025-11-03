@@ -70,6 +70,8 @@ sample_meta <- rbind(select(api_domains, domain, n),select(gui_domains, domain, 
     select(-in_sample)
 ```
 
+This is the appendix for the preprint ["ChatGPT as a news recommender system: Measuring source types and diversity across different interfaces"](https://osf.io/preprints/socarxiv/wjzp3_v2). See the [GitHub repository](https://github.com/kudusch/chatgpt_news) for data and more details.
+
 # Prompts
 
 ```{r}
@@ -84,6 +86,7 @@ tibble(
     gt() |> 
     tab_caption("Used prompts, original German")
 ```
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -95,7 +98,6 @@ tibble(
     gt() |> 
     tab_caption("Used prompts, English translation")
 ```
-
 
 # Tables and figures
 
