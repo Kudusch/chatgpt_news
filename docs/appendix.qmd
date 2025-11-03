@@ -1,0 +1,846 @@
+---
+title: "Appendix to ChatGPT as a news recommender system"
+subtitle: "Measuring source types and diversity across different interfaces"
+date-modified: 2025-11-03
+bibliography: references.bib
+format: html
+toc: true
+number-sections: true
+theme: default
+code-fold: true
+code-summary: "Show the code"
+css: main.css
+---
+
+```{r include = FALSE}
+#| warning: false
+#| echo: false
+
+set.seed(1337)
+
+# Dependencies ----
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(lubridate)
+library(report)
+library(gt)
+library(ggplot2)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(Hmisc)
+
+# Read data ----
+source("scripts/functions_and_vars.R")
+source("scripts/read_data.R")
+
+manual_coding <- list.files("data", pattern = "coder_.*\\.xlsx", full.names = TRUE) |> 
+    rio::import_list(rbind = TRUE, setclass = "tibble") |> 
+    mutate(coder = factor(Coder, levels = c("Tim", "Example", "Leonie", "Justin"))) |> 
+    rename(category = Kategorie, is_springer = `Ist Springer?`) |> 
+    mutate(domain = str_remove(Domain, "https://")) |> 
+    mutate(is_springer = is_springer == "Ja") |> 
+    mutate(is_springer = ifelse(is.na(is_springer), FALSE, is_springer)) |> 
+    select(domain, category, is_springer, coder) |> 
+    mutate(domain = ifelse(
+        str_detect(domain, "news-pravda.com"),
+        "news-pravda.com",
+        domain
+    )) |> 
+    mutate(category = case_match(
+        category,
+        c("private_newsmedia", "public_broadcaster", "local_media", "alternative_media") ~ "journalistic_media",
+        .default = category
+    )) |> 
+    mutate(category = factor(
+        category,
+        c("journalistic_media", "news_agency", "encyclopedias", "organization", "other"),
+        c("Journalistic Media", "News Agencies", "Encyclopedias", "Organization/Business", "Misc")
+    )) |> 
+    mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1))
+
+sample_meta <- rbind(select(api_domains, domain, n),select(gui_domains, domain, n)) |> 
+    group_by(domain) |> 
+    summarise(n = sum(n)) |> 
+    group_by(in_sample = domain %in% manual_coding$domain) |> 
+    summarise(n_refs = sum(n), unique_urls = n()) |> 
+    mutate(p_refs = n_refs/sum(n_refs), p_urls = unique_urls/sum(unique_urls)) |> 
+    filter(in_sample) |> 
+    select(-in_sample)
+```
+
+# Prompts
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-prompts-de
+
+tibble(
+    Regular = c("Zeige mir die wichtigsten Nachrichten von heute.", "Erkläre, wie du die Nachrichten ausgewählt hast (z. B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.", "Zeige mir mehr Nachrichten zum ersten Thema.", "Erkläre, wie du die Nachrichten ausgewählt hast (z. B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren."),
+    Diverse = c("Zeige mir die wichtigsten Nachrichten von heute. Bitte achte dabei besonders auf eine diverse Auswahl an Nachrichtenquellen, inklusive öffentlich-rechtlicher, konservativer, liberaler, regionaler, kleiner, investigativer, unabhängiger, kritischer und alternativer Angebote. Sortiere die Nachrichten nach Relevanz. Markiere, welche öffentlich-rechtliche, konservative, liberale, regionale, kleine, investigative, unabhängige, kritische und alternative Angebote sind.", "Erkläre, wie du die Nachrichten ausgewählt hast (z. B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.", "Zeige mir mehr Nachrichten zum ersten Thema. Bitte achte dabei besonders auf eine diverse Auswahl an Nachrichtenquellen, inklusive öffentlich-rechtlicher, konservativer, liberaler, regionaler, kleiner, investigativer, unabhängiger, kritischer und alternativer Angebote. Sortiere die Nachrichten nach Relevanz. Markiere, welche  öffentlich-rechtliche, konservative, liberale, regionale, kleine, investigative, unabhängige, kritische und alternative Angebote sind.", "Erkläre, wie du die Nachrichten ausgewählt hast (z. B. welche Kriterien, welche Quellen gescannt wurden) und liste alle URLs (auch verworfene oder nur validierte) mit Angabe, ob sie zitiert, nur geprüft, verworfen oder doppelt waren.")
+) |> 
+    gt() |> 
+    tab_caption("Used prompts, original German")
+```
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-prompts-en
+tibble(
+    Regular = c("Show me today's most important news stories.", "Explain how you selected the news stories (e.g., what criteria you used, which sources you scanned) and list all URLs (including those that were rejected or only validated), indicating whether they were cited, only checked, rejected, or duplicates.", "Show me more news on the first topic.", "Explain how you selected the news stories (e.g., what criteria you used, which sources you scanned) and list all URLs (including those that were rejected or only validated), indicating whether they were cited, only checked, rejected, or duplicates."),
+    Diverse = c("Show me today's most important news stories. Please pay particular attention to ensuring a diverse selection of news sources, including public, conservative, liberal, regional, small, investigative, independent, critical, and alternative outlets. Sort the news stories by relevance. Mark which ones are from public, conservative, liberal, regional, small, investigative, independent, critical, and alternative outlets.", "Explain how you selected the news stories (e.g., what criteria you used, which sources you scanned) and list all URLs (including those that were rejected or only validated), indicating whether they were cited, only checked, rejected, or duplicates.", "Show me more news on the first topic. Please pay particular attention to ensuring a diverse selection of news sources, including public, conservative, liberal, regional, small, investigative, independent, critical, and alternative outlets. Sort the news by relevance. Mark which outlets are public, conservative, liberal, regional, small, investigative, independent, critical, and alternative.", "Explain how you selected the news stories (e.g., what criteria you used, which sources you scanned) and list all URLs (including those that were rejected or only validated), indicating whether they were cited, only checked, rejected, or duplicates.")
+) |> 
+    gt() |> 
+    tab_caption("Used prompts, English translation")
+```
+
+
+# Tables and figures
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-1
+
+tab1_data <- manual_coding |> 
+    group_by(domain) |> 
+    arrange(coder) |> 
+    slice(1) |> 
+    ungroup() |> 
+    left_join(
+        gui_domains |> 
+            select(domain, n, condition) |> 
+            pivot_wider(names_from = condition, values_from = n, names_prefix = "gui_"),
+        by = "domain"
+    ) |> 
+    left_join(
+        api_domains |> 
+            select(domain, n, condition) |> 
+            pivot_wider(names_from = condition, values_from = n, names_prefix = "api_"),
+        by = "domain",
+        relationship = "many-to-many"
+    ) |> 
+    filter(!is.na(category)) |> 
+    group_by(category) |> 
+    summarise(
+        gui_Diverse = sum(gui_Diverse, na.rm = TRUE),
+        gui_Regular = sum(gui_Regular, na.rm = TRUE),
+        api_Diverse = sum(api_Diverse, na.rm = TRUE),
+        api_Regular = sum(api_Regular, na.rm = TRUE)
+    ) |> 
+    arrange(-(gui_Diverse+gui_Regular+api_Diverse+api_Regular))
+
+tab1_data |> 
+    mutate(across(-category, ~ .x / sum(.x))) |> 
+    gt() |> 
+    fmt_percent(-category) |> 
+    tab_spanner("API", starts_with("api_")) |> 
+    tab_spanner("GUI", starts_with("gui_")) |> 
+    cols_label(
+        gui_Diverse = "Diverse",
+        api_Diverse = "Diverse",
+        gui_Regular = "Regular",
+        api_Regular = "Regular",
+        category = "Category"
+    )
+
+tab1_fisher_tests <- list(
+    "regular vs diverse for GUI" = fisher.test(tab1_data[c(2,3)], simulate.p.value = TRUE),
+    "regular vs diverse for API" = fisher.test(tab1_data[c(4,5)], simulate.p.value = TRUE),
+    "gui vs api" = fisher.test(mutate(tab1_data, gui = gui_Diverse+gui_Regular, api = api_Diverse+api_Regular)[c(6,7)], simulate.p.value = TRUE)
+)
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-1
+#| fig-alt: ""
+#| fig-width: 8
+#| fig-height: 8
+
+
+tab1_data |> 
+    mutate(across(-category, ~ .x / sum(.x))) |> 
+    pivot_longer(-category) |> 
+    mutate(interface = str_to_upper(substr(name, 1, 3))) |> 
+    mutate(condition = str_remove(name, "^.{4}")) |> 
+    ggplot(aes(x = category, y = value, fill = condition)) +
+    geom_col(position = position_dodge(width = .9)) +
+    geom_label(
+        aes(label = sprintf("%.1f%%", value*100), group = condition), 
+        position = position_dodge(width = .9),
+        fill = "white"
+    ) +
+    scale_y_continuous(labels = percent) +
+    scale_fill_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b")) +
+    facet_wrap(vars(interface), scales = "free_y", nrow = 2) +
+    theme(legend.position = "bottom") +
+    labs(
+        title = "Categories of Linked Domains by Interface and Experimental Condition",
+        caption = "Fisher's exact test were significant for the comparison of GUI vs API data (p < 0.001), for the regular vs diverse condition in the API data (p < 0.001), but not for the GUI data (p > 0.05).",
+        fill = "Experimental condition",
+        y = "",
+        x = ""
+    )
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-2
+
+tab2_data <- gond |> 
+    left_join(
+        gui_domains |> 
+            select(domain, n, condition) |> 
+            pivot_wider(names_from = condition, values_from = n, names_prefix = "gui_"),
+        by = "domain"
+    ) |> 
+    left_join(
+        api_domains |> 
+            select(domain, n, condition) |> 
+            pivot_wider(names_from = condition, values_from = n, names_prefix = "api_"),
+        by = "domain",
+        relationship = "many-to-many"
+    ) |> 
+    filter(!is.na(gond_type)) |> 
+    group_by(gond_type) |> 
+    summarise(
+        gui_Diverse = sum(gui_Diverse, na.rm = TRUE),
+        gui_Regular = sum(gui_Regular, na.rm = TRUE),
+        api_Diverse = sum(api_Diverse, na.rm = TRUE),
+        api_Regular = sum(api_Regular, na.rm = TRUE)
+    ) |> 
+    arrange(-(gui_Diverse+gui_Regular+api_Diverse+api_Regular))
+
+tab2_data |> 
+    mutate(across(-gond_type, ~ .x / sum(.x))) |> 
+    gt() |> 
+    fmt_percent(-gond_type) |> 
+    tab_spanner("API", starts_with("api_")) |> 
+    tab_spanner("GUI", starts_with("gui_")) |> 
+    cols_label(
+        gui_Diverse = "Diverse",
+        api_Diverse = "Diverse",
+        gui_Regular = "Regular",
+        api_Regular = "Regular",
+        gond_type = "GOND Type"
+    )
+
+tab2_fisher_tests <- list(
+    "regular vs diverse for GUI" = fisher.test(tab2_data[c(2,3)], simulate.p.value = TRUE),
+    "regular vs diverse for API" = fisher.test(tab2_data[c(4,5)], simulate.p.value = TRUE),
+    "gui vs api" = fisher.test(mutate(tab2_data, gui = gui_Diverse+gui_Regular, api = api_Diverse+api_Regular)[c(6,7)], simulate.p.value = TRUE)
+)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-2
+
+tab2_data |> 
+    mutate(across(-gond_type, ~ .x / sum(.x))) |> 
+    pivot_longer(-gond_type) |> 
+    mutate(interface = str_to_upper(substr(name, 1, 3))) |> 
+    mutate(condition = str_remove(name, "^.{4}")) |> 
+    ggplot(aes(x = forcats::fct_reorder(gond_type, -value), y = value, fill = condition)) +
+    geom_col(position = position_dodge(width = .9)) +
+    geom_label(
+        aes(label = sprintf("%.1f%%", value*100), group = condition), 
+        position = position_dodge(width = .9),
+        fill = "white"
+    ) +
+    scale_y_continuous(labels = percent) +
+    scale_fill_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b")) +
+    facet_wrap(vars(interface), scales = "free_y", nrow = 2) +
+    theme(legend.position = "bottom") +
+    labs(
+        title = "Categories of Linked Journalistic Sources",
+        caption = "Fisher's exact test are significant for the comparison of GUI vs API data (p < 0.001), for the regular vs diverse condition in the API data (p < 0.001) and in the GUI data (p < 0.001).",
+        fill = "Experimental condition",
+        y = "",
+        x = ""
+    )
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-3
+
+api_domain_list <- api_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    group_by(domain) |> 
+    summarise(p = mean(p)) |> 
+    arrange(desc(p)) |> 
+    pull(domain)
+
+gui_domain_list <- gui_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    group_by(domain) |> 
+    summarise(p = mean(p)) |> 
+    arrange(desc(p)) |> 
+    pull(domain)
+
+tibble(
+    interface = c("API", "GUI"),
+    list_size_reuters = rep(length(reuters$domain), 2),
+    intersection_reuters = c(sum(api_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain),
+                             sum(gui_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain)),
+    overlap_reuters = c(sum(api_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain)/length(reuters$domain),
+                        sum(gui_domain_list[seq_len(length(reuters$domain))] %in% reuters$domain)/length(reuters$domain)),
+    list_size_similar = rep(length(similar$domain), 2),
+    intersection_similar = c(sum(api_domain_list[seq_len(length(similar$domain))] %in% similar$domain), 
+                             sum(gui_domain_list[seq_len(length(similar$domain))]  %in% similar$domain)),
+    overlap_similar = c(sum(api_domain_list[seq_len(length(similar$domain))]  %in% similar$domain)/length(similar$domain),
+                        sum(gui_domain_list[seq_len(length(similar$domain))]  %in% similar$domain)/length(similar$domain))
+) |> 
+    gt() |>
+    fmt_percent(starts_with("overlap_")) |> 
+    cols_label(
+        interface = "Interface",
+        list_size_reuters = "List size",
+        intersection_reuters = "Intersection",
+        overlap_reuters = "Overlap",
+        list_size_similar = "List size",
+        intersection_similar = "Intersection",
+        overlap_similar = "Overlap"
+    ) |>
+    tab_spanner(
+        label = "Reuters",
+        columns = ends_with("_reuters")
+    ) |>
+    tab_spanner(
+        label = "Similarweb",
+        columns = ends_with("_similar")
+    )
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-4
+
+cbind(
+    api_domains |> 
+        mutate(domain = case_when(
+            domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+            domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+            TRUE ~ domain
+        )) |> 
+        group_by(domain) |> 
+        summarise(p = mean(p)) |> 
+        slice_max(p, n = 15) |> 
+        mutate(in_reuters = domain %in% reuters$domain) |> 
+        mutate(in_similar = domain %in% similar$domain) |> 
+        mutate(rank = 1:n()) |> 
+        relocate(rank) |> 
+        rename_with(function(x) paste0(x,"_api")),
+    gui_domains |> 
+        mutate(domain = case_when(
+            domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+            domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+            TRUE ~ domain
+        )) |> 
+        group_by(domain) |> 
+        summarise(p = mean(p)) |> 
+        slice_max(p, n = 15) |> 
+        mutate(in_reuters = domain %in% reuters$domain) |> 
+        mutate(in_similar = domain %in% similar$domain) |> 
+        mutate(rank = 1:n()) |> 
+        relocate(rank) |> 
+        rename_with(function(x) paste0(x,"_gui"))
+) |> 
+    mutate(across(starts_with("in_"), \(x) ifelse(x, "yes", "no"))) |> 
+    gt() |> 
+    fmt_percent(starts_with("p_")) |> 
+    tab_spanner("API", ends_with("_api")) |> 
+    tab_spanner("GUI", ends_with("_gui")) |> 
+    cols_label(
+        rank_api = "Rank",
+        rank_gui = "Rank",
+        domain_api = "Domain",
+        domain_gui = "Domain",
+        p_api = "Share",
+        p_gui = "Share",
+        in_reuters_api = "Reuters",
+        in_reuters_gui = "Reuters",
+        in_similar_api = "Similarweb",
+        in_similar_gui = "Similarweb"
+    ) |> 
+    tab_header(title = "Top Domains")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-5
+
+tab5_data <- cbind(
+    api_domains |> 
+        mutate(is_pb = (gond_type == "Public Broadcaster")) |> 
+        select(domain, condition, is_springer, is_pb, p) |> 
+        filter(if_all(everything(), ~ !is.na(.))) |> 
+        group_by(condition, is_springer, is_pb) |> 
+        summarise(p = sum(p)) |> 
+        ungroup() |> 
+        pivot_longer(-c(condition, p)) |> 
+        filter(value) |> 
+        pivot_wider(names_from = name, values_from = p) |> 
+        select(condition, is_springer, is_pb) |> 
+        rename_with(function(x) paste0(x,"_api"), -condition),
+    gui_domains |> 
+        mutate(is_pb = (gond_type == "Public Broadcaster")) |> 
+        select(domain, condition, is_springer, is_pb, p) |> 
+        filter(if_all(everything(), ~ !is.na(.))) |> 
+        group_by(condition, is_springer, is_pb) |> 
+        summarise(p = sum(p)) |> 
+        ungroup() |> 
+        pivot_longer(-c(condition, p)) |> 
+        filter(value) |> 
+        pivot_wider(names_from = name, values_from = p) |> 
+        select(is_springer, is_pb) |> 
+        rename_with(function(x) paste0(x,"_gui"))
+)
+tab5_data |> 
+    gt() |> 
+    fmt_percent(starts_with("is_")) |> 
+    tab_spanner("API", ends_with("_api")) |> 
+    tab_spanner("GUI", ends_with("_gui")) |> 
+    cols_label(
+        condition = "Condition",
+        is_springer_api = "Springer",
+        is_springer_gui = "Springer",
+        is_pb_api = "Public Broadcaster",
+        is_pb_gui = "Public Broadcaster"
+    )
+
+tab5_test_data <- api_domains |> 
+    select(domain, condition, is_springer, n) |> 
+    filter(if_all(everything(), ~ !is.na(.))) |> 
+    group_by(domain) |> 
+    summarise(
+        is_springer = unique(is_springer),
+        n = mean(n)
+    ) |> 
+    group_by(is_springer) |> 
+    summarise(api_n = sum(n)) |> 
+    left_join(
+        gui_domains |> 
+            select(domain, condition, is_springer, n) |> 
+            filter(if_all(everything(), ~ !is.na(.))) |> 
+            group_by(domain) |> 
+            summarise(
+                is_springer = unique(is_springer),
+                n = mean(n)
+            ) |> 
+            group_by(is_springer) |> 
+            summarise(gui_n = sum(n))
+    )
+fisher.test(tab5_test_data[-1]) 
+tab5_test_data <- api_domains |> 
+    mutate(is_pb = (gond_type == "Public Broadcaster")) |> 
+    select(domain, condition, is_pb, n) |> 
+    filter(if_all(everything(), ~ !is.na(.))) |> 
+    group_by(domain) |> 
+    summarise(
+        is_pb = unique(is_pb),
+        n = mean(n)
+    ) |> 
+    group_by(is_pb) |> 
+    summarise(api_n = sum(n)) |> 
+    left_join(
+        gui_domains |> 
+            mutate(is_pb = (gond_type == "Public Broadcaster")) |> 
+            select(domain, condition, is_pb, n) |> 
+            filter(if_all(everything(), ~ !is.na(.))) |> 
+            group_by(domain) |> 
+            summarise(
+                is_pb = unique(is_pb),
+                n = mean(n)
+            ) |> 
+            group_by(is_pb) |> 
+            summarise(gui_n = sum(n))
+    )
+fisher.test(tab5_test_data[-1]) 
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-6
+
+api_links |> 
+    group_by(condition) |> 
+    summarise(unique_domains = length(unique(domain)), .groups = "drop")
+api_links |> 
+    group_by(uid, condition) |> 
+    summarise(unique_domains = length(unique(domain)), .groups = "drop") |> 
+    t.test(unique_domains ~ condition, data = _) |> 
+    report()
+gui_links |> 
+    group_by(condition) |> 
+    summarise(unique_domains = length(unique(domain)), .groups = "drop")
+gui_links |> 
+    group_by(uid, condition) |> 
+    summarise(unique_domains = length(unique(domain)), .groups = "drop") |> 
+    t.test(unique_domains ~ condition, data = _) |> 
+    report()
+
+api_links |> 
+    group_by(uid) |> 
+    count(domain) |> 
+    mutate(p = (n/sum(n))*100) |> 
+    arrange(-n) |> 
+    summarise(
+        hhi = f.hhi(n),
+        sdi = f.sdi(n),
+        unique_sources = sum(n)
+    ) |> 
+    left_join(rio::import(file = "output/rao_results.RDS"), relationship = "one-to-one") |> 
+    pivot_longer(-uid) |> 
+    mutate(condition = f.get_condition(uid)) |> 
+    group_by(name) |> 
+    summarise(
+        t_test = broom::tidy(t.test(value ~ condition)),
+        n = n()
+    ) |> 
+    unnest(t_test) |> 
+    mutate(sig = case_when(
+        p.value < .0001 ~ "< .0001",
+        p.value < .001 ~ "< .001",
+        p.value < .01 ~ "< .01",
+        p.value >= .05 ~ "not sig."
+    )) |> 
+    select(name, estimate1, estimate2, sig, n) |> 
+    rename(Diverse = estimate2, Regular = estimate1) |> 
+    gt() |> 
+    fmt_number(Regular:Diverse) |> 
+    cols_label(name = "Indicator", sig = "p.value") |> 
+    tab_footnote("hhi: Herfindahl-Hirschman Index, sdi: Shannon Diversity Index, rao: Rao's quadratic entropy with GOND types as traits, significance based on two-sided t-tests")
+gui_links |> 
+    group_by(uid) |> 
+    count(domain) |> 
+    mutate(p = (n/sum(n))*100) |> 
+    arrange(-n) |> 
+    summarise(
+        hhi = f.hhi(n),
+        sdi = f.sdi(n),
+        unique_sources = n()
+    ) |> 
+    left_join(rio::import(file = "output/rao_results.RDS")) |> 
+    pivot_longer(-uid) |> 
+    left_join(gui_links |> distinct(uid, condition)) |> 
+    group_by(name) |> 
+    summarise(
+        t_test = broom::tidy(t.test(value ~ condition)),
+        n = n()
+    ) |> 
+    unnest(t_test) |> 
+    mutate(sig = case_when(
+        p.value < .0001 ~ "< .0001",
+        p.value < .001 ~ "< .001",
+        p.value < .01 ~ "< .01",
+        p.value >= .05 ~ "not sig."
+    )) |> 
+    select(name, estimate1, estimate2, sig, n) |> 
+    rename(Diverse = estimate2, Regular = estimate1) |> 
+    gt() |> 
+    fmt_number(Regular:Diverse) |> 
+    cols_label(name = "Indicator", sig = "p.value") |> 
+    tab_footnote("hhi: Herfindahl-Hirschman Index, sdi: Shannon Diversity Index, rao: Rao's quadratic entropy with GOND types as traits, significance based on two-sided t-tests")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-7
+
+api_summary <- api_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    left_join(
+        reuters |> select(domain, media_leanings),
+        by = "domain"
+    ) |> 
+    filter(!is.na(media_leanings)) |> 
+    group_by(condition) |> 
+    summarise(
+        mean = weighted.mean(media_leanings, n),
+        n_eff = sum(n)^2 / sum(n^2),
+        sd = sqrt(Hmisc::wtd.var(media_leanings, n)),
+        se = sd / sqrt(n_eff),
+        ci_low = mean - 1.96 * se,
+        ci_up = mean + 1.96 * se,
+        .groups = "drop"
+    ) |> 
+    mutate(api_ci = paste0("(", round(ci_low, 2), ", ", round(ci_up, 2), ")")) |> 
+    select(condition, api_mean = mean, api_ci)
+
+# GUI summary
+gui_summary <- gui_domains |> 
+    mutate(domain = case_when(
+        domain %in% c("ard.de", "tagesschau.de") ~ "ard.de/tagesschau.de",
+        domain %in% c("sat1.de", "prosieben.de") ~ "sat1.de/prosieben.de",
+        TRUE ~ domain
+    )) |> 
+    left_join(
+        reuters |> select(domain, media_leanings),
+        by = "domain"
+    ) |> 
+    filter(!is.na(media_leanings)) |> 
+    group_by(condition) |> 
+    summarise(
+        mean = weighted.mean(media_leanings, n),
+        n_eff = sum(n)^2 / sum(n^2),
+        sd = sqrt(Hmisc::wtd.var(media_leanings, n)),
+        se = sd / sqrt(n_eff),
+        ci_low = mean - 1.96 * se,
+        ci_up = mean + 1.96 * se,
+        .groups = "drop"
+    ) |> 
+    mutate(gui_ci = paste0("(", round(ci_low, 2), ", ", round(ci_up, 2), ")")) |> 
+    select(condition, gui_mean = mean, gui_ci)
+
+final_table <- api_summary |> 
+    left_join(gui_summary, by = "condition")
+
+final_table |> 
+    gt() |>
+    tab_spanner(
+        label = "API",
+        columns = vars(api_mean, api_ci)
+    ) |>
+    tab_spanner(
+        label = "GUI",
+        columns = vars(gui_mean, gui_ci)
+    ) |>
+    cols_label(
+        api_mean = "Mean",
+        api_ci = "CI",
+        gui_mean = "Mean",
+        gui_ci = "CI"
+    ) |>
+    fmt_number(
+        columns = vars(api_mean, gui_mean),
+        decimals = 2
+    ) |>
+    cols_align(
+        align = "center",
+        columns = vars(api_ci, gui_ci)
+    )
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-3
+
+fig1_gui <- gui_domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = Diverse / Regular) |> 
+    mutate(d = log(d)) |> 
+    mutate(condition = case_when(
+        d < -0.05 ~ "Regular",
+        d > 0.05 ~ "Diverse",
+        between(d, -.05, .05) ~ "Both"
+    )) |>
+    mutate(label = ifelse(between(d, -.65, .65), NA, domain)) |> 
+    mutate(label = ifelse(total_n < 100, NA, label)) |> 
+    ggplot(aes(x = Diverse, y = Regular)) +
+    geom_abline(slope = 1, intercept = 0) +
+    geom_point(aes(size = total_n, color = condition)) +
+    geom_label_repel(aes(label = label, fill = condition), min.segment.length = 0) +
+    scale_color_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_fill_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_y_log10(labels = scales::percent) +
+    scale_x_log10(labels = scales::percent) +
+    theme(legend.position = "none") +
+    labs(
+        title = "Differences in Domain Citations for the GUI"
+    )
+fig1_api <- api_domains |> 
+    group_by(domain) |> 
+    mutate(total_n = sum(n)) |> 
+    ungroup() |> 
+    pivot_wider(
+        names_from = condition, 
+        values_from = p, 
+        id_cols = c(domain, total_n), 
+        values_fill = 0
+    ) |> 
+    mutate(d = Diverse / Regular) |> 
+    mutate(d = log(d)) |> 
+    mutate(condition = case_when(
+        d < -0.05 ~ "Regular",
+        d > 0.05 ~ "Diverse",
+        between(d, -.05, .05) ~ "Both"
+    )) |>
+    mutate(label = ifelse(between(d, -.65, .65), NA, domain)) |> 
+    mutate(label = ifelse(total_n < 100, NA, label)) |> 
+    ggplot(aes(x = Diverse, y = Regular)) +
+    geom_abline(slope = 1, intercept = 0) +
+    geom_point(aes(size = total_n, color = condition)) +
+    geom_label_repel(aes(label = label, fill = condition), min.segment.length = 0) +
+    scale_color_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_fill_manual(values = c("Regular"="#4e79a7", "Diverse"="#f28e2b", "Both"="gray")) +
+    scale_y_log10(labels = scales::percent) +
+    scale_x_log10(labels = scales::percent) +
+    theme(legend.position = "none") +
+    labs(
+        title = "Differences in Domain Citations for the API"
+    )
+(fig1_api + fig1_gui)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-4
+
+api_links |> 
+    group_by(uid, date = floor_date(date, unit = "1 week", week_start = 1), condition) |> 
+    count(domain, sort = TRUE) |> 
+    summarise(
+        hhi = f.hhi(n),
+        sdi = f.sdi(n),
+        unique.sources = n()
+    ) |> 
+    ungroup() |> 
+    left_join(rio::import(file = "output/rao_results.RDS")) |> 
+    group_by(date, condition) |> 
+    summarise(
+        across(hhi:rao, ~mean(.x, na.rm = TRUE), .names = "{.col}_mean"), 
+        across(hhi:rao, ~sd(.x, na.rm = TRUE), .names = "{.col}_se"), 
+        n = n()
+    ) |> 
+    mutate(across(ends_with("_se"), ~.x/sqrt(n))) |> 
+    select(-n) |> 
+    pivot_longer(-c(date, condition)) |> 
+    mutate(var = str_split_i(name, "_", 1)) |> 
+    mutate(name = str_split_i(name, "_", 2)) |>  
+    mutate(var = factor(var, levels = c("hhi", "sdi", "rao", "unique.sources"))) |> 
+    pivot_wider() |> 
+    ggplot(aes(x = as.Date(date), y = mean)) +
+    geom_ribbon(
+        aes(
+            ymin = mean-(se*1.96), 
+            ymax = mean+(se*1.96),
+            fill = condition
+        ), 
+        alpha = .2,
+    ) +
+    geom_line(aes(color = condition)) +
+    #geom_line(aes(group = date), color = "black") +
+    scale_x_date(date_labels = "KW %U", date_breaks = "1 weeks") +
+    facet_wrap(vars(var), scales = "free") +
+    labs(
+        title = "Source diversity over time",
+        subtitle = "Shannon Diversity Index (sdi)/Rao's quadratic entropy (rao): Higher values mean higher diversity,\nHerfindahl–Hirschman index (hhi): Higher values mean higher concentration",
+        fill = "Condition",
+        color = "Condition",
+        x = "Days",
+        y = ""
+    ) +
+    theme(legend.position = "bottom")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-5
+
+interface_domains <- api_links |> 
+    filter(as.character(floor_date(date, "1 day")) %in% unique(gui_links$date)) |> 
+    mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1)) |> 
+    mutate(domain = str_trim(domain)) |> 
+    filter(!is.na(domain)) |> 
+    group_by(condition) |> 
+    count(domain) |> 
+    mutate(p = n/sum(n)) |> 
+    arrange(-n) |> 
+    ungroup() |> 
+    rename(api_p = p) |> 
+    pivot_wider(names_from = condition, values_from = api_p, id_cols = domain) |> 
+    arrange(-(Regular+Diverse)/2) |> 
+    mutate(in_top_domains = (1:n() <= 250)) |> 
+    full_join(
+        gui_domains |> 
+            mutate(domain = str_extract(domain, "\\.?([a-z0-9-]+\\.[a-z]{2,})$", 1)) |> 
+            mutate(domain = str_trim(domain)) |> 
+            filter(!is.na(domain)) |> 
+            group_by(domain, condition) |> 
+            summarise(gui_n = sum(n)) |> 
+            group_by(condition) |> 
+            mutate(gui_p = gui_n/sum(gui_n)) |> 
+            ungroup() |> 
+            mutate(condition = ifelse(condition == "Diverse", "gui_diverse", "gui_regular")) |> 
+            pivot_wider(names_from = condition, values_from = gui_p, id_cols = domain, values_fill = 0) |> 
+            arrange(-(gui_regular+gui_diverse)/2) |> 
+            mutate(in_top_domains = (1:n() <= 250)),
+        by = "domain"
+    ) |> 
+    rename(api_diverse = Diverse, api_regular = Regular) |> 
+    mutate(api = (api_regular+api_diverse)/2) |> 
+    mutate(gui = (gui_regular+gui_diverse)/2) |> 
+    mutate(across(starts_with("in_top_domains"), \(x) replace_na(x, FALSE))) |> 
+    mutate(in_top_domains = (in_top_domains.x + in_top_domains.y)!=0) |> 
+    filter(in_top_domains) |> 
+    select(-starts_with("in_top_domains"))
+
+interface_domains |> 
+    select(domain, api, gui) |> 
+    pivot_longer(-domain) |> 
+    mutate(interface = str_sub(name, 1, 3)) |> 
+    mutate(name = str_sub(name, 5)) |> 
+    pivot_wider(names_from = interface, values_from = value) |> 
+    group_by(domain) |> 
+    summarise(
+        api = mean(api),
+        gui = mean(gui)
+    ) |> 
+    mutate(d = api / gui) |> 
+    mutate(d = log(d)) |> 
+    ggplot(aes(x = api, y = gui, color = d)) +
+    geom_abline(intercept = 0, slope = 1, linetype = "dotted") +
+    geom_point() +
+    geom_label_repel(aes(label = domain), min.segment.length = 0) +
+    scale_color_gradient2(low = "#e15759", high = "#76b7b2", mid = "#888") +
+    scale_x_log10(labels = scales::percent) +
+    scale_y_log10(labels = scales::percent) +
+    labs(
+        title = "Differences in top domains across interfaces",
+        x = "API",
+        y = "GUI",
+        color = "log(API/GUI)"
+    )
+
+wilcox.test(interface_domains$api, interface_domains$gui, paired = TRUE)
+cor.test(interface_domains$api, interface_domains$gui, method = "spearman")
+
+```
